@@ -11,5 +11,5 @@ commands:
       - print
     enabled: true
     rating: 0
-    usage: {pfx}{cmd} hello
+    usage: "{pfx}{cmd} hello"
     desc: "Repeats what was inputted."
