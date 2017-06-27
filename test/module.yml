@@ -1,0 +1,15 @@
+name: Test Module
+category: test
+
+enabled: true
+
+commands:
+  - name: echo
+    alts:
+      - say
+      - repeat
+      - print
+    enabled: true
+    rating: 0
+    usage: {pfx}{cmd} hello
+    desc: "Repeats what was inputted."
