@@ -5,11 +5,33 @@ enabled: true
 
 commands:
   - name: echo
+    enabled: true
     alts:
       - say
       - repeat
       - print
-    enabled: true
-    rating: 0
+    permissions:
+      rating: 0
+      owner: false
+      partner: false
+      dmable: true
+    requirements:
+      - send_messages
     usage: "{pfx}{cmd} hello"
-    desc: "Repeats what was inputted."
+    desc:
+      "Repeats what was inputted."
+
+  - name: help
+    enabled: true
+    permissions:
+      rating: 0
+      owner: false
+      partner: false
+      dmable: true
+    requirements:
+      - send_messages
+      - embed_links
+    usage: "{pfx}{cmd} echo"
+    desc:
+      "Shows the help for the bot if nothing is inputted.
+      You can input a command name to view info for that comand."
