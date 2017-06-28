@@ -35,3 +35,15 @@ commands:
     desc:
       "Shows the help for the bot if nothing is inputted.
       You can input a command name to view info for that comand."
+
+events:
+  - name: ev_unflip
+    type: message
+    enabled: true
+    permissions:
+      rating: 0
+      owner: false
+      partner: false
+      dmable: true
+    requirements:
+      - send_messages
