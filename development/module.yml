@@ -1,0 +1,36 @@
+name:            Development
+
+categories:
+  - administration
+
+enabled:         true
+
+commands:
+  - name:        evaluate
+    alts:
+      - "eval"
+      - "py"
+      - "python"
+      - "code"
+      - "exec"
+    global:      true
+    enabled:     true
+    rating:      0
+    admin:       true
+    dmable:      true
+    usage:       "{pfx:s}{cmd:s} print('hello world')"
+    description:
+      Executes raw python code.
+      This should be used with caution.
+
+  - name:        test
+    alts:
+      - "t"
+    global:      true
+    enabled:     true
+    rating:      0
+    admin:       true
+    dmable:      true
+    usage:       "{pfx:s}{cmd:s}"
+    description:
+      For testing functionality.
