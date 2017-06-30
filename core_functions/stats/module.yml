@@ -39,6 +39,7 @@ events:
     type:        member_leave
     global:      true
     enabled:     true
+    permissions:
       rating:      0
       dmable:      true
     description:
