@@ -1,6 +1,6 @@
 name:            Development
 
-category: administration
+category:        administration
 
 enabled:         true
 
@@ -15,9 +15,9 @@ commands:
     global:      true
     enabled:     true
     permissions:
-      rating:      0
-      owner:       true
-      dmable:      true
+      rating:    0
+      owner:     true
+      dmable:    true
     usage:       "{pfx:s}{cmd:s} print('hello world')"
     description:
       Executes raw python code.
@@ -29,9 +29,10 @@ commands:
     global:      true
     enabled:     true
     permissions:
-      rating:      0
-      owner:       true
-      dmable:      false
+      rating:    0
+      owner:     true
+      dmable:    false
     usage:       "{pfx:s}{cmd:s}"
     description:
-      For testing functionality.
+      For testing purposes, obviously.
+      Used as a placeholder for testing functions.

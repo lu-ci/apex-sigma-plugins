@@ -1,6 +1,6 @@
 name:            Event Stats
 
-category: administration
+category:        administration
 
 enabled:         true
 
@@ -10,8 +10,8 @@ events:
     global:      true
     enabled:     true
     permissions:
-      rating:      0
-      dmable:      true
+      rating:    0
+      dmable:    true
     description:
       Controls message event statistics.
 
@@ -20,8 +20,8 @@ events:
     global:      true
     enabled:     true
     permissions:
-      rating:      0
-      dmable:      true
+      rating:    0
+      dmable:    true
     description:
       Control bot mention event statistics.
 
@@ -30,8 +30,8 @@ events:
     global:      true
     enabled:     true
     permissions:
-      rating:      0
-      dmable:      true
+      rating:    0
+      dmable:    true
     description:
       Control member join event statistics.
 
@@ -40,8 +40,8 @@ events:
     global:      true
     enabled:     true
     permissions:
-      rating:      0
-      dmable:      true
+      rating:    0
+      dmable:    true
     description:
       Control member remove event statistics.
 
@@ -50,7 +50,7 @@ events:
     global:      true
     enabled:     true
     permissions:
-      rating:      0
-      dmable:      true
+      rating:    0
+      dmable:    true
     description:
       Control bot mention event statistics.
