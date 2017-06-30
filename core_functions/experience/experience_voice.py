@@ -1,5 +1,5 @@
 import asyncio
-import random
+import secrets
 
 
 def count_members(guild):
@@ -37,6 +37,6 @@ async def experience_voice(ev):
                             if not member.voice.deaf:
                                 if not member.voice.self_deaf:
                                     if count_vc_members(member.voice.channel) > 1:
-                                        points = random.randint(3, 9)
+                                        points = secrets.randbelow(9)
                                         ev.db.add_experience(member, member.guild, points)
         await asyncio.sleep(20)
