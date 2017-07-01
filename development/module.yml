@@ -5,8 +5,9 @@ category:        administration
 enabled:         true
 
 commands:
-  - name:        evaluate
+  - name:        evaluatecode
     alts:
+      - "evaluate"
       - "eval"
       - "py"
       - "python"

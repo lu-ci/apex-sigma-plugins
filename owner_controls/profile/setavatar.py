@@ -14,7 +14,7 @@ async def setavatar(cmd, message, args):
                     img_data = await image_response.read()
             await cmd.bot.user.edit(avatar=img_data)
             response = discord.Embed(color=0x66CC66, title=f'✅ My avatar has been changed.')
-        except:
+        except Exception:
             response = discord.Embed(color=0xDB0000, title=f'❗ I was unable to change my avatar.')
     else:
         response = discord.Embed(color=0xDB0000, title='❗ Give me a link or attach an image, please.')
