@@ -2,7 +2,7 @@
 import inspect
 
 
-async def evaluatecode(cmd, message, args):
+async def evaluate(cmd, message, args):
     if not args:
         status = discord.Embed(color=0xDB0000, title='❗ Nothing Inputted To Process')
     else:

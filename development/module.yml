@@ -5,7 +5,7 @@ category:        administration
 enabled:         true
 
 commands:
-  - name:        evaluatecode
+  - name:        evaluate
     alts:
       - "evaluate"
       - "eval"
