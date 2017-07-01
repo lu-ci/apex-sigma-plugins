@@ -1,22 +1,22 @@
-name:             Currency Mechanics
+name:            Currency Mechanics
 
-category:         administration
+category:        administration
 
-enabled:          true
+enabled:         true
 
 events:
-  - name:         currency_message
-    type:         message
-    global:       true
-    enabled:      true
+  - name:        currency_message
+    type:        message
+    global:      true
+    enabled:     true
     permissions:
-      rating:     0
-      dmable:     true
+      rating:    0
+      dmable:    true
 
-  - name:         currency_voice
-    type:         ready
-    global:       true
-    enabled:      true
+  - name:        currency_voice
+    type:        ready
+    global:      true
+    enabled:     true
     permissions:
-      rating:     0
-      dmable:     true
+      rating:    0
+      dmable:    true

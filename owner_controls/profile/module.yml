@@ -1,55 +1,55 @@
-name:            Bot Profile Control
+name:             Bot Profile Control
 
-category:        administration
+category:         administration
 
-enabled:         true
+enabled:          true
 
 commands:
-  - name:        setavatar
-    global:      true
-    enabled:     true
+  - name:         setavatar
+    global:       true
+    enabled:      true
     permissions:
-      rating:    0
-      owner:     true
-      dmable:    true
-    usage:       "{pfx:s}{cmd:s} https://my_fomain.net/my_avatar.png"
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx:s}{cmd:s} https://my_fomain.net/my_avatar.png"
     description:
       Sets the avatar of the bot either to the linked image or attached image.
       The officially supported formats for bot avatars are JPG and PNG images.
       Note that bots, like all users, have limited profile changes per time period.
 
-  - name:        setusername
-    global:      true
-    enabled:     true
+  - name:         setusername
+    global:       true
+    enabled:      true
     permissions:
-      rating:    0
-      owner:     true
-      dmable:    true
-    usage:       "{pfx:s}{cmd:s} Supreme Bot"
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx:s}{cmd:s} Supreme Bot"
     description:
       Sets the name of the bot to the inputted text.
       Note that bots, like all users, have limited profile changes per time period.
 
-  - name:        setstatus
-    global:      true
-    enabled:     true
+  - name:         setstatus
+    global:       true
+    enabled:      true
     permissions:
-      rating:    0
-      owner:     true
-      dmable:    true
-    usage:       "{pfx:s}{cmd:s} with fishies"
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx:s}{cmd:s} with fishies"
     description:
       Sets the current playing status of the bot.
       To use this, the automatic status rotation needs to be disabled.
       It can be toggled with the togglestatus command.
 
-  - name:        togglestatus
-    global:      true
-    enabled:     true
+  - name:         togglestatus
+    global:       true
+    enabled:      true
     permissions:
-      rating:    0
-      owner:     true
-      dmable:    true
-    usage:       "{pfx:s}{cmd:s}"
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx:s}{cmd:s}"
     description:
       Toggles if the automatic status rotation is enabled or disabled.
