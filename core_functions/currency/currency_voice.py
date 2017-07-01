@@ -37,6 +37,6 @@ async def currency_voice(ev):
                             if not member.voice.deaf:
                                 if not member.voice.self_deaf:
                                     if count_vc_members(member.voice.channel) > 1:
-                                        points = 1 + secrets.randbelow(3)
+                                        points = secrets.randbelow(3)
                                         ev.db.add_experience(member, member.guild, points)
         await asyncio.sleep(20)
