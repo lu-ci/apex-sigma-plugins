@@ -29,3 +29,27 @@ commands:
     description:
       Sets the name of the bot to the inputted text.
       Note that bots, like all users, have limited profile changes per time period.
+
+  - name:        setstatus
+    global:      true
+    enabled:     true
+    permissions:
+      rating:    0
+      owner:     true
+      dmable:    true
+    usage:       "{pfx:s}{cmd:s} with fishies"
+    description:
+      Sets the current playing status of the bot.
+      To use this, the automatic status rotation needs to be disabled.
+      It can be toggled with the togglestatus command.
+
+  - name:        togglestatus
+    global:      true
+    enabled:     true
+    permissions:
+      rating:    0
+      owner:     true
+      dmable:    true
+    usage:       "{pfx:s}{cmd:s}"
+    description:
+      Toggles if the automatic status rotation is enabled or disabled.
