@@ -1,0 +1,47 @@
+name:             Help and Information
+
+category:         help
+
+enabled:          true
+
+commands:
+  - name:         help
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      dmable:     true
+    usage:        "{pfx}{cmd} 150 @person"
+    description:
+      Awards the mentioned user with the inputted amount of currency.
+      The currency goes first and then the user mention as shown in the example.
+
+  - name:         modules
+    global:       true
+    enabled:      false
+    permissions:
+      rating:     0
+      dmable:     true
+    usage:        "{pfx}{cmd} minigames"
+    description:
+      Shows all the module categories.
+
+  - name:         commands
+    global:       true
+    enabled:      false
+    permissions:
+      rating:     0
+      dmable:     true
+    usage:        "{pfx}{cmd} minigames"
+    description:
+      Shows the commands in a module group category.
+      To view all the module group categories, use the modules command.
+
+events:
+  - name:         dm_detection
+    type:         message
+    global:       true
+    enabled:      false
+    permissions:
+      rating:     0
+      dmable:     true

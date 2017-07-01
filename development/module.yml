@@ -18,7 +18,7 @@ commands:
       rating:    0
       owner:     true
       dmable:    true
-    usage:       "{pfx:s}{cmd:s} print('hello world')"
+    usage:       "{pfx}{cmd} print('hello world')"
     description:
       Executes raw python code.
       This should be used with caution.
@@ -32,7 +32,7 @@ commands:
       rating:    0
       owner:     true
       dmable:    false
-    usage:       "{pfx:s}{cmd:s}"
+    usage:       "{pfx}{cmd}"
     description:
       For testing purposes, obviously.
       Used as a placeholder for testing functions.

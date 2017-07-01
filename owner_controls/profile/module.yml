@@ -12,7 +12,7 @@ commands:
       rating:     0
       owner:      true
       dmable:     true
-    usage:        "{pfx:s}{cmd:s} https://my_fomain.net/my_avatar.png"
+    usage:        "{pfx}{cmd} https://my_fomain.net/my_avatar.png"
     description:
       Sets the avatar of the bot either to the linked image or attached image.
       The officially supported formats for bot avatars are JPG and PNG images.
@@ -25,7 +25,7 @@ commands:
       rating:     0
       owner:      true
       dmable:     true
-    usage:        "{pfx:s}{cmd:s} Supreme Bot"
+    usage:        "{pfx}{cmd} Supreme Bot"
     description:
       Sets the name of the bot to the inputted text.
       Note that bots, like all users, have limited profile changes per time period.
@@ -37,7 +37,7 @@ commands:
       rating:     0
       owner:      true
       dmable:     true
-    usage:        "{pfx:s}{cmd:s} with fishies"
+    usage:        "{pfx}{cmd} with fishies"
     description:
       Sets the current playing status of the bot.
       To use this, the automatic status rotation needs to be disabled.
@@ -50,6 +50,6 @@ commands:
       rating:     0
       owner:      true
       dmable:     true
-    usage:        "{pfx:s}{cmd:s}"
+    usage:        "{pfx}{cmd}"
     description:
       Toggles if the automatic status rotation is enabled or disabled.
