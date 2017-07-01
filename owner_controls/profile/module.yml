@@ -1,0 +1,31 @@
+name:            Bot Profile Control
+
+category:        administration
+
+enabled:         true
+
+commands:
+  - name:        setavatar
+    global:      true
+    enabled:     true
+    permissions:
+      rating:    0
+      owner:     true
+      dmable:    true
+    usage:       "{pfx:s}{cmd:s} https://my_fomain.net/my_avatar.png"
+    description:
+      Sets the avatar of the bot either to the linked image or attached image.
+      The officially supported formats for bot avatars are JPG and PNG images.
+      Note that bots, like all users, have limited profile changes per time period.
+
+  - name:        setusername
+    global:      true
+    enabled:     true
+    permissions:
+      rating:    0
+      owner:     true
+      dmable:    true
+    usage:       "{pfx:s}{cmd:s} Supreme Bot"
+    description:
+      Sets the name of the bot to the inputted text.
+      Note that bots, like all users, have limited profile changes per time period.

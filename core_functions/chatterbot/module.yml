@@ -1,11 +1,11 @@
-name:             Currency Mechanics
+name:             Chatterbot Mechanics
 
 category:         administration
 
 enabled:          true
 
 events:
-  - name:         currency_message
+  - name:         passive_learning
     type:         message
     global:       true
     enabled:      true
@@ -13,8 +13,16 @@ events:
       rating:     0
       dmable:     true
 
-  - name:         currency_voice
+  - name:         startup_check
     type:         ready
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      dmable:     true
+
+  - name:         cb_response
+    type:         mention
     global:       true
     enabled:      true
     permissions:
