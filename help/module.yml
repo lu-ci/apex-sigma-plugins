@@ -18,17 +18,17 @@ commands:
 
   - name:         modules
     global:       true
-    enabled:      false
+    enabled:      true
     permissions:
       rating:     0
       dmable:     true
-    usage:        "{pfx}{cmd} minigames"
+    usage:        "{pfx}{cmd}"
     description:
       Shows all the module categories.
 
   - name:         commands
     global:       true
-    enabled:      false
+    enabled:      true
     permissions:
       rating:     0
       dmable:     true
