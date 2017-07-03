@@ -1,0 +1,29 @@
+name:             Admin Core Control
+
+category:         administration
+
+enabled:          true
+
+commands:
+  - name:         reload
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx}{cmd}"
+    description:
+      Reloads all of the module in Sigma.
+      This includes both commands and events.
+
+  - name:         shutdown
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx}{cmd}"
+    description:
+      Forces the bot to disconnect from Discord and shut down all processes.

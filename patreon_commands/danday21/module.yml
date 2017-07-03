@@ -1,0 +1,13 @@
+name:             DanDay21 Commands
+
+category:         patreon
+
+enabled:          true
+
+commands:
+  - name:         smitten
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      dmable:     true

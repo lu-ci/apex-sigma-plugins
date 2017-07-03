@@ -41,7 +41,7 @@ events:
   - name:         dm_detection
     type:         message
     global:       true
-    enabled:      false
+    enabled:      true
     permissions:
       rating:     0
       dmable:     true
