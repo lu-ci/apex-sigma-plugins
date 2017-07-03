@@ -53,14 +53,18 @@ async def passive_learning(ev, message):
             uid = message.author.id
             if cid in temp_msg_storage:
                 data = temp_msg_storage[cid]
-                if uid == data['uid']:
-                    data.update({'text': data['text'].append(content)})
+                if data:
+                    if uid == data['uid']:
+                        data.update({'text': (data['text'] + f' {content}')})
+                    else:
+                        response_list = [data['text'], content]
+                        cb.train(response_list)
+                        del temp_msg_storage[cid]
                 else:
-                    response_list = [' '.join(data['text']), content]
-                    cb.train(response_list)
+                    del temp_msg_storage[cid]
             else:
                 data = {
                     'uid': uid,
-                    'text': [content]
+                    'text': content
                 }
                 temp_msg_storage.update({cid: data})

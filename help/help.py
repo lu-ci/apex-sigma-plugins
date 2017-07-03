@@ -25,5 +25,5 @@ async def help(cmd, message, args):
         response.set_thumbnail(url=sigma_image)
         response.add_field(name='Website', value=f'[Link]({sigma_url})', inline=True)
         response.add_field(name='Commands', value=f'[Link]({command_url})', inline=True)
-        response.set_footer(text='© by the Aurora Project under GPLv3.', icon_url=aurora_image)
+        response.set_footer(text='© by the Aurora Project. Released under the GPLv3 license.', icon_url=aurora_image)
     await message.channel.send(embed=response)
