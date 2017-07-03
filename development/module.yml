@@ -13,7 +13,6 @@ commands:
       - "python"
       - "code"
       - "exec"
-    global:      true
     enabled:     true
     permissions:
       rating:    0
@@ -27,7 +26,6 @@ commands:
   - name:        test
     alts:
       - "t"
-    global:      true
     enabled:     true
     permissions:
       rating:    0
@@ -37,3 +35,8 @@ commands:
     description:
       For testing purposes, obviously.
       Used as a placeholder for testing functions.
+
+events:
+  - name:        version_updater
+    type:        ready
+    enabled:     true
