@@ -1,6 +1,6 @@
 import discord
 import aiohttp
-from lxml import html as l
+import lxml.html as l
 
 
 async def randomcomicgenerator(cmd, message, args):
