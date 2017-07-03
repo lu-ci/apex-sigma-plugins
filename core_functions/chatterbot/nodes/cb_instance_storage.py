@@ -1,4 +1,5 @@
 from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
 
 cb = None
 
@@ -20,4 +21,5 @@ def get_cb(db_cfg):
             output_format='text',
             read_only=False
         )
+        cb.set_trainer(ListTrainer)
     return cb
