@@ -1,0 +1,39 @@
+name:             Quote Commands
+
+category:         fun
+
+enabled:          true
+
+commands:
+  - name:         quote
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Gives you a random inspirational or deep quote.
+
+  - name:         fortune
+    alts:
+      - "fortune-mod"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Linux users, and raw UNIX users in general will know the fortune-mod.
+      This command uses their entire database to output one of their quotes.
+
+  - name:         bash
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      If you are old enough to know what IRC is or remember how it looked like,
+      then you will appreciate the quotes that the bash command produces.
+
+  - name:         catfact
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Outputs a random fact about your lovely furry assh~
+      Eerrrr... I mean, companion!

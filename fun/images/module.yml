@@ -1,0 +1,22 @@
+name:             Image Commands
+
+category:         fun
+
+enabled:          true
+
+commands:
+  - name:         cat
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Outputs a random cat image.
+      Furry felines like it when their owners observe them.
+
+  - name:         dog
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Outputs a random dog image.
+      Cutest, loyalest little woofers.
