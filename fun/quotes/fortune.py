@@ -1,8 +1,9 @@
+import os
 import discord
 import secrets
-import os
 
 fortune_files = []
+
 
 async def fortune(cmd, message, args):
     if not fortune_files:
@@ -11,7 +12,9 @@ async def fortune(cmd, message, args):
                 text_data = forfile.read()
                 fortune_files.append(text_data.split('%'))
     category = secrets.choice(fortune_files)
-    fort = secrets.choice(category)
+    fort = None
+    while fort is None or len(fort) > 800:
+        fort = secrets.choice(category)
     response = discord.Embed(color=0x8CCAF7)
     response.add_field(name='🔮 Fortune', value=fort)
     await message.channel.send(embed=response)

@@ -23,6 +23,6 @@ async def bash(cmd, message, args):
             cache.append(quote)
     quote = cache.pop()
     text = quote['quote']
-    embed = Embed(type='rich', color=0XC08000, title=':scroll: A Bash Quote', description=f'```xml\n{text}\n```')
+    embed = Embed(type='rich', color=0xFFD983, title=':scroll: A Bash Quote', description=f'```xml\n{text}\n```')
     embed.set_footer(text='ID: {} | Score: {}'.format(quote['id'], quote['score']))
     await message.channel.send(None, embed=embed)

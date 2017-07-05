@@ -8,7 +8,7 @@ async def cyanideandhappiness(cmd, message, args):
     comic_img_url = None
     comic_url = None
     while not comic_img_url:
-        comic_number = secrets.randbelow(4562) + 1
+        comic_number = secrets.randbelow(4665) + 1
         comic_url = f'http://explosm.net/comics/{comic_number}/'
         async with aiohttp.ClientSession() as session:
             async with session.get(comic_url) as data:
