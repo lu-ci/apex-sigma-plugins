@@ -1,0 +1,18 @@
+name:             Safebooru Commands
+
+category:         searches
+
+enabled:          true
+
+commands:
+  - name:         safebooru
+    alts:
+      - "safe"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} kawaii"
+    permissions:
+      rating: 1
+    description:
+      Returns a random image from the safebooru image repository.
+      You can specify tags to narrow the range down, otherwise it's completely random.

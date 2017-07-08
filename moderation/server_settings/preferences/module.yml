@@ -1,0 +1,17 @@
+name:             Preference Settings
+
+category:         settings
+
+enabled:          true
+
+commands:
+  - name:         permitrating
+    global:       true
+    enabled:      true
+    usage:        permitrating 2
+    description:  |
+      Sets the maximum allowed command rating to be allowed on the server.
+      0 - Only fully SFW commands allowed.
+      1 - Allow borderline commands, still SFW.
+      2 - Allow explicit commands.
+      Alternativelly you can type "sfw", "borderline" and "explicit" instead.
