@@ -53,7 +53,8 @@ async def anime(cmd, message, args):
                 anime_desc += '\nDuration: Unknown'
             anime_desc += f'\nIs NSFW: {nsfw}'
             response = discord.Embed(color=0xff3300)
-            response.set_author(name=f'{en_title or jp_title}', icon_url=kitsu_icon, url=f'https://kitsu.io/anime/{slug}')
+            response.set_author(name=f'{en_title or jp_title}', icon_url=kitsu_icon,
+                                url=f'https://kitsu.io/anime/{slug}')
             response.add_field(name='Information', value=anime_desc)
             response.add_field(name='Synopsis', value=f'{synopsis[:384]}...')
             if attr['posterImage']:

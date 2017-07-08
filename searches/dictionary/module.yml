@@ -1,0 +1,30 @@
+name:             Dictionary Commands
+
+category:         searches
+
+enabled:          true
+
+commands:
+  - name:         urbandictionary
+    alts:
+      - "urbandict"
+      - "urban"
+      - "ud"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} dictionary"
+    description:
+      Looks up the definition for a word or term in the Urban Dictionary.
+      It is strongly suggested to take these with a grain of salt.
+
+  - name:         dictionary
+    alts:
+      - "dict"
+      - "definition"
+      - "define"
+      - "def"
+    global:       true
+    enabled:      false
+    usage:        "{pfx}{cmd} cork"
+    description:
+      Searches the oxford dictionary for the definition of your input.
