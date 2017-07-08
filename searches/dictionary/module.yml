@@ -24,7 +24,7 @@ commands:
       - "define"
       - "def"
     global:       true
-    enabled:      false
+    enabled:      true
     usage:        "{pfx}{cmd} cork"
     description:
       Searches the oxford dictionary for the definition of your input.
