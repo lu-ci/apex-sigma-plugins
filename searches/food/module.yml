@@ -1,0 +1,19 @@
+name:             Food Commands
+
+category:         searches
+
+enabled:          true
+
+commands:
+  - name:         recipe
+    alts:
+      - "food"
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      dmable:     true
+    usage:        "{pfx}{cmd} Chicken in Curry Sauce"
+    description:
+      Searches for a dish, or dishes that use inputted ingredients,
+      and outputs one that might be a good match for your search querry.
