@@ -11,9 +11,6 @@ commands:
       - "findsong"
     global:       true
     enabled:      true
-    permissions:
-      rating:     0
-      dmable:     true
     usage:        "{pfx}{cmd} Highway to Hell"
     description:
       Searches Deezer for infomation on the given song.

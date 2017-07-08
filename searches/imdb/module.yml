@@ -7,12 +7,9 @@ enabled:          true
 commands:
   - name:         imdb
     alts:
-      - "move"
+      - "movie"
     global:       true
     enabled:      true
-    permissions:
-      rating:     0
-      dmable:     true
     usage:        "{pfx}{cmd} Blade Runner"
     description:
       Searches the Internet Movie DataBase for your input.

@@ -10,9 +10,6 @@ commands:
       - "food"
     global:       true
     enabled:      true
-    permissions:
-      rating:     0
-      dmable:     true
     usage:        "{pfx}{cmd} Chicken in Curry Sauce"
     description:
       Searches for a dish, or dishes that use inputted ingredients,
