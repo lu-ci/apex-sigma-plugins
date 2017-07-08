@@ -3,7 +3,7 @@ import arrow
 
 async def version_updater(ev):
     if ev.bot.cfg.pref.dev_mode:
-        with open('version.yml', 'r') as version_file:
+        with open('info/version.yml', 'r') as version_file:
             current_version_data = yaml.safe_load(version_file)
         beta = current_version_data['beta']
         build_date = arrow.utcnow().timestamp
@@ -21,6 +21,6 @@ async def version_updater(ev):
             },
             'codename': codename
         }
-        with open('version.yml', 'w') as version_out:
+        with open('info/version.yml', 'w') as version_out:
             yaml.dump(data_out, version_out, default_flow_style=False)
         ev.log.info('Updated Version File.')
