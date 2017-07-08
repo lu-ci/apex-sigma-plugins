@@ -1,0 +1,20 @@
+name:             Help and Information
+
+category:         help
+
+enabled:          true
+
+commands:
+  - name:         deezer
+    alts:
+      - "music"
+      - "findsong"
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      dmable:     true
+    usage:        "{pfx}{cmd} Highway to Hell"
+    description:
+      Searches Deezer for infomation on the given song.
+      The output will include a song preview link.
