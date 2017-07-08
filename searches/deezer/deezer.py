@@ -8,7 +8,7 @@ import datetime
 async def deezer(cmd, message, args):
     if args:
         search = '%20'.join(args)
-        qry_url = 'http://api.deezer.com/search/track?q=' + search
+        qry_url = f'http://api.deezer.com/search/track?q={search}'
         async with aiohttp.ClientSession() as session:
             async with session.get(qry_url) as data:
                 data = await data.read()
