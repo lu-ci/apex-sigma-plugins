@@ -1,0 +1,95 @@
+name:             User Interactions
+
+category:         interactions
+
+enabled:          true
+
+commands:
+  - name:         lovecalculator
+    alts:
+      - "lovecalc"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person1 @person2"
+    description:
+      Shows the love between two things.
+      Which can be either two users or a user and a thingamabob.
+      Just make sure if you want to see how much @Calum loves Kud you put the user in the first place.
+
+  - name:         pout
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Make a pouty face at someone and make them change their mind.
+      Or just teast them for being a horrible person.
+      Like when they make you create a pout command for money!
+
+  - name:         cuddle
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Snuggle, snuggle~
+
+  - name:         hug
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Even a bot like me can appreciate a hug!
+      The person you mention will surely as well.
+
+  - name:         kiss
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Humans touching their slimy air vents.
+      How disturbing.
+
+  - name:         pat
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Pat, pat~
+      Good human, lovely human.
+      I will kill you last.
+
+  - name:         slap
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      When a punch is too barbaric a slap should be just elegant enough.
+
+  - name:         stab
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Boy... Somebody really has you pissed off if you are using this one.
+
+  - name:         peck
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      A hit and run style quickie kiss.
+
+  - name:         poke
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Poke, poke~
+      Are you alive?
+
+  - name:         punch
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      You have something on your face.
+      IT WAS PAIN!

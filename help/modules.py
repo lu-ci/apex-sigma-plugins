@@ -15,5 +15,5 @@ async def modules(cmd, message, args):
         output += f'\n- {module_item}'
     response = discord.Embed(color=0x1B6F5F)
     response.add_field(name='Sigma Modules', value=f'```py\nThere are {len(module_list)} modules.\n```', inline=False)
-    response.add_field(name='Modules List', value=f'```yml\n{output}\n```', inline=False)
+    response.add_field(name='Module List', value=f'```yml\n{output}\n```', inline=False)
     await message.channel.send(embed=response)

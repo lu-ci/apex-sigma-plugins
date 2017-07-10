@@ -8,7 +8,7 @@ commands:
   - name:         permitrating
     global:       true
     enabled:      true
-    usage:        permitrating 2
+    usage:        "{pfx}{cmd} 2"
     description:  |
       Sets the maximum allowed command rating to be allowed on the server.
       0 - Only fully SFW commands allowed.
