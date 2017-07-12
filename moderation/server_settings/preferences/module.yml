@@ -15,3 +15,12 @@ commands:
       1 - Allow borderline commands, still SFW.
       2 - Allow explicit commands.
       Alternativelly you can type "sfw", "borderline" and "explicit" instead.
+
+  - name:         prefix
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} SIGMA!"
+    description:
+      Sets the prefix that Sigma should respond to.
+      This will be bound to your server and you can set it to anything you'd like.
+      However, the prefix can not contain spaces. They will be automatically removed.

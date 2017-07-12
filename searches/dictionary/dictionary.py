@@ -25,7 +25,8 @@ async def dictionary(cmd, message, args):
                 etymology = data['etymologies'][0]
                 senses = []
                 for sense in data['senses']:
-                    senses.append(f'{sense["domains"][0]}: {sense["definitions"][0]}')
+                    if "domains" in sense:
+                        senses.append(f'{sense["domains"][0]}: {sense["definitions"][0]}.')
                 response = discord.Embed(color=0x0099FF, title=f'📘 Oxford Dictionary: `{qry}`')
                 response.add_field(name='Etymology', value=etymology, inline=False)
                 response.add_field(name='Senses', value='\n'.join(senses[:10]), inline=False)

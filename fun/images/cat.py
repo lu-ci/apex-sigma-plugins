@@ -1,4 +1,4 @@
-import random
+import secrets
 import aiohttp
 import discord
 from lxml import html
@@ -13,7 +13,7 @@ async def cat(cmd, message, args):
     async with aiohttp.ClientSession() as session:
         async with session.get(api_url) as raw_page:
             results = html.fromstring(await raw_page.text())[0][0]
-    choice = random.choice(results)
+    choice = secrets.choice(results)
     image_url = str(choice[0].text)
     embed = discord.Embed(color=0xFFDC5D, title='🐱 Meow~')
     embed.set_image(url=image_url)

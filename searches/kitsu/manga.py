@@ -57,9 +57,6 @@ async def manga(cmd, message, args):
             if attr['posterImage']:
                 poster_image = attr['posterImage']['original'].split('?')[0]
                 response.set_thumbnail(url=poster_image)
-            if attr['coverImage']:
-                cover_image = attr['coverImage']['original'].split('?')[0]
-                response.set_image(url=cover_image)
             response.set_footer(text='Click the title at the top to see the page of the anime.')
         else:
             response = discord.Embed(color=0x696969, title='🔍 No results.')

@@ -1,0 +1,17 @@
+name:             Moderator Punishments
+
+category:         moderation
+
+enabled:          true
+
+commands:
+  - name:         kick
+    global:       true
+    enabled:      true
+    requirements:
+      - "kick_members"
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Kicks a user from the server.
+      The user can only be targeted by a mention tag.
+      This is to preserve compatibility with logging and audits.

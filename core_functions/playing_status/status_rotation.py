@@ -1,6 +1,6 @@
 import asyncio
 import discord
-import random
+import secrets
 
 
 async def status_rotation(ev):
@@ -24,10 +24,10 @@ async def status_clockwork(ev):
                 'Scarlet Johanson', 'a new body', 'cameras', 'NSA\'s documents',
                 'mobile suits', 'snakes', 'jelly', 'alcohol', 'the blue king'
             ]
-            status = f'with {random.choice(statuses)}'
+            status = f'with {secrets.choice(statuses)}'
             game = discord.Game(name=status)
             try:
                 await ev.bot.change_presence(game=game)
-            except Exception:
+            except discord.ClientException:
                 pass
         await asyncio.sleep(60)
