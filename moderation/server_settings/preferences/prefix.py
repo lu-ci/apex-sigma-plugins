@@ -6,11 +6,15 @@ async def prefix(cmd, message, args):
         current_prefix = cmd.bot.get_prefix(message)
         if args:
             new_prefix = ''.join(args)
-            if new_prefix != current_prefix:
-                cmd.db.set_guild_settings(message.guild.id, 'Prefix', new_prefix)
-                response = discord.Embed(color=0x66CC66, title=f'✅ **{new_prefix}** has been set as the new prefix.')
+            if len(new_prefix) != 0:
+                if new_prefix != current_prefix:
+                    cmd.db.set_guild_settings(message.guild.id, 'Prefix', new_prefix)
+                    response_title = f'✅ **{new_prefix}** has been set as the new prefix.'
+                    response = discord.Embed(color=0x66CC66, title=response_title)
+                else:
+                    response = discord.Embed(color=0xDB0000, title='❗ The current prefix and the new one are the same.')
             else:
-                response = discord.Embed(color=0xDB0000, title='❗ The current prefix and the new one are the same.')
+                response = discord.Embed(color=0xDB0000, title='❗ The prefix needs to be at least one character.')
         else:
             response = discord.Embed(color=0x0099FF, title=f'ℹ **{current_prefix}** is the current prefix.')
     else:
