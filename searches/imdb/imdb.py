@@ -1,4 +1,4 @@
-import json
+﻿import json
 import aiohttp
 import discord
 
@@ -35,5 +35,5 @@ async def imdb(cmd, message, args):
         else:
             response = discord.Embed(color=0x696969, title='🔍 No results.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     await message.channel.send(embed=response)

@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 from .nodes.permission_data import get_all_perms, generate_cmd_data
 
 
@@ -6,11 +6,11 @@ async def unpermitchannel(cmd, message, args):
     if args:
         if len(args) >= 2:
             if not message.author.permissions_in(message.channel).manage_guild:
-                response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xDB0000)
+                response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xBE1931)
             else:
                 if message.channel_mentions:
                     target = message.channel_mentions[0]
-                    error_response = discord.Embed(color=0xDB0000, title='❗ Bad Input')
+                    error_response = discord.Embed(color=0xBE1931, title='❗ Bad Input')
                     try:
                         perm_mode, cmd_name = args[0].split(':')
                     except Exception:
@@ -47,7 +47,7 @@ async def unpermitchannel(cmd, message, args):
                             perms.update({exception_group: cmd_exc})
                             cmd.db[cmd.db.db_cfg.database].Permissions.update_one({'ServerID': message.guild.id},
                                                                                   {'$set': perms})
-                            response = discord.Embed(color=0x66CC66,
+                            response = discord.Embed(color=0x77B255,
                                                      title=f'✅ `#{target.name}` can no longer use `{cmd_name}`.')
                         else:
                             response = discord.Embed(color=0xFF9900,
@@ -57,7 +57,7 @@ async def unpermitchannel(cmd, message, args):
                 else:
                     response = discord.Embed(color=0x696969, title=f'🔍 No Channel Targeted')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Not Enough Arguments')
+            response = discord.Embed(color=0xBE1931, title='❗ Not Enough Arguments')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Not Arguments Given')
+        response = discord.Embed(color=0xBE1931, title='❗ Not Arguments Given')
     await message.channel.send(embed=response)

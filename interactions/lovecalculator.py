@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def lovecalculator(cmd, message, args):
@@ -25,7 +25,7 @@ async def lovecalculator(cmd, message, args):
             target_1 = message.author.name.lower()
             target_2 = args[0].lower()
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
         await message.channel.send(embed=response)
         return
     if id_based:

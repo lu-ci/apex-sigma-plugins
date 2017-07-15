@@ -13,13 +13,13 @@ async def togglerole(cmd, message, args):
                     selfroles = []
                 if target_role.id in selfroles:
                     await message.author.add_roles(target_role, reason='Role self assigned.')
-                    response = discord.Embed(color=0x66CC66, title=f'✅ {target_role.name} has been added to you.')
+                    response = discord.Embed(color=0x77B255, title=f'✅ {target_role.name} has been added to you.')
                 else:
                     response = discord.Embed(color=0xFF9900, title=f'⚠ {target_role} is not self assignable.')
             else:
                 response = discord.Embed(color=0x696969, title=f'🔍 I can\'t find {lookup} on this server.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+            response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     else:
-        response = discord.Embed(title='⛔ Access Denied. Manage Roles needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Manage Roles needed.', color=0xBE1931)
     await message.channel.send(embed=response)

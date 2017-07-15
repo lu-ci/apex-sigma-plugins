@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 text_to_num = {
     'sfw': 0,
@@ -28,7 +28,7 @@ colors = {
 
 async def permitrating(cmd, message, args):
     if not message.author.permissions_in(message.channel).manage_guild:
-        response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xBE1931)
     else:
         if args:
             new_rating = args[0].lower()
@@ -55,7 +55,7 @@ async def permitrating(cmd, message, args):
                 embed_title = f'{icons[new_rating_number]} Rating changed {change_text}.'
                 response = discord.Embed(color=colors[new_rating_number], title=embed_title)
             else:
-                response = discord.Embed(color=0xDB0000, title='❗ Invalid input.')
+                response = discord.Embed(color=0xBE1931, title='❗ Invalid input.')
         else:
             nsfw_collection = cmd.db[cmd.bot.cfg.db.database].NSFWPermissions
             channel_nsfw_file = nsfw_collection.find_one({'channel_id': message.channel.id})

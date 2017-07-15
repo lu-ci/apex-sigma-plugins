@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def reload(cmd, message, args):
@@ -11,7 +11,7 @@ async def reload(cmd, message, args):
     for key in cmd.bot.modules.events:
         event_group = cmd.bot.modules.events[key]
         ev_count += len(event_group)
-    load_done_resonse = discord.Embed(color=0x66CC66, title=f'✅ Loaded {cmd_count} Commands and {ev_count} Events.')
+    load_done_resonse = discord.Embed(color=0x77B255, title=f'✅ Loaded {cmd_count} Commands and {ev_count} Events.')
     await load_status.edit(embed=load_done_resonse)
     cmd.bot.ready = True
 

@@ -1,4 +1,4 @@
-import wikipedia as wp
+﻿import wikipedia as wp
 import discord
 
 
@@ -14,7 +14,7 @@ async def wikipedia(cmd, message, args):
         except wp.PageError:
             response = discord.Embed(color=0x696969, title='🔍 No results.')
         except wp.DisambiguationError:
-            response = discord.Embed(color=0xDB0000, title='❗ Search too broad, please be more specific.')
+            response = discord.Embed(color=0xBE1931, title='❗ Search too broad, please be more specific.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     await message.channel.send(None, embed=response)

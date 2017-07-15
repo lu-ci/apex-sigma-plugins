@@ -1,4 +1,4 @@
-import json
+﻿import json
 import aiohttp
 import discord
 
@@ -27,7 +27,7 @@ async def recipe(cmd, message, args):
                 response.add_field(name=title, value='[Recipe Here](' + source_url + ')')
                 response.set_thumbnail(url=image_url)
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+            response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ The API Key is missing.')
+        response = discord.Embed(color=0xBE1931, title='❗ The API Key is missing.')
     await message.channel.send(None, embed=response)

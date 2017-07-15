@@ -14,17 +14,17 @@ async def delselfrole(cmd, message, args):
                     if selfroles is None:
                         selfroles = []
                     if target_role.id not in selfroles:
-                        response = discord.Embed(color=0xDB0000, title='❗ This role is not self assignable.')
+                        response = discord.Embed(color=0xBE1931, title='❗ This role is not self assignable.')
                     else:
                         selfroles.remove(target_role.id)
                         cmd.db.set_guild_settings(message.guild.id, 'SelfRoles', selfroles)
-                        response = discord.Embed(color=0x66CC66, title=f'✅ {target_role.name} removed.')
+                        response = discord.Embed(color=0x77B255, title=f'✅ {target_role.name} removed.')
                 else:
-                    response = discord.Embed(color=0xDB0000, title='❗ This role is above my highest role.')
+                    response = discord.Embed(color=0xBE1931, title='❗ This role is above my highest role.')
             else:
                 response = discord.Embed(color=0x696969, title=f'🔍 I can\'t find {lookup} on this server.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+            response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     else:
-        response = discord.Embed(title='⛔ Access Denied. Manage Roles needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Manage Roles needed.', color=0xBE1931)
     await message.channel.send(embed=response)

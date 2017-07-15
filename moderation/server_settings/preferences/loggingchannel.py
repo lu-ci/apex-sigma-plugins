@@ -1,9 +1,9 @@
-import discord
+﻿import discord
 
 
 async def loggingchannel(cmd, message, args):
     if not message.author.permissions_in(message.channel).manage_guild:
-        response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xBE1931)
     else:
         if message.channel_mentions:
             target_chn = message.channel_mentions[0]
@@ -11,7 +11,7 @@ async def loggingchannel(cmd, message, args):
             if args:
                 if args[0].lower() == 'disable':
                     cmd.db.set_guild_settings(message.guild.id, 'LoggingChannel', None)
-                    response = discord.Embed(color=0x66CC66, title=f'✅ Logging channel disabled.')
+                    response = discord.Embed(color=0x77B255, title=f'✅ Logging channel disabled.')
                     await message.channel.send(embed=response)
                     return
                 else:
@@ -22,9 +22,9 @@ async def loggingchannel(cmd, message, args):
             me = message.guild.me
             if me.permissions_in(target_chn).send_messages:
                 cmd.db.set_guild_settings(message.guild.id, 'LoggingChannel', target_chn.id)
-                response = discord.Embed(color=0x66CC66, title=f'✅ #{target_chn.name} set as the logging channel.')
+                response = discord.Embed(color=0x77B255, title=f'✅ #{target_chn.name} set as the logging channel.')
             else:
-                response = discord.Embed(color=0xDB0000, title='❗ I can\'t write to that channel.')
+                response = discord.Embed(color=0xBE1931, title='❗ I can\'t write to that channel.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ No channel tagged.')
+            response = discord.Embed(color=0xBE1931, title='❗ No channel tagged.')
     await message.channel.send(embed=response)

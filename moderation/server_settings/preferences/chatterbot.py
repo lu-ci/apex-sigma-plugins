@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def chatterbot(cmd, message, args):
@@ -12,7 +12,7 @@ async def chatterbot(cmd, message, args):
         else:
             cmd.db.set_guild_settings(message.guild.id, 'ChatterBot', True)
             ending = 'enabled'
-        response = discord.Embed(color=0x66CC66, title=f'✅ Chatterbot has been {ending}.')
+        response = discord.Embed(color=0x77B255, title=f'✅ Chatterbot has been {ending}.')
     else:
-        response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xBE1931)
     await message.channel.send(embed=response)

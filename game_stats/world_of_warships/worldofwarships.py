@@ -1,4 +1,4 @@
-import json
+﻿import json
 import arrow
 import discord
 import aiohttp
@@ -66,11 +66,11 @@ async def worldofwarships(cmd, message, args):
                     else:
                         response = discord.Embed(color=0x696969, title='🔍 User not found.')
                 else:
-                    response = discord.Embed(color=0xDB0000, title='❗ Invalid game region.')
+                    response = discord.Embed(color=0xBE1931, title='❗ Invalid game region.')
             else:
-                response = discord.Embed(color=0xDB0000, title='❗ Not enough arguments.')
+                response = discord.Embed(color=0xBE1931, title='❗ Not enough arguments.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+            response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Missing API key.')
+        response = discord.Embed(color=0xBE1931, title='❗ Missing API key.')
     await message.channel.send(embed=response)

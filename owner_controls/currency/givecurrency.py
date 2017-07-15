@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def givecurrency(cmd, message, args):
@@ -10,14 +10,14 @@ async def givecurrency(cmd, message, args):
                     amount = abs(int(args[0]))
                     cmd.db.add_currency(target, message.guild, amount)
                     title_text = f'✅ Ok, I\'ve given {amount} {cmd.bot.cfg.pref.currency} to {target.display_name}.'
-                    response = discord.Embed(color=0x66CC66, title=title_text)
+                    response = discord.Embed(color=0x77B255, title=title_text)
                 except ValueError:
-                    response = discord.Embed(color=0xDB0000, title='❗ Invalid amount.')
+                    response = discord.Embed(color=0xBE1931, title='❗ Invalid amount.')
             else:
                 err_title = f'❗ You can\'t give {cmd.bot.cfg.pref.currency} to bots.'
-                response = discord.Embed(color=0xDB0000, title=err_title)
+                response = discord.Embed(color=0xBE1931, title=err_title)
         else:
-            response = discord.Embed(color=0xDB0000, title=f'❗ {cmd.bot.cfg.pref.currency} amount and target needed.')
+            response = discord.Embed(color=0xBE1931, title=f'❗ {cmd.bot.cfg.pref.currency} amount and target needed.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ No user was mentioned.')
+        response = discord.Embed(color=0xBE1931, title='❗ No user was mentioned.')
     await message.channel.send(embed=response)

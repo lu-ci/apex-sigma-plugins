@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 from sigma.core.utilities.permission_processing import hierarchy_permit
 from sigma.core.utilities.data_processing import user_avatar
 
@@ -29,13 +29,13 @@ async def softban(cmd, message, args):
                         await target.ban(reason=f'By {message.author.name}: {reason} (Soft)')
                         await target.unban()
                     else:
-                        response = discord.Embed(title='⛔ Can\'t soft-ban someone equal or above you.', color=0xDB0000)
+                        response = discord.Embed(title='⛔ Can\'t soft-ban someone equal or above you.', color=0xBE1931)
                 else:
-                    response = discord.Embed(color=0xDB0000, title='❗ You can\'t soft-ban yourself.')
+                    response = discord.Embed(color=0xBE1931, title='❗ You can\'t soft-ban yourself.')
             else:
-                response = discord.Embed(color=0xDB0000, title='❗ I can\'t soft-ban myself.')
+                response = discord.Embed(color=0xBE1931, title='❗ I can\'t soft-ban myself.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ No user targeted.')
+            response = discord.Embed(color=0xBE1931, title='❗ No user targeted.')
     else:
-        response = discord.Embed(title='⛔ Access Denied. Ban permissions needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Ban permissions needed.', color=0xBE1931)
     await message.channel.send(embed=response)

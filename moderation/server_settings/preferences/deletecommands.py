@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def deletecommands(cmd, message, args):
@@ -12,7 +12,7 @@ async def deletecommands(cmd, message, args):
         else:
             cmd.db.set_guild_settings(message.guild.id, 'DeleteCommands', True)
             ending = 'enabled'
-        response = discord.Embed(color=0x66CC66, title=f'✅ Command message deletion has been {ending}.')
+        response = discord.Embed(color=0x77B255, title=f'✅ Command message deletion has been {ending}.')
     else:
-        response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xBE1931)
     await message.channel.send(embed=response)

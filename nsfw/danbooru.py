@@ -13,6 +13,6 @@ async def danbooru(cmd, message, args):
         response.set_footer(
             text='Remember to replace spaces in tags with an underscore, as a space separates multiple tags')
     else:
-        response = discord.Embed(color=0x9933FF)
+        response = discord.Embed(color=0x744EAA)
         response.set_image(url=image_url)
     await message.channel.send(None, embed=response)

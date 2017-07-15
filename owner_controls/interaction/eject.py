@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def eject(cmd, message, args):
@@ -13,11 +13,11 @@ async def eject(cmd, message, args):
             target = discord.utils.find(lambda x: x.id == guild_id, cmd.bot.guilds)
             if target:
                 await target.leave()
-                response = discord.Embed(color=0x66CC66, title=f'✅ Ejected from {target.name}.')
+                response = discord.Embed(color=0x77B255, title=f'✅ Ejected from {target.name}.')
             else:
                 response = discord.Embed(color=0x696969, title='🔍 No guild with that ID was found.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Invalid Guild ID.')
+            response = discord.Embed(color=0xBE1931, title='❗ Invalid Guild ID.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ No Guild ID was inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ No Guild ID was inputted.')
     await message.channel.send(embed=response)

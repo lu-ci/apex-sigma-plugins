@@ -1,10 +1,10 @@
-import discord
+﻿import discord
 import asyncio
 
 
 async def purge(cmd, message, args):
     if not message.author.permissions_in(message.channel).manage_messages:
-        response = discord.Embed(title='⛔ Access Denied. Manage Messages needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Manage Messages needed.', color=0xBE1931)
     else:
         valid_count = True
         target = cmd.bot.user
@@ -24,7 +24,7 @@ async def purge(cmd, message, args):
                 except ValueError:
                     valid_count = False
         if not valid_count:
-            response = discord.Embed(color=0xDB0000, title=f'❗ {args[0]} is not a valid number.')
+            response = discord.Embed(color=0xBE1931, title=f'❗ {args[0]} is not a valid number.')
         else:
             def author_check(msg):
                 return msg.author.id == target.id
@@ -37,7 +37,7 @@ async def purge(cmd, message, args):
                 deleted = await message.channel.purge(limit=count, check=author_check)
             else:
                 deleted = await message.channel.purge(limit=count)
-            response = discord.Embed(color=0x66CC66, title=f'✅ Deleted {len(deleted)} Messages')
+            response = discord.Embed(color=0x77B255, title=f'✅ Deleted {len(deleted)} Messages')
     del_response = await message.channel.send(embed=response)
     await asyncio.sleep(5)
     try:

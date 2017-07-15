@@ -1,4 +1,4 @@
-import json
+﻿import json
 import aiohttp
 import discord
 
@@ -31,7 +31,7 @@ async def dictionary(cmd, message, args):
                 if 'notes' in data:
                     for note in data['notes']:
                         notes.append(f"{note['text']}.")
-                response = discord.Embed(color=0x0099FF, title=f'📘 Oxford Dictionary: `{qry}`')
+                response = discord.Embed(color=0x3B88C3, title=f'📘 Oxford Dictionary: `{qry}`')
                 response.add_field(name='Etymology', value=etymology, inline=False)
                 if senses:
                     response.add_field(name='Senses', value='\n'.join(senses[:10]), inline=False)
@@ -40,7 +40,7 @@ async def dictionary(cmd, message, args):
             else:
                 response = discord.Embed(color=0x696969, title='🔍 No results.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+            response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ The API Key is missing.')
+        response = discord.Embed(color=0xBE1931, title='❗ The API Key is missing.')
     await message.channel.send(embed=response)

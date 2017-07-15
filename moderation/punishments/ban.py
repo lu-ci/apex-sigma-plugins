@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 from sigma.core.utilities.permission_processing import hierarchy_permit
 from sigma.core.utilities.data_processing import user_avatar
 
@@ -28,13 +28,13 @@ async def ban(cmd, message, args):
                             pass
                         await target.ban(reason=f'By {message.author.name}: {reason}')
                     else:
-                        response = discord.Embed(title='⛔ Can\'t ban someone equal or above you.', color=0xDB0000)
+                        response = discord.Embed(title='⛔ Can\'t ban someone equal or above you.', color=0xBE1931)
                 else:
-                    response = discord.Embed(color=0xDB0000, title='❗ You can\'t ban yourself.')
+                    response = discord.Embed(color=0xBE1931, title='❗ You can\'t ban yourself.')
             else:
-                response = discord.Embed(color=0xDB0000, title='❗ I can\'t ban myself.')
+                response = discord.Embed(color=0xBE1931, title='❗ I can\'t ban myself.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ No user targeted.')
+            response = discord.Embed(color=0xBE1931, title='❗ No user targeted.')
     else:
-        response = discord.Embed(title='⛔ Access Denied. Ban permissions needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Ban permissions needed.', color=0xBE1931)
     await message.channel.send(embed=response)

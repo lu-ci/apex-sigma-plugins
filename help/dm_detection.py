@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 def log_dm(ev, message):
@@ -11,7 +11,7 @@ async def dm_detection(ev, message):
         pfx = ev.bot.get_prefix(message)
         if not message.content.startswith(pfx):
             log_dm(ev, message)
-            pm_response = discord.Embed(color=0x0099FF, title=f'ℹ Type `{pfx}help` for information!')
+            pm_response = discord.Embed(color=0x3B88C3, title=f'ℹ Type `{pfx}help` for information!')
             await message.channel.send(None, embed=pm_response)
         else:
             cmd_name = message.content.split(' ')[0][len(pfx):].lower()

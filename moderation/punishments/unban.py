@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def unban(cmd, message, args):
@@ -13,11 +13,11 @@ async def unban(cmd, message, args):
                     break
             if target:
                 await message.guild.unban(target, reason=f'By {message.author.name}.')
-                response = discord.Embed(title=f'✅ {target.name} has been unbanned.', color=0x66CC66)
+                response = discord.Embed(title=f'✅ {target.name} has been unbanned.', color=0x77B255)
             else:
                 response = discord.Embed(title=f'🔍 {lookup} not found in the ban list.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+            response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     else:
-        response = discord.Embed(title='⛔ Access Denied. Ban permissions needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Ban permissions needed.', color=0xBE1931)
     await message.channel.send(embed=response)

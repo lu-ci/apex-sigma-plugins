@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def blacklistserver(cmd, message, args):
@@ -27,7 +27,7 @@ async def blacklistserver(cmd, message, args):
             else:
                 response = discord.Embed(color=0x696969, title='🔍 No guild with that ID was found.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Invalid Guild ID.')
+            response = discord.Embed(color=0xBE1931, title='❗ Invalid Guild ID.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ No Guild ID was inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ No Guild ID was inputted.')
     await message.channel.send(embed=response)

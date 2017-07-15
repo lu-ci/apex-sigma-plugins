@@ -1,4 +1,4 @@
-import arrow
+﻿import arrow
 import discord
 from sigma.core.utilities.server_bound_logging import log_event
 from sigma.core.utilities.data_processing import user_avatar
@@ -19,7 +19,7 @@ def generate_log_embed(message, target, warning_text):
 
 async def warn(cmd, message, args):
     if not message.author.permissions_in(message.channel).manage_messages:
-        response = discord.Embed(title='⛔ Access Denied. Manage Messages needed.', color=0xDB0000)
+        response = discord.Embed(title='⛔ Access Denied. Manage Messages needed.', color=0xBE1931)
     else:
         if message.mentions:
             target = message.mentions[0]
@@ -47,7 +47,7 @@ async def warn(cmd, message, args):
             warning_list.append(warning_data)
             guild_warnings.update({uid: warning_list})
             cmd.db.set_guild_settings(message.guild.id, 'WarnedUsers', guild_warnings)
-            response = discord.Embed(color=0x66CC66, title=f'✅ {target.name}#{target.discriminator} has been warned.')
+            response = discord.Embed(color=0x77B255, title=f'✅ {target.name}#{target.discriminator} has been warned.')
             to_target = discord.Embed(color=0xFF9900)
             to_target.add_field(name='⚠ You received a warning.', value=f'Reason: {reason}')
             to_target.set_footer(text=f'From: {message.guild.name}', icon_url=message.guild.icon_url)
@@ -58,5 +58,5 @@ async def warn(cmd, message, args):
             log_embed = generate_log_embed(message, target, reason)
             await log_event(cmd.db, message.guild, log_embed)
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ No user tagged.')
+            response = discord.Embed(color=0xBE1931, title='❗ No user tagged.')
     await message.channel.send(embed=response)

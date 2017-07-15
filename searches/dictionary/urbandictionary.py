@@ -1,4 +1,4 @@
-import json
+﻿import json
 import aiohttp
 import discord
 
@@ -26,7 +26,7 @@ async def urbandictionary(cmd, message, args):
             else:
                 response = discord.Embed(color=0x696969, title='🔍 Unable to find exact results.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+            response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ The API Key is missing.')
+        response = discord.Embed(color=0xBE1931, title='❗ The API Key is missing.')
     await message.channel.send(None, embed=response)

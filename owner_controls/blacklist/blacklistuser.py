@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def blacklistuser(cmd, message, args):
@@ -27,7 +27,7 @@ async def blacklistuser(cmd, message, args):
             else:
                 response = discord.Embed(color=0x696969, title='🔍 No user with that ID was found.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Invalid User ID.')
+            response = discord.Embed(color=0xBE1931, title='❗ Invalid User ID.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ No User ID was inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ No User ID was inputted.')
     await message.channel.send(embed=response)

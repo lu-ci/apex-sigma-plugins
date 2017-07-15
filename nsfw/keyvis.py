@@ -20,6 +20,6 @@ async def keyvis(cmd, message, args):
     url_base = 'https://cgv.blicky.net'
     image_url = '{:s}/{:s}/{:s}{:d}.jpg'.format(
         url_base, item[0], '0000'[:-ran_number_length], ran_image_number)
-    embed = discord.Embed(color=0x9933FF)
+    embed = discord.Embed(color=0x744EAA)
     embed.set_image(url=image_url)
     await message.channel.send(None, embed=embed)

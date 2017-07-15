@@ -1,10 +1,10 @@
-import discord
+﻿import discord
 from .nodes.permission_data import get_all_perms
 
 async def enablecommand(cmd, message, args):
     if args:
         if not message.author.permissions_in(message.channel).manage_guild:
-            response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xDB0000)
+            response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xBE1931)
         else:
             cmd_name = args[0].lower()
             if cmd_name in cmd.bot.modules.alts:
@@ -16,7 +16,7 @@ async def enablecommand(cmd, message, args):
                     disabled_commands.remove(cmd_name)
                     perms.update({'DisabledCommands': disabled_commands})
                     cmd.db[cmd.db.db_cfg.database].Permissions.update_one({'ServerID': message.guild.id}, {'$set': perms})
-                    response = discord.Embed(color=0x66CC66, title=f'✅ `{cmd_name.upper()}` enabled.')
+                    response = discord.Embed(color=0x77B255, title=f'✅ `{cmd_name.upper()}` enabled.')
                 else:
                     response = discord.Embed(color=0xFF9900, title='⚠ Command Not Disabled')
             else:
