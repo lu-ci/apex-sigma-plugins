@@ -18,6 +18,7 @@ def generate_log_embed(message, target, args):
     log_embed.set_footer(text=f'UserID: {target.id}')
     return log_embed
 
+
 async def textmute(cmd, message, args):
     if not message.author.permissions_in(message.channel).manage_messages:
         response = discord.Embed(title='⛔ Access Denied. Manage Messages needed.', color=0xBE1931)
@@ -48,11 +49,14 @@ async def textmute(cmd, message, args):
                         await log_event(cmd.db, message.guild, log_embed)
                         if len(args) > 1:
                             reason = ' '.join(args[1:])
-                            to_target_title = f'⚠ You have been text muted by {author.display_name}'
-                            to_target = discord.Embed(color=0xFF9900)
-                            to_target.add_field(name=to_target_title, value=f'Reason: {reason}')
-                            try:
-                                await target.send(embed=to_target)
-                            except discord.Forbidden:
-                                pass
+                        else:
+                            reason = 'Not stated.'
+                        to_target_title = f'🔇 You have been text muted.'
+                        to_target = discord.Embed(color=0x696969)
+                        to_target.add_field(name=to_target_title, value=f'Reason: {reason}')
+                        to_target.set_footer(text=f'On: {message.guild.name}', icon_url=message.guild.icon_url)
+                        try:
+                            await target.send(embed=to_target)
+                        except discord.Forbidden:
+                            pass
     await message.channel.send(embed=response)
