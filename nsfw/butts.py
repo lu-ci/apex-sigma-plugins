@@ -12,6 +12,13 @@ async def butts(cmd, message, args):
             data = await data.json()
             data = data[0]
     image_url = 'http://media.obutts.ru/' + data['preview']
-    embed = discord.Embed(color=0x9933FF)
+    model = data['model']
+    if not model:
+        model = 'Unknown'
+    rank = data['rank']
+    butts_icon = 'https://i.imgur.com/zjndjaj.png'
+    embed = discord.Embed(color=0xF9F9F9)
+    embed.set_author(name='Open Butts', icon_url=butts_icon)
     embed.set_image(url=image_url)
+    embed.set_footer(text=f'Ranking: {rank} | Model: {model}')
     await message.channel.send(None, embed=embed)

@@ -21,7 +21,7 @@ def check_applicable_content(ev, message):
                 pfx = ev.bot.get_prefix(message)
                 if not check_for_bot_prefixes(pfx, message.content):
                     if 'http' not in message.content and '```' not in message.content:
-                        if len(message.content) >= 5:
+                        if len(message.content) <= 256:
                             applicable = True
     return applicable
 

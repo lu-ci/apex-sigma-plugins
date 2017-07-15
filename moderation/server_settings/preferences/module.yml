@@ -33,3 +33,25 @@ commands:
     usage:        "{pfx}{cmd}"
     description:
       Toggles if messages that are a command should be automatically deleted.
+
+  - name:         chatterbot
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Toggles if the Chatterbot functions should be active.
+      If active, when a message starts with a mention of Sigma, she will respond.
+      This setting is active by default.
+
+  - name:         loggingchannel
+    alts:
+      - "logchannel"
+      - "logch"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} #logging"
+    description:
+      Designates a channel where server events will be logged to.
+      The stuff that is logged is member movement and moderator actions.
+      Such as warns, bans, muting members and pruning channels.
+      To disable the logging channel, input "disable" as the channel argument.

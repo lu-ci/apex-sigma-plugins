@@ -1,6 +1,21 @@
 import arrow
 import discord
+from sigma.core.utilities.server_bound_logging import log_event
+from sigma.core.utilities.data_processing import user_avatar
 
+
+def generate_log_embed(message, target, warning_text):
+    response = discord.Embed(color=0xFF9900, timestamp=arrow.utcnow().datetime)
+    response.set_author(name=f'A User Has Been Warned', icon_url=user_avatar(target))
+    response.add_field(name='⚠ Warned User',
+                       value=f'{target.mention}\n{target.name}#{target.discriminator}', inline=True)
+    author = message.author
+    response.add_field(name='🛡 Responsible',
+                       value=f'{author.mention}\n{author.name}#{author.discriminator}', inline=True)
+    if warning_text:
+        response.add_field(name='📄 Reason', value=f"```\n{warning_text}\n```", inline=False)
+    response.set_footer(text=f'UserID: {target.id}')
+    return response
 
 async def warn(cmd, message, args):
     if not message.author.permissions_in(message.channel).manage_messages:
@@ -40,6 +55,8 @@ async def warn(cmd, message, args):
                 await target.send(embed=to_target)
             except discord.Forbidden:
                 pass
+            log_embed = generate_log_embed(message, target, reason)
+            await log_event(cmd.db, message.guild, log_embed)
         else:
             response = discord.Embed(color=0xDB0000, title='❗ No user tagged.')
     await message.channel.send(embed=response)
