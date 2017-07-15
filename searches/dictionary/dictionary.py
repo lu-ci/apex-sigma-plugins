@@ -22,7 +22,10 @@ async def dictionary(cmd, message, args):
                         data = {'results': []}
             if data['results']:
                 data = data['results'][0]['lexicalEntries'][0]['entries'][0]
-                etymology = data['etymologies'][0]
+                if 'etymologies' in data:
+                    etymology = data['etymologies'][0]
+                else:
+                    etymology = 'No etymology found.'
                 senses = []
                 for sense in data['senses']:
                     if "domains" in sense and 'definitions' in sense:

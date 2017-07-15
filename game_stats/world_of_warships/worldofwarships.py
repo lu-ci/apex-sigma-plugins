@@ -27,7 +27,10 @@ async def worldofwarships(cmd, message, args):
                         async with session.get(user_search_url_base) as data:
                             data = await data.read()
                             data = json.loads(data)
-                            data = data['data']
+                            if 'data' in data:
+                                data = data['data']
+                            else:
+                                data = None
                     if data:
                         data = data[0]
                         account_id = data['account_id']

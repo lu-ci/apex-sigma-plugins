@@ -8,7 +8,7 @@ async def disablemodule(cmd, message, args):
             response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xBE1931)
         else:
             mdl_name = args[0].lower()
-            if mdl_name in cmd.bot.modules.category_list:
+            if mdl_name in cmd.bot.modules.categories:
                 perms = get_all_perms(cmd.db, message)
                 disabled_modules = perms['DisabledModules']
                 if mdl_name in disabled_modules:
