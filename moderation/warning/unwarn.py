@@ -1,4 +1,19 @@
-﻿import discord
+﻿import arrow
+import discord
+from sigma.core.utilities.server_bound_logging import log_event
+from sigma.core.utilities.data_processing import user_avatar
+
+
+def generate_log_embed(message, target):
+    response = discord.Embed(color=0xFF9900, timestamp=arrow.utcnow().datetime)
+    response.set_author(name=f'A User\'s Warnings Have Been Removed', icon_url=user_avatar(target))
+    response.add_field(name='⚠ Unwarned User',
+                       value=f'{target.mention}\n{target.name}#{target.discriminator}', inline=True)
+    author = message.author
+    response.add_field(name='🛡 Responsible',
+                       value=f'{author.mention}\n{author.name}#{author.discriminator}', inline=True)
+    response.set_footer(text=f'UserID: {target.id}')
+    return response
 
 
 async def unwarn(cmd, message, args):
@@ -15,6 +30,8 @@ async def unwarn(cmd, message, args):
                 del guild_warnings[uid]
                 cmd.db.set_guild_settings(message.guild.id, 'WarnedUsers', guild_warnings)
                 response = discord.Embed(color=0x77B255, title=f'✅ {target.name}\'s warnings have been cleared.')
+                log_embed = generate_log_embed(message, target)
+                await log_event(cmd.db, message.guild, log_embed)
             else:
                 response = discord.Embed(color=0x696969, title='🔍 User does not have any warnings.')
         else:
