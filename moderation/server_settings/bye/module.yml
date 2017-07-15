@@ -49,3 +49,8 @@ events:
     type:         member_remove
     global:       true
     enabled:      true
+
+  - name:         leave_logger
+    type:         member_remove
+    global:       true
+    enabled:      true

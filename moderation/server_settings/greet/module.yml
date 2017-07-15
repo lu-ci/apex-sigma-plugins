@@ -56,3 +56,8 @@ events:
     type:         member_join
     global:       true
     enabled:      true
+
+  - name:         join_logger
+    type:         member_join
+    global:       true
+    enabled:      true
