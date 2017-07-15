@@ -1,4 +1,19 @@
-﻿import discord
+﻿import arrow
+import discord
+from sigma.core.utilities.server_bound_logging import log_event
+from sigma.core.utilities.data_processing import user_avatar
+
+
+def generate_log_embed(message, target):
+    log_response = discord.Embed(color=0x993300, timestamp=arrow.utcnow().datetime)
+    log_response.set_author(name=f'A User Has Been Unbanned', icon_url=user_avatar(target))
+    log_response.add_field(name='🔨 Unbanned User',
+                           value=f'{target.mention}\n{target.name}#{target.discriminator}', inline=True)
+    author = message.author
+    log_response.add_field(name='🛡 Responsible',
+                           value=f'{author.mention}\n{author.name}#{author.discriminator}', inline=True)
+    log_response.set_footer(text=f'UserID: {target.id}')
+    return log_response
 
 
 async def unban(cmd, message, args):
@@ -13,6 +28,8 @@ async def unban(cmd, message, args):
                     break
             if target:
                 await message.guild.unban(target, reason=f'By {message.author.name}.')
+                log_embed = generate_log_embed(message, target)
+                await log_event(cmd.db, message.guild, log_embed)
                 response = discord.Embed(title=f'✅ {target.name} has been unbanned.', color=0x77B255)
             else:
                 response = discord.Embed(title=f'🔍 {lookup} not found in the ban list.')
