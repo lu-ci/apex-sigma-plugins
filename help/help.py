@@ -11,6 +11,8 @@ async def help(cmd, message, args):
             response = discord.Embed(color=0x1B6F5F, title=f'📄 {command.name.upper()} Usage and Information')
             response.add_field(name='Usage Example', value=f'`{command.usage}`', inline=False)
             response.add_field(name='Command Description', value=f'```\n{command.desc}\n```', inline=False)
+            if command.alts:
+                response.add_field(name='Command Aliases', value=f'```\n{", ".join(command.alts)}\n```')
         else:
             response = discord.Embed(color=0x696969, title='🔍 No such command was found...')
     else:
