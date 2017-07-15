@@ -1,6 +1,21 @@
-﻿import discord
+﻿import arrow
+import discord
 from sigma.core.utilities.permission_processing import hierarchy_permit
+from sigma.core.utilities.server_bound_logging import log_event
 from sigma.core.utilities.data_processing import user_avatar
+
+
+def generate_log_embed(message, target, reason):
+    log_response = discord.Embed(color=0xc1694f, timestamp=arrow.utcnow().datetime)
+    log_response.set_author(name=f'A User Has Been Kicked', icon_url=user_avatar(target))
+    log_response.add_field(name='👢 Kicked User',
+                           value=f'{target.mention}\n{target.name}#{target.discriminator}', inline=True)
+    author = message.author
+    log_response.add_field(name='🛡 Responsible',
+                           value=f'{author.mention}\n{author.name}#{author.discriminator}', inline=True)
+    log_response.add_field(name='📄 Reason', value=f"```\n{reason}\n```", inline=False)
+    log_response.set_footer(text=f'UserID: {target.id}')
+    return log_response
 
 
 async def kick(cmd, message, args):
@@ -27,6 +42,8 @@ async def kick(cmd, message, args):
                         except discord.ClientException:
                             pass
                         await target.kick(reason=f'By {message.author.name}: {reason}')
+                        log_embed = generate_log_embed(message, target, reason)
+                        await log_event(cmd.db, message.guild, log_embed)
                     else:
                         response = discord.Embed(title='⛔ Can\'t kick someone equal or above you.', color=0xBE1931)
                 else:
