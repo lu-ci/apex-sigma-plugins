@@ -16,6 +16,17 @@ commands:
       Searches for, and outputs, a prime's drop location.
       Relics that are vaulted will be marked with an asterisk.
 
+  - name:         wfpricecheck
+    alts:
+      - "wfpc"
+      - "wfmarket"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} Blind Rage"
+    description:
+      Checks the price for the searched item.
+      This will only list items by members that are currently online and in the game.
+
   - name:         wfalerts
     alts:
       - "wfa"
