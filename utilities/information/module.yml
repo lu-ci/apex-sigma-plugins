@@ -1,0 +1,43 @@
+name:             Information Utilities
+
+category:         utility
+
+enabled:          true
+
+commands:
+  - name:         userinformation
+    alts:
+      - "userinfo"
+      - "uinfo"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Shows various information and data on the mentioned user.
+      If no user is mentioned, it will show data for the message author.
+
+  - name:         channelinformation
+    alts:
+      - "channelinfo"
+      - "chinfo"
+      - "cinfo"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} #channel"
+    description:
+      Shows various information and data on the mentioned channel.
+      If no user is mentioned,
+      it will show data for the channel the command is written in.
+
+  - name:         serverinformation
+    alts:
+      - "guildinformation"
+      - "serverinfo"
+      - "guildinfo"
+      - "sinfo"
+      - "ginfo"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows various information and data of the server the command is used in.
