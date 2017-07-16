@@ -183,7 +183,7 @@ async def wftrials(cmd, message, args):
                 response.add_field(name='Nightmare LoR', value=lornm_desc)
                 response.add_field(name='Jordas Verdict', value=jv_desc)
                 response.add_field(name='Total Trials', value=total_desc)
-            except:
+            except Exception:
                 response = discord.Embed(color=0xFF9900,
                                          title=f'⚠ Stats for {username} were found but cotained errors.')
         await message.channel.send(embed=response)

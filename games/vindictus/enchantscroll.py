@@ -28,6 +28,6 @@ async def enchantscroll(cmd, message, args):
                     for location in scroll.other.drop_locations:
                         drop_locations += f'\n- {location}'
                 response.add_field(name='🗺 Drop Locations', value=f'```\n{drop_locations}\n```', inline=False)
-        except:
+        except Exception:
             response = discord.Embed(color=0x696969, title='🔍 Nothing Found')
         await message.channel.send(None, embed=response)

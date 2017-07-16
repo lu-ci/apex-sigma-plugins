@@ -1,0 +1,54 @@
+name:             Profession Minigames
+
+category:         minigames
+
+enabled:          true
+
+commands:
+  - name:         inventory
+    alts:
+     - "bag"
+     - "storage"
+     - "backpack"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} 2 @person"
+    description:
+      Shows your current inventory.
+      The inventory has unlimited slots.
+      You can also specify the page number you want to see.
+      The inventory is sorted by item rarity.
+
+  - name:         inspect
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} Nabfischz"
+    description:
+      Inspects an item that is in your inventory.
+
+  - name:         finditem
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} fish Jitteroon"
+    description:
+      Looks up information about an item.
+      The first argument needs to be the item type.
+      For example if it is a fish, meat, plant or material.
+      And the rest is the name of the item.
+
+  - name:         sell
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} Copula"
+    description:
+      Sells an item from your inventory.
+      Input all instead of the item name to sell your entire inventory.
+
+  - name:         fish
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Cast a lure and try to catch some fish.
+      Each cast costs 20 Kud to cover the expenses of your bait and rod usage.
+      You can fish once every 60 seconds, better not scare the fish away.
