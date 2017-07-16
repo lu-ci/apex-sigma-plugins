@@ -16,7 +16,7 @@ async def grab_item_image(lookup, cut):
             first_img_fail = False
         else:
             first_img_fail = True
-    except:
+    except Exception:
         item_img = None
         first_img_fail = True
     if first_img_fail:
