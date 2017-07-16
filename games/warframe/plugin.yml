@@ -1,0 +1,143 @@
+name: Warframe
+
+categories:
+  - games
+
+enabled: true
+
+commands:
+  - name:    wfwiki
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s} Nekros Prime"
+    description:
+      Searches for a page on the Warframe wikia, outputing the information from the page.
+
+  - name:    wfloc
+    alts:
+      - "wfdrop"
+      - "wfprime"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s} Fragor Prime"
+    description:
+      Searches for prime drop locations.
+
+  - name:    wfalerts
+    alts:
+      - "wfa"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s}"
+    description:
+      Shows the ongoing Warframe alerts.
+
+  - name:    wfsortie
+    alts:
+      - "wfs"
+      - "wfsorties"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s}"
+    description:
+      Shows the ongoing Warframe sortie missions.
+
+  - name:    wffissures
+    alts:
+      - "wff"
+      - "wffisure"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s}"
+    description:
+      Shows the ongoing Warframe void fissures.
+
+  - name:    wftrials
+    alts:
+      - "wft"
+      - "wftrial"
+      - "wfraids"
+      - "wfr"
+      - "wfraid"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s} AXAz0r"
+    description:
+      Shows the raid statistics of the inputted user.
+
+  - name:    wfpricecheck
+    alts:
+      - "wfpc"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s} Tigris Prime Blueprint"
+    description:
+      Checks the price for the searched item.
+      This will only list items by members that are currently online and in the game.
+
+  - name:    wfalertchannel
+    alts:
+      - "wfac"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s} #wf_alerts"
+    description:
+      Designates a channel for Warframe alerts.
+      When a new alert shows up the news will be posted here.
+      To disable this, write disable after the command instead of a channel.
+
+  - name:    wffissurechannel
+    alts:
+      - "wffc"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s} #wf_fissures"
+    description:
+      Designates a channel for Warframe void fissures.
+      When a new void fissure shows up the news will be posted here.
+      To disable this, write disable after the command instead of a channel.
+
+  - name:    wfsortiechannel
+    alts:
+      - "wfsc"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s} #wf_sorties"
+    description:
+      Designates a channel for Warframe sorties.
+      When a new sortie shows up the news will be posted here.
+      To disable this, write disable after the command instead of a channel.
+
+  - name:    wftag
+    alts:
+      - "wfalerttag"
+      - "wfalertnotify"
+      - "wfnotify"
+      - "wfbind"
+    global:  true
+    enabled: true
+    sfw:     true
+    usage:   "{pfx:s}{cmd:s} alert Alertium"
+    description:
+      Binds a certain keyword from alerts and invasions.
+      When this keyword appears during an event a role will be mentioned.
+
+events:
+  - name:    wf_clockwork
+    type:    ready
+    global:  true
+    enabled: true
+    sfw:     true
+    pmable:  true
+    description:
+      Checks for channels that need Warframe news delivered.
