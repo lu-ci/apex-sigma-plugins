@@ -47,7 +47,7 @@ async def remind(cmd, message, args):
             cmd.db[cmd.db.db_cfg.database]['Reminders'].insert_one(reminder_data)
             response = discord.Embed(color=0x66CC66, timestamp=timestamp)
             response.set_author(name='New Reminder Set', icon_url=user_avatar(message.author))
-            response.add_field(name='🕑 Until Reminder', value=time_diff.title(), inline=False)
+            response.add_field(name='🕑 Reminder Executes', value=time_diff.title(), inline=False)
             response.add_field(name='🗒 Reminder Message', value=text_message, inline=False)
         except LookupError:
             response = discord.Embed(color=0xDB0000, title='❗ Please use the format HH:MM:SS.')
