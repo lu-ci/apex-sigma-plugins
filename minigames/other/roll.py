@@ -1,4 +1,4 @@
-﻿import random
+﻿import secrets
 import discord
 
 
@@ -12,7 +12,7 @@ async def roll(cmd, message, args):
             return
     else:
         endrange = 100
-    number = random.randint(1, endrange)
+    number = secrets.randbelow(endrange) + 1
     num = str(number)
     if len(num) > 1950:
         num = num[:1950] + '...'

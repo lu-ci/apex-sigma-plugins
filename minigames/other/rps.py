@@ -1,4 +1,4 @@
-﻿import random
+﻿import secrets
 import discord
 
 
@@ -8,7 +8,7 @@ async def rps(cmd, message, args):
         return
     else:
         sign_list = ['rock', 'paper', 'scissors']
-        my_choice = random.choice(sign_list)
+        my_choice = secrets.choice(sign_list)
         if args[0].lower().startswith('r'):
             their_choice = 'rock'
             counter = 'paper'
