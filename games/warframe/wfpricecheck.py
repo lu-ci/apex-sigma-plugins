@@ -88,5 +88,5 @@ async def wfpricecheck(cmd, message, args):
         response = discord.Embed(color=0x696969, title=f'🔍 Nothing Inputted.')
     try:
         await init_resp_msg.edit(embed=response)
-    except:
+    except Exception:
         pass

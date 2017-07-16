@@ -29,10 +29,10 @@ async def search_for_scroll(scroll_name):
             stats.append(' '.join(span_list))
         try:
             other = first_method(outer_content)
-        except:
+        except Exception:
             try:
                 other = second_method(outer_content)
-            except:
+            except Exception:
                 other = None
 
     return Scroll
@@ -46,7 +46,7 @@ def first_method(outer_content):
                 drop_locations.append(list_item.text_content())
             success_chance = outer_content[6].text_content().split('\n')[0].split(': ')[1]
             destruction_chance = outer_content[6].text_content().split('\n')[1].split(': ')[1]
-        except:
+        except Exception:
             for list_item in outer_content[5]:
                 drop_locations.append(list_item.text_content())
             success_chance = outer_content[7].text_content().split('\n')[0].split(': ')[1]
