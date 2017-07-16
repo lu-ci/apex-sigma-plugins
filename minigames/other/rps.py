@@ -4,8 +4,8 @@ import discord
 
 async def rps(cmd, message, args):
     if not args:
-        await message.channel.send(cmd.help())
-        return
+        embed = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        await message.channel.send(None, embed=embed)
     else:
         sign_list = ['rock', 'paper', 'scissors']
         my_choice = secrets.choice(sign_list)
@@ -19,7 +19,8 @@ async def rps(cmd, message, args):
             their_choice = 'scissors'
             counter = 'rock'
         else:
-            await message.channel.send('Unrecognized sign choice.')
+            embed = discord.Embed(color=0xDB0000, title='❗ Unrecognized sign.')
+            await message.channel.send(None, embed=embed)
             return
         if my_choice == their_choice:
             embed = discord.Embed(color=0xFF9900, title=':fire: It\'s a draw!')
