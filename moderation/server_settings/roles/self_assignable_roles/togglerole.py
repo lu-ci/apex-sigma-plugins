@@ -1,5 +1,5 @@
 ﻿import discord
-from sigma.core.utilities.role_processing import matching_role
+from sigma.core.utilities.role_processing import matching_role, user_matching_role
 
 
 async def togglerole(cmd, message, args):
@@ -11,8 +11,14 @@ async def togglerole(cmd, message, args):
             if selfroles is None:
                 selfroles = []
             if target_role.id in selfroles:
-                await message.author.add_roles(target_role, reason='Role self assigned.')
-                response = discord.Embed(color=0x77B255, title=f'✅ {target_role.name} has been added to you.')
+                user_role_match = user_matching_role(message.author, target_role.name)
+                if not user_role_match:
+                    await message.author.add_roles(target_role, reason='Role self assigned.')
+                    response = discord.Embed(color=0x77B255, title=f'✅ {target_role.name} has been **added** to you.')
+                else:
+                    await message.author.remove_roles(target_role, reason='Role self assigned.')
+                    response = discord.Embed(color=0x77B255,
+                                             title=f'✅ {target_role.name} has been **removed** from you.')
             else:
                 response = discord.Embed(color=0xFF9900, title=f'⚠ {target_role} is not self assignable.')
         else:
