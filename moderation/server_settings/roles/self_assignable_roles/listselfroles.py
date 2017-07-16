@@ -8,7 +8,7 @@ async def listselfroles(cmd, message, args):
         for role in self_roles:
             if role == srv_role.id:
                 role_list.append(srv_role.name)
-    if role_list == '':
+    if not role_list:
         embed = discord.Embed(type='rich', color=0x3B88C3, title='ℹ No Self Assignable Roles Set')
     else:
         rl_out = ''
