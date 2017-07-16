@@ -1,0 +1,44 @@
+name:             Internal Statistics
+
+category:         statistics
+
+enabled:          true
+
+commands:
+  - name:         wallet
+    alts:
+      - "currency"
+      - "money"
+      - "kud"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Shows how much of Sigma's internal currency you currently have.
+      As well as how much you've earned on the current server and in total.
+      Kud is earned by being an active member of the community.
+      Yes, this is meant to be vague.
+
+  - name:         experience
+    alts:
+      - "activity"
+      - "level"
+      - "exp"
+      - "xp"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Shows how much of Sigma's internal experience you obtained.
+      Experience is earned by being an active member of the community.
+      Yes, this is meant to be vague.
+
+  - name:         profile
+    alts:
+      - "mystats"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Shows Sigma's statistics for the mentioned user.
+      Their current experience, level and most used commands.
