@@ -31,11 +31,8 @@ commands:
 
   - name:         serverinformation
     alts:
-      - "guildinformation"
       - "serverinfo"
-      - "guildinfo"
       - "sinfo"
-      - "ginfo"
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd}"

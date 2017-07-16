@@ -1,0 +1,26 @@
+name:             Image Utilities
+
+category:         utility
+
+enabled:          true
+
+commands:
+  - name:         avatar
+    alts:
+      - "av"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Shows the mentioned user's avatar.
+      If no user is mentioned, it shows the author's avatar.
+
+  - name:         servericon
+    alts:
+      - "srvicon"
+      - "icon"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows the server's icon image.
