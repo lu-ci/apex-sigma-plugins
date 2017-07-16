@@ -1,0 +1,24 @@
+name:             Reminder Functions
+
+category:         miscelanous
+
+enabled:          true
+
+commands:
+  - name:         remind
+    alts:
+      - "remindme"
+      - "setreminder"
+      - "alarm"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} 1:03:15 LEEEEROOOOY JEEEEEENKIIIIINS!"
+    description:
+      Sets a timer that will mention the author when it's done.
+      The time format is H:M:S. You can technically type 999:999:999.
+      Really no limit to that.
+
+events:
+  - name:    reminder_clockwork
+    type:    ready
+    enabled: true
