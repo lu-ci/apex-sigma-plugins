@@ -41,3 +41,13 @@ commands:
     usage:        "{pfx}{cmd}"
     description:
       Shows various information and data of the server the command is used in.
+
+  - name:         permissions
+    alts:
+      - "perms"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Shows which permissions a user has and which they do not.
+      If no user is mentioned, it will target the message author.
