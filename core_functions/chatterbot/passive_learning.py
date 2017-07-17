@@ -4,7 +4,7 @@ temp_msg_storage = {}
 
 
 def check_for_bot_prefixes(pfx, text):
-    common_pfx = [pfx, '!', '/', '\\', '~', '.', '>', '-', '_']
+    common_pfx = [pfx, '!', '/', '\\', '~', '.', '>', '-', '_', '?']
     prefixed = False
     for pfx in common_pfx:
         if text.startswith(pfx):
