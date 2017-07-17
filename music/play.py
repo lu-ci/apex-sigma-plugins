@@ -40,6 +40,7 @@ async def play(cmd, message, args):
                 while message.guild.voice_client.is_playing():
                     await asyncio.sleep(3)
             response = discord.Embed(color=0x0099FF, title='🎵 Queue done.')
+            await message.guild.voice_client.disconnect()
         else:
             if not args:
                 response = discord.Embed(title='❗ Already playing music.', color=0xDB0000)
