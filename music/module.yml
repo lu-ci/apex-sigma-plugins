@@ -1,0 +1,37 @@
+name:             Music Commands
+
+category:         music
+
+enabled:          true
+
+commands:
+  - name:         queue
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} Muzzy Spectrum"
+    description:
+      Adds a YouTube song to the queue either by name or URL.
+
+  - name:         play
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} Ryder or Riot"
+    description:
+      Plays the queue.
+      If arguments are inputted, it will queue that song too.
+
+  - name:         stop
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Disconnects the bot from it's music channel.
+
+  - name:         skip
+    alts:
+      - "next"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Skips the currently playing song.
