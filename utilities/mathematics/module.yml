@@ -39,3 +39,18 @@ commands:
     usage:        "{pfx}{cmd} Fill my mouth with spaghetti, senpai!"
     description:
       Sentimental analysis of the given text.
+
+  - name:         collectchain
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Collects messages sent by the mentioned user and saves it as a chain.
+      Only one person can use the command at the time due to the processing load it takes.
+
+  - name:         impersonate
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Tries to impersonate the mentioned user if a chain file for them exists.

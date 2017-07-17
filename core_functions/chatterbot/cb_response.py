@@ -1,4 +1,8 @@
 from sigma.plugins.core_functions.chatterbot.nodes.cb_instance_storage import get_cb
+from concurrent.futures import ThreadPoolExecutor
+import functools
+
+threads = ThreadPoolExecutor(max_workers=2)
 
 
 async def cb_response(ev, message):
@@ -14,7 +18,7 @@ async def cb_response(ev, message):
             if message.mentions:
                 for mnt in message.mentions:
                     interaction = interaction.replace(mnt.mention, mnt.name)
-            response = str(cb.get_response(interaction))
+            response = str(await ev.bot.loop.run_in_executor(threads, functools.partial(cb.get_response, interaction)))
             if not response.endswith(('.' or '?' or '!')):
                 response += '.'
             await message.channel.send(message.author.mention + ' ' + response)
