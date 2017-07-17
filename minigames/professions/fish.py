@@ -10,7 +10,7 @@ async def fish(cmd, message, args):
         cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
         kud = cmd.db.get_currency(message.author, message.guild)
         if kud['current'] >= 20:
-            cmd.db.rmv_currency(message.guild, message.author, 20)
+            cmd.db.rmv_currency(message.author, message.guild, 20)
             rarity = roll_rarity()
             if args:
                 if message.author.id in cmd.bot.cfg.dsc.owners:
