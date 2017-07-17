@@ -11,10 +11,10 @@ commands:
     permissions:
       rating:     0
       dmable:     true
-    usage:        "{pfx}{cmd} 150 @person"
+    usage:        "{pfx}{cmd} fish"
     description:
-      Awards the mentioned user with the inputted amount of currency.
-      The currency goes first and then the user mention as shown in the example.
+      Provides the link to Sigma's website and support server.
+      As well as show information about a command if something in inputted.
 
   - name:         modules
     global:       true
