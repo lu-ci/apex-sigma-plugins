@@ -9,7 +9,7 @@ async def wanikanisave(cmd, message, args):
     if args:
         api_key = ''.join(args)
         api_document = cmd.db[cmd.db.db_cfg.database]['WaniKani'].find_one({'UserID': message.author.id})
-        data = {'UserID': message.author.id, 'Key': api_key}
+        data = {'UserID': message.author.id, 'WKAPIKey': api_key}
         if api_document:
             ender = 'updated'
             cmd.db[cmd.db.db_cfg.database]['WaniKani'].update_one({'UserID': message.author.id}, {'$set': data})

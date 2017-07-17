@@ -12,7 +12,7 @@ async def wanikani(cmd, message, args):
     api_document = cmd.db[cmd.db.db_cfg.database]['WaniKani'].find_one({'UserID': target.id})
     if api_document:
         try:
-            api_key = api_document['Key']
+            api_key = api_document['WKAPIKey']
             url = f'https://www.wanikani.com/api/user/{api_key}'
             async with aiohttp.ClientSession() as session:
                 async with session.get(url + '/srs-distribution') as data:
