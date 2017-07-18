@@ -25,6 +25,13 @@ commands:
       This will be bound to your server and you can set it to anything you'd like.
       However, the prefix can not contain spaces. They will be automatically removed.
 
+  - name:         unflip
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Toggles if Sigma should respond to tables being flipped.
+
   - name:         deletecommands
     alts:
       - "delcmds"

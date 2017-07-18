@@ -1,0 +1,11 @@
+name:             Table Unflipping
+
+category:         miscelanous
+
+enabled:          true
+
+events:
+  - name:         table_unflipper
+    type:         message
+    global:       true
+    enabled:      true
