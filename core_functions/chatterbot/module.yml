@@ -24,7 +24,7 @@ events:
   - name:        cb_response
     type:        mention
     global:      true
-    enabled:     true
+    enabled:     false
     permissions:
       rating:    0
       dmable:    true
