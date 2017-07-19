@@ -1,52 +1,128 @@
+﻿import time
 import discord
 import asyncio
-import datetime
 from sigma.core.utilities.data_processing import user_avatar
+from sigma.core.utilities.stats_processing import add_special_stats
+from .init_clock import init_clock
+
+
+def get_voice_members_count(voice_channel):
+    member_count = 0
+    for member in voice_channel.members:
+        if not member.bot:
+            if not member.voice.deaf:
+                if not member.voice.self_deaf:
+                    member_count += 1
+    return member_count
+
+
+def music_is_ongoing(cmd, sid, voice_instance):
+    queue_exists = cmd.bot.music.get_queue(sid)
+    gueue_empty = cmd.bot.music.get_queue(sid).empty()
+    if voice_instance:
+        voice_member_count = get_voice_members_count(voice_instance.channel)
+    else:
+        voice_member_count = 0
+    if queue_exists and gueue_empty is not True and voice_member_count != 0:
+        ongoing = True
+    else:
+        ongoing = False
+    return ongoing
 
 
 async def play(cmd, message, args):
     if args:
-        await cmd.bot.modules.commands['queue'].execute(message, args)
-    queue = cmd.bot.music.get_queue(message.guild)
-    voice = message.guild.me.voice
-    if not voice or not message.guild.voice_client:
-        author_voice = message.author.voice
-        if author_voice:
-            can_connect = message.guild.me.permissions_in(message.author.voice.channel).connect
-            can_talk = message.guild.me.permissions_in(message.author.voice.channel).speak
-            if can_connect and can_talk:
-                await author_voice.channel.connect()
-            else:
-                title = f'❗ I am not allowed to join {message.author.voice.channel.name}.'
-                embed = discord.Embed(title=title, color=0xDB0000)
-                await message.channel.send(None, embed=embed)
-                return
-        else:
-            response = discord.Embed(color=0xDB0000, title='❗ You are not in a voice channel.')
-            await message.channel.send(embed=response)
+        task = cmd.bot.modules.commands['queue'].execute(message, args)
+        await task
+    if message.guild.id not in cmd.bot.music.initializing:
+        bot_voice = message.guild.voice_client
+        if not message.author.voice:
+            embed = discord.Embed(title='⚠ I don\'t see you in a voice channel', color=0xFF9900)
+            await message.channel.send(None, embed=embed)
             return
-    if not queue.empty():
-        if message.guild.voice_client and not message.guild.voice_client.is_playing():
-            while not cmd.bot.music.get_queue(message.guild).empty():
-                item = await cmd.bot.music.get_from_queue(message.guild)
-                song_info = await cmd.bot.music.play(message.guild, item)
-                embed = discord.Embed(color=0x0099FF)
-                embed.add_field(name='🎵 Now Playing', value=song_info['title'])
-                embed.set_thumbnail(url=song_info['thumbnail'])
-                author_name = f'{item["requester"].name}#{item["requester"].discriminator}'
-                embed.set_author(name=author_name, icon_url=user_avatar(item['requester']), url=item['url'])
-                embed.set_footer(text=f'Duration: {str(datetime.timedelta(seconds=item["duration"]))}')
-                await message.channel.send(embed=embed)
-                while message.guild.voice_client.is_playing():
-                    await asyncio.sleep(3)
-            response = discord.Embed(color=0x0099FF, title='🎵 Queue done.')
-            await message.guild.voice_client.disconnect()
-        else:
-            if not args:
-                response = discord.Embed(title='❗ Already playing music.', color=0xDB0000)
+        srv_queue = cmd.bot.music.get_queue(message.guild.id)
+        if srv_queue.empty():
+            embed = discord.Embed(
+                title='⚠ The queue is empty', color=0xFF9900)
+            await message.channel.send(None, embed=embed)
+            return
+        cmd.bot.music.add_init(message.guild.id)
+        cmd.bot.loop.create_task(init_clock(cmd.bot.music, message.guild.id))
+        if not bot_voice:
+            try:
+                try:
+                    can_connect = message.guild.me.permissions_in(message.author.voice.channel).connect
+                    can_talk = message.guild.me.permissions_in(message.author.voice.channel).speak
+                    if can_connect and can_talk:
+                        bot_voice = await message.author.voice.channel.connect()
+                    else:
+                        embed = discord.Embed(title=f'⚠ I am not allowed to join {message.author.voice.channel.name}.',
+                                              color=0xFF9900)
+                        await message.channel.send(None, embed=embed)
+                        return
+                except discord.ClientException:
+                    bot_voice = None
+                    for voice_instance in cmd.bot.voice_clients:
+                        if voice_instance.guild.id == message.guild.id:
+                            bot_voice = voice_instance
+                embed = discord.Embed(title='✅ Joined ' + message.author.voice.channel.name,
+                                      color=0x66cc66)
+            except SyntaxError as e:
+                cmd.log.error(f'ERROR: {e} | TRACE: {e.with_traceback}')
+                embed = discord.Embed(color=0xDB0000)
+                embed.add_field(name='❗ I was unable to connect.',
+                                value='The most common cause is your server being too far or a poor connection.')
+            await message.channel.send(None, embed=embed)
+        if bot_voice:
+            if bot_voice.is_playing():
+                if not args:
+                    embed = discord.Embed(
+                        title=f'⚠ Already playing in {message.guild.get_member(cmd.bot.user.id).voice.channel.name}',
+                        color=0xFF9900)
+                    await message.channel.send(None, embed=embed)
+                    return
+        while music_is_ongoing(cmd, message.guild.id, message.guild.me.voice):
+            item = await cmd.bot.music.get_from_queue(message.guild.id)
+            if message.guild.id in cmd.bot.music.repeaters:
+                await cmd.bot.music.add_to_queue(message.guild.id, item)
+            cmd.bot.music.currents.update({message.guild.id: item})
+            sound = item['sound']
+            try:
+                await cmd.bot.music.make_player(bot_voice, item)
+            except Exception:
+                pass
+            add_special_stats(cmd.db, 'songs_played')
+            embed = discord.Embed(color=0x0099FF)
+            if item['type'] == 0:
+                embed.add_field(name='🎵 Now Playing', value=sound.title)
+                embed.set_thumbnail(url=sound.thumb)
+                embed.set_author(name=f'{item["requester"].name}#{item["requester"].discriminator}',
+                                 icon_url=user_avatar(item['requester']), url=item['url'])
+                embed.set_footer(text=f'Duration: {sound.duration}')
+            elif item['type'] == 1:
+                embed.add_field(name='🎵 Now Playing', value=sound['title'])
+                embed.set_thumbnail(url=sound['artwork_url'])
+                embed.set_author(name=f'{item["requester"].name}#{item["requester"].discriminator}',
+                                 icon_url=user_avatar(item['requester']), url=item['url'])
+            elif item['type'] == 2:
+                embed.add_field(name='🎵 Now Playing', value=f"{sound['artist']} - {sound['title']}")
+                embed.set_thumbnail(url=sound['thumbnail'])
+                embed.set_author(name=f'{item["requester"].name}#{item["requester"].discriminator}',
+                                 icon_url=user_avatar(item['requester']), url=item['url'])
+                duration = f'Duration: {time.strftime("%H:%M:%S", time.gmtime(int(item["sound"]["duration"])))}'
+                embed.set_footer(text=duration)
             else:
-                response = None
+                return
+            await message.channel.send(None, embed=embed)
+            while bot_voice.is_playing():
+                await asyncio.sleep(2)
+        try:
+            await bot_voice.disconnect()
+        except discord.ClientException:
+            pass
+        try:
+            del cmd.bot.music.currents[message.guild.id]
+        except Exception:
+            pass
     else:
-        response = discord.Embed(title='❗ The queue is empty.', color=0xDB0000)
-    if response:
-        await message.channel.send(embed=response)
+        cmd.log.warning('Play Command Ignored Due To Server Being In The Music Initialization List')

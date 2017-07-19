@@ -5,33 +5,83 @@ category:         music
 enabled:          true
 
 commands:
-  - name:         queue
-    global:       true
-    enabled:      true
-    usage:        "{pfx}{cmd} Muzzy Spectrum"
-    description:
-      Adds a YouTube song to the queue either by name or URL.
-
   - name:         play
     global:       true
     enabled:      true
-    usage:        "{pfx}{cmd} Ryder or Riot"
+    usage:        "{pfx}{cmd} Kaskade Disarm You Illenium Remix"
     description:
-      Plays the queue.
-      If arguments are inputted, it will queue that song too.
+      Tells the bot to start playing the songs in the queue.
+      You can also use this command instead of queue to add songs.
+      As well as adding playlist, however playlists are limited to 200 items.
+      And only items under 10 minutes will be added.
+      If nothing is playing, it will play that song.
 
-  - name:         stop
+  - name:         pause
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} hi"
+    description:
+      Pauses the music player.
+
+  - name:         resume
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} hi"
+    description:
+      Resumes the music player.
+
+  - name:         queue
+    alts:
+      - "add"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} Waterborne"
+    description:
+      Adds a song or playlist to the playing queue either by URL or Name.
+      Only up to 200 items will be retrieved from a playlist.
+      And only items under 10 minutes will be added.
+
+  - name:         repeat
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
-      Disconnects the bot from it's music channel.
+      Toggles if the queue should be repeated.
+      Please use the repeat command before starting a song.
+      It will not count the currently playing one.
 
   - name:         skip
-    alts:
-      - "next"
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
       Skips the currently playing song.
+
+  - name:         disconnect
+    alts:
+      - "stop"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Stops the currently playing song.
+      Disconnects Sigma from the voice channel.
+      And purges the queue.
+
+  - name:         nowplaying
+    alts:
+      - "np"
+      - "playing"
+      - "currentsong"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Displays the information regarding the currently playing item.
+
+  - name:         shuffle
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shuffles up the current song queue.
