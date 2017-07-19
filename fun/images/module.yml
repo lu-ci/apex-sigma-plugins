@@ -22,6 +22,9 @@ commands:
       Cutest, loyalest little woofers.
 
   - name:         kitsunemimi
+    alts:
+      - "kon"
+      - "fluffytail"
     global:       true
     enabled:      true
     permissions:
@@ -34,6 +37,9 @@ commands:
       The command rating is naturally set to "Borderline".
 
   - name:         nekomimi
+    alts:
+      - "neko"
+      - "nyaa"
     global:       true
     enabled:      true
     permissions:
