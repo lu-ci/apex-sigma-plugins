@@ -25,7 +25,7 @@ async def impersonate(cmd, message, args):
                     sentence = ftfy.fix_text(sentence)
                     response = discord.Embed(color=0xbdddf4)
                     response.set_author(name=target.name, icon_url=user_avatar(target))
-                    response.add_field(name='💭 Hmm... something like...', value=f'```\n{sentence}\n```')
+                    response.add_field(name='💭 Hmm... something like...', value=sentence)
             else:
                 response = discord.Embed(color=0x696969)
                 prefix = cmd.bot.get_prefix(message)
