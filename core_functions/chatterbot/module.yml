@@ -9,22 +9,14 @@ events:
     type:        message
     global:      true
     enabled:     true
-    permissions:
-      rating:    0
-      dmable:    true
 
   - name:        startup_check
     type:        ready
     global:      true
     enabled:     true
-    permissions:
-      rating:    0
-      dmable:    true
 
   - name:        cb_response
     type:        mention
     global:      true
-    enabled:     false
-    permissions:
-      rating:    0
-      dmable:    true
+    enabled:     true
+

@@ -4,7 +4,7 @@ temp_msg_storage = {}
 
 
 def check_for_bot_prefixes(pfx, text):
-    common_pfx = [pfx, '!', '/', '\\', '~', '.', '>', '-', '_', '?']
+    common_pfx = [pfx, '!', '/', '\\', '~', '.', '>', '-', '_', '?', ';']
     prefixed = False
     for pfx in common_pfx:
         if text.startswith(pfx):
@@ -57,8 +57,9 @@ async def passive_learning(ev, message):
                     if uid == data['uid']:
                         data.update({'text': (data['text'] + f' {content}')})
                     else:
-                        response_list = [data['text'], content]
-                        cb.train(response_list)
+                        if len(data['text']) < 256 and len(content) < 256:
+                            response_list = [data['text'], content]
+                            cb.train(response_list)
                         del temp_msg_storage[cid]
                 else:
                     del temp_msg_storage[cid]
