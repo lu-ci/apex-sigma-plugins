@@ -43,29 +43,31 @@ def clean_content(message):
 
 
 async def passive_learning(ev, message):
-    if message.guild:
-        db_cfg = ev.bot.cfg.db
-        cb = get_cb(db_cfg)
-        applicable = check_applicable_content(ev, message)
-        if applicable:
-            content = clean_content(message)
-            cid = message.channel.id
-            uid = message.author.id
-            if cid in temp_msg_storage:
-                data = temp_msg_storage[cid]
-                if data:
-                    if uid == data['uid']:
-                        data.update({'text': (data['text'] + f' {content}')})
+    db_size = ev.db['chatterbot']['statements'].count()
+    if db_size < 10000:
+        if message.guild:
+            db_cfg = ev.bot.cfg.db
+            cb = get_cb(db_cfg)
+            applicable = check_applicable_content(ev, message)
+            if applicable:
+                content = clean_content(message)
+                cid = message.channel.id
+                uid = message.author.id
+                if cid in temp_msg_storage:
+                    data = temp_msg_storage[cid]
+                    if data:
+                        if uid == data['uid']:
+                            data.update({'text': (data['text'] + f' {content}')})
+                        else:
+                            if len(data['text']) < 256 and len(content) < 256:
+                                response_list = [data['text'], content]
+                                cb.train(response_list)
+                            del temp_msg_storage[cid]
                     else:
-                        if len(data['text']) < 256 and len(content) < 256:
-                            response_list = [data['text'], content]
-                            cb.train(response_list)
                         del temp_msg_storage[cid]
                 else:
-                    del temp_msg_storage[cid]
-            else:
-                data = {
-                    'uid': uid,
-                    'text': content
-                }
-                temp_msg_storage.update({cid: data})
+                    data = {
+                        'uid': uid,
+                        'text': content
+                    }
+                    temp_msg_storage.update({cid: data})
