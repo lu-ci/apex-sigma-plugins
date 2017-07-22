@@ -24,7 +24,7 @@ async def permitchannel(cmd, message, args):
                         check_alts = True
                     elif perm_mode == 'm':
                         exception_group = 'ModuleExceptions'
-                        check_group = cmd.bot.modules.category_list
+                        check_group = cmd.bot.modules.categories
                         check_alts = False
                     else:
                         await message.channel.send(embed=error_response)
