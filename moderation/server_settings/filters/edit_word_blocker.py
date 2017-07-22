@@ -2,7 +2,7 @@ import discord
 from .cleaners import clean_content
 
 
-async def send_word_blocker(ev, before, after):
+async def edit_word_blocker(ev, before, after):
     if after.guild:
         text = clean_content(after.content)
         elements = text.split(' ')
