@@ -4,7 +4,7 @@ from .cleaners import clean_content
 
 async def send_word_blocker(ev, message):
     if message.guild:
-        text = clean_content(message.content)
+        text = clean_content(message.content.lower())
         elements = text.split(' ')
         blocked_words = ev.db.get_guild_settings(message.guild.id, 'BlockedWords')
         if blocked_words is None:

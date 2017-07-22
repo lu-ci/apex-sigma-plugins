@@ -4,7 +4,7 @@ from .cleaners import clean_content
 
 async def edit_word_blocker(ev, before, after):
     if after.guild:
-        text = clean_content(after.content)
+        text = clean_content(after.content.lower())
         elements = text.split(' ')
         blocked_words = ev.db.get_guild_settings(after.guild.id, 'BlockedWords')
         if blocked_words is None:
