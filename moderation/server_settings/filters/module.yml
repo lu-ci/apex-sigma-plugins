@@ -1,0 +1,44 @@
+name:             Word Filter Settings
+
+category:         settings
+
+enabled:          true
+
+commands:
+  - name:         blockwords
+    alts:
+      - "blockword"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} crap"
+    description:
+      Adds all the words you list to the blocked words filter.
+      If any of the words in the filter is sent,
+      the message will be removed and the author will be notified.
+
+  - name:         unblockwords
+    alts:
+      - "unblockword"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} boobs"
+    description:
+      Removes a blocked word allowing people to send messages containing it.
+
+  - name:         blockedwords
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Lists all blocked words on the server.
+
+events:
+  - name:         send_word_blocker
+    type:         message
+    global:       true
+    enabled:      true
+
+  - name:         edit_word_blocker
+    type:         message_edit
+    global:       true
+    enabled:      true
