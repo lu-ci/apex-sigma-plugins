@@ -12,7 +12,7 @@ async def unblockwords(cmd, message, args):
                 if word.lower() in blocked_words:
                     blocked_words.remove(word.lower())
                     removed_words.append(word.lower())
-            cmd.db.get_guild_settings(message.guild.id, 'BlockedWords', blocked_words)
+            cmd.db.set_guild_settings(message.guild.id, 'BlockedWords', blocked_words)
             if removed_words:
                 color = 0x66CC66
                 title = f'✅ I have removed {len(removed_words)} to the blacklist.'
