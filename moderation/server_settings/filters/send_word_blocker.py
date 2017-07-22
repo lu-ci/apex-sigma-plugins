@@ -19,7 +19,8 @@ async def send_word_blocker(ev, message):
         if remove:
             try:
                 await message.delete(reason=f'Contains a blocked word: "{reason}".')
-                to_author = discord.Embed(color=0xFF9900, title=f'Your message was deleted for containing "{reason}".')
+                title = f'🔥 Your message was deleted for containing "{reason}".'
+                to_author = discord.Embed(color=0xFF9900, title=title)
                 try:
                     await message.author.send(embed=to_author)
                 except discord.ClientException:
