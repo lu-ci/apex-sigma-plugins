@@ -1,29 +1,18 @@
-﻿import discord
+import discord
+import datetime
 from sigma.core.utilities.data_processing import user_avatar
+
 
 async def nowplaying(cmd, message, args):
     if message.guild.id in cmd.bot.music.currents:
         item = cmd.bot.music.currents[message.guild.id]
-        sound = item['sound']
-        embed = discord.Embed(color=0x0099FF)
-        embed.set_footer(text='You can click the author to go to the song\'s page.')
-        if item['type'] == 0:
-            embed.add_field(name='🎵 Now Playing', value=sound.title)
-            embed.set_thumbnail(url=sound.thumb)
-            embed.set_author(name=f'{item["requester"].name}#{item["requester"].discriminator}',
-                             icon_url=user_avatar(item['requester']), url=item['url'])
-            embed.set_footer(text=f'Duration: {sound.duration}')
-        elif item['type'] == 1:
-            embed.add_field(name='🎵 Now Playing', value=sound['title'])
-            embed.set_thumbnail(url=sound['artwork_url'])
-            embed.set_author(name=f'{item["requester"].name}#{item["requester"].discriminator}',
-                             icon_url=user_avatar(item['requester']), url=item['url'])
-        elif item['type'] == 2:
-            embed.add_field(name='🎵 Now Playing', value=f"{sound['artist']} - {sound['title']}")
-            embed.set_thumbnail(url=sound['thumbnail'])
-            embed.set_author(name=f'{item["requester"].name}#{item["requester"].discriminator}',
-                             icon_url=user_avatar(item['requester']), url=item['url'])
-        await message.channel.send(None, embed=embed)
+        duration = str(datetime.timedelta(seconds=item.duration))
+        author = f'{item.requester.name}#{item.requester.discriminator}'
+        response = discord.Embed(color=0x0099FF)
+        response.add_field(name='🎵 Now Playing', value=item.title)
+        response.set_thumbnail(url=item.thumbnail)
+        response.set_author(name=author, icon_url=user_avatar(item.requester), url=item.url)
+        response.set_footer(text=f'Duration: {duration} | Tip: The author\'s name is a link.')
     else:
-        embed = discord.Embed(color=0x0099FF, title='ℹ No Currently Playing Item')
-        await message.channel.send(None, embed=embed)
+        response = discord.Embed(color=0xDB0000, title='❗ No currently playing song data.')
+    await message.channel.send(embed=response)
