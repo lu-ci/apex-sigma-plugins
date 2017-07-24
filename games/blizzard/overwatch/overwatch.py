@@ -30,7 +30,7 @@ async def overwatch(cmd, message, args):
                     profile_url = f'https://playoverwatch.com/en-us/career/pc/{region}/{battletag.replace("#", "-")}'
                     gen = stats['overall_stats']
                     if gen['prestige']:
-                        gen_section = f'Level: {gen["prestige"]}{gen["level"]}'
+                        gen_section = f'Level: {(gen["prestige"] * 100) + gen["level"]}'
                     else:
                         gen_section = f'Level: {gen["level"]}'
                     gen_section += f'\nGames: {gen["games"]}'
