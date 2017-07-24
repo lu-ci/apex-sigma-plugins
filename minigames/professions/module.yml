@@ -44,6 +44,16 @@ commands:
       Sells an item from your inventory.
       Input all instead of the item name to sell your entire inventory.
 
+  - name:         filtersell
+    alts:
+      - "fsell"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} rarity:Fish"
+    description:
+      Sells all items that have a certain attribute.
+      The accepted attributes are name, type and rarity.
+
   - name:         fish
     global:       true
     enabled:      true
