@@ -39,7 +39,7 @@ async def ban(cmd, message, args):
                         to_target.set_footer(text=f'From: {message.guild.name}.', icon_url=message.guild.icon_url)
                         try:
                             await target.send(embed=to_target)
-                        except discord.ClientException:
+                        except discord.Forbidden:
                             pass
                         await target.ban(reason=f'By {message.author.name}: {reason}')
                         log_embed = generate_log_embed(message, target, reason)
