@@ -26,32 +26,41 @@ async def queue(cmd, message, args):
                     init_response = discord.Embed(color=0xFFCC66, title='💽 Searching...')
                 init_res_msg = await message.channel.send(embed=init_response)
                 extracted_info = await cmd.bot.music.extract_info(lookup)
-                if extracted_info['_type'] == 'playlist':
-                    if not playlist_url:
-                        song_item = extracted_info['entries'][0]
-                        playlist = False
+                if extracted_info:
+                    if '_type' in extracted_info:
+                        if extracted_info['_type'] == 'playlist':
+                            if not playlist_url:
+                                song_item = extracted_info['entries'][0]
+                                playlist = False
+                            else:
+                                song_item = None
+                                playlist = True
+                        else:
+                            song_item = extracted_info
+                            playlist = False
                     else:
-                        song_item = None
-                        playlist = True
+                        song_item = extracted_info
+                        playlist = False
+                    if playlist:
+                        pl_title = extracted_info['title']
+                        entries = extracted_info['entries']
+                        for song_entry in entries:
+                            cmd.bot.music.queue_add(message.guild.id, message.author, song_entry)
+                        final_resp = discord.Embed(color=0xFFCC66,
+                                                   title=f'💽 Added {len(entries)} songs from {pl_title}.')
+                    else:
+                        cmd.bot.music.queue_add(message.guild.id, message.author, song_item)
+                        duration = str(datetime.timedelta(seconds=song_item['duration']))
+                        requester = f'{message.author.name}#{message.author.discriminator}'
+                        final_resp = discord.Embed(color=0x66CC66)
+                        final_resp.add_field(name='✅ Added To Queue', value=song_item['title'])
+                        final_resp.set_thumbnail(url=song_item['thumbnail'])
+                        final_resp.set_author(name=requester, icon_url=user_avatar(message.author))
+                        final_resp.set_footer(text=f'Duration: {duration}')
+                    await init_res_msg.edit(embed=final_resp)
                 else:
-                    song_item = extracted_info
-                    playlist = False
-                if playlist:
-                    pl_title = extracted_info['title']
-                    entries = extracted_info['entries']
-                    for song_entry in entries:
-                        cmd.bot.music.queue_add(message.guild.id, message.author, song_entry)
-                    final_resp = discord.Embed(color=0xFFCC66, title=f'💽 Added {len(entries)} songs from {pl_title}.')
-                else:
-                    cmd.bot.music.queue_add(message.guild.id, message.author, song_item)
-                    duration = str(datetime.timedelta(seconds=song_item['duration']))
-                    requester = f'{message.author.name}#{message.author.discriminator}'
-                    final_resp = discord.Embed(color=0x66CC66)
-                    final_resp.add_field(name='✅ Added To Queue', value=song_item['title'])
-                    final_resp.set_thumbnail(url=song_item['thumbnail'])
-                    final_resp.set_author(name=requester, icon_url=user_avatar(message.author))
-                    final_resp.set_footer(text=f'Duration: {duration}')
-                await init_res_msg.edit(embed=final_resp)
+                    final_resp = discord.Embed(color=0x696969, title='🔍 No results.')
+                    await init_res_msg.edit(embed=final_resp)
             else:
                 if not args:
                     response = discord.Embed(color=0xDB0000, title='❗ You are not in my voice channel.')
