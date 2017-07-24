@@ -49,7 +49,7 @@ commands:
       - "fsell"
     global:       true
     enabled:      true
-    usage:        "{pfx}{cmd} rarity:Fish"
+    usage:        "{pfx}{cmd} rarity:Legendary"
     description:
       Sells all items that have a certain attribute.
       The accepted attributes are name, type and rarity.
