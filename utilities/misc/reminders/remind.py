@@ -31,7 +31,7 @@ async def remind(cmd, message, args):
             if in_seconds < 60:
                 time_diff = f'In {in_seconds} seconds'
             else:
-                time_diff = arrow.get(execution_stamp).humanize(arrow.utcnow())
+                time_diff = arrow.get(execution_stamp + 5).humanize(arrow.utcnow())
             crypt = hashlib.new('md5')
             crypt.update(f'{message.id}+{execution_stamp}'.encode('utf-8'))
             final = crypt.hexdigest()
