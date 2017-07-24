@@ -1,5 +1,5 @@
 import discord
-from .mechanics import get_item_by_name, get_item_by_id, get_all_items
+from .mechanics import get_item_by_id, get_all_items
 from .mechanics import items
 
 
