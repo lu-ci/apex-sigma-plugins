@@ -15,7 +15,7 @@ async def read_frame_data(url):
     embed.set_thumbnail(url=item_image)
     for row in pc_drop_table:
         row_title = row[0].text.strip()
-        row_location = "\n".join([x for x in row[1].itertext()])
+        row_location = "\n".join([x for x in row[1].itertext()]).replace('(\nV\n)', '(V)')
         embed.add_field(name=row_title, value=f'```\n{row_location}\n```')
     return embed
 
@@ -34,6 +34,6 @@ async def read_item_data(url):
         row_title = row[0].text
         if not row_title or row_title == 'None':
             row_title = row[0][0].attrib['title']
-        row_location = "\n".join([x for x in row[1].itertext()])
+        row_location = "\n".join([x for x in row[1].itertext()]).replace('(\nV\n)', '(V)')
         embed.add_field(name=row_title, value=f'```\n{row_location}\n```')
     return embed
