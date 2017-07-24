@@ -45,7 +45,7 @@ commands:
     alts:
       - "remove"
     enabled:     true
-    usage:       "{pfx}{cmd 5} 5"
+    usage:       "{pfx}{cmd} 5"
     description:
       Removes a song from the queue.
       Minimum number is 1 and the maximum is however many items the queu has.
@@ -55,7 +55,7 @@ commands:
     alts:
       - "next"
     enabled:     true
-    usage:       "{pfx}{cmd 5}"
+    usage:       "{pfx}{cmd}"
     description:
       Skips the currently playing song.
 
@@ -65,12 +65,12 @@ commands:
       - "playing"
       - "np"
     enabled:     true
-    usage:       "{pfx}{cmd 5}"
+    usage:       "{pfx}{cmd}"
     description:
       Shows information regarding the currently playing song.
 
   - name:        shuffle
     enabled:     true
-    usage:       "{pfx}{cmd 5}"
+    usage:       "{pfx}{cmd}"
     description:
       Randomizes the current song queue.
