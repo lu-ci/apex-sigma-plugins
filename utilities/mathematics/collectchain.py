@@ -38,7 +38,11 @@ async def collectchain(cmd, message, args):
                 else:
                     target_chn = message.guild.default_channel
                 collected = 0
-                collection = []
+                collection = cmd.db[cmd.db.db_cfg.database]['MarkovChains'].find_one({'UserID': target.id})
+                if collection:
+                    collection = collection['Chain']
+                else:
+                    collection = []
                 in_use = True
                 in_use_by = message.author
                 ch_response = discord.Embed(color=0x66CC66,
@@ -65,10 +69,11 @@ async def collectchain(cmd, message, args):
                                                 if len(content) > 12:
                                                     if not content.endswith(('.' or '?' or '!')):
                                                         content += '.'
-                                                collection.append(content)
-                                                collected += 1
-                                                if collected >= 3000:
-                                                    break
+                                                if content not in collection:
+                                                    collection.append(content)
+                                                    collected += 1
+                                                    if collected >= 5000:
+                                                        break
                 cmd.db[cmd.db.db_cfg.database]['MarkovChains'].delete_one({'UserID': target.id})
                 data = {
                     'UserID': target.id,
@@ -79,6 +84,7 @@ async def collectchain(cmd, message, args):
                 in_use_by = None
                 dm_response = discord.Embed(color=0x66CC66, title=f'📖 {target.name}\'s chain is done!')
                 dm_response.add_field(name='Amount Collected', value=f'```\n{collected}\n```')
+                dm_response.add_field(name='Total Amount', value=f'```\n{len(collection)}\n```')
                 dm_response.add_field(name='Time Elapsed', value=f'```\n{arrow.utcnow().timestamp - start_time}s\n```')
                 await message.author.send(None, embed=dm_response)
                 await message.channel.send(None, embed=dm_response)
