@@ -44,14 +44,20 @@ async def overwatch(cmd, message, args):
                     avg_section = f'Eliminations: {avg["eliminations_avg"]}'
                     avg_section += f'\nObjective Kills: {avg["objective_kills_avg"]}'
                     avg_section += f'\nFinal Blows: {avg["final_blows_avg"]}'
-                    avg_section += f'\nMelee Kills: {avg["melee_final_blows_avg"]}'
+                    if 'melee_final_blows_avg' in avg:
+                        avg_section += f'\nMelee Kills: {avg["melee_final_blows_avg"]}'
+                    else:
+                        avg_section += f'\nMelee Kills: None'
                     avg_section += f'\nSolo Kills: {avg["solo_kills_avg"]}'
                     avg_section += f'\nDeaths: {avg["deaths_avg"]}'
                     avg_section += f'\nHealing Done: {avg["healing_done_avg"]}'
                     gms = stats['game_stats']
                     gms_section = f'Eliminations: {gms["eliminations"]}'
                     gms_section += f'\nBest Kill Streak: {gms["kill_streak_best"]}'
-                    gms_section += f'\nMelee Final Blows: {gms["melee_final_blows"]}'
+                    if 'melee_final_blows' in gms:
+                        gms_section += f'\nMelee Final Blows: {gms["melee_final_blows"]}'
+                    else:
+                        gms_section += f'\nMelee Final Blows: None'
                     gms_section += f'\nBest Multikill: {gms["multikill_best"]}'
                     gms_section += f'\nDamage Done: {gms["all_damage_done"]}'
                     gms_section += f'\nDeaths: {gms["deaths"]}'

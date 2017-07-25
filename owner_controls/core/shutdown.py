@@ -7,3 +7,4 @@ async def shutdown(cmd, message, args):
     cmd.log.info(f'Terminated by {message.author.name}#{message.author.discriminator}')
     await cmd.bot.logout()
     await cmd.bot.close()
+    exit()
