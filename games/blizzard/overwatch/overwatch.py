@@ -15,6 +15,9 @@ region_convert = {
 
 
 async def overwatch(cmd, message, args):
+    init_resp = discord.Embed(color=0xff9c00)
+    init_resp.set_author(name='Processing information...', icon_url=ow_icon)
+    init_resp_msg = await message.channel.send(embed=init_resp)
     if args:
         if len(args) >= 2:
             region = args[0].lower()
@@ -70,4 +73,4 @@ async def overwatch(cmd, message, args):
             response = discord.Embed(color=0xDB0000, title='❗ Region and Battletag needed.')
     else:
         response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
-    await message.channel.send(embed=response)
+    await init_resp_msg.edit(embed=response)
