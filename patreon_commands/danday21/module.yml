@@ -11,3 +11,5 @@ commands:
     permissions:
       rating:     0
       dmable:     true
+    description:
+      "This command is usable only by the patron tied to it."

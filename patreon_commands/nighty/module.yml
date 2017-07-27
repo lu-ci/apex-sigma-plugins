@@ -1,0 +1,28 @@
+name:             Nighty Commands
+
+category:         patreon
+
+enabled:          true
+
+commands:
+  - name:         toggledantracker
+    alts:
+      - "tdt"
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      dmable:     true
+    description:
+      "This command is usable only by the patron tied to it."
+
+events:
+  - name:         dan_voice_track
+    type:         voice_state_update
+    global:       true
+    enabled:      true
+
+  - name:         dan_status_track
+    type:         member_update
+    global:       true
+    enabled:      true
