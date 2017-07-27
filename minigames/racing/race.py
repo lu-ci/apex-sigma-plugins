@@ -38,7 +38,7 @@ async def race(cmd, message, args):
                     values.update({participant['user'].id: val})
                     lines += f'\n⏩ {" " * val}{participant["icon"]}{" " * (20 - val)} ⏸'
                     if win:
-                        lines += f' 🏆: {participant["user"].display_name[:10]}'
+                        lines += f' 🏆: {participant["user"].display_name}'
                     else:
                         lines += f' {int((val / 20) * 100)}%: {participant["user"].display_name[:10]}'
                     if highest < val:
