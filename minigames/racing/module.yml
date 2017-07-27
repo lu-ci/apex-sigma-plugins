@@ -26,3 +26,12 @@ commands:
       You can bet an amount on the race if you wish as well.
       The winner gets all the Kud that was bet.
       Minus 10% that goes to the race track upkeep.
+
+  - name:         raceoverride
+    alts:
+      - "raceover"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Overrides the race in case a bug occurs.
