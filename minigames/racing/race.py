@@ -17,17 +17,22 @@ async def race(cmd, message, args):
             highest = 0
             leader = None
             race_msg = None
+            skip = False
             for participant in race_instance['users']:
                 values.update({participant['user'].id: 0})
             while highest < 20:
                 lines = '```\n'
                 for participant in race_instance['users']:
-                    move = secrets.randbelow(5)
+                    if not skip:
+                        move = secrets.randbelow(5)
+                    else:
+                        move = 0
                     val = values[participant['user'].id]
                     val += move
                     if val >= 20:
                         val = 20
                         win = True
+                        skip = True
                     else:
                         win = False
                     values.update({participant['user'].id: val})
