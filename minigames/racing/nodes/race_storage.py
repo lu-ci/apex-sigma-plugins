@@ -1,3 +1,4 @@
+import copy
 import secrets
 
 races = {}
@@ -31,8 +32,9 @@ participant_icons = ['🐶', '🐱', '🐭', '🐰', '🐙', '🐠', '🦊', '�
 
 
 def make_race(channel_id):
+    icon_copy = copy.deepcopy(participant_icons)
     race_data = {
-        'icons': participant_icons,
+        'icons': icon_copy,
         'users': [],
         'pool': 0
     }
