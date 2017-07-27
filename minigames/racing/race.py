@@ -53,7 +53,7 @@ async def race(cmd, message, args):
             win_title = f'{leader["icon"]} {leader["user"].display_name} has won!'
             if race_instance['pool']:
                 currency = f'{cmd.bot.cfg.pref.currency}'
-                cmd.db.add_currency(leader['user'], message.guild, race_instance["pool"])
+                cmd.db.add_currency(leader['user'], message.guild, int(race_instance["pool"] * 0.9))
                 win_title += f' And got {race_instance["pool"]} {currency}.'
             win_response = discord.Embed(color=colors[leader['icon']], title=win_title)
             await message.channel.send(embed=win_response)
