@@ -25,8 +25,9 @@ async def joinrace(cmd, message, args):
             if len(race['users']) < 10:
                 user_found = False
                 for user in race['users']:
-                    if user['user'].id == message.author:
+                    if user['user'].id == message.author.id:
                         user_found = True
+                        break
                 if not user_found:
                     icon = add_participant(message.channel.id, message.author)
                     join_title = f'{icon} {message.author.display_name} joined as a {names[icon]}!'
