@@ -11,7 +11,7 @@ answers = [
     'Most likely.',
     'Outlook good.',
     'Yes.',
-    'Sings point to yes.',
+    'Signs point to yes.',
     'I am a bit hazy, try again later.',
     'I\'m on my coffee break, ask later.',
     'Now is not the time.',
