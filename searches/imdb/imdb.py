@@ -10,8 +10,8 @@ async def imdb(cmd, message, args):
         async with aiohttp.ClientSession() as session:
             async with session.get(api_url) as data:
                 search_data = await data.text()
-                search_data = search_data.split("(")[1].strip(")")
-                data = json.loads(search_data)
+                search_data = '('.join(search_data.split("(")[1:])[:-1]
+                data = json.loads(search_data, encoding='utf-8')
         if 'd' in data:
             data = data['d'][0]
             imdb_icon = 'https://ia.media-imdb.com/images/G/01/imdb/images/mobile/'
