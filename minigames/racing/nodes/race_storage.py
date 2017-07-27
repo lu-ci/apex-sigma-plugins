@@ -43,7 +43,8 @@ def add_participant(channel_id, user):
     race = races[channel_id]
     icons = race['icons']
     users = race['users']
-    usr_icon = icons.pop(secrets.randbelow(len(icons)))
+    usr_icon = secrets.choice(icons)
+    icons.remove(usr_icon)
     race.update({'icons': icons})
     participant_data = {
         'user': user,

@@ -37,7 +37,7 @@ async def joinrace(cmd, message, args):
                         add_to_pool(message.channel.id, bet_amt)
                     response = discord.Embed(color=colors[icon], title=join_title)
                 else:
-                    response = discord.Embed(color=0xDB0000, title='❗ You already in the race!')
+                    response = discord.Embed(color=0xDB0000, title='❗ You are already in the race!')
             else:
                 response = discord.Embed(color=0xDB0000, title='❗ Sorry, no more room left!')
         else:
