@@ -18,11 +18,9 @@ async def keyvis(cmd, message, args):
             ' '.join(['`{:s}`'.format(x) for x in args])))
         await message.channel.send(None, embed=embed)
         return
-    ran_image_number = secrets.randbelow(item[1]) + 1
-    ran_number_length = len(str(ran_image_number))
-    url_base = 'https://cgv.blicky.net'
-    image_url = '{:s}/{:s}/{:s}{:d}.jpg'.format(
-        url_base, item[0], '0000'[:-ran_number_length], ran_image_number)
+    image_number = secrets.randbelow(item[2]) + item[1]
+    url_base = 'https://vncg.org'
+    image_url = f'{url_base}/f{image_number}.jpg'
     embed = discord.Embed(color=0x744EAA)
     embed.set_image(url=image_url)
     await message.channel.send(None, embed=embed)
