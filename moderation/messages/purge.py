@@ -21,6 +21,7 @@ def generate_log_embed(message, target, channel, deleted):
     response.set_footer(text=f'ChannelID: {channel.id}')
     return response
 
+
 async def purge(cmd, message, args):
     if not message.author.permissions_in(message.channel).manage_messages:
         response = discord.Embed(title='⛔ Access Denied. Manage Messages needed.', color=0xBE1931)
@@ -42,6 +43,8 @@ async def purge(cmd, message, args):
                     count = int(args[0])
                 except ValueError:
                     valid_count = False
+        if count > 100:
+            count = 100
         if not valid_count:
             response = discord.Embed(color=0xBE1931, title=f'❗ {args[0]} is not a valid number.')
         else:
@@ -53,9 +56,17 @@ async def purge(cmd, message, args):
             except discord.NotFound:
                 pass
             if target:
-                deleted = await message.channel.purge(limit=count, check=author_check)
+                try:
+                    deleted = await message.channel.purge(limit=count, check=author_check)
+                except Exception:
+                    deleted = []
+                    pass
             else:
-                deleted = await message.channel.purge(limit=count)
+                try:
+                    deleted = await message.channel.purge(limit=count)
+                except Exception:
+                    deleted = []
+                    pass
             response = discord.Embed(color=0x77B255, title=f'✅ Deleted {len(deleted)} Messages')
             log_embed = generate_log_embed(message, target, message.channel, deleted)
             await log_event(cmd.db, message.guild, log_embed)
