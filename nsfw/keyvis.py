@@ -5,7 +5,10 @@ from sigma.plugins.nsfw.mech.visual_novels import key_vn_list
 
 async def keyvis(cmd, message, args):
     if not args:
-        choice = secrets.choice(list(key_vn_list.keys()))
+        keys = []
+        for key in key_vn_list:
+            keys.append(key)
+        choice = secrets.choice(keys)
     else:
         choice = [x.lower() for x in args][0]
     try:
