@@ -1,5 +1,7 @@
 import discord
 from .cleaners import clean_content
+from sigma.core.utilities.data_processing import user_avatar
+from sigma.core.utilities.server_bound_logging import log_event
 
 
 async def edit_word_blocker(ev, before, after):
@@ -23,7 +25,12 @@ async def edit_word_blocker(ev, before, after):
                 to_author = discord.Embed(color=0xFF9900, title=title)
                 try:
                     await after.author.send(embed=to_author)
-                except discord.ClientException:
+                except discord.Forbidden:
                     pass
+                author = f'{after.author.name}#{after.author.discriminator}'
+                title = f'I deleted {author}\'s message for containing "{reason}".'
+                log_embed = discord.Embed(color=0xFF9900)
+                log_embed.set_author(name=title, icon_url=user_avatar(after.author))
+                await log_event(ev.db, after.guild, log_embed)
             except discord.ClientException:
                 pass
