@@ -5,7 +5,7 @@ from sigma.core.utilities.data_processing import user_avatar
 
 
 def generate_log_embed(message, target, warning_text):
-    response = discord.Embed(color=0xFF9900, timestamp=arrow.utcnow().datetime)
+    response = discord.Embed(color=0xFFCC4D, timestamp=arrow.utcnow().datetime)
     response.set_author(name=f'A User Has Been Warned', icon_url=user_avatar(target))
     response.add_field(name='⚠ Warned User',
                        value=f'{target.mention}\n{target.name}#{target.discriminator}', inline=True)
@@ -48,7 +48,7 @@ async def warn(cmd, message, args):
             guild_warnings.update({uid: warning_list})
             cmd.db.set_guild_settings(message.guild.id, 'WarnedUsers', guild_warnings)
             response = discord.Embed(color=0x77B255, title=f'✅ {target.name}#{target.discriminator} has been warned.')
-            to_target = discord.Embed(color=0xFF9900)
+            to_target = discord.Embed(color=0xFFCC4D)
             to_target.add_field(name='⚠ You received a warning.', value=f'Reason: {reason}')
             to_target.set_footer(text=f'From: {message.guild.name}', icon_url=message.guild.icon_url)
             try:

@@ -23,7 +23,7 @@ async def blacklistuser(cmd, message, args):
                     result = 'blacklisted'
                     icon = '🔒'
                 title = f'{icon} {target.name}#{target.discriminator} has been {result}.'
-                response = discord.Embed(color=0xFF9900, title=title)
+                response = discord.Embed(color=0xFFCC4D, title=title)
             else:
                 response = discord.Embed(color=0x696969, title='🔍 No user with that ID was found.')
         else:

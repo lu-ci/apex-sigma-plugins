@@ -23,7 +23,7 @@ async def rps(cmd, message, args):
             await message.channel.send(None, embed=embed)
             return
         if my_choice == their_choice:
-            embed = discord.Embed(color=0xFF9900, title=':fire: It\'s a draw!')
+            embed = discord.Embed(color=0xFFCC4D, title=':fire: It\'s a draw!')
         elif my_choice == counter:
             embed = discord.Embed(color=0xBE1931, title='❗ You lose!')
         else:

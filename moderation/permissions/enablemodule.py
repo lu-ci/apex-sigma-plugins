@@ -17,7 +17,7 @@ async def enablemodule(cmd, message, args):
                     cmd.db[cmd.db.db_cfg.database].Permissions.update_one({'ServerID': message.guild.id}, {'$set': perms})
                     response = discord.Embed(color=0x77B255, title=f'✅ `{mdl_name.upper()}` enabled.')
                 else:
-                    response = discord.Embed(color=0xFF9900, title='⚠ Module Not Disabled')
+                    response = discord.Embed(color=0xFFCC4D, title='⚠ Module Not Disabled')
             else:
                 response = discord.Embed(color=0x696969, title='🔍 Module Not Found')
         await message.channel.send(embed=response)

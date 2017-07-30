@@ -1,4 +1,4 @@
-import json
+﻿import json
 import discord
 import aiohttp
 import datetime
@@ -184,6 +184,6 @@ async def wftrials(cmd, message, args):
                 response.add_field(name='Jordas Verdict', value=jv_desc)
                 response.add_field(name='Total Trials', value=total_desc)
             except Exception:
-                response = discord.Embed(color=0xFF9900,
+                response = discord.Embed(color=0xFFCC4D,
                                          title=f'⚠ Stats for {username} were found but cotained errors.')
         await message.channel.send(embed=response)

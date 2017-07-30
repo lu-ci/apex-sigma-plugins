@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def warnings(cmd, message, args):
@@ -24,6 +24,6 @@ async def warnings(cmd, message, args):
         if len(warning_output) > 800:
             warning_output = warning_output[:800] + '\n...'
         warning_title = f'⚠ {target.name} was warned {len(warning_list)} times for...'
-        response = discord.Embed(color=0xFF9900)
+        response = discord.Embed(color=0xFFCC4D)
         response.add_field(name=warning_title, value=warning_output, inline=False)
     await message.channel.send(embed=response)

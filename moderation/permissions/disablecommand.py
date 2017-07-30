@@ -13,7 +13,7 @@ async def disablecommand(cmd, message, args):
                 perms = get_all_perms(cmd.db, message)
                 disabled_commands = perms['DisabledCommands']
                 if cmd_name in disabled_commands:
-                    response = discord.Embed(color=0xFF9900, title='⚠ Command Already Disabled')
+                    response = discord.Embed(color=0xFFCC4D, title='⚠ Command Already Disabled')
                 else:
                     disabled_commands.append(cmd_name)
                     perms.update({'DisabledCommands': disabled_commands})

@@ -13,7 +13,7 @@ async def takecurrency(cmd, message, args):
                         cmd.db.rmv_currency(target, message.guild, amount)
                         title_text = f'🔥 Ok, {amount} of {target.display_name}\'s {cmd.bot.cfg.pref.currency} '
                         title_text += 'has been destroyed.'
-                        response = discord.Embed(color=0xFF9900, title=title_text)
+                        response = discord.Embed(color=0xFFCC4D, title=title_text)
                     else:
                         err_title = f'❗ {target.display_name} does\'t have that much {cmd.bot.cfg.pref.currency}.'
                         response = discord.Embed(color=0xBE1931, title=err_title)

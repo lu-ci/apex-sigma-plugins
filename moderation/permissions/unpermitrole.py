@@ -52,7 +52,7 @@ async def unpermitrole(cmd, message, args):
                             response = discord.Embed(color=0x77B255,
                                                      title=f'✅ `{target.name}` can no longer use `{cmd_name}`.')
                         else:
-                            response = discord.Embed(color=0xFF9900,
+                            response = discord.Embed(color=0xFFCC4D,
                                                      title=f'⚠ {target.name} is not able to use `{cmd_name}`')
                     else:
                         response = discord.Embed(color=0x696969, title='🔍 Command/Module Not Found')

@@ -5,7 +5,7 @@ from sigma.core.utilities.data_processing import user_avatar
 
 
 def generate_log_embed(message, target):
-    response = discord.Embed(color=0xFF9900, timestamp=arrow.utcnow().datetime)
+    response = discord.Embed(color=0xFFCC4D, timestamp=arrow.utcnow().datetime)
     response.set_author(name=f'A User\'s Warnings Have Been Removed', icon_url=user_avatar(target))
     response.add_field(name='⚠ Unwarned User',
                        value=f'{target.mention}\n{target.name}#{target.discriminator}', inline=True)

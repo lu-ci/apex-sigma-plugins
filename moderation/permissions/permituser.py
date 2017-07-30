@@ -41,7 +41,7 @@ async def permituser(cmd, message, args):
                             inner_exc = generate_cmd_data(cmd_name)[cmd_name]
                         exc_usrs = inner_exc['Users']
                         if target.id in exc_usrs:
-                            response = discord.Embed(color=0xFF9900,
+                            response = discord.Embed(color=0xFFCC4D,
                                                      title=f'⚠ {target.name} can already use `{cmd_name}`')
                         else:
                             exc_usrs.append(target.id)

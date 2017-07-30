@@ -12,7 +12,7 @@ async def disablemodule(cmd, message, args):
                 perms = get_all_perms(cmd.db, message)
                 disabled_modules = perms['DisabledModules']
                 if mdl_name in disabled_modules:
-                    response = discord.Embed(color=0xFF9900, title='⚠ Module Already Disabled')
+                    response = discord.Embed(color=0xFFCC4D, title='⚠ Module Already Disabled')
                 else:
                     disabled_modules.append(mdl_name)
                     perms.update({'DisabledModules': disabled_modules})

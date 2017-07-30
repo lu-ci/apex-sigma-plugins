@@ -20,7 +20,7 @@ async def togglerole(cmd, message, args):
                     response = discord.Embed(color=0x77B255,
                                              title=f'✅ {target_role.name} has been **removed** from you.')
             else:
-                response = discord.Embed(color=0xFF9900, title=f'⚠ {target_role} is not self assignable.')
+                response = discord.Embed(color=0xFFCC4D, title=f'⚠ {target_role} is not self assignable.')
         else:
             response = discord.Embed(color=0x696969, title=f'🔍 I can\'t find {lookup} on this server.')
     else:
