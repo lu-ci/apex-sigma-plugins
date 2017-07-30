@@ -7,7 +7,7 @@ from .nodes.race_storage import *
 async def race(cmd, message, args):
     if message.channel.id not in races:
         make_race(message.channel.id)
-        create_response = discord.Embed(color=0x0099FF, title='🚀 A race is starting in 30 seconds.')
+        create_response = discord.Embed(color=0x3B88C3, title='🚀 A race is starting in 30 seconds.')
         create_response.set_footer(text=f'We need 2 participants! Type {cmd.bot.get_prefix(message)}joinrace to join!')
         await message.channel.send(embed=create_response)
         await asyncio.sleep(30)

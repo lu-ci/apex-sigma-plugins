@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 import operator
 from humanfriendly.tables import format_pretty_table as boop
 
@@ -40,7 +40,7 @@ async def rolepopulation(cmd, message, args):
         for srole in sorted_roles[:20]:
             output.append([srole[0], srole[1], f'{str(percentify(srole[1], len(message.guild.members)))}%'])
         out_text = boop(output)
-        response = discord.Embed(color=0x0099FF)
+        response = discord.Embed(color=0x3B88C3)
         response.set_author(name=message.guild.name, icon_url=message.guild.icon_url)
         response.add_field(name='Statistics',
                            value=f'```py\nShowing {len(output)} roles out of {len(message.guild.roles)}\n```',

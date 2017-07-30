@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 import asyncio
 
 
@@ -8,7 +8,7 @@ async def afk_comeback_check(ev, message):
             afk_data = ev.db[ev.db.db_cfg.database]['AwayUsers'].find_one({'UserID': message.author.id})
             if afk_data:
                 ev.db[ev.db.db_cfg.database]['AwayUsers'].delete_one({'UserID': message.author.id})
-                response = discord.Embed(color=0x0099FF, title='ℹ I have removed your AFK status.')
+                response = discord.Embed(color=0x3B88C3, title='ℹ I have removed your AFK status.')
                 removal = await message.channel.send(embed=response)
                 await asyncio.sleep(5)
                 try:

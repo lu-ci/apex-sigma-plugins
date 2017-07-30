@@ -95,10 +95,10 @@ async def queue(cmd, message, args):
                 list_desc_list.append([order_num, title, req, duration])
             list_desc = boop(list_desc_list, boop_headers)
             list_title = f'List of {len(music_queue[:5])} Upcoming Queued Items'
-            response = discord.Embed(color=0x0099FF)
+            response = discord.Embed(color=0x3B88C3)
             response.set_author(name=message.guild.name, icon_url=message.guild.icon_url)
             response.add_field(name='Current Music Queue', value=stats_desc)
             response.add_field(name=list_title, value=f'```py\n{list_desc}\n```')
         else:
-            response = discord.Embed(color=0x0099FF, title='🎵 The queue is empty.')
+            response = discord.Embed(color=0x3B88C3, title='🎵 The queue is empty.')
         await message.channel.send(embed=response)

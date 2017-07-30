@@ -26,13 +26,13 @@ async def play(cmd, message, args):
                     item = cmd.bot.music.queue_get(message.guild.id)
                     if message.guild.voice_client.is_playing():
                         return
-                    init_song_embed = discord.Embed(color=0x0099FF, title=f'🔽 Downloading {item.title}...')
+                    init_song_embed = discord.Embed(color=0x3B88C3, title=f'🔽 Downloading {item.title}...')
                     init_song_msg = await message.channel.send(embed=init_song_embed)
                     await item.create_player(message.guild.voice_client)
                     cmd.bot.music.currents.update({message.guild.id: item})
                     duration = str(datetime.timedelta(seconds=item.duration))
                     author = f'{item.requester.name}#{item.requester.discriminator}'
-                    song_embed = discord.Embed(color=0x0099FF)
+                    song_embed = discord.Embed(color=0x3B88C3)
                     song_embed.add_field(name='🎵 Now Playing', value=item.title)
                     song_embed.set_thumbnail(url=item.thumbnail)
                     song_embed.set_author(name=author, icon_url=user_avatar(item.requester), url=item.url)
@@ -40,7 +40,7 @@ async def play(cmd, message, args):
                     await init_song_msg.edit(embed=song_embed)
                     while message.guild.voice_client and message.guild.voice_client.is_playing():
                         await asyncio.sleep(2)
-                response = discord.Embed(color=0x0099FF, title='🎵 Queue complete.')
+                response = discord.Embed(color=0x3B88C3, title='🎵 Queue complete.')
                 if message.guild.voice_client:
                     await message.guild.voice_client.disconnect()
                     if message.guild.id in cmd.bot.music.queues:

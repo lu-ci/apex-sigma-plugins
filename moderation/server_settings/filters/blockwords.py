@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def blockwords(cmd, message, args):
@@ -17,7 +17,7 @@ async def blockwords(cmd, message, args):
                 color = 0x66CC66
                 title = f'✅ I have added {len(added_words)} to the blacklist.'
             else:
-                color = 0x0099FF
+                color = 0x3B88C3
                 title = 'ℹ No new words were added.'
             response = discord.Embed(color=color, title=title)
         else:

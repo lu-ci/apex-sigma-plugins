@@ -27,7 +27,7 @@ async def rps(cmd, message, args):
         elif my_choice == counter:
             embed = discord.Embed(color=0xBE1931, title='❗ You lose!')
         else:
-            embed = discord.Embed(color=0x0099FF, title=':gem: You win!')
+            embed = discord.Embed(color=0x3B88C3, title=':gem: You win!')
         embed.add_field(name='User\'s Choice', value='**' + their_choice.title() + '**')
         embed.add_field(name='Sigma\'s Choice', value='**' + my_choice.title() + '**')
         await message.channel.send(None, embed=embed)

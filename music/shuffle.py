@@ -17,7 +17,7 @@ async def shuffle(cmd, message, args):
                     while queue:
                         new_queue.append(queue.pop(secrets.randbelow(len(queue))))
                     cmd.bot.music.queues.update({message.guild.id: new_queue})
-                    response = discord.Embed(color=0x0099FF, title=f'🔀 Shuffled {len(new_queue)} songs.')
+                    response = discord.Embed(color=0x3B88C3, title=f'🔀 Shuffled {len(new_queue)} songs.')
                     requester = f'{message.author.name}#{message.author.discriminator}'
                     response.set_author(name=requester, icon_url=user_avatar(message.author))
                 else:
