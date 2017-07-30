@@ -1,11 +1,11 @@
-import arrow
+﻿import arrow
 import discord
 
 
 async def afk(cmd, message, args):
     afk_data = cmd.db[cmd.db.db_cfg.database]['AwayUsers'].find_one({'UserID': message.author.id})
     if afk_data:
-        response = discord.Embed(color=0xDB0000, title='❗ You are already marked as AFK.')
+        response = discord.Embed(color=0xBE1931, title='❗ You are already marked as AFK.')
     else:
         if args:
             afk_reason = ' '.join(args)

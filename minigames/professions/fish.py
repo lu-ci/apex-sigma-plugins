@@ -1,4 +1,4 @@
-import secrets
+﻿import secrets
 import discord
 from .mechanics import roll_rarity, make_item_id, get_all_items, get_items_in_rarity, notify_channel_of_special
 from sigma.core.utilities.data_processing import user_avatar
@@ -40,7 +40,7 @@ async def fish(cmd, message, args):
                 if 'fish_channel' in cmd.cfg:
                     await notify_channel_of_special(message, cmd.bot.get_all_channels(), cmd.cfg['fish_channel'], item)
         else:
-            response = discord.Embed(color=0xDB0000, title=f'❗ You don\'t have enough {cmd.bot.cfg.pref.currency}!')
+            response = discord.Embed(color=0xBE1931, title=f'❗ You don\'t have enough {cmd.bot.cfg.pref.currency}!')
     else:
         timeout = cmd.bot.cooldown.get_cooldown(cmd.name, message.author)
         response = discord.Embed(color=0x696969, title=f'🕙 Your new bait will be ready in {timeout} seconds.')

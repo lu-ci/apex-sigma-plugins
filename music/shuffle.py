@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 import secrets
 from sigma.core.utilities.data_processing import user_avatar
 
@@ -21,11 +21,11 @@ async def shuffle(cmd, message, args):
                     requester = f'{message.author.name}#{message.author.discriminator}'
                     response.set_author(name=requester, icon_url=user_avatar(message.author))
                 else:
-                    response = discord.Embed(color=0xDB0000, title='❗ The queue is empty.')
+                    response = discord.Embed(color=0xBE1931, title='❗ The queue is empty.')
             else:
-                response = discord.Embed(color=0xDB0000, title='❗ I am not connected to any channel.')
+                response = discord.Embed(color=0xBE1931, title='❗ I am not connected to any channel.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ You are not in my voice channel.')
+            response = discord.Embed(color=0xBE1931, title='❗ You are not in my voice channel.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ You are not in a voice channel.')
+        response = discord.Embed(color=0xBE1931, title='❗ You are not in a voice channel.')
     await message.channel.send(embed=response)

@@ -7,7 +7,7 @@ async def roll(cmd, message, args):
         try:
             endrange = int(args[0])
         except ValueError:
-            embed = discord.Embed(color=0xDB0000, title='❗ Only integers are accepted.')
+            embed = discord.Embed(color=0xBE1931, title='❗ Only integers are accepted.')
             await message.channel.send(None, embed=embed)
             return
     else:

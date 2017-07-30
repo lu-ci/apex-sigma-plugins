@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def addcommand(cmd, message, args):
@@ -19,11 +19,11 @@ async def addcommand(cmd, message, args):
                     cmd.db.set_guild_settings(message.guild.id, 'CustomCommands', custom_commands)
                     response = discord.Embed(title=f'✅ {trigger} has been {res_text}', color=0x66CC66)
                 else:
-                    response = discord.Embed(title='❗ Can\'t replace an existing core command', color=0xDB0000)
+                    response = discord.Embed(title='❗ Can\'t replace an existing core command', color=0xBE1931)
             else:
-                response = discord.Embed(title='❗ Missing Message To Send', color=0xDB0000)
+                response = discord.Embed(title='❗ Missing Message To Send', color=0xBE1931)
         else:
-            response = discord.Embed(title='❗ Nothing Was Inputted', color=0xDB0000)
+            response = discord.Embed(title='❗ Nothing Was Inputted', color=0xBE1931)
     else:
         response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xBE1931)
     await message.channel.send(embed=response)

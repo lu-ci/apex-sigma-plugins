@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 import aiohttp
 import json
 
@@ -19,5 +19,5 @@ async def analyze(cmd, message, args):
         response.add_field(name='Negative', value=f'```py\n{str(prob["neg"])[:4]}\n```', inline=True)
         response.add_field(name='Verdict', value=f'```\n{data["label"].title()}\n```', inline=False)
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     await message.channel.send(embed=response)

@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 from overwatch_api.core import AsyncOWAPI
 
 ow_cli = AsyncOWAPI(request_timeout=30)
@@ -73,10 +73,10 @@ async def overwatch(cmd, message, args):
                     response = discord.Embed(color=0x696969, title='🔍 No results.')
             else:
                 region_error_text = f'Supported: {", ".join(region_list)}.\nOr: {", ".join(list(region_convert))}.'
-                response = discord.Embed(color=0xDB0000)
+                response = discord.Embed(color=0xBE1931)
                 response.add_field(name='❗ Invalid region.', value=region_error_text)
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Region and Battletag needed.')
+            response = discord.Embed(color=0xBE1931, title='❗ Region and Battletag needed.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     await init_resp_msg.edit(embed=response)

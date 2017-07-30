@@ -1,4 +1,4 @@
-import asyncio
+﻿import asyncio
 import discord
 import secrets
 from .nodes.race_storage import *
@@ -60,8 +60,8 @@ async def race(cmd, message, args):
             del races[message.channel.id]
         else:
             del races[message.channel.id]
-            not_enough_response = discord.Embed(color=0xDB0000, title='❗ Not enough participants in the race!')
+            not_enough_response = discord.Embed(color=0xBE1931, title='❗ Not enough participants in the race!')
             await message.channel.send(embed=not_enough_response)
     else:
-        exist_response = discord.Embed(color=0xDB0000, title='❗ A race already exists here!')
+        exist_response = discord.Embed(color=0xBE1931, title='❗ A race already exists here!')
         await message.channel.send(embed=exist_response)

@@ -4,7 +4,7 @@ import discord
 
 async def rps(cmd, message, args):
     if not args:
-        embed = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        embed = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
         await message.channel.send(None, embed=embed)
     else:
         sign_list = ['rock', 'paper', 'scissors']
@@ -19,13 +19,13 @@ async def rps(cmd, message, args):
             their_choice = 'scissors'
             counter = 'rock'
         else:
-            embed = discord.Embed(color=0xDB0000, title='❗ Unrecognized sign.')
+            embed = discord.Embed(color=0xBE1931, title='❗ Unrecognized sign.')
             await message.channel.send(None, embed=embed)
             return
         if my_choice == their_choice:
             embed = discord.Embed(color=0xFF9900, title=':fire: It\'s a draw!')
         elif my_choice == counter:
-            embed = discord.Embed(color=0xDB0000, title='❗ You lose!')
+            embed = discord.Embed(color=0xBE1931, title='❗ You lose!')
         else:
             embed = discord.Embed(color=0x0099FF, title=':gem: You win!')
         embed.add_field(name='User\'s Choice', value='**' + their_choice.title() + '**')

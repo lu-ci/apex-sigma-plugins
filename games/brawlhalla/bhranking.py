@@ -12,7 +12,7 @@ async def bhranking(cmd, message, args):
     else:
         region = args[0].lower()
         if region not in regions:
-            embed = discord.Embed(color=0xDB0000)
+            embed = discord.Embed(color=0xBE1931)
             embed.add_field(name='❗ Invalid Region',
                             value='```\nRegions: ' + ', '.join(regions).upper() + '\n```')
             await message.channel.send(None, embed=embed)

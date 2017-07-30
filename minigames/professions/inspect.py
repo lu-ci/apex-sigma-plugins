@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 from .mechanics import get_item_by_name, items, get_all_items
 
 
@@ -29,5 +29,5 @@ async def inspect(cmd, message, args):
         else:
             response = discord.Embed(color=0xc6e4b5, title=f'💸 Your inventory is empty, {message.author.name}...')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ You didn\'t input anything.')
+        response = discord.Embed(color=0xBE1931, title='❗ You didn\'t input anything.')
     await message.channel.send(embed=response)

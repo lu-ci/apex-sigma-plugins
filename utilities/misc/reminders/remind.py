@@ -1,4 +1,4 @@
-import arrow
+﻿import arrow
 import discord
 import hashlib
 from sigma.core.utilities.data_processing import user_avatar
@@ -50,9 +50,9 @@ async def remind(cmd, message, args):
             response.add_field(name='🕑 Reminder Executes', value=time_diff.title(), inline=False)
             response.add_field(name='🗒 Reminder Message', value=text_message, inline=False)
         except LookupError:
-            response = discord.Embed(color=0xDB0000, title='❗ Please use the format HH:MM:SS.')
+            response = discord.Embed(color=0xBE1931, title='❗ Please use the format HH:MM:SS.')
         except ValueError:
-            response = discord.Embed(color=0xDB0000, title='❗ Inputted value is invalid.')
+            response = discord.Embed(color=0xBE1931, title='❗ Inputted value is invalid.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ No arguments inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ No arguments inputted.')
     await message.channel.send(embed=response)

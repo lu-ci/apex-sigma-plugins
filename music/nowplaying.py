@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 import datetime
 from sigma.core.utilities.data_processing import user_avatar
 
@@ -14,5 +14,5 @@ async def nowplaying(cmd, message, args):
         response.set_author(name=author, icon_url=user_avatar(item.requester), url=item.url)
         response.set_footer(text=f'Duration: {duration} | Tip: The author\'s name is a link.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ No currently playing song data.')
+        response = discord.Embed(color=0xBE1931, title='❗ No currently playing song data.')
     await message.channel.send(embed=response)

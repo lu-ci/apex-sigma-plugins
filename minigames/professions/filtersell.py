@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 from .mechanics import get_item_by_id, get_all_items
 from .mechanics import items
 
@@ -37,11 +37,11 @@ async def filtersell(cmd, message, args):
                     sell_title = f'💶 You sold {sell_count} items for {sell_value} {currency}.'
                     response = discord.Embed(color=0xc6e4b5, title=sell_title)
                 else:
-                    response = discord.Embed(color=0xDB0000, title='❗ Invalid arguments.')
+                    response = discord.Embed(color=0xBE1931, title='❗ Invalid arguments.')
             else:
-                response = discord.Embed(color=0xDB0000, title='❗ Your inventory is empty.')
+                response = discord.Embed(color=0xBE1931, title='❗ Your inventory is empty.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Invalid number of arguments.')
+            response = discord.Embed(color=0xBE1931, title='❗ Invalid number of arguments.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     await message.channel.send(embed=response)

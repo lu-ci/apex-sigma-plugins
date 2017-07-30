@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 auth_id = 222234484064518156
 
@@ -20,5 +20,5 @@ async def toggledantracker(cmd, message, args):
             result = 'activated'
         response = discord.Embed(color=0x66CC66, title=f'✅ Danny tracker {result}.')
     else:
-        response = discord.Embed(color=0xDB0000, title='⛔ Access Denied. You are not Nighty nee-chan.')
+        response = discord.Embed(color=0xBE1931, title='⛔ Access Denied. You are not Nighty nee-chan.')
     await message.channel.send(embed=response)

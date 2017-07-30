@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 import datetime
 from humanfriendly.tables import format_pretty_table as boop
 from sigma.core.utilities.data_processing import user_avatar
@@ -63,11 +63,11 @@ async def queue(cmd, message, args):
                     await init_res_msg.edit(embed=final_resp)
             else:
                 if not args:
-                    response = discord.Embed(color=0xDB0000, title='❗ You are not in my voice channel.')
+                    response = discord.Embed(color=0xBE1931, title='❗ You are not in my voice channel.')
                     await message.channel.send(embed=response)
         else:
             if not args:
-                response = discord.Embed(color=0xDB0000, title='❗ You are not in a voice channel.')
+                response = discord.Embed(color=0xBE1931, title='❗ You are not in a voice channel.')
                 await message.channel.send(embed=response)
     else:
         music_queue = cmd.bot.music.get_queue(message.guild.id)

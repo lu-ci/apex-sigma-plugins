@@ -1,4 +1,4 @@
-from sigma.core.utilities.data_processing import user_avatar
+﻿from sigma.core.utilities.data_processing import user_avatar
 from concurrent.futures import ThreadPoolExecutor
 import markovify
 import functools
@@ -26,7 +26,7 @@ async def impersonate(cmd, message, args):
             chain = await loop.run_in_executor(threads, functools.partial(markovify.Text, total_string))
             sentence = await loop.run_in_executor(threads, functools.partial(chain.make_sentence, tries=100))
             if not sentence:
-                response = discord.Embed(color=0xDB0000, title='😖 I Couldn\'t think of anything...')
+                response = discord.Embed(color=0xBE1931, title='😖 I Couldn\'t think of anything...')
             else:
                 sentence = ftfy.fix_text(sentence)
                 response = discord.Embed(color=0xbdddf4)

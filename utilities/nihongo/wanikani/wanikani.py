@@ -1,4 +1,4 @@
-import json
+﻿import json
 import arrow
 import discord
 import aiohttp
@@ -96,7 +96,7 @@ async def wanikani(cmd, message, args):
 
             # arg = message.content.split(' ', 1)[1]
         except KeyError:
-            embed = discord.Embed(color=0xDB0000, title='❗ Invalid data was retrieved.')
+            embed = discord.Embed(color=0xBE1931, title='❗ Invalid data was retrieved.')
     else:
-        embed = discord.Embed(color=0xDB0000, title='❗ User has no Key saved.')
+        embed = discord.Embed(color=0xBE1931, title='❗ User has no Key saved.')
     await message.channel.send(None, embed=embed)

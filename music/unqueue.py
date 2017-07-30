@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 from sigma.core.utilities.data_processing import user_avatar
 
 
@@ -25,17 +25,17 @@ async def unqueue(cmd, message, args):
                                 requester = f'{message.author.name}#{message.author.discriminator}'
                                 response.set_author(name=requester, icon_url=user_avatar(message.author))
                             else:
-                                response = discord.Embed(color=0xDB0000, title='❗ Input out of range.')
+                                response = discord.Embed(color=0xBE1931, title='❗ Input out of range.')
                         except ValueError:
-                            response = discord.Embed(color=0xDB0000, title='❗ Invalid input. Numbers only.')
+                            response = discord.Embed(color=0xBE1931, title='❗ Invalid input. Numbers only.')
                     else:
-                        response = discord.Embed(color=0xDB0000, title='❗ The queue is empty.')
+                        response = discord.Embed(color=0xBE1931, title='❗ The queue is empty.')
                 else:
-                    response = discord.Embed(color=0xDB0000, title='❗ I am not connected to any channel.')
+                    response = discord.Embed(color=0xBE1931, title='❗ I am not connected to any channel.')
             else:
-                response = discord.Embed(color=0xDB0000, title='❗ You are not in my voice channel.')
+                response = discord.Embed(color=0xBE1931, title='❗ You are not in my voice channel.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ You are not in a voice channel.')
+            response = discord.Embed(color=0xBE1931, title='❗ You are not in a voice channel.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     await message.channel.send(embed=response)

@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def wanikanisave(cmd, message, args):
@@ -18,5 +18,5 @@ async def wanikanisave(cmd, message, args):
             cmd.db[cmd.db.db_cfg.database]['WaniKani'].insert_one(data)
         response = discord.Embed(color=0x66CC66, title=f'🔑 Your key has been {ender}.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     await message.channel.send(embed=response)

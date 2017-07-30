@@ -1,4 +1,4 @@
-import secrets
+﻿import secrets
 import discord
 from config import Currency, permitted_id, ItemWinChannelID
 from .mechanics import roll_rarity, make_item_id, get_all_items, get_items_in_rarity, notify_channel_of_special
@@ -40,7 +40,7 @@ async def forage(cmd, message, args):
             if item.rarity >= 5:
                 await notify_channel_of_special(message, cmd.bot.get_all_channels(), ItemWinChannelID, item)
         else:
-            response = discord.Embed(color=0xDB0000, title=f'â— You don\'t have enough {Currency}!')
+            response = discord.Embed(color=0xBE1931, title=f'â— You don\'t have enough {Currency}!')
     else:
         timeout = cmd.cooldown.get_cooldown(cmd, message)
         response = discord.Embed(color=0x696969, title=f'ðŸ•™ Your new bait will be ready in {timeout} seconds.')

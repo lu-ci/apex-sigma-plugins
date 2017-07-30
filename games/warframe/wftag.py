@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def wftag(cmd, message, args):
@@ -24,11 +24,11 @@ async def wftag(cmd, message, args):
                     cmd.db.set_guild_settings(message.guild.id, 'WarframeTags', wf_tags)
                     response = discord.Embed(title=f'✅ {response_title}', color=0x66CC66)
                 else:
-                    response = discord.Embed(title=f'❗ {alert_role_search.upper()} Was Not Found', color=0xDB0000)
+                    response = discord.Embed(title=f'❗ {alert_role_search.upper()} Was Not Found', color=0xBE1931)
             else:
-                response = discord.Embed(title='❗ Not Enough Arguments', color=0xDB0000)
+                response = discord.Embed(title='❗ Not Enough Arguments', color=0xBE1931)
         else:
-            response = discord.Embed(title='❗ Nothing Was Inputted', color=0xDB0000)
+            response = discord.Embed(title='❗ Nothing Was Inputted', color=0xBE1931)
     else:
         response = discord.Embed(title='⛔ Access Denied. Manage Roles needed.', color=0xBE1931)
     await message.channel.send(embed=response)

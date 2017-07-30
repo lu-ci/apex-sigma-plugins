@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 from .mechanics import get_all_items, get_item_by_name
 
 async def finditem(cmd, message, args):
@@ -26,7 +26,7 @@ async def finditem(cmd, message, args):
             else:
                 response = discord.Embed(color=0x696969, title=f'🔍 I didn\'t find the {item_type} category.')
         else:
-            response = discord.Embed(color=0xDB0000, title='❗ Not enough arguments..')
+            response = discord.Embed(color=0xBE1931, title='❗ Not enough arguments..')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ You didn\'t input anything.')
+        response = discord.Embed(color=0xBE1931, title='❗ You didn\'t input anything.')
     await message.channel.send(embed=response)

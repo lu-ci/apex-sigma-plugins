@@ -1,4 +1,4 @@
-import discord
+﻿import discord
 
 
 async def bots(cmd, message, args):
@@ -15,7 +15,7 @@ async def bots(cmd, message, args):
             else:
                 online_bots.append(name)
     if total_bots == 0:
-        embed = discord.Embed(title='❗ No bots were found on this server.', color=0xDB0000)
+        embed = discord.Embed(title='❗ No bots were found on this server.', color=0xBE1931)
     else:
         embed = discord.Embed(title='Bot Status on ' + message.guild.name, color=0x1ABC9C)
         embed.add_field(name='Online', value='```\n - ' + '\n - '.join(sorted(online_bots)) + '\n```')

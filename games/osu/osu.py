@@ -21,7 +21,7 @@ async def osu(cmd, message, args):
             response.set_image(url=sig_url)
             response.set_author(name=username + '\'s osu! Profile', url=profile_url, icon_url=osu_logo)
         except Exception:
-            response = discord.Embed(color=0xDB0000, title='❗ Unable to retrieve profile.')
+            response = discord.Embed(color=0xBE1931, title='❗ Unable to retrieve profile.')
     else:
-        response = discord.Embed(color=0xDB0000, title='❗ Nothing inputted.')
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     await message.channel.send(None, embed=response)
