@@ -2,12 +2,10 @@
 from concurrent.futures import ThreadPoolExecutor
 import markovify
 import functools
-import asyncio
 import discord
 import ftfy
 
 threads = ThreadPoolExecutor(max_workers=2)
-loop = asyncio.get_event_loop()
 
 
 async def impersonate(cmd, message, args):
@@ -23,10 +21,12 @@ async def impersonate(cmd, message, args):
         if chain_data:
             total_string = ' '.join(chain_data['Chain'])
             total_string = ftfy.fix_text(total_string)
-            chain = await loop.run_in_executor(threads, functools.partial(markovify.Text, total_string))
-            sentence = await loop.run_in_executor(threads, functools.partial(chain.make_sentence, tries=100))
+            chain = await cmd.bot.loop.run_in_executor(threads, functools.partial(markovify.Text, total_string))
+            chain_function = functools.partial(chain.make_short_sentence, max_chars=150, tries=100)
+            task = cmd.bot.loop.run_in_executor(threads, chain_function)
+            sentence = await task
             if not sentence:
-                response = discord.Embed(color=0xBE1931, title='😖 I Couldn\'t think of anything...')
+                response = discord.Embed(color=0xBE1931, title='😖 I could not think of anything...')
             else:
                 sentence = ftfy.fix_text(sentence)
                 response = discord.Embed(color=0xbdddf4)
