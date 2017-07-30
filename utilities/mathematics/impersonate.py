@@ -22,7 +22,7 @@ async def impersonate(cmd, message, args):
             total_string = ' '.join(chain_data['Chain'])
             total_string = ftfy.fix_text(total_string)
             chain = await cmd.bot.loop.run_in_executor(threads, functools.partial(markovify.Text, total_string))
-            chain_function = functools.partial(chain.make_short_sentence, max_chars=150, tries=100)
+            chain_function = functools.partial(chain.make_short_sentence, max_chars=150)
             task = cmd.bot.loop.run_in_executor(threads, chain_function)
             sentence = await task
             if not sentence:
