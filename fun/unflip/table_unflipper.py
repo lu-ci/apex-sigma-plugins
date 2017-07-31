@@ -11,7 +11,7 @@ async def table_unflipper(ev, message):
             else:
                 unflip = flip_settings
         if unflip:
-            add_special_stats(ev.db, 'tables_fixed')
+            await add_special_stats(ev.db, 'tables_fixed')
             table = ['┬─┬ ノ( ^_^ノ)',
                      '┬─┬ ﾉ(° -°ﾉ)',
                      '┬─┬ ノ(゜-゜ノ)',
