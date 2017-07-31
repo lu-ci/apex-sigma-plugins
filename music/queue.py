@@ -54,7 +54,8 @@ async def queue(cmd, message, args):
                         requester = f'{message.author.name}#{message.author.discriminator}'
                         final_resp = discord.Embed(color=0x66CC66)
                         final_resp.add_field(name='✅ Added To Queue', value=song_item['title'])
-                        final_resp.set_thumbnail(url=song_item['thumbnail'])
+                        if 'thumbnail' in song_item:
+                            final_resp.set_thumbnail(url=song_item['thumbnail'])
                         final_resp.set_author(name=requester, icon_url=user_avatar(message.author))
                         final_resp.set_footer(text=f'Duration: {duration}')
                     await init_res_msg.edit(embed=final_resp)
