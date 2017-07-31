@@ -5,6 +5,10 @@ from sigma.core.utilities.data_processing import user_avatar
 
 
 async def reminder_clockwork(ev):
+    ev.bot.loop.create_task(clockwork_function_reminder_clockwork(ev))
+
+
+async def clockwork_function_reminder_clockwork(ev):
     while True:
         reminders = ev.db[ev.db.db_cfg.database]['Reminders'].find({})
         for reminder in reminders:

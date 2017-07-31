@@ -21,6 +21,10 @@ def count_vc_members(vc):
 
 
 async def experience_voice(ev):
+    ev.bot.loop.create_task(clockwork_function_experience_voice(ev))
+
+
+async def clockwork_function_experience_voice(ev):
     while True:
         members = ev.bot.get_all_members()
         for member in members:
@@ -39,4 +43,4 @@ async def experience_voice(ev):
                                     if count_vc_members(member.voice.channel) > 1:
                                         points = 1 + secrets.randbelow(9)
                                         ev.db.add_experience(member, member.guild, points)
-        await asyncio.sleep(20)
+        await asyncio.sleep(60)

@@ -21,6 +21,9 @@ def count_vc_members(vc):
 
 
 async def currency_voice(ev):
+    ev.bot.loop.create_task(clockwork_function_currency_voice(ev))
+
+async def clockwork_function_currency_voice(ev):
     while True:
         members = ev.bot.get_all_members()
         for member in members:
