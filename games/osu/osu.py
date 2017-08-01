@@ -7,7 +7,7 @@ osu_logo = 'http://w.ppy.sh/c/c9/Logo.png'
 
 async def osu(cmd, message, args):
     if args:
-        osu_input = ' '.join(args)
+        osu_input = '%20'.join(args)
         try:
             profile_url = 'https://osu.ppy.sh/u/' + osu_input
             async with aiohttp.ClientSession() as session:
