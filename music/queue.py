@@ -22,7 +22,10 @@ async def queue(cmd, message, args):
                     init_response = discord.Embed(color=0xFFCC66,
                                                   title='💽 Processing playlist. This might take a long time...')
                 else:
-                    playlist_url = False
+                    if lookup.startswith('http'):
+                        playlist_url = True
+                    else:
+                        playlist_url = False
                     init_response = discord.Embed(color=0xFFCC66, title='💽 Searching...')
                 init_res_msg = await message.channel.send(embed=init_response)
                 extracted_info = await cmd.bot.music.extract_info(lookup)
@@ -50,7 +53,7 @@ async def queue(cmd, message, args):
                                                    title=f'💽 Added {len(entries)} songs from {pl_title}.')
                     else:
                         cmd.bot.music.queue_add(message.guild.id, message.author, song_item)
-                        duration = str(datetime.timedelta(seconds=song_item['duration']))
+                        duration = str(datetime.timedelta(seconds=int(song_item['duration'])))
                         requester = f'{message.author.name}#{message.author.discriminator}'
                         final_resp = discord.Embed(color=0x66CC66)
                         final_resp.add_field(name='✅ Added To Queue', value=song_item['title'])
