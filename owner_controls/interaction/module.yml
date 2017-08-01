@@ -29,7 +29,7 @@ commands:
       Sends a message to a user, channel or server.
       The first argument needs to be the destination parameter.
       The destination parameter consists of the destination type and ID.
-      The types are U for User, C for Channel and S for Server.
+      The types are U for User and C for Channel.
       The type and ID are separated by a colon, or two dots put more simply.
 
   - name:         eject

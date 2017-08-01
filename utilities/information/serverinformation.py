@@ -15,7 +15,6 @@ async def serverinformation(cmd, message, args):
         out_list.append(['Name', serv.name])
         out_list.append(['Server ID', serv.id])
         out_list.append(['Created', serv.created_at])
-        out_list.append(['Default Channel', '#' + serv.default_channel.name])
         out_list.append(['Member Count', str(user_count) + ' (+' + str(bot_count) + ' bots)'])
         out_list.append(['Owner', serv.owner])
         out_list.append(['Owner ID', serv.owner_id])

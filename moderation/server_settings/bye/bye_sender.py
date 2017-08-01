@@ -7,7 +7,7 @@ async def bye_sender(ev, member):
     if bye_active is True or bye_active is None:
         bye_channel_id = ev.db.get_guild_settings(member.guild.id, 'ByeChannel')
         if bye_channel_id is None:
-            target = member.guild.default_channel
+            target = None
         else:
             target = discord.utils.find(lambda x: x.id == bye_channel_id, member.guild.channels)
         if target:

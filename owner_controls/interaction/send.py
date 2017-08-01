@@ -10,10 +10,6 @@ async def send(cmd, message, args):
         if mode == 'u':
             target = discord.utils.find(lambda x: x.id == identifier, cmd.bot.get_all_members())
             title_end = f'{target.name}#{target.discriminator}'
-        elif mode == 's':
-            target_srv = discord.utils.find(lambda x: x.id == identifier, cmd.bot.guilds)
-            target = target_srv.default_channel
-            title_end = f'{target_srv.name}'
         elif mode == 'c':
             target = discord.utils.find(lambda x: x.id == identifier, cmd.bot.get_all_channels())
             title_end = f'#{target.name} on {target.guild.name}'

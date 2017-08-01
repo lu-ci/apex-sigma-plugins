@@ -11,7 +11,7 @@ async def greet_sender(ev, member):
         else:
             greet_channel_id = ev.db.get_guild_settings(member.guild.id, 'GreetChannel')
             if greet_channel_id is None:
-                target = member.guild.default_channel
+                target = None
             else:
                 target = discord.utils.find(lambda x: x.id == greet_channel_id, member.guild.channels)
         if target:
