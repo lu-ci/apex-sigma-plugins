@@ -2,8 +2,8 @@ import aiohttp
 import discord
 
 
-async def jisho(cmd, message, *args):
-    jisho_q = ' '.join(*args)
+async def jisho(cmd, message, args):
+    jisho_q = ' '.join(args)
 
     async with aiohttp.ClientSession() as session:
         async with session.get('http://jisho.org/api/v1/search/words?keyword=' + jisho_q) as data:
