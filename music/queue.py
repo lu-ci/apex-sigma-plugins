@@ -102,7 +102,7 @@ async def queue(cmd, message, args):
             response = discord.Embed(color=0x3B88C3)
             response.set_author(name=message.guild.name, icon_url=message.guild.icon_url)
             response.add_field(name='Current Music Queue', value=stats_desc)
-            response.add_field(name=list_title, value=f'```py\n{list_desc}\n```')
+            response.add_field(name=list_title, value=f'```json\n{list_desc}\n```')
         else:
             response = discord.Embed(color=0x3B88C3, title='🎵 The queue is empty.')
         await message.channel.send(embed=response)
