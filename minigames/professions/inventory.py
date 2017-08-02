@@ -1,12 +1,15 @@
 import discord
+from .nodes.item_core import ItemCore
 from sigma.core.utilities.data_processing import user_avatar
 from humanfriendly.tables import format_pretty_table as boop
-from .mechanics import get_item_by_id, items, get_all_items
+
+item_core = None
 
 
 async def inventory(cmd, message, args):
-    if not items:
-        get_all_items('fish', cmd.resource('data'))
+    global item_core
+    if not item_core:
+        item_core = ItemCore(cmd.resource('data'))
     if message.mentions:
         target = message.mentions[0]
     else:
@@ -18,16 +21,16 @@ async def inventory(cmd, message, args):
             if page_number == 0:
                 page_number = 1
         except TypeError:
-            page_number = 0
+            page_number = 1
         except ValueError:
-            page_number = 0
+            page_number = 1
     start_range = (page_number - 1) * 10
     end_range = page_number * 10
     inv = cmd.db.get_inventory(target)
     total_inv = len(inv)
     item_o_list = []
     for item in inv:
-        item_o = get_item_by_id(item['item_file_id'])
+        item_o = item_core.get_item_by_file_id(item['item_file_id'])
         item_o_list.append(item_o)
     item_o_list = sorted(item_o_list, key=lambda x: x.rarity, reverse=True)
     inv = item_o_list[start_range:end_range]
@@ -37,7 +40,7 @@ async def inventory(cmd, message, args):
         total_value = 0
         for item_o_item in inv:
             to_format.append(
-                [item_o_item.item_type, item_o_item.name, f'{item_o_item.value}', f'{item_o_item.rarity_name.title()}'])
+                [item_o_item.type, item_o_item.name, f'{item_o_item.value}', f'{item_o_item.rarity_name.title()}'])
         for item_o_item in item_o_list:
             total_value += item_o_item.value
         output = boop(to_format, column_names=headers)

@@ -1,11 +1,13 @@
 ﻿import discord
-from .mechanics import get_item_by_id, get_all_items
-from .mechanics import items
+from .nodes.item_core import ItemCore
+
+item_core = None
 
 
 async def filtersell(cmd, message, args):
-    if not items:
-        get_all_items('fish', cmd.resource('data'))
+    global item_core
+    if not item_core:
+        item_core = ItemCore(cmd.resource('data'))
     if args:
         full_qry = ' '.join(args)
         arguments = full_qry.split(':')
@@ -26,7 +28,7 @@ async def filtersell(cmd, message, args):
                     attribute = None
                 if attribute:
                     for item in inv:
-                        item_ob_id = get_item_by_id(item['item_file_id'])
+                        item_ob_id = item_core.get_item_by_file_id(item['item_file_id'])
                         item_attribute = getattr(item_ob_id, attribute)
                         if item_attribute.lower() == lookup.lower():
                             sell_value += item_ob_id.value

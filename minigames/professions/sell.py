@@ -1,12 +1,13 @@
 ﻿import discord
-from .mechanics import get_item_by_name, get_item_by_id, get_all_items
-from .mechanics import items
+from .nodes.item_core import ItemCore
 
+item_core = None
 
 async def sell(cmd, message, args):
+    global item_core
+    if not item_core:
+        item_core = ItemCore(cmd.resource('data'))
     currency = cmd.bot.cfg.pref.currency
-    if not items:
-        get_all_items('fish', cmd.resource('data'))
     if args:
         inv = cmd.db.get_inventory(message.author)
         if inv:
@@ -15,7 +16,7 @@ async def sell(cmd, message, args):
                 value = 0
                 count = 0
                 for invitem in inv:
-                    item_ob_id = get_item_by_id(invitem['item_file_id'])
+                    item_ob_id = item_core.get_item_by_file_id(invitem['item_file_id'])
                     value += item_ob_id.value
                     count += 1
                     cmd.db.del_from_inventory(message.author, invitem['item_id'])
@@ -23,9 +24,9 @@ async def sell(cmd, message, args):
                 currency = cmd.bot.cfg.pref.currency
                 response = discord.Embed(color=0xc6e4b5, title=f'💶 You sold {count} items for {value} {currency}.')
             else:
-                item_o = get_item_by_name(lookup)
+                item_o = item_core.get_item_by_name(lookup)
                 if item_o:
-                    item = cmd.db.get_inventory_item(message.author, item_o.item_file_id)
+                    item = cmd.db.get_inventory_item(message.author, item_o.file_id)
                 else:
                     item = None
                 if item:
