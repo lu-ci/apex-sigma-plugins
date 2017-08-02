@@ -29,6 +29,18 @@ item_icons = {
         'ethereal': '🏵',
         'antimatter': '✴',
         'omnipotent': '🔰'
+    },
+    'plants': {
+        'trash': '🗑',
+        'common': '☘',
+        'uncommon': '🌾',
+        'rare': '🌻',
+        'legendary': '🌺',
+        'prime': '🎍',
+        'spectral': '🎃',
+        'ethereal': '🌹',
+        'antimatter': '🍥',
+        'omnipotent': '🏮'
     }
 }
 
@@ -44,6 +56,18 @@ item_colors = {
         'ethereal': 0x553788,
         'antimatter': 0x292f33,
         'omnipotent': 0x47ded4
+    },
+    'plants': {
+        'trash': 0x696969,
+        'common': 0x77b255,
+        'uncommon': 0xffcc4d,
+        'rare': 0x732700,
+        'legendary': 0xf4abba,
+        'prime': 0xffe8b6,
+        'spectral': 0xf18f26,
+        'ethereal': 0xbe1931,
+        'antimatter': 0xe1e8ed,
+        'omnipotent': 0xc61d35
     }
 }
 
@@ -82,11 +106,12 @@ items = {}
 
 
 def get_all_items(item_type, location_base):
+    global items
     settings = get_item_settings(item_type)
     if item_type not in items:
-        item_type_list = ['fish']
-        output = {}
+        item_type_list = ['fish', 'plants']
         for list_item in item_type_list:
+            output = {}
             for root, dirs, files in os.walk(f'{location_base}/{list_item.lower()}'):
                 for file in files:
                     if file.endswith('.yml'):
@@ -163,7 +188,7 @@ async def notify_channel_of_special(message, all_channels, channel_id, item):
             connector = 'a'
             if item.rarity_name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
                 connector = 'an'
-            response_title = f'{item.icon} {connector.title()} {item.rarity_name} {item.name} has been caught!'
+            response_title = f'{item.icon} {connector.title()} {item.rarity_name} {item.name} has been found!'
             response = discord.Embed(color=item.color, title=response_title)
             response.set_author(name=f'{message.author.display_name}', icon_url=user_avatar(message.author))
             response.set_footer(text=f'From {message.guild.name}.', icon_url=message.guild.icon_url)

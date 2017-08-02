@@ -1,20 +1,19 @@
 ﻿import secrets
 import discord
-from config import Currency, permitted_id, ItemWinChannelID
 from .mechanics import roll_rarity, make_item_id, get_all_items, get_items_in_rarity, notify_channel_of_special
-from sigma.core.utils import user_avatar
+from sigma.core.utilities.data_processing import user_avatar
 
 
 async def forage(cmd, message, args):
     all_plants = get_all_items('plants', cmd.resource('data'))
-    if not cmd.cooldown.on_cooldown(cmd, message):
-        cmd.cooldown.set_cooldown(cmd, message, 60)
-        kud = cmd.db.get_points(message.author)
-        if kud['Current'] >= 20:
-            cmd.db.take_points(message.guild, message.author, 20)
+    if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
+        #cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
+        kud = cmd.db.get_currency(message.author, message.guild)
+        if kud['current'] >= 20:
+            cmd.db.rmv_currency(message.author, message.guild, 20)
             rarity = roll_rarity()
             if args:
-                if message.author.id in permitted_id:
+                if message.author.id in cmd.bot.cfg.dsc.owners:
                     try:
                         rarity = int(args[0])
                     except TypeError:
@@ -34,14 +33,15 @@ async def forage(cmd, message, args):
                     'item_id': item_id,
                     'item_file_id': item.item_file_id,
                 }
-                cmd.db.inv_add(message.author, data_for_inv)
+                cmd.db.add_to_inventory(message.author, data_for_inv)
             response = discord.Embed(color=item.color, title=response_title)
             response.set_author(name=message.author.display_name, icon_url=user_avatar(message.author))
             if item.rarity >= 5:
-                await notify_channel_of_special(message, cmd.bot.get_all_channels(), ItemWinChannelID, item)
+                if 'item_channel' in cmd.cfg:
+                    await notify_channel_of_special(message, cmd.bot.get_all_channels(), cmd.cfg['item_channel'], item)
         else:
-            response = discord.Embed(color=0xBE1931, title=f'â— You don\'t have enough {Currency}!')
+            response = discord.Embed(color=0xBE1931, title=f'❗ You don\'t have enough {cmd.bot.cfg.pref.currency}!')
     else:
-        timeout = cmd.cooldown.get_cooldown(cmd, message)
-        response = discord.Embed(color=0x696969, title=f'ðŸ•™ Your new bait will be ready in {timeout} seconds.')
+        timeout = cmd.bot.cooldown.get_cooldown(cmd.name, message.author)
+        response = discord.Embed(color=0x696969, title=f'🕙 You are resting for another {timeout} seconds.')
     await message.channel.send(embed=response)
