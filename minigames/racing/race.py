@@ -1,4 +1,5 @@
-﻿import asyncio
+﻿import copy
+import asyncio
 import discord
 import secrets
 from .nodes.race_storage import *
@@ -11,7 +12,8 @@ async def race(cmd, message, args):
         create_response.set_footer(text=f'We need 2 participants! Type {cmd.bot.get_prefix(message)}joinrace to join!')
         await message.channel.send(embed=create_response)
         await asyncio.sleep(30)
-        race_instance = races[message.channel.id]
+        race_instance = copy.deepcopy(races[message.channel.id])
+        del races[message.channel.id]
         if len(race_instance['users']) >= 2:
             values = {}
             highest = 0
@@ -57,9 +59,7 @@ async def race(cmd, message, args):
                 win_title += f' And got {int(race_instance["pool"] * 0.9)} {currency}.'
             win_response = discord.Embed(color=colors[leader['icon']], title=win_title)
             await message.channel.send(embed=win_response)
-            del races[message.channel.id]
         else:
-            del races[message.channel.id]
             not_enough_response = discord.Embed(color=0xBE1931, title='❗ Not enough participants in the race!')
             await message.channel.send(embed=not_enough_response)
     else:

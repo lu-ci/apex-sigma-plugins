@@ -21,7 +21,7 @@ async def filtersell(cmd, message, args):
                 if mode == 'name':
                     attribute = 'name'
                 elif mode == 'type':
-                    attribute = 'item_type'
+                    attribute = 'type'
                 elif mode == 'rarity' or mode == 'quality':
                     attribute = 'rarity_name'
                 else:
