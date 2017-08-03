@@ -38,12 +38,11 @@ class ItemCore(object):
         return output
 
     def pick_item_in_rarity(self, item_category, rarity):
-        items = self.all_items[item_category]
         in_rarity = []
-        for item in items:
+        for item in self.all_items[item_category]:
             if item.rarity == rarity:
                 in_rarity.append(item)
-        choice = secrets.choice(items)
+        choice = secrets.choice(in_rarity)
         return choice
 
     def init_items(self):
@@ -53,7 +52,7 @@ class ItemCore(object):
                 for file in files:
                     if file.endswith('.yml'):
                         file_path = (os.path.join(root, file))
-                        with open(file_path) as item_file:
+                        with open(file_path, encoding='utf-8') as item_file:
                             item_id = file.split('.')[0]
                             item_data = yaml.safe_load(item_file)
                             item_data.update({'file_id': item_id})
@@ -65,17 +64,17 @@ class ItemCore(object):
     def roll_rarity():
         rarities = {
             0: 0,
-            1: 3500,
-            2: 6000,
-            3: 8000,
-            4: 9500,
-            5: 9800,
-            6: 9910,
-            7: 9960,
-            8: 9985,
-            9: 9995
+            1: 35000,
+            2: 60000,
+            3: 80000,
+            4: 95000,
+            5: 98000,
+            6: 99100,
+            7: 99600,
+            8: 99850,
+            9: 99950
         }
-        roll = secrets.randbelow(10000)
+        roll = secrets.randbelow(100000)
         lowest = 0
         for rarity in rarities:
             if rarities[rarity] <= roll:
