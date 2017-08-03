@@ -2,6 +2,7 @@
 import asyncio
 import datetime
 from sigma.core.utilities.data_processing import user_avatar
+from sigma.core.utilities.stats_processing import add_special_stats
 
 
 async def play(cmd, message, args):
@@ -29,6 +30,7 @@ async def play(cmd, message, args):
                     init_song_embed = discord.Embed(color=0x3B88C3, title=f'🔽 Downloading {item.title}...')
                     init_song_msg = await message.channel.send(embed=init_song_embed)
                     await item.create_player(message.guild.voice_client)
+                    await add_special_stats(cmd.db, 'songs_played')
                     cmd.bot.music.currents.update({message.guild.id: item})
                     duration = str(datetime.timedelta(seconds=item.duration))
                     author = f'{item.requester.name}#{item.requester.discriminator}'
