@@ -27,6 +27,8 @@ async def forage(cmd, message, args):
             if item.rarity_name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
                 connector = 'an'
             if value == 0:
+                if item.name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
+                    connector = 'an'
                 response_title = f'{item.icon} You found {connector} {item.name} and threw it away!'
             else:
                 response_title = f'{item.icon} You found {connector} {item.rarity_name} {item.name}!'
