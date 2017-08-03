@@ -42,27 +42,27 @@ item_icons = {
 
 item_colors = {
     'fish': {
-        0: 0x696969,
+        0: 0x67757f,
         1: 0xc16a4f,
         2: 0x55acee,
         3: 0xd99e82,
-        4: 0xf4abba,
-        5: 0x553788,
+        4: 0xea596e,
+        5: 0xffcc4d,
         6: 0xe1e8ed,
         7: 0x553788,
         8: 0x292f33,
         9: 0x47ded4
     },
     'plant': {
-        0: 0x696969,
+        0: 0x67757f,
         1: 0x77b255,
         2: 0xffcc4d,
         3: 0x732700,
-        4: 0xf4abba,
-        5: 0xffe8b6,
+        4: 0xea596e,
+        5: 0xbe1931,
         6: 0xf18f26,
-        7: 0xf9f9f9,
-        8: 0x7abff3,
-        9: 0xc61d35
+        7: 0xd372b8,
+        8: 0xbdddf4,
+        9: 0xbe1931
     }
 }
