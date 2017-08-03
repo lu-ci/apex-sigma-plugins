@@ -1,5 +1,4 @@
-﻿import copy
-import asyncio
+﻿import asyncio
 import discord
 import secrets
 from .nodes.race_storage import *
@@ -12,7 +11,7 @@ async def race(cmd, message, args):
         create_response.set_footer(text=f'We need 2 participants! Type {cmd.bot.get_prefix(message)}joinrace to join!')
         await message.channel.send(embed=create_response)
         await asyncio.sleep(30)
-        race_instance = copy.deepcopy(races[message.channel.id])
+        race_instance = races[message.channel.id]
         del races[message.channel.id]
         if len(race_instance['users']) >= 2:
             values = {}

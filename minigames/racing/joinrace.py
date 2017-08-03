@@ -43,5 +43,5 @@ async def joinrace(cmd, message, args):
         else:
             response = discord.Embed(color=0xBE1931, title=f'❗ You don\'t have that much {currency}!')
     else:
-        response = discord.Embed(color=0xBE1931, title='❗ There is no ongoing race!')
+        response = discord.Embed(color=0xBE1931, title='❗ There is no race in preparation.')
     await message.channel.send(embed=response)
