@@ -65,17 +65,17 @@ class ItemCore(object):
     def roll_rarity():
         rarities = {
             0: 0,
-            1: 35000,
-            2: 60000,
-            3: 80000,
-            4: 95000,
-            5: 98000,
-            6: 99100,
-            7: 99600,
-            8: 99850,
-            9: 99950
+            1: 3500,
+            2: 6000,
+            3: 8000,
+            4: 9500,
+            5: 9800,
+            6: 9910,
+            7: 9960,
+            8: 9985,
+            9: 9995
         }
-        roll = secrets.randbelow(100000)
+        roll = secrets.randbelow(10000)
         lowest = 0
         for rarity in rarities:
             if rarities[rarity] <= roll:
