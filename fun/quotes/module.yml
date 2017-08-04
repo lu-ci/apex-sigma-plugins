@@ -37,3 +37,12 @@ commands:
     description:
       Outputs a random fact about your lovely furry assh~
       Eerrrr... I mean, companion!
+
+  - name:         dogfact
+    alts:
+      - "doggofact"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Outputs a random fact about the man's best friend.
