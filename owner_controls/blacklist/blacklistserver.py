@@ -10,7 +10,7 @@ async def blacklistserver(cmd, message, args):
         except ValueError:
             valid_id = False
         if valid_id:
-            target = discord.utils.find(lambda x: x.id == target_id, cmd.bot.get_all_members())
+            target = discord.utils.find(lambda x: x.id == target_id, cmd.bot.guilds)
             if target:
                 black_user_collection = cmd.db[cmd.bot.cfg.db.database].BlacklistedServers
                 black_user_file = black_user_collection.find_one({'ServerID': target.id})
