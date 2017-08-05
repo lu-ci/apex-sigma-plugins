@@ -30,8 +30,8 @@ async def permitchannel(cmd, message, args):
                         await message.channel.send(embed=error_response)
                         return
                     if check_alts:
-                        if cmd_name in cmd.bot.alts:
-                            cmd_name = cmd.bot.alts[cmd_name]
+                        if cmd_name in cmd.bot.modules.alts:
+                            cmd_name = cmd.bot.modules.alts[cmd_name]
                     if cmd_name in check_group:
                         perms = get_all_perms(cmd.db, message)
                         cmd_exc = perms[exception_group]
