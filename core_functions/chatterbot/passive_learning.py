@@ -43,8 +43,9 @@ def clean_content(message):
 
 
 async def passive_learning(ev, message):
-    db_size = ev.db['chatterbot']['statements'].count()
-    if db_size < 5000:
+    #db_size = ev.db['chatterbot']['statements'].count()
+    #if db_size < 5000:
+    if True:
         if message.guild:
             db_cfg = ev.bot.cfg.db
             cb = get_cb(db_cfg)
