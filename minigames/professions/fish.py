@@ -10,9 +10,9 @@ async def fish(cmd, message, args):
     if not item_core:
         item_core = ItemCore(cmd.resource('data'))
     if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
-        cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
         kud = cmd.db.get_currency(message.author, message.guild)
         if kud['current'] >= 20:
+            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
             cmd.db.rmv_currency(message.author, message.guild, 20)
             rarity = item_core.roll_rarity()
             if args:
