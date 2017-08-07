@@ -31,12 +31,12 @@ names = {
 participant_icons = ['🐶', '🐱', '🐭', '🐰', '🐙', '🐠', '🦊', '🦀', '🐸', '🐧']
 
 
-def make_race(channel_id):
+def make_race(channel_id, buyin):
     icon_copy = copy.deepcopy(participant_icons)
     race_data = {
         'icons': icon_copy,
         'users': [],
-        'pool': 0
+        'buyin': buyin
     }
     races.update({channel_id: race_data})
 
@@ -57,9 +57,3 @@ def add_participant(channel_id, user):
     races.update({channel_id: race})
     return usr_icon
 
-
-def add_to_pool(channel_id, amount):
-    race = races[channel_id]
-    pool = race['pool'] + amount
-    race.update({'pool': pool})
-    races.update({channel_id: race})

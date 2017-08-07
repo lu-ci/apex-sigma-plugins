@@ -6,8 +6,19 @@ from .nodes.race_storage import *
 
 async def race(cmd, message, args):
     if message.channel.id not in races:
-        make_race(message.channel.id)
-        create_response = discord.Embed(color=0x3B88C3, title='🚀 A race is starting in 30 seconds.')
+        if args:
+            try:
+                buyin = abs(int(args[0]))
+            except ValueError:
+                buyin = 0
+        else:
+            buyin = 0
+        currency = f'{cmd.bot.cfg.pref.currency}'
+        make_race(message.channel.id, buyin)
+        start_title = '🚀 A race is starting in 30 seconds.'
+        if buyin > 0:
+            start_title = f'🚀 A {buyin} {currency} race is starting in 30 seconds.'
+        create_response = discord.Embed(color=0x3B88C3, title=start_title)
         create_response.set_footer(text=f'We need 2 participants! Type {cmd.bot.get_prefix(message)}joinrace to join!')
         await message.channel.send(embed=create_response)
         await asyncio.sleep(30)
@@ -52,10 +63,12 @@ async def race(cmd, message, args):
                     race_msg = await message.channel.send(lines)
                 await asyncio.sleep(2)
             win_title = f'{leader["icon"]} {leader["user"].display_name} has won!'
-            if race_instance['pool']:
-                currency = f'{cmd.bot.cfg.pref.currency}'
-                cmd.db.add_currency(leader['user'], message.guild, int(race_instance["pool"] * 0.9))
-                win_title += f' And got {int(race_instance["pool"] * 0.9)} {currency}.'
+            for user in race_instance['users']:
+                cmd.db.rmv_currency(user['user'], message.guild, buyin)
+            if race_instance['buyin']:
+                winnings = race_instance["buyin"] * len(race_instance['users'])
+                cmd.db.add_currency(leader['user'], message.guild, int(winnings * 0.9))
+                win_title += f' And got {int(winnings * 0.9)} {currency}.'
             win_response = discord.Embed(color=colors[leader['icon']], title=win_title)
             await message.channel.send(embed=win_response)
         else:
