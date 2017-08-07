@@ -5,11 +5,6 @@ category:        administration
 enabled:         true
 
 events:
-  - name:        passive_learning
-    type:        message
-    global:      true
-    enabled:     true
-
   - name:        startup_check
     type:        ready
     global:      true
