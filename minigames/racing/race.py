@@ -52,7 +52,10 @@ async def race(cmd, message, args):
                     if win:
                         lines += f' 🏆: {participant["user"].display_name}'
                     else:
-                        lines += f' {int((val / 20) * 100)}%: {participant["user"].display_name[:10]}'
+                        part_name = participant["user"].display_name
+                        if len(part_name) > 10:
+                            part_name = part_name[:7] + '...'
+                        lines += f' {int((val / 20) * 100)}%: {part_name}'
                     if highest < val:
                         highest = val
                         leader = participant

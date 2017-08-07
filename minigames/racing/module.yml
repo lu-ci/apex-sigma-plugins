@@ -8,24 +8,23 @@ commands:
   - name:         race
     global:       true
     enabled:      true
-    usage:        "{pfx}{cmd}"
+    usage:        "{pfx}{cmd} 20"
     description:
       Creates a race in the current text channel.
       To join the race use the joinrace command.
       A race needs at least 2 people to start.
       And has a maximum of 10 participants.
+      You can specify a required buy-in to join the race.
+      The winner gets the entire pool minus 10% that goes to the track upkeep.
 
   - name:         joinrace
     alts:
       - "jr"
     global:       true
     enabled:      true
-    usage:        "{pfx}{cmd} 50"
+    usage:        "{pfx}{cmd}"
     description:
       Joins a race instance if any are ongoing.
-      You can bet an amount on the race if you wish as well.
-      The winner gets all the Kud that was bet.
-      Minus 10% that goes to the race track upkeep.
 
   - name:         raceoverride
     alts:
