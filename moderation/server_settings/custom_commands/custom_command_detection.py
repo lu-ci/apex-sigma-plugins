@@ -14,8 +14,4 @@ async def custom_command_detection(ev, message):
                         custom_commands = {}
                     if cmd in custom_commands:
                         response = custom_commands[cmd]
-                        author_full = f'{message.author.name}#{message.author.discriminator} [{message.author.id}]'
-                        cmd_location = f'SRV: {message.guild.name} [{message.guild.id}] | '
-                        cmd_location += f'CHN: #{message.channel.name} [{message.channel.id}]'
-                        ev.log.info(f'{author_full} | {cmd_location} | CUSTOM: {message.content}')
                         await message.channel.send(response)

@@ -16,6 +16,17 @@ commands:
       If any of the words in the filter is sent,
       the message will be removed and the author will be notified.
 
+  - name:         blockinvites
+    alts:
+      - "filterinvites"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Toggles if invite links should be automatically removed.
+      When an invite link is removed, the message author is notified and the removal is logged.
+      This ignores anybody with a Manage Server permission.
+
   - name:         unblockwords
     alts:
       - "unblockword"
@@ -39,6 +50,16 @@ events:
     enabled:      true
 
   - name:         edit_word_blocker
+    type:         message_edit
+    global:       true
+    enabled:      true
+
+  - name:         send_invite_blocker
+    type:         message
+    global:       true
+    enabled:      true
+
+  - name:         edit_invite_blocker
     type:         message_edit
     global:       true
     enabled:      true
