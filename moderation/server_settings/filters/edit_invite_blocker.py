@@ -13,10 +13,11 @@ async def edit_invite_blocker(ev, before, after):
                 arguments = after.content.split(' ')
                 invite_found = False
                 for arg in arguments:
-                    try:
-                        invite_found = await ev.bot.get_invite(arg)
-                    except discord.NotFound:
-                        pass
+                    if '.gg' or '.com' or 'http' in arg:
+                        try:
+                            invite_found = await ev.bot.get_invite(arg)
+                        except discord.NotFound:
+                            pass
                 if invite_found:
                     title = '⛓ Invite links are not allowed on this server.'
                     response = discord.Embed(color=0xF9F9F9, title=title)
