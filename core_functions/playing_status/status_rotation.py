@@ -22,7 +22,11 @@ async def status_clockwork(ev):
                 'terminator blueprints', 'love', 'your heart', 'tomatoes',
                 'bank accounts', 'your data', 'your girlfriend', 'your boyfriend',
                 'Scarlet Johanson', 'a new body', 'cameras', 'NSA\'s documents',
-                'mobile suits', 'snakes', 'jelly', 'alcohol', 'the blue king'
+                'mobile suits', 'snakes', 'jelly', 'alcohol', 'the blue king',
+                'political campaigns', 'quartz', 'orbal trinkets', 'tomatoes',
+                'the black market', 'Bastion', 'RSA keys', 'md5 hashes',
+                'destiny', 'the mentos mafia', 'engine parts', 'steak recipes',
+                'scottish whisky', 'my offspring', 'bunnies', 'the occult'
             ]
             status = f'with {secrets.choice(statuses)}'
             game = discord.Game(name=status)
@@ -30,4 +34,4 @@ async def status_clockwork(ev):
                 await ev.bot.change_presence(game=game)
             except discord.ClientException:
                 pass
-        await asyncio.sleep(60)
+        await asyncio.sleep(180)
