@@ -12,22 +12,26 @@ async def softban(cmd, message, args):
                     above_hier = hierarchy_permit(message.author, target)
                     is_admin = message.author.permissions_in(message.channel).administrator
                     if above_hier or is_admin:
-                        if len(args) > 1:
-                            reason = ' '.join(args[1:])
+                        above_me = hierarchy_permit(message.guild.me, target)
+                        if not above_me:
+                            if len(args) > 1:
+                                reason = ' '.join(args[1:])
+                            else:
+                                reason = 'No reason stated.'
+                            response = discord.Embed(color=0x696969, title=f'🔩 The user has been soft-banned.')
+                            response_title = f'{target.name}#{target.discriminator}'
+                            response.set_author(name=response_title, icon_url=user_avatar(target))
+                            to_target = discord.Embed(color=0x696969)
+                            to_target.add_field(name='🔩 You have been soft-banned.', value=f'Reason: {reason}')
+                            to_target.set_footer(text=f'From: {message.guild.name}.', icon_url=message.guild.icon_url)
+                            try:
+                                await target.send(embed=to_target)
+                            except discord.Forbidden:
+                                pass
+                            await target.ban(reason=f'By {message.author.name}: {reason} (Soft)')
+                            await target.unban()
                         else:
-                            reason = 'No reason stated.'
-                        response = discord.Embed(color=0x696969, title=f'🔩 The user has been soft-banned.')
-                        response_title = f'{target.name}#{target.discriminator}'
-                        response.set_author(name=response_title, icon_url=user_avatar(target))
-                        to_target = discord.Embed(color=0x696969)
-                        to_target.add_field(name='🔩 You have been soft-banned.', value=f'Reason: {reason}')
-                        to_target.set_footer(text=f'From: {message.guild.name}.', icon_url=message.guild.icon_url)
-                        try:
-                            await target.send(embed=to_target)
-                        except discord.Forbidden:
-                            pass
-                        await target.ban(reason=f'By {message.author.name}: {reason} (Soft)')
-                        await target.unban()
+                            response = discord.Embed(title='⛔ Can\'t ban above my highest role.', color=0xBE1931)
                     else:
                         response = discord.Embed(title='⛔ Can\'t soft-ban someone equal or above you.', color=0xBE1931)
                 else:
