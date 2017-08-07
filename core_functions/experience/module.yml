@@ -13,10 +13,3 @@ events:
       rating:    0
       dmable:    true
 
-  - name:        experience_voice
-    type:        ready
-    global:      true
-    enabled:     true
-    permissions:
-      rating:    0
-      dmable:    true

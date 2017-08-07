@@ -12,11 +12,3 @@ events:
     permissions:
       rating:    0
       dmable:    true
-
-  - name:        currency_voice
-    type:        ready
-    global:      true
-    enabled:     true
-    permissions:
-      rating:    0
-      dmable:    true
