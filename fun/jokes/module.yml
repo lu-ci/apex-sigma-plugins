@@ -56,6 +56,13 @@ commands:
       It is not really special or anything...
       Sometimes they are funny, most of the times they are not.
 
+  - name:         memeify
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person #channel"
+    description:
+      The less you know about this command, the better.
+
   - name:         yomomma
     alts:
       - "yomama"
