@@ -54,3 +54,8 @@ events:
       dmable:    true
     description:
       Control bot mention event statistics.
+
+  - name:        discordbots_clock
+    type:        ready
+    global:      true
+    enabled:     true
