@@ -32,6 +32,6 @@ async def status_clockwork(ev):
             game = discord.Game(name=status)
             try:
                 await ev.bot.change_presence(game=game)
-            except discord.ClientException:
+            except Exception:
                 pass
         await asyncio.sleep(180)
