@@ -32,7 +32,7 @@ async def profile(cmd, message, args):
     avatar = user_avatar(target)
     commands, total_commands = count_all_commands(cmd.db, target)
     exp = cmd.db.get_experience(target, message.guild)
-    global_level = int((exp['global'] // ((((exp['global'] // 690) * 0.0369) + 1) * 690)))
+    global_level = int((exp['global'] // ((((exp['global'] // 690) * 0.0125) + 1) * 690)))
     top_cmd = {'cmd': None, 'val': 0}
     for command in commands:
         if commands[command] > top_cmd['val']:
