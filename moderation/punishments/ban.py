@@ -28,7 +28,7 @@ async def ban(cmd, message, args):
                     is_admin = message.author.permissions_in(message.channel).administrator
                     if above_hier or is_admin:
                         above_me = hierarchy_permit(message.guild.me, target)
-                        if not above_me:
+                        if above_me:
                             if len(args) > 1:
                                 reason = ' '.join(args[1:])
                             else:
