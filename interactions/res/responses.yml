@@ -1,972 +1,824 @@
-burp:
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/xT5LMIOZi9bIeQ8oN2/giphy.gif
 cuddle:
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/8tpiC1JAYVMFq/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/nTeeb8thSiS0U/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/Ev17f0KeO9qkE/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/rW6pMWrNZ2cPm/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    http://media.giphy.com/media/eMpDBxxTzKety/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://pa1.narvii.com/5774/3cb894f1d4bcb4a9c58a06ee2a7fcd1a11f9b0eb_hq.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/elWf757Qe0xVe/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://s-media-cache-ak0.pinimg.com/originals/80/e4/3f/80e43f08f20f2f97f3bd35a0a0185f52.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/8tpiC1JAYVMFq/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/nTeeb8thSiS0U/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/Ev17f0KeO9qkE/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/rW6pMWrNZ2cPm/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: http://media.giphy.com/media/eMpDBxxTzKety/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://pa1.narvii.com/5774/3cb894f1d4bcb4a9c58a06ee2a7fcd1a11f9b0eb_hq.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/elWf757Qe0xVe/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/80/e4/3f/80e43f08f20f2f97f3bd35a0a0185f52.gif
 highfive:
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/l41lHvfYqxWus1oYw/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/OKhRo2o5AhUNG/giphy.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/bRqvD3f.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/Jg5Twju.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/wyqt5ZD.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/nTVJOYs.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/l41lHvfYqxWus1oYw/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/OKhRo2o5AhUNG/giphy.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/bRqvD3f.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/Jg5Twju.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/wyqt5ZD.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/nTVJOYs.gif
 hug:
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/XpgOZHuDfIkoM/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/EvYHHSntaIl5m/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/pZjSXmyqFHGVi/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/13YrHUvPzUUmkM/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/a5s3dI6Wv1Qcw/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/rSNAVVANV5XhK/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/10BcGXjbHOctZC/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/3ZnBrkqoaI2hq/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/WEQJ3ObydsQ36/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/KskADWInrpVW8/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    http://media.giphy.com/media/IRUb7GTCaPU8E/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/5eyhBKLvYhafu/giphy.gif
-- auth:   moosticalphoenix
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/lZQmFj0Yr02OI/giphy.gif
-- auth:   moosticalphoenix
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://cdn.smosh.com/sites/default/files/ftpuploads/bloguploads/0413/epic-hugs-regular-show.gif
-- auth:   moosticalphoenix
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://pa1.narvii.com/6019/2f86be1cbe09925d0dfba1652c6455b7914b3ee6_hq.gif
-- auth:   moosticalphoenix
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i0.kym-cdn.com/photos/images/newsfeed/000/989/207/749.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://tenor.co/AkWw.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.tenor.co/images/7dbb56533a60781785bd71013f19e97b/tenor.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/3M4NpbLCTxBqU/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://31.media.tumblr.com/2cb863b0146eff52253a90e6f7ab7928/tumblr_mq041bYDBu1srxjoto1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://media.giphy.com/media/VGACXbkf0AeGs/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://media.giphy.com/media/ba92ty7qnNcXu/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/IcCydiEyLjO0w/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://shinyanimeprincess.files.wordpress.com/2011/11/sometimes-i-just-need-a-hug.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://38.media.tumblr.com/b004f301143edad269aa1d88d0f1e245/tumblr_mx084htXKO1qbvovho1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://img4.wikia.nocookie.net/__cb20130302231719/adventuretimewithfinnandjake/images/1/15/Tumblr_m066xoISk41r6owqs.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://31.media.tumblr.com/1dbc325fba6b0106b7289474dc396d77/tumblr_mw6bcmuvO21rtx76bo1_r1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/wnsgren9NtITS/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://24.media.tumblr.com/49a21e182fcdfb3e96cc9d9421f8ee3f/tumblr_mr2oxyLdFZ1s7ewj9o1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://media.giphy.com/media/aD1fI3UUWC4/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/3oKIP8iVpJBZKXmfw4/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://s-media-cache-ak0.pinimg.com/originals/ca/a6/97/caa697ba2a4737b7be7a3fcc176e35cd.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://s-media-cache-ak0.pinimg.com/originals/c8/4e/a2/c84ea24d1af4a34b0378f1e2526194a9.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://s-media-cache-ak0.pinimg.com/originals/39/76/fa/3976fa0105b756d05d0b4834addf4bd9.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://s-media-cache-ak0.pinimg.com/originals/ab/78/37/ab7837f1496fc2b48080976c6bdd2f8c.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/eWtU27sRzPjWM/giphy.gif
-- auth:   "Nighty || Dawn (\u03B7\u03B9gh\u03C4r\u03B5ss\u03B1)"
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://s-media-cache-ak0.pinimg.com/originals/6b/a9/b1/6ba9b145f486af7393764441e4cd171a.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://pa1.narvii.com/5817/1893d20d48bbb4b790cbd3a2efda98266ceb790b_hq.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/bxOYg10.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/EcmfdaU.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/X0gJpdV.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/G0XOpH3.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/2ZLBpXX.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/BPMorMu.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/2D8fF5Q.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/nIIhFTw.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/MDdc2y6.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/UQBA91O.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/xWKFyb7.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/fRqMv8P.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/oKYqqMy.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/xfp0rCi.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/uOasOrp.gif
-- auth:   moosticalphoenix
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://68.media.tumblr.com/34b0c60cc150fbe75b6b8d196111a36f/tumblr_nm6hplceZf1rqfxw8o1_400.gif
-- auth:   moosticalphoenix
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/3o6Zth3OnNv6qDGQ9y/giphy.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://68.media.tumblr.com/c2de85b580261a0d13331a682fed8988/tumblr_omtjgjPjML1us6824o1_r1_500.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/XpgOZHuDfIkoM/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/EvYHHSntaIl5m/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/pZjSXmyqFHGVi/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/13YrHUvPzUUmkM/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/a5s3dI6Wv1Qcw/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/rSNAVVANV5XhK/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/10BcGXjbHOctZC/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/3ZnBrkqoaI2hq/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/WEQJ3ObydsQ36/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/KskADWInrpVW8/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: http://media.giphy.com/media/IRUb7GTCaPU8E/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/5eyhBKLvYhafu/giphy.gif
+- auth: 288790756578164736
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/lZQmFj0Yr02OI/giphy.gif
+- auth: 288790756578164736
+  sid: 287978175927943188
+  url: http://cdn.smosh.com/sites/default/files/ftpuploads/bloguploads/0413/epic-hugs-regular-show.gif
+- auth: 288790756578164736
+  sid: 287978175927943188
+  url: http://pa1.narvii.com/6019/2f86be1cbe09925d0dfba1652c6455b7914b3ee6_hq.gif
+- auth: 288790756578164736
+  sid: 287978175927943188
+  url: http://i0.kym-cdn.com/photos/images/newsfeed/000/989/207/749.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://tenor.co/AkWw.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.tenor.co/images/7dbb56533a60781785bd71013f19e97b/tenor.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/3M4NpbLCTxBqU/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://31.media.tumblr.com/2cb863b0146eff52253a90e6f7ab7928/tumblr_mq041bYDBu1srxjoto1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://media.giphy.com/media/VGACXbkf0AeGs/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://media.giphy.com/media/ba92ty7qnNcXu/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/IcCydiEyLjO0w/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://shinyanimeprincess.files.wordpress.com/2011/11/sometimes-i-just-need-a-hug.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://38.media.tumblr.com/b004f301143edad269aa1d88d0f1e245/tumblr_mx084htXKO1qbvovho1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://img4.wikia.nocookie.net/__cb20130302231719/adventuretimewithfinnandjake/images/1/15/Tumblr_m066xoISk41r6owqs.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://31.media.tumblr.com/1dbc325fba6b0106b7289474dc396d77/tumblr_mw6bcmuvO21rtx76bo1_r1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/wnsgren9NtITS/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://24.media.tumblr.com/49a21e182fcdfb3e96cc9d9421f8ee3f/tumblr_mr2oxyLdFZ1s7ewj9o1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://media.giphy.com/media/aD1fI3UUWC4/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/3oKIP8iVpJBZKXmfw4/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/ca/a6/97/caa697ba2a4737b7be7a3fcc176e35cd.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/c8/4e/a2/c84ea24d1af4a34b0378f1e2526194a9.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/39/76/fa/3976fa0105b756d05d0b4834addf4bd9.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/ab/78/37/ab7837f1496fc2b48080976c6bdd2f8c.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/eWtU27sRzPjWM/giphy.gif
+- auth: 222234484064518156
+  sid: 138067606119645184
+  url: https://s-media-cache-ak0.pinimg.com/originals/6b/a9/b1/6ba9b145f486af7393764441e4cd171a.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://pa1.narvii.com/5817/1893d20d48bbb4b790cbd3a2efda98266ceb790b_hq.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/bxOYg10.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/EcmfdaU.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/X0gJpdV.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/G0XOpH3.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/2ZLBpXX.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/BPMorMu.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/2D8fF5Q.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/nIIhFTw.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/MDdc2y6.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/UQBA91O.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/xWKFyb7.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/fRqMv8P.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/oKYqqMy.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/xfp0rCi.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/uOasOrp.gif
+- auth: 288790756578164736
+  sid: 287978175927943188
+  url: https://68.media.tumblr.com/34b0c60cc150fbe75b6b8d196111a36f/tumblr_nm6hplceZf1rqfxw8o1_400.gif
+- auth: 288790756578164736
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/3o6Zth3OnNv6qDGQ9y/giphy.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://68.media.tumblr.com/c2de85b580261a0d13331a682fed8988/tumblr_omtjgjPjML1us6824o1_r1_500.gif
 kiss:
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    http://i.imgur.com/WEKZlO1.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    http://i.imgur.com/qnlQ0IC.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/G3va31oEEnIkM/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/flmwfIpFVrSKI/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/wOtkVwroA6yzK/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/lZDb2PNgLXdoA/giphy.gif
-- auth:   AXAz0r
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/96AqTKC.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://pa1.narvii.com/5743/852d5dce4733353575949b71c4d67a377d0d636a_hq.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://24.media.tumblr.com/b3d77735e349aefec4039e60eae51fd2/tumblr_mqc7j92TYp1rvkw6no1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/Xf4XDys7AOb8k/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.myniceprofile.com/1512/151229.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://33.media.tumblr.com/ea0ecce120278ca07550fc3ca660960a/tumblr_mttciqf8gm1saf72zo1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://pa1.narvii.com/5743/d4834c7c5eba067c63ee720a793c0a8acf6d7dc8_hq.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://orangejuiceinbishopsgarden.com/blog/wp-content/uploads/2015/02/blowakiss-GIF1.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://37.media.tumblr.com/53bf74a951fc87a0cc15686f5aadb769/tumblr_n14rfuvCe41sc1kfto1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/xiOfpOVHblXOg/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://kek.gg/i/4QGvqG.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://s-media-cache-ak0.pinimg.com/originals/28/6b/02/286b029f0288bc65d732ef183b0c5e09.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://s-media-cache-ak0.pinimg.com/originals/b0/85/98/b08598aa7bf906bbf298dc067820436e.gif
-- auth:   "Nighty || Dawn (\u03B7\u03B9gh\u03C4r\u03B5ss\u03B1)"
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/67b5a0f6301289937efe4c9694cf34c3/tumblr_n67cobj9W11trjs0jo1_500.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/tBZmW8y.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/p374XZU.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/3f8Jsmk.gif
+- auth: null
+  sid: 287978175927943188
+  url: http://i.imgur.com/WEKZlO1.gif
+- auth: null
+  sid: 287978175927943188
+  url: http://i.imgur.com/qnlQ0IC.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/G3va31oEEnIkM/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/flmwfIpFVrSKI/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/wOtkVwroA6yzK/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/lZDb2PNgLXdoA/giphy.gif
+- auth: 137951917644054529
+  sid: 287978175927943188
+  url: http://i.imgur.com/96AqTKC.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://pa1.narvii.com/5743/852d5dce4733353575949b71c4d67a377d0d636a_hq.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://24.media.tumblr.com/b3d77735e349aefec4039e60eae51fd2/tumblr_mqc7j92TYp1rvkw6no1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/Xf4XDys7AOb8k/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://i.myniceprofile.com/1512/151229.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://33.media.tumblr.com/ea0ecce120278ca07550fc3ca660960a/tumblr_mttciqf8gm1saf72zo1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://pa1.narvii.com/5743/d4834c7c5eba067c63ee720a793c0a8acf6d7dc8_hq.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://orangejuiceinbishopsgarden.com/blog/wp-content/uploads/2015/02/blowakiss-GIF1.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://37.media.tumblr.com/53bf74a951fc87a0cc15686f5aadb769/tumblr_n14rfuvCe41sc1kfto1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/xiOfpOVHblXOg/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://kek.gg/i/4QGvqG.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/28/6b/02/286b029f0288bc65d732ef183b0c5e09.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/b0/85/98/b08598aa7bf906bbf298dc067820436e.gif
+- auth: 222234484064518156
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/67b5a0f6301289937efe4c9694cf34c3/tumblr_n67cobj9W11trjs0jo1_500.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/tBZmW8y.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/p374XZU.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/3f8Jsmk.gif
 pat:
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/Lb3vIJjaSIQWA/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/ye7OTQgwmVuVy/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/77XldNdVy4RLG/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/T854LpCA3uJva/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/10KeKxHfeakzks/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/SHyuhBtRr8Zeo/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/68ikwD66c7UOY/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/DtJw1cqMCHSvu/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.tenor.co/images/c0bcaeaa785a6bdf1fae82ecac65d0cc/tenor.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.tenor.co/images/02e3058839a4cb460e53de865ade3a5b/tenor.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.tenor.co/images/36638f9f67357bb957ffad9f6f7ed3c6/tenor.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.tenor.co/images/20bd80f794f780bc43ec7fcd1711090f/tenor.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/2kJY941e6bBVm/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://24.media.tumblr.com/364e5ba769517c4295a218dcb81c0602/tumblr_mp0yr2VHQQ1rvdjx0o1_1280.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://31.media.tumblr.com/2c546e729c79debbb9a04facff52b921/tumblr_n50nf50jj21qbvovho1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://static.skynetblogs.be/media/37519/868586235.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://pa1.narvii.com/5828/c63442f4f97fd6949275f9d0c256cd9a5d76e22f_hq.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/bDMMk0L.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://pa1.narvii.com/5830/6992a00550d06140296bdde6f1a53c820dab3db1_hq.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://25.media.tumblr.com/tumblr_mckmheJJAZ1rqw7udo1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://68.media.tumblr.com/2d61aa2fd9286f5670fbb17b6e56475f/tumblr_o4ufimpBNt1tydz8to1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://lh3.googleusercontent.com/-Nhv1fkZsmIg/VbFlxiHtIqI/AAAAAAAAAcg/z0Fe_7Wci2U/w480-h270/1372623291856.gif
-- auth:   Lumenix
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://media.giphy.com/media/QvwMDYpAMUm6Q/giphy.gif
-- auth:   Lumenix
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://media.giphy.com/media/M3a51DMeWvYUo/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://pa1.narvii.com/5817/f63d97cef02942d5ab18f0686287d2be2d66b847_hq.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/Lb3vIJjaSIQWA/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/ye7OTQgwmVuVy/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/77XldNdVy4RLG/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/T854LpCA3uJva/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/10KeKxHfeakzks/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/SHyuhBtRr8Zeo/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/68ikwD66c7UOY/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/DtJw1cqMCHSvu/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.tenor.co/images/c0bcaeaa785a6bdf1fae82ecac65d0cc/tenor.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.tenor.co/images/02e3058839a4cb460e53de865ade3a5b/tenor.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.tenor.co/images/36638f9f67357bb957ffad9f6f7ed3c6/tenor.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.tenor.co/images/20bd80f794f780bc43ec7fcd1711090f/tenor.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/2kJY941e6bBVm/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://24.media.tumblr.com/364e5ba769517c4295a218dcb81c0602/tumblr_mp0yr2VHQQ1rvdjx0o1_1280.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://31.media.tumblr.com/2c546e729c79debbb9a04facff52b921/tumblr_n50nf50jj21qbvovho1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://static.skynetblogs.be/media/37519/868586235.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://pa1.narvii.com/5828/c63442f4f97fd6949275f9d0c256cd9a5d76e22f_hq.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://i.imgur.com/bDMMk0L.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://pa1.narvii.com/5830/6992a00550d06140296bdde6f1a53c820dab3db1_hq.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://25.media.tumblr.com/tumblr_mckmheJJAZ1rqw7udo1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://68.media.tumblr.com/2d61aa2fd9286f5670fbb17b6e56475f/tumblr_o4ufimpBNt1tydz8to1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://lh3.googleusercontent.com/-Nhv1fkZsmIg/VbFlxiHtIqI/AAAAAAAAAcg/z0Fe_7Wci2U/w480-h270/1372623291856.gif
+- auth: Lumenix
+  sid: 200751504175398912
+  url: https://media.giphy.com/media/QvwMDYpAMUm6Q/giphy.gif
+- auth: Lumenix
+  sid: 200751504175398912
+  url: https://media.giphy.com/media/M3a51DMeWvYUo/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://pa1.narvii.com/5817/f63d97cef02942d5ab18f0686287d2be2d66b847_hq.gif
 peck:
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    http://25.media.tumblr.com/642760eca89625f5dcb7a7b0110310db/tumblr_mqy0f19TPY1rfgw56o1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/lZDb2PNgLXdoA/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/pwZ2TLSTouCQw/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: http://25.media.tumblr.com/642760eca89625f5dcb7a7b0110310db/tumblr_mqy0f19TPY1rfgw56o1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/lZDb2PNgLXdoA/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/pwZ2TLSTouCQw/giphy.gif
 poke:
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/LXTQN2kRbaqAw/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/ovbDDmY4Kphtu/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/WvVzZ9mCyMjsc/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/aZSMD7CpgU4Za/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/pWd3gD577gOqs/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/SiKdZn4quIXyo/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.tenor.co/images/3dfb004901c7e258f4a8e661b3e8eeb0/tenor.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://31.media.tumblr.com/tumblr_lkn1twb83X1qbq4v6o1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://orig03.deviantart.net/1a00/f/2012/007/3/e/minako_poke_by_endless_summer181-d4llj28.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://www.9999hp.net/runedot/RandomStuffs/Fuko_Poke.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://25.media.tumblr.com/a5ca5fcd9295bdbef4d78ddd0ecd42a1/tumblr_msk55wmNLi1ssbvp5o1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/U5BCh5lBoKpuE/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/LXTQN2kRbaqAw/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/ovbDDmY4Kphtu/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/WvVzZ9mCyMjsc/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/aZSMD7CpgU4Za/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/pWd3gD577gOqs/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/SiKdZn4quIXyo/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.tenor.co/images/3dfb004901c7e258f4a8e661b3e8eeb0/tenor.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://31.media.tumblr.com/tumblr_lkn1twb83X1qbq4v6o1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://orig03.deviantart.net/1a00/f/2012/007/3/e/minako_poke_by_endless_summer181-d4llj28.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://www.9999hp.net/runedot/RandomStuffs/Fuko_Poke.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://25.media.tumblr.com/a5ca5fcd9295bdbef4d78ddd0ecd42a1/tumblr_msk55wmNLi1ssbvp5o1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/U5BCh5lBoKpuE/giphy.gif
 pout:
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://i.imgur.com/fIXjG5a.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://media.giphy.com/media/oFrdV5jVQIcwg/giphy.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://media.giphy.com/media/E3y4Wd7a0hn0I/giphy.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://media.giphy.com/media/HzOpw7czrOhTG/giphy.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/0236d9b5971bf5c0266f61ce735d4a14/tumblr_omdeyzbvRG1ridyfoo1_500.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/b34f76191aca81d172d984b8efd1fb1a/tumblr_o4ug71pfSH1tydz8to1_500.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/ba73334eb74c46cb00a41ab2b4e2189c/tumblr_nhh3udqdtW1u3qei8o1_500.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/b6fe12ccbffce0759895825f2414c5c1/tumblr_om0yvjpkt91v90u75o1_500.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/cc729d8189430d64a1fb0f89dd61604a/tumblr_nzhqg5NN3P1uj9aq5o1_500.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/84d72c998a950f3b2d539999506dcec7/tumblr_nkplw17MLG1u7kgn9o1_500.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/76fde5ab37340ebd838f9b1cb632c8a0/tumblr_oegkawmu8y1tydz8to1_500.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/7dd785d8518634c401951e10e2d5a17d/tumblr_o2jjytAxIl1tydz8to1_500.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/4cefb87397c2ceb9d7a390dde5962a2f/tumblr_o32dnizhks1s21xzoo1_500.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/b59f7dcf88830e00f1cb932fb382de38/tumblr_novs2ww8jW1qd0br1o2_250.gif
-- auth:   AXAz0r
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    https://68.media.tumblr.com/47e424b29b3a9ff0e7d9aace60992c4d/tumblr_o6luige0PN1tydz8to1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://i.imgur.com/WA7L2F5.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://i.imgur.com/K39fHzR.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://i.redd.it/ahpibg5dsqzy.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/ga5Vp0F.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://cdn.awwni.me/p995.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://i.imgur.com/1WZCDOq.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://i.redd.it/ouawsk40oj2y.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/vev3Wjh.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/1d1ftUp.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://i.imgur.com/JkpSl3n.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/iSfy9qQ.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/MhDIJr7.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://i.redd.it/cbl76clnitax.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/T3O25zl.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/YtrP0ot.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/PgoA4ta.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/QfMpXKL.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/EoDr95L.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/V0nzHKI.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/rtndAnq.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/clpBDOi.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/oxrL5x5.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/iUwXxxp.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/siauD6Y.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/VyweiXv.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i.imgur.com/Awt8e2g.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://cdn.awwni.me/ndqv.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://i.imgur.com/fIXjG5a.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/oFrdV5jVQIcwg/giphy.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/E3y4Wd7a0hn0I/giphy.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/HzOpw7czrOhTG/giphy.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/0236d9b5971bf5c0266f61ce735d4a14/tumblr_omdeyzbvRG1ridyfoo1_500.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/b34f76191aca81d172d984b8efd1fb1a/tumblr_o4ug71pfSH1tydz8to1_500.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/ba73334eb74c46cb00a41ab2b4e2189c/tumblr_nhh3udqdtW1u3qei8o1_500.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/b6fe12ccbffce0759895825f2414c5c1/tumblr_om0yvjpkt91v90u75o1_500.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/cc729d8189430d64a1fb0f89dd61604a/tumblr_nzhqg5NN3P1uj9aq5o1_500.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/84d72c998a950f3b2d539999506dcec7/tumblr_nkplw17MLG1u7kgn9o1_500.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/76fde5ab37340ebd838f9b1cb632c8a0/tumblr_oegkawmu8y1tydz8to1_500.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/7dd785d8518634c401951e10e2d5a17d/tumblr_o2jjytAxIl1tydz8to1_500.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/4cefb87397c2ceb9d7a390dde5962a2f/tumblr_o32dnizhks1s21xzoo1_500.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/b59f7dcf88830e00f1cb932fb382de38/tumblr_novs2ww8jW1qd0br1o2_250.gif
+- auth: 137951917644054529
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/47e424b29b3a9ff0e7d9aace60992c4d/tumblr_o6luige0PN1tydz8to1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://i.imgur.com/WA7L2F5.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://i.imgur.com/K39fHzR.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://i.redd.it/ahpibg5dsqzy.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/ga5Vp0F.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://cdn.awwni.me/p995.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://i.imgur.com/1WZCDOq.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://i.redd.it/ouawsk40oj2y.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/vev3Wjh.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/1d1ftUp.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://i.imgur.com/JkpSl3n.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/iSfy9qQ.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/MhDIJr7.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://i.redd.it/cbl76clnitax.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/T3O25zl.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/YtrP0ot.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/PgoA4ta.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/QfMpXKL.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/EoDr95L.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/V0nzHKI.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/rtndAnq.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/clpBDOi.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/oxrL5x5.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/iUwXxxp.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/siauD6Y.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/VyweiXv.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://i.imgur.com/Awt8e2g.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: http://cdn.awwni.me/ndqv.gif
 punch:
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://s-media-cache-ak0.pinimg.com/originals/c2/ae/c3/c2aec3290d2f343ed9f4b99542c64633.gif
-- auth:   Awakening
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    http://i2.ruliweb.com/ori/16/07/13/155e0e1e0a046c91a.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.tenor.co/images/7a582f32ef2ed527c0f113f81a696ae3/tenor.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://s-media-cache-ak0.pinimg.com/originals/c2/ae/c3/c2aec3290d2f343ed9f4b99542c64633.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://s-media-cache-ak0.pinimg.com/originals/a0/ce/14/a0ce147ef4c80d956cc8c8168a3a8efa.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/3o7ZeNi3uEfYRM56tG/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/iWEIxgPiAq58c/giphy.gif
-- auth:   Various
-  sid:    287978175927943188
-  srv:    Candy Kingdom
-  url:    https://media.giphy.com/media/Z5zuypybI5dYc/giphy.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://media.giphy.com/media/pfkzQtIFXRgT6/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.tenor.co/images/c80d2cc21f755764e395f116989dcf38/tenor.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://www.videovortex.evan-roth.com/gifs2/Punch-Anime.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/iWAqMe8hBWKVq/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/VtCI0Nw.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://static.fjcdn.com/pictures/FALCON_959489_1304944.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/12NV85Ttcs71Kg/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://fujinsei.files.wordpress.com/2014/12/punch-gif-2.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://media.giphy.com/media/mLn5AIQK2WEwg/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://68.media.tumblr.com/16cba1639cf5f1048baca20018aaf3ef/tumblr_nu4ah2AdKw1ufwwv5o1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://media.giphy.com/media/AB4Ze1yYFHtV6/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/OYiC4necLp3u8/giphy.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/UFSjvSWe0xZug/giphy.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://i.imgur.com/fvsMQyN.gif
-- auth:   "Nighty || Dawn (\u03B7\u03B9gh\u03C4r\u03B5ss\u03B1)"
-  sid:    138067606119645184
-  srv:    Royal Destiny - Gaming Community
-  url:    http://pa1.narvii.com/6223/3ce4df5e75a4290451b2416fcb58e638f62eec28_hq.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/91370762cd98b7b7d81b106825f03448/tumblr_o2qlqhBQYY1v1z098o1_500.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/ApxyGef.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/jn5GA9s.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/8RMRkOp.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://i.imgur.com/EO0ojkg.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/Im1Jj8X.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/c2/ae/c3/c2aec3290d2f343ed9f4b99542c64633.gif
+- auth: Awakening
+  sid: 200751504175398912
+  url: http://i2.ruliweb.com/ori/16/07/13/155e0e1e0a046c91a.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.tenor.co/images/7a582f32ef2ed527c0f113f81a696ae3/tenor.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/c2/ae/c3/c2aec3290d2f343ed9f4b99542c64633.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://s-media-cache-ak0.pinimg.com/originals/a0/ce/14/a0ce147ef4c80d956cc8c8168a3a8efa.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/3o7ZeNi3uEfYRM56tG/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/iWEIxgPiAq58c/giphy.gif
+- auth: null
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/Z5zuypybI5dYc/giphy.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://media.giphy.com/media/pfkzQtIFXRgT6/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.tenor.co/images/c80d2cc21f755764e395f116989dcf38/tenor.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://www.videovortex.evan-roth.com/gifs2/Punch-Anime.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/iWAqMe8hBWKVq/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://i.imgur.com/VtCI0Nw.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://static.fjcdn.com/pictures/FALCON_959489_1304944.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/12NV85Ttcs71Kg/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://fujinsei.files.wordpress.com/2014/12/punch-gif-2.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://media.giphy.com/media/mLn5AIQK2WEwg/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://68.media.tumblr.com/16cba1639cf5f1048baca20018aaf3ef/tumblr_nu4ah2AdKw1ufwwv5o1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: http://media.giphy.com/media/AB4Ze1yYFHtV6/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/OYiC4necLp3u8/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/UFSjvSWe0xZug/giphy.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://i.imgur.com/fvsMQyN.gif
+- auth: 222234484064518156
+  sid: 138067606119645184
+  url: http://pa1.narvii.com/6223/3ce4df5e75a4290451b2416fcb58e638f62eec28_hq.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/91370762cd98b7b7d81b106825f03448/tumblr_o2qlqhBQYY1v1z098o1_500.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/ApxyGef.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/jn5GA9s.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/8RMRkOp.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: http://i.imgur.com/EO0ojkg.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://i.imgur.com/Im1Jj8X.gif
+shoot:
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://lh6.googleusercontent.com/-pbTXrUq9q-E/Uygh4RLM_1I/AAAAAAAAALs/XNG7rVSHNuc/w500-h281/Yuki%2Bwith%2BMP5.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/j2txtjO9mC57G/giphy.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://i.imgur.com/3aemh4I.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://katsuragikaeru.files.wordpress.com/2011/11/yukio-gunfight-2.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/URMDQBYZTsDAY/giphy.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://i.imgur.com/EV7hhzo.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: http://37.media.tumblr.com/tumblr_m1rpa43mBj1qh9mnoo1_500.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: http://pa1.narvii.com/5806/e6313b39e80cfea0629d268d64368c6d3e2388cf_hq.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/O8rrDuTnN51WE/giphy.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/dn6jTrUBSbqQo/giphy.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/blGej3lmV32TK/giphy.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://hugelolcdn.com/comments/1319811.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://68.media.tumblr.com/f1462c17a35c98d6110c2dd6f8c5fa7d/tumblr_myixjvTxhL1soa130o1_500.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://i.imgur.com/314TQwv.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://lh3.googleusercontent.com/-aoKg9JziOyU/VXNutXnvW5I/AAAAAAABawI/wNJtyAT8bWA/w800-h800/alucard.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://myanimelist.cdn-dena.com/s/common/uploaded_files/1448439485-de09a431ab9b87f551fdd0522c652d31.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://s-media-cache-ak0.pinimg.com/originals/3b/57/63/3b5763f9407f7839f0164495357462f8.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://s-media-cache-ak0.pinimg.com/originals/24/cb/f5/24cbf5ab25f94648a1119caff70c489d.gif
+- auth: 318800973751386112
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/Lq4wSAvpO8ZiM/giphy.gif
+- auth: 141360187901476864
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/ZR1jTOYj0kVxu/giphy.gif
+- auth: 141360187901476864
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/26xBIuyhb8U3VhGQo/giphy.gif
+- auth: 141360187901476864
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/110DIR1hC7Ce2c/giphy.gif
+- auth: 141360187901476864
+  sid: 138067606119645184
+  url: http://media.giphy.com/media/blGej3lmV32TK/giphy.gif
+- auth: 141360187901476864
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/yRMK47EIu9D3i/giphy.gif
+- auth: 141360187901476864
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/NXWYyKAHim63u/giphy.gif
+- auth: 141360187901476864
+  sid: 138067606119645184
+  url: https://i.imgur.com/qJPB0G7.gif
+- auth: 211922001546182656
+  sid: 138067606119645184
+  url: https://media.discordapp.net/attachments/312708119409065995/344762612963082243/image.gif
+- auth: 211922001546182656
+  sid: 138067606119645184
+  url: https://media.discordapp.net/attachments/312708119409065995/344762613906931713/image.gif
+- auth: 211922001546182656
+  sid: 138067606119645184
+  url: https://media.discordapp.net/attachments/312708119409065995/344762625072037888/image.gif
+- auth: 211922001546182656
+  sid: 138067606119645184
+  url: https://media.discordapp.net/attachments/312708119409065995/344762642621136896/image.gif
 slap:
-- auth:   moosticalphoenix
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    http://img.photobucket.com/albums/v639/aoie_emesai/100handslap.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/3oEdv1Rdmo0Vd0YdW0/giphy.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/ox1s7dt9B1C6c/giphy.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://www.awesomegifs.com/wp-content/uploads/Tyrion_slaps_Joffrey.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/19sftaasri0ww/giphy.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/14a47266daecdfd9affb48b88eff090a/tumblr_ookzs9Pefi1ufw8o4o1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/9ffd231390f06fb6b826aa6cd64509e9/tumblr_ooi9dgcPz71tvso1qo1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/2d838dc05e6483575ba9d6166ea3947d/tumblr_o00a7vGQqk1rqe0rbo1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/5fdcfcf309ac15882e7e5110d1741b3a/tumblr_omfb76TIuc1rwq8aho1_400.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/ad4d3dc49ece20fd13de95d4ee59c44f/tumblr_oc5dtrba4y1v1z098o1_400.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/3da4b3d278c315d3ced4551a125f3231/tumblr_ommuzfrQ811w5t42wo1_400.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/5be1eb5d433068821b6b60960c9d050b/tumblr_ocpee128mu1u3mxyto1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/15481b5da8273c98ebe6531691329076/tumblr_nklih9QOIs1sf3i1wo1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/85a7fd8a649d1aa632d32aee8284efb8/tumblr_o00w21Bs481tq4of6o1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/23eb708341b540435db4496d3b0f9a33/tumblr_nin5caIy7s1tzhwg6o1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/40fc205c0007f78ba614ace392756f9b/tumblr_o0gvpvphIO1ug5sqno1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/8c7afa65c9017f694732ae1679ea7ee2/tumblr_nu6ayupruG1txi1hfo1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/41c0eb6b92a696c9cb646aedc0e91190/tumblr_o067r7mS0b1th93f0o1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/19498c857aebacb001627ab0088a1f31/tumblr_nklmpyQxUB1qbvovho1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/640dada4b5b31987ed6ce703ad79f637/tumblr_npl7ypIjR61uwhef7o1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/0aac43a9dd604a09bb2a166c3280336f/tumblr_nph3hrXIZw1sk2ve9o1_500.gif
-smash:
-- auth:   Lumenix
-  sid:    288377343070961665
-  srv:    Dank Memes
-  url:    https://media2.giphy.com/media/jwG4PAKr56vu0/giphy.gif
-spank:
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/3ebrr.gif
-- auth:   Darth
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.imgur.com/KUvyFro.gif
+- auth: 288790756578164736
+  sid: 287978175927943188
+  url: http://img.photobucket.com/albums/v639/aoie_emesai/100handslap.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/3oEdv1Rdmo0Vd0YdW0/giphy.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/ox1s7dt9B1C6c/giphy.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://www.awesomegifs.com/wp-content/uploads/Tyrion_slaps_Joffrey.gif
+- auth: 138086421608136704
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/19sftaasri0ww/giphy.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/14a47266daecdfd9affb48b88eff090a/tumblr_ookzs9Pefi1ufw8o4o1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/9ffd231390f06fb6b826aa6cd64509e9/tumblr_ooi9dgcPz71tvso1qo1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/2d838dc05e6483575ba9d6166ea3947d/tumblr_o00a7vGQqk1rqe0rbo1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/5fdcfcf309ac15882e7e5110d1741b3a/tumblr_omfb76TIuc1rwq8aho1_400.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/ad4d3dc49ece20fd13de95d4ee59c44f/tumblr_oc5dtrba4y1v1z098o1_400.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/3da4b3d278c315d3ced4551a125f3231/tumblr_ommuzfrQ811w5t42wo1_400.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/5be1eb5d433068821b6b60960c9d050b/tumblr_ocpee128mu1u3mxyto1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/15481b5da8273c98ebe6531691329076/tumblr_nklih9QOIs1sf3i1wo1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/85a7fd8a649d1aa632d32aee8284efb8/tumblr_o00w21Bs481tq4of6o1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/23eb708341b540435db4496d3b0f9a33/tumblr_nin5caIy7s1tzhwg6o1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/40fc205c0007f78ba614ace392756f9b/tumblr_o0gvpvphIO1ug5sqno1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/8c7afa65c9017f694732ae1679ea7ee2/tumblr_nu6ayupruG1txi1hfo1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/41c0eb6b92a696c9cb646aedc0e91190/tumblr_o067r7mS0b1th93f0o1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/19498c857aebacb001627ab0088a1f31/tumblr_nklmpyQxUB1qbvovho1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/640dada4b5b31987ed6ce703ad79f637/tumblr_npl7ypIjR61uwhef7o1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/0aac43a9dd604a09bb2a166c3280336f/tumblr_nph3hrXIZw1sk2ve9o1_500.gif
 stab:
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/2e61b83d44b61fd3302ff375f73e9a2e/tumblr_onogsiUk931vrwgl9o1_250.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/2be5d28112485fec7a4342977fe15180/tumblr_obrrfjZvJ01u9werno1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/163fc3263273289968aef5266fbaf315/tumblr_op5qurr6BA1sfeoupo1_500.gif
-- auth:   AXAz0r
-  sid:    200751504175398912
-  srv:    Aurora Project
-  url:    https://68.media.tumblr.com/23f1dedd10a60fa4167a49010ff50388/tumblr_nnssmlGRce1u2p2coo1_500.gif
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/zbVuat3JlInNS/giphy.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/2e61b83d44b61fd3302ff375f73e9a2e/tumblr_onogsiUk931vrwgl9o1_250.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/2be5d28112485fec7a4342977fe15180/tumblr_obrrfjZvJ01u9werno1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/163fc3263273289968aef5266fbaf315/tumblr_op5qurr6BA1sfeoupo1_500.gif
+- auth: 137951917644054529
+  sid: 200751504175398912
+  url: https://68.media.tumblr.com/23f1dedd10a60fa4167a49010ff50388/tumblr_nnssmlGRce1u2p2coo1_500.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/zbVuat3JlInNS/giphy.gif
+- auth: 141360187901476864
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/sX1dr2IPOvNPq/giphy.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/VL87txURjAknK/giphy.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://media.giphy.com/media/moWba8OhAmhZ6/giphy.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: http://giffiles.alphacoders.com/834/8340.gif
+- auth: 194708714601709570
+  sid: 138067606119645184
+  url: https://media.tenor.com/images/4e311138cf815bbf46ecc4f1808c82c8/tenor.gif
 stare:
-- auth:   Red Rose
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://media.giphy.com/media/C18CsKNITlixO/giphy.gif
+- auth: 231802562104393741
+  sid: 287978175927943188
+  url: https://media.giphy.com/media/C18CsKNITlixO/giphy.gif
 wave:
-- auth:   moosticalphoenix
-  sid:    287978175927943188
-  srv:    "Candy Kingdom \U0001F36D"
-  url:    https://i.redd.it/8bi269pthmyx.gif
+- auth: 288790756578164736
+  sid: 287978175927943188
+  url: https://i.redd.it/8bi269pthmyx.gif
