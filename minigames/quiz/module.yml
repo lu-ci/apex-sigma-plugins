@@ -1,0 +1,13 @@
+name:             Quiz
+
+category:         minigames
+
+enabled:          true
+
+commands:
+  - name:         quiz
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Quiz.
