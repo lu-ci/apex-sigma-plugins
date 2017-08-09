@@ -17,10 +17,7 @@ async def play(cmd, message, args):
             queue = cmd.bot.music.get_queue(message.guild.id)
             if queue:
                 if not message.guild.voice_client:
-                    await message.author.voice.channel.connect()
-                    title = f'🚩 Connected to {message.author.voice.channel.name}.'
-                    connect_response = discord.Embed(color=0xdd2e44, title=title)
-                    await message.channel.send(embed=connect_response)
+                    await cmd.bot.modules.commands['summon'].execute(message, args)
                 while cmd.bot.music.get_queue(message.guild.id):
                     if not message.guild.voice_client:
                         return
