@@ -27,6 +27,26 @@ commands:
       When an invite link is removed, the message author is notified and the removal is logged.
       This ignores anybody with a Manage Server permission.
 
+  - name:         asciionlynames
+    alts:
+      - "forceascii"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Toggles if only ASCII characters are allowed in names.
+      The bot will check members each 60s for an invalid name and rename them if they are not proper.
+      To change the default temporary name, use the asciitempname command.
+
+  - name:         asciitempname
+    alts:
+      - "asciitemp"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} <ChangeMePleaseI'mLonely>"
+    description:
+      Changes the default temporary name for those who the temp name was enforced on.
+
   - name:         unblockwords
     alts:
       - "unblockword"
@@ -61,5 +81,10 @@ events:
 
   - name:         edit_invite_blocker
     type:         message_edit
+    global:       true
+    enabled:      true
+
+  - name:         name_check_clockwork
+    type:         ready
     global:       true
     enabled:      true
