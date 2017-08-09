@@ -1,3 +1,4 @@
+import arrow
 import discord
 
 
@@ -6,19 +7,13 @@ async def channelinformation(cmd, message, args):
         chan = message.channel_mentions[0]
     else:
         chan = message.channel
-    out_list = [
-        ['Name', chan.name],
-        ['Channel ID', chan.id],
-        ['Created', chan.created_at],
-        ['Is Default', chan.is_default()],
-        ['Position', chan.position]
-    ]
-    if chan.topic:
-        topic = chan.topic
-    else:
-        topic = 'None'
-    out_list.append(['Topic', topic])
-    embed = discord.Embed(title='#' + chan.name + ' Information', color=0x1ABC9C)
-    for item in out_list:
-        embed.add_field(name=str(item[0]), value=f'```python\n{item[1]}\n```')
-    await message.channel.send(None, embed=embed)
+    response = discord.Embed(color=0x1B6F5F)
+    creation_time = arrow.get(chan.created_at).format('DD. MMMM YYYY')
+    info_text = f'Name: **{chan.name}**'
+    info_text += f'\nID: **{chan.id}**'
+    info_text += f'\nPosition: **{chan.position}**'
+    info_text += f'\nDefault: **{chan.is_default()}**'
+    info_text += f'\nNSFW: **{chan.nsfw}**'
+    info_text += f'\nCreated: **{creation_time}**'
+    response.add_field(name=f'#{chan.name} Information', value=info_text)
+    await message.channel.send(None, embed=response)
