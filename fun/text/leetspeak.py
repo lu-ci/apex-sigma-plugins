@@ -28,7 +28,6 @@ async def leetspeak(cmd, message, args):
                 page = l.fromstring(page)
                 table = page.cssselect('.mytable')
                 text = table[0][0][1][2].text_content()
-                print(text)
             response = discord.Embed(color=0x3B88C3)
             response.add_field(name=f'🔣 {level.title()} L33t Converter', value=text)
         else:
