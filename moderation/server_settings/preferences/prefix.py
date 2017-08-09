@@ -6,7 +6,7 @@ async def prefix(cmd, message, args):
         current_prefix = cmd.bot.get_prefix(message)
         if args:
             new_prefix = ''.join(args)
-            if len(new_prefix) != 0:
+            if len(new_prefix) < 2:
                 if new_prefix != current_prefix:
                     cmd.db.set_guild_settings(message.guild.id, 'Prefix', new_prefix)
                     response_title = f'✅ **{new_prefix}** has been set as the new prefix.'
