@@ -31,7 +31,7 @@ async def quiz(cmd, message, args):
     response = discord.Embed(color=message.guild.me.color, title='Pick a quiz', description=response_body)
     quiz_list = await message.channel.send(embed=response)
 
-    def check(msg):
+    def check_value(msg):
         # check if the message is an integer
         try:
             int(msg.content)
@@ -42,7 +42,7 @@ async def quiz(cmd, message, args):
     # wait for user response
     response = discord.Embed(color=message.guild.me.color)  # response for user response
     try:
-        index = await cmd.bot.wait_for('message', check=check, timeout=5)
+        index = await cmd.bot.wait_for('message', check=check_value, timeout=5)
         active_quizzes[message.channel.id] = True
         await quiz_list.delete()  # delete the quiz list
         await index.delete()  # delete the user response
@@ -70,14 +70,14 @@ async def quiz(cmd, message, args):
                 # awaiting for the user answer
                 response = discord.Embed(color=message.guild.me.color, title=quiz_item['quiz'])
                 try:
-                    def check(msg):
+                    def check_answer(msg):
                         if msg.content in item['answers']:
                             out = True
                         else:
                             out = False
                         return out
 
-                    answer = await cmd.bot.wait_for('message', check=check, timeout=12)
+                    answer = await cmd.bot.wait_for('message', check=check_answer, timeout=12)
                     await answer.delete()
                     response = discord.Embed(color=0x00FF00, title=quiz_item['quiz'])
                     desc_text = f"Correct answer by {answer.author.mention}!"
