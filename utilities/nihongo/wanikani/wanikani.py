@@ -81,8 +81,8 @@ async def wanikani(cmd, message, args):
             else:
                 next_review = arrow.get(next_review).humanize()
             study_queue += 'Next review date: **{}**\n'.format(next_review)
-            study_queue += 'Reviews available next hour: **{}**\n'.format(reviews_available_next_hour)
-            study_queue += 'Reviews available next day: **{}**'.format(reviews_available_next_day)
+            study_queue += 'Reviews in next hour: **{}**\n'.format(reviews_available_next_hour)
+            study_queue += 'Reviews in next day: **{}**'.format(reviews_available_next_day)
             embed.add_field(name='Study queue', value=study_queue)
 
             userinfo = '**{}** of **Sect {}**\n'.format(username, sect)
@@ -92,9 +92,6 @@ async def wanikani(cmd, message, args):
             embed.set_author(name='{} of Sect {}'.format(username, sect),
                              url='https://www.wanikani.com/community/people/{}'.format(username), icon_url=avatar)
             embed.set_footer(text='Serving the Crabigator since {}'.format(creation_date))
-            # embed.set_thumbnail(url=avatar)
-
-            # arg = message.content.split(' ', 1)[1]
         except KeyError:
             embed = discord.Embed(color=0xBE1931, title='❗ Invalid data was retrieved.')
     else:
