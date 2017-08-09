@@ -6,6 +6,7 @@ import secrets
 
 active_quizzes = {}
 
+
 async def quiz(cmd, message, args):
     # exit if quiz is already active in the channel
     if message.channel.id in active_quizzes:
@@ -18,23 +19,22 @@ async def quiz(cmd, message, args):
         for file in files:
             if file.endswith('.yml'):
                 file_path = (os.path.join(root, file))
-                with open(file_path, encoding='utf-8') as file:
-                    data = yaml.safe_load(file)
+                with open(file_path, encoding='utf-8') as quiz_file:
+                    data = yaml.safe_load(quiz_file)
                     data.update({'index': index})
                     quizzes.append(data)
                     index += 1
-
     # respond with a list of available quizzes
     response_body = ''
-    for quiz in quizzes:
-        response_body += f"`#{quiz['index']}.` {quiz['quiz']}"
+    for quiz_item in quizzes:
+        response_body += f"`#{quiz_item['index']}.` {quiz_item['quiz']}"
     response = discord.Embed(color=message.guild.me.color, title='Pick a quiz', description=response_body)
     quiz_list = await message.channel.send(embed=response)
 
     def check(msg):
         # check if the message is an integer
         try:
-            msg = int(msg.content)
+            int(msg.content)
             return True
         except ValueError:
             return False
@@ -47,16 +47,14 @@ async def quiz(cmd, message, args):
         await quiz_list.delete()  # delete the quiz list
         await index.delete()  # delete the user response
         index = index.content
-
         queue = []
         # look for the chosen index in the data
-        for quiz in quizzes:
-            if str(quiz['index']) == str(index):
+        for quiz_item in quizzes:
+            if str(quiz_item['index']) == str(index):
                 # grab 10 random items
                 while len(queue) != 2:
-                    addition = quiz['questions'].pop(secrets.randbelow(len(quiz['questions'])))
+                    addition = quiz_item['questions'].pop(secrets.randbelow(len(quiz_item['questions'])))
                     queue.append(addition)
-
         if not queue:
             response.title = 'Selected quiz was not found'
             await message.channel.send(embed=response)
@@ -65,36 +63,40 @@ async def quiz(cmd, message, args):
             unanswered = []
             scores = {}
             for item in queue:
-                response = discord.Embed(color=message.guild.me.color, title=quiz['quiz'])
-                response.description = quiz['question_template'].replace('${question}', 'or '.join(item['questions']))
+                response = discord.Embed(color=message.guild.me.color, title=quiz_item['quiz'])
+                response.description = quiz_item['question_template']
+                response.description = response.description.replace('${question}', 'or '.join(item['questions']))
                 await message.channel.send(embed=response)
-
                 # awaiting for the user answer
-                response = discord.Embed(color=message.guild.me.color, title=quiz['quiz'])
+                response = discord.Embed(color=message.guild.me.color, title=quiz_item['quiz'])
                 try:
-                    def check(message):
-                        if message.content in item['answers']: return True
-                        else: return False
+                    def check(msg):
+                        if msg.content in item['answers']:
+                            out = True
+                        else:
+                            out = False
+                        return out
+
                     answer = await cmd.bot.wait_for('message', check=check, timeout=12)
                     await answer.delete()
-                    response.color = 0x00FF00  # green
-                    response.description = f"Correct answer by {answer.author.mention}! The answer was {'or '.join(item['answers'])}"
+                    response = discord.Embed(color=0x00FF00, title=quiz_item['quiz'])
+                    desc_text = f"Correct answer by {answer.author.mention}!"
+                    desc_text += f" The answer was {'or '.join(item['answers'])}"
+                    response.description = desc_text
                     await message.channel.send(embed=response)
                     try:
                         scores[answer.author.id] += 1
                     except KeyError:
                         scores[answer.author.id] = 1
                 except asyncio.TimeoutError:
-                    response.color = 0xFF0000  # red
+                    response = discord.Embed(color=0xFF0000, title=quiz_item['quiz'])
                     response.description = f"Correct answer was {'or '.join(item['answers'])}"
                     await message.channel.send(embed=response)
                     unanswered.append(item)
-
             summary = discord.Embed(color=message.guild.me.color, title='Quiz end')
             summary_body = '**Final scores**\n'
-            for id in scores:
-                summary_body += f"<@{str(id)}> - {scores[id]} point(s) \n"
-
+            for uid in scores:
+                summary_body += f"<@{uid}> - {scores[uid]} point(s) \n"
             if unanswered:
                 summary_body += '\n**Unanswered questions**\n'
                 for item in unanswered:
