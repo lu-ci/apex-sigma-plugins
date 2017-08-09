@@ -26,6 +26,7 @@ async def bash(cmd, message, args):
     while len(quote['quote']) > 2037:
         quote = cache.pop()
     text = quote['quote']
-    embed = Embed(type='rich', color=0xFFD983, title=':scroll: A Bash Quote', description=f'```xml\n{text}\n```')
-    embed.set_footer(text='ID: {} | Score: {}'.format(quote['id'], quote['score']))
+    highlight = 'xml' if text.strip()[0] == '<' else 'yaml'
+    embed = Embed(type='rich', color=0xf7d7c4, description=f'```{highlight}\n{text}\n```')
+    embed.set_author(name=f"📜 #{quote['id']} | Score: {quote['score']}", url=f"http://bash.org/?{quote['id']}")
     await message.channel.send(None, embed=embed)
