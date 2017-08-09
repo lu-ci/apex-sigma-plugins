@@ -6,6 +6,10 @@ enabled:          true
 
 commands:
   - name:         help
+    alts:
+      - "info"
+      - "botinfo"
+      - "stats"
     global:       true
     enabled:      true
     permissions:
