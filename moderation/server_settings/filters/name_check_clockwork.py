@@ -7,7 +7,16 @@ async def name_check_clockwork(ev):
 
 async def name_checker(ev):
     while True:
-        guilds = ev.bot.guilds
+        guild_ids = []
+        guilds = []
+        actives = ev.db[ev.db.db_cfg.database].ServerSettings.find({'ASCIIOnlyNames': True})
+        for doc in actives:
+            gid = doc['ServerID']
+            guild_ids.append(gid)
+        for guild_id in guild_ids:
+            active_guild = discord.utils.find(lambda x: x.id == guild_id, ev.bot.guilds)
+            if active_guild:
+                guilds.append(active_guild)
         for guild in guilds:
             active = ev.db.get_guild_settings(guild.id, 'ASCIIOnlyNames')
             if active is None:
@@ -26,7 +35,7 @@ async def name_checker(ev):
                             break
                     if invalid:
                         try:
-                            await member.edit(nick=temp_name)
+                            await member.edit(nick=temp_name, reason='ASCII name enforcement.')
                         except discord.Forbidden:
                             pass
         await asyncio.sleep(60)

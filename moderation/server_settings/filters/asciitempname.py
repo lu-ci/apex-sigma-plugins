@@ -8,7 +8,7 @@ async def asciitempname(cmd, message, args):
             temp_name = cmd.db.get_guild_settings(message.guild.id, 'ASCIIOnlyTempName')
             if temp_name is None:
                 temp_name = '<ChangeMyName>'
-            cmd.db.set_guild_settings(message.guild.id, 'ASCIIOnlyTempName', False)
+            cmd.db.set_guild_settings(message.guild.id, 'ASCIIOnlyTempName', new_name)
             title = f'✅ ASCII temp name changed from `{temp_name}` to `{new_name}`.'
             response = discord.Embed(color=0x66CC66, title=title)
         else:
