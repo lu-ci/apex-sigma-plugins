@@ -17,3 +17,23 @@ def get_target(message, args):
         else:
             target = None
     return target
+
+
+def make_footer(cmd, item):
+    if item['auth']:
+        uid = item['auth']
+        user = discord.utils.find(lambda x: x.id == uid, cmd.bot.get_all_members())
+        if user:
+            username = user.name
+        else:
+            username = 'Unknown User'
+    else:
+        username = 'Unknown User'
+    sid = item['sid']
+    srv = discord.utils.find(lambda x: x.id == sid, cmd.bot.guilds)
+    if srv:
+        servername = srv.name
+    else:
+        servername = 'Unknown Server'
+    footer = f'Submitted by {username} from {servername}.'
+    return footer

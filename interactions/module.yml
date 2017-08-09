@@ -57,6 +57,13 @@ commands:
       Good human, lovely human.
       I will kill you last.
 
+  - name:         shoot
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      When a damn knife isn't enough.
+
   - name:         slap
     global:       true
     enabled:      true

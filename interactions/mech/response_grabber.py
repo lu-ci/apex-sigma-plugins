@@ -7,7 +7,17 @@ responses = {}
 def load_responses(file):
     with open(file) as resp_file:
         response_data = yaml.safe_load(resp_file)
-        return response_data
+    with open(file, 'w') as resp_file:
+        res_data = {}
+        for key in response_data:
+            reses = []
+            for item in response_data[key]:
+                if 'srv' in item:
+                    del item['srv']
+                reses.append(item)
+            res_data.update({key: reses})
+        yaml.safe_dump(res_data, resp_file, default_flow_style=False)
+    return response_data
 
 
 def grab_response(file, trigger):

@@ -1,7 +1,6 @@
 import discord
-
 from sigma.plugins.interactions.mech.response_grabber import grab_response
-from sigma.plugins.interactions.mech.targetting import get_target
+from sigma.plugins.interactions.mech.targetting import get_target, make_footer
 
 
 async def peck(cmd, message, args):
@@ -12,5 +11,5 @@ async def peck(cmd, message, args):
     else:
         response = discord.Embed(color=0xffcc4d, title=f'😙 {message.author.name} pecks {target.name}.')
     response.set_image(url=resp['url'])
-    response.set_footer(text=f'Submitted by {resp["auth"]} from {resp["srv"]}.')
+    response.set_footer(text=make_footer(cmd, resp))
     await message.channel.send(embed=response)
