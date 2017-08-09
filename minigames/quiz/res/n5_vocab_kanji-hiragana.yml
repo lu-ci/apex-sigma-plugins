@@ -133,6 +133,7 @@ questions:
       - 行く
     answers:
       - いく
+      - ゆく
   - questions:
       - 池
     answers:
@@ -157,6 +158,7 @@ questions:
       - 一日
     answers:
       - いちにち
+      - ついたち
   - questions:
       - 五日
     answers:
@@ -326,15 +328,11 @@ questions:
       - 叔父
     answers:
       - おじいさん
+      - おじさん
   - questions:
       - 教える
     answers:
       - おしえる
-  - questions:
-      - 伯父
-      - 叔父
-    answers:
-      - おじさん
   - questions:
       - 押す
     answers:
@@ -1112,9 +1110,6 @@ questions:
       - 誰
     answers:
       - だれ
-  - questions:
-      - 誰
-    answers:
       - だれか
   - questions:
       - 誕生日
@@ -1152,10 +1147,6 @@ questions:
       - 茶色
     answers:
       - ちゃいろ
-  - questions:
-      - 一日
-    answers:
-      - ついたち
   - questions:
       - 使う
     answers:
@@ -1910,10 +1901,6 @@ questions:
       - 雪
     answers:
       - ゆき
-  - questions:
-      - 行く
-    answers:
-      - ゆく
   - questions:
       - 八日
     answers:
