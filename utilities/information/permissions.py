@@ -4,11 +4,11 @@
 async def permissions(cmd, message, args):
     allowed_list = []
     disallowed_list = []
-    if args:
+    if message.mentions:
         user_q = message.mentions[0]
     else:
         user_q = message.author
-    embed = discord.Embed(title='ℹ ' + user_q.name + '\'s Permissions', color=0x3B88C3)
+    response = discord.Embed(title=f'ℹ {user_q.name}\'s Permissions', color=0x3B88C3)
     for permission in user_q.guild_permissions:
         if permission[1]:
             allowed_list.append(permission[0].replace('_', ' ').title())
@@ -18,6 +18,8 @@ async def permissions(cmd, message, args):
         allowed_list = ['None']
     if len(disallowed_list) == 0:
         disallowed_list = ['None']
-    embed.add_field(name='Allowed', value='```\n - ' + '\n - '.join(sorted(allowed_list)) + '\n```')
-    embed.add_field(name='Disallowed', value='```\n - ' + '\n - '.join(sorted(disallowed_list)) + '\n```')
-    await message.channel.send(None, embed=embed)
+    response.add_field(name='Allowed', value='```yml\n - ' + '\n - '.join(sorted(allowed_list)) + '\n```')
+    response.add_field(name='Disallowed', value='```yml\n - ' + '\n - '.join(sorted(disallowed_list)) + '\n```')
+    in_ch = discord.Embed(color=0x66CC66, title='✅ Permission list sent to you.')
+    await message.author.send(None, embed=response)
+    await message.channel.send(embed=in_ch)
