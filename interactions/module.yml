@@ -64,12 +64,50 @@ commands:
     description:
       When a damn knife isn't enough.
 
+  - name:         addreact
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} reaction my.gif.link/fancy.gif"
+    description:
+      Adds new reactions.
+
   - name:         slap
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd} @person"
     description:
       When a punch is too barbaric a slap should be just elegant enough.
+
+  - name:         lick
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Doesn't someone sometimes look so cute that you just want to lick them?
+      Or maybe they have some food on their face, it's a good excuse.
+
+  - name:         feed
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Care to share some of your food with someone cute?
+
+  - name:         fuck
+    global:       true
+    enabled:      true
+    permissions:
+      rating:       2
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Don't question my modules... Yes (º﹃º)
+
+  - name:         stare
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Jiiiiiiiiiii~
 
   - name:         stab
     global:       true
