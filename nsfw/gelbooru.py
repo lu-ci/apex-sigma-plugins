@@ -27,5 +27,5 @@ async def gelbooru(cmd, message, args):
             text=f'Score: {choice.attrib["score"]} | Size: {choice.attrib["width"]}x{choice.attrib["height"]}')
         await message.channel.send(None, embed=embed)
     except Exception:
-        embed = discord.Embed(color=0x696969, title='🔍 Search for ' + tags + ' yielded no results.')
+        embed = discord.Embed(color=0x696969, title=f'🔍 Search for {tags} yielded no results.')
         await message.channel.send(None, embed=embed)

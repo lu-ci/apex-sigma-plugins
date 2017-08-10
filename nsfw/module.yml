@@ -59,6 +59,18 @@ commands:
       As on all image galleries, tags are bound with a "+".
       If your search has spaces replace them with underscores "_".
 
+  - name:         xbooru
+    global:       true
+    enabled:      true
+    permissions:
+      rating:       2
+    usage:        "{pfx}{cmd} ovum"
+    description:
+      Searches Xbooru for the given tag.
+      If no tag is given, the keyword "nude" will be used.
+      As on all image galleries, tags are bound with a "+".
+      If your search has spaces replace them with underscores "_".
+
   - name:         keyvis
     global:       true
     enabled:      true
