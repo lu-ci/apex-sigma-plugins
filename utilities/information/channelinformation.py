@@ -12,7 +12,6 @@ async def channelinformation(cmd, message, args):
     info_text = f'Name: **{chan.name}**'
     info_text += f'\nID: **{chan.id}**'
     info_text += f'\nPosition: **{chan.position}**'
-    info_text += f'\nDefault: **{chan.is_default()}**'
     info_text += f'\nNSFW: **{chan.nsfw}**'
     info_text += f'\nCreated: **{creation_time}**'
     response.add_field(name=f'#{chan.name} Information', value=info_text)
