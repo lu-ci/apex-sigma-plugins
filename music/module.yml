@@ -41,7 +41,7 @@ commands:
     usage:       "{pfx}{cmd}"
     description:
       Overrides the current music player in instances where sigma is stuck in a channel.
-      This will not purge the queue, just disconnect the bot, optimally.
+      This will not purge the queue, just disconnect the bot.
 
   - name:        summon
     alts:
