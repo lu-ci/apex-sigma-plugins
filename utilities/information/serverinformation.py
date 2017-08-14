@@ -32,8 +32,12 @@ async def serverinformation(cmd, message, args):
     own_text += f'\nTop Role: **{own.top_role.name}**'
     own_text += f'\nCreated: **{own_creation_time}**'
     response.add_field(name='Owner Info', value=own_text)
-    detail_text = f'AFK Channel: **{gld.afk_channel.name}**'
-    detail_text += f'\nAFK Timeout: **{gld.afk_timeout}**'
+    if gld.afk_channel:
+        detail_text = f'AFK Channel: **{gld.afk_channel.name}**'
+        detail_text += f'\nAFK Timeout: **{gld.afk_timeout}**'
+    else:
+        detail_text = 'AFK Channel: **None**'
+        detail_text += '\nAFK Timeout: **None**'
     detail_text += f'\nEmojis: **{len(gld.emojis)}**'
     detail_text += f'\nLarge: **{gld.large}**'
     detail_text += f'\nRegion: **{gld.region.name.upper()}**'
