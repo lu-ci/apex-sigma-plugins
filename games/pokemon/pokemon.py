@@ -1,4 +1,5 @@
-﻿import aiohttp
+﻿import json
+import aiohttp
 import discord
 
 
@@ -8,7 +9,8 @@ async def pokemon(cmd, message, args):
         pokemon_url = ('http://pokeapi.co/api/v2/pokemon/' + poke_input.lower())
         async with aiohttp.ClientSession() as session:
             async with session.get(pokemon_url) as data:
-                poke = await data.json()
+                poke = await data.read()
+                poke = json.loads(poke)
         try:
             poke_id = str(poke['id'])
             name = str(poke['name']).title()
