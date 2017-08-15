@@ -1,0 +1,17 @@
+name:             Utility Tools
+
+category:         utility
+
+enabled:          true
+
+commands:
+  - name:         shortenurl
+    alts:
+      - "shorten"
+      - "bitly"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} https://i.redd.it/ngwebbf5nwfz.jpg"
+    description:
+      Shortens a URL for you using BitLy.
+      All URLs returned via Sigma are without ads, merely shortened using the service.
