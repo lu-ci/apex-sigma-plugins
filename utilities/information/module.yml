@@ -39,6 +39,16 @@ commands:
     description:
       Shows various information and data of the server the command is used in.
 
+  - name:         roleinformation
+    alts:
+      - "roleinfo"
+      - "rinfo"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows various information and data for the inputted role.
+
   - name:         permissions
     alts:
       - "perms"
