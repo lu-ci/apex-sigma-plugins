@@ -22,7 +22,7 @@ async def edit_word_blocker(ev, before, after):
                     break
             if remove:
                 try:
-                    await after.delete(reason=f'Contains a blocked word: "{reason}".')
+                    await after.delete()
                     title = f'🔥 Your message was deleted for containing "{reason}".'
                     to_author = discord.Embed(color=0xFFCC4D, title=title)
                     try:

@@ -8,7 +8,7 @@ async def mute_checker(ev, message):
             mute_list = []
         if message.author.id in mute_list:
             try:
-                await message.delete(reason='User is text muted.')
+                await message.delete()
             except discord.Forbidden:
                 pass
             except discord.NotFound:

@@ -24,7 +24,7 @@ async def edit_invite_blocker(ev, before, after):
                 if invite_found:
                     title = '⛓ Invite links are not allowed on this server.'
                     response = discord.Embed(color=0xF9F9F9, title=title)
-                    await after.delete(reason='Automatic invite link removal.')
+                    await after.delete()
                     try:
                         await after.author.send(embed=response)
                     except discord.Forbidden:
