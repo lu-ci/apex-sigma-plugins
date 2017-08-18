@@ -1,39 +1,46 @@
 import discord
-import yaml
 
 
 async def addreact(cmd, message, args):
     if args:
-        with open(cmd.resource('responses.yml')) as response_file:
-            data = yaml.safe_load(response_file)
-        react_name = args[0].lower()
-        react_url = ' '.join(args[1:])
-        while react_url.endswith(' '):
-            react_url = react_url[:-1]
-        while react_url.startswith(' '):
-            react_url = react_url[1:]
-        react_url = react_url.replace('http:', 'https:')
-        if react_url.endswith('.gif'):
-            if react_name in data:
-                resp_list = data[react_name]
+        if len(args) >= 2:
+            reaction_name = args[0]
+            reaction_url = '%20'.join(args[1:])
+            if reaction_url.endswith('.gif'):
+                exist_check = cmd.db[cmd.db.db_cfg.database]['Interactions'].find_one({'URL': reaction_url})
+                if not exist_check:
+                    reaction_data = {
+                        'Name': reaction_name.lower(),
+                        'UserID': message.author.id,
+                        'ServerID': message.guild.id,
+                        'URL': reaction_url
+                    }
+                    cmd.db[cmd.db.db_cfg.database]['Interactions'].insert_one(reaction_data)
+                    interactions = cmd.db[cmd.db.db_cfg.database]['Interactions'].find({'Name': reaction_name.lower()})
+                    inter_count = len(list(interactions))
+                    title = f'✅ Added **{reaction_name.lower()}** number **{inter_count}**.'
+                    response = discord.Embed(color=0x77B255, title=title)
+                    if 'log_ch' in cmd.cfg:
+                        log_ch_id = cmd.cfg['log_ch']
+                        log_ch = discord.utils.find(lambda x: x.id == log_ch_id, cmd.bot.get_all_channels())
+                        if log_ch:
+                            author = f'{message.author.name}#{message.author.discriminator}'
+                            data_desc = f'Author: {author}'
+                            data_desc += f'\nAuthor ID: {message.author.id}'
+                            data_desc += f'\nGuild: {message.guild.name}'
+                            data_desc += f'\nGuild ID: {message.guild.id}'
+                            data_desc += f'\nReaction URL: [Here]({reaction_url})'
+                            log_resp_title = f'🆙 Added {reaction_name.lower()} number {inter_count}'
+                            log_resp = discord.Embed(color=0x3B88C3)
+                            log_resp.add_field(name=log_resp_title, value=data_desc)
+                            log_resp.set_thumbnail(url=reaction_url)
+                            await log_ch.send(embed=log_resp)
+                else:
+                    response = discord.Embed(color=0xBE1931, title=f'❗ Reaction already exists.')
             else:
-                resp_list = []
-            if react_url not in resp_list:
-                resp_data = {
-                    'auth': message.author.id,
-                    'url': react_url,
-                    'sid': message.guild.id
-                }
-                resp_list.append(resp_data)
-                data.update({react_name: resp_list})
-                with open(cmd.resource('responses.yml'), 'w') as response_file:
-                    yaml.safe_dump(data, response_file, default_flow_style=False)
-                title = f'[{len(resp_list)}] {react_name.title()} response added.'
-                color = 0x66CC66
-            else:
-                title = f'❗ Already in the list.'
-                color = 0xDB0000
+                response = discord.Embed(color=0xBE1931, title=f'❗ Reaction URL must end with .gif.')
         else:
-            title = f'❗ The link needs to be to a `.gif` directly.'
-            color = 0xDB0000
-        await message.channel.send(embed=discord.Embed(color=color, title=title))
+            response = discord.Embed(color=0xBE1931, title=f'❗ Not enough arguments.')
+    else:
+        response = discord.Embed(color=0xBE1931, title=f'❗ Nothing inputted.')
+    await message.channel.send(embed=response)

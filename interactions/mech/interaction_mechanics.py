@@ -1,27 +1,31 @@
+import secrets
 import discord
 
 
-def get_target(message, args):
+def grab_interaction(db, intername):
+    interactions = db[db.db_cfg.database]['Interactions'].find({'Name': intername})
+    interactions = list(interactions)
+    choice = secrets.choice(interactions)
+    return choice
+
+
+def get_target(message):
     if message.mentions:
         target = message.mentions[0]
     else:
-        if args:
-            lookup = ' '.join(args)
-            target = discord.utils.find(lambda x: x.name.lower() == lookup.lower(), message.guild.members)
-            if not target:
-                for mem in message.guild.members:
-                    if mem.nick:
-                        if mem.nick.lower() == lookup.lower():
-                            target = mem
-                            break
+        if message.content:
+            lookup = message.content
+            target = discord.utils.find(
+                lambda x: x.display_name.lower() == lookup.lower() or x.name.lower() == lookup.lower(),
+                message.guild.members)
         else:
             target = None
     return target
 
 
 def make_footer(cmd, item):
-    if item['auth']:
-        uid = item['auth']
+    if item['UserID']:
+        uid = item['UserID']
         user = discord.utils.find(lambda x: x.id == uid, cmd.bot.get_all_members())
         if user:
             username = user.name
@@ -29,7 +33,7 @@ def make_footer(cmd, item):
             username = 'Unknown User'
     else:
         username = 'Unknown User'
-    sid = item['sid']
+    sid = item['ServerID']
     srv = discord.utils.find(lambda x: x.id == sid, cmd.bot.guilds)
     if srv:
         servername = srv.name
