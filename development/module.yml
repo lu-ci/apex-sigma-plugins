@@ -23,6 +23,18 @@ commands:
       Executes raw python code.
       This should be used with caution.
 
+  - name:        sysexec
+    alts:
+      - "sh"
+    enabled:     true
+    permissions:
+      rating:    0
+      owner:     true
+      dmable:    true
+    usage:       "{pfx}{cmd} echo 'Hello'"
+    description:
+      Executes a shell command. Extreme warnings.
+
   - name:        test
     alts:
       - "t"
