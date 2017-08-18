@@ -24,9 +24,14 @@ async def status(cmd, message, args):
     general_text = f'Latency: **{int(cmd.bot.latency * 1000)}ms**'
     general_text += f'\nPlatform: **{sys.platform.upper()}**'
     general_text += f'\nStarted: **{arrow.get(psutil.boot_time()).humanize()}**'
+    cpu_clock = psutil.cpu_freq()
+    if cpu_clock:
+        cpu_clock = cpu_clock.current
+    else:
+        cpu_clock = 'Unknown'
     cpu_text = f'Count: **{psutil.cpu_count()} ({psutil.cpu_count(logical=False)})**'
     cpu_text += f'\nUsage: **{psutil.cpu_percent()}%**'
-    cpu_text += f'\nClock: **{psutil.cpu_freq().current} MHz**'
+    cpu_text += f'\nClock: **{cpu_clock} MHz**'
     used_mem = humanfriendly.format_size(psutil.virtual_memory().available, binary=True)
     total_mem = humanfriendly.format_size(psutil.virtual_memory().total, binary=True)
     mem_text = f'Used: **{used_mem}**'
