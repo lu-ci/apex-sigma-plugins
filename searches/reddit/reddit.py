@@ -25,23 +25,6 @@ def grab_post(subreddit, argument):
     return post
 
 
-def check_if_nsfw(subreddit, post, db, message):
-    if subreddit.over18 or post.over_18:
-        nsfw_collection = db[db.db_cfg.database].NSFWPermissions
-        channel_nsfw_file = nsfw_collection.find_one({'channel_id': message.channel.id})
-        if channel_nsfw_file:
-            allowed_rating = channel_nsfw_file['rating']
-            if 2 > allowed_rating:
-                nsfw_denied = True
-            else:
-                nsfw_denied = False
-        else:
-            nsfw_denied = True
-    else:
-        nsfw_denied = False
-    return nsfw_denied
-
-
 async def reddit(cmd, message, args):
     global reddit_client
     if 'client_id' in cmd.cfg and 'client_secret' in cmd.cfg:
@@ -60,8 +43,7 @@ async def reddit(cmd, message, args):
                 except NotFound:
                     post = None
                 if post:
-                    nsfw_denied = check_if_nsfw(subreddit, post, cmd.db, message)
-                    if not nsfw_denied:
+                    if not message.channel.nsfw:
                         reddit_icon = 'https://i.imgur.com/5w7eJ5A.png'
                         post_desc = f'Author: {post.author.name}'
                         post_desc += f' | Score: {post.score}'
