@@ -138,3 +138,17 @@ commands:
     description:
       You have something on your face.
       IT WAS PAIN!
+
+  - name:         shrug
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      I don't get it, or I don't care, really whatever *shrug*.
+
+  - name:         facepalm
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Somebody just did something so stupid you want to facepalm.
