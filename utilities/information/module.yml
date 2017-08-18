@@ -58,3 +58,13 @@ commands:
     description:
       Shows which permissions a user has and which they do not.
       If no user is mentioned, it will target the message author.
+
+  - name:         status
+    alts:
+      - "perms"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows the status of Sigma's machine.
+      Processor information, memory, storage, network, etc.
