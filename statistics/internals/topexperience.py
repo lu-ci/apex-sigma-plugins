@@ -18,8 +18,8 @@ async def topexperience(cmd, message, args):
             title = f'{currency} Leaderboard on {message.guild.name}.'
             key_look = None
         else:
-            title = f'{currency} Leaderboard by Globally Earned.'
-            key_look = 'global'
+            title = f'{currency} Leaderboard on {message.guild.name}.'
+            key_look = None
     else:
         title = f'{currency} Leaderboard on {message.guild.name}.'
         key_look = None
