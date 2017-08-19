@@ -14,10 +14,14 @@ def get_target(message):
         target = message.mentions[0]
     else:
         if message.content:
-            lookup = message.content
+            lookup = ' '.join(message.content.split(' ')[1:])
             target = discord.utils.find(
                 lambda x: x.display_name.lower() == lookup.lower() or x.name.lower() == lookup.lower(),
                 message.guild.members)
+            if not target:
+                target = discord.utils.find(
+                    lambda x: x.name.lower() == lookup.lower() or x.name.lower() == lookup.lower(),
+                    message.guild.members)
         else:
             target = None
     return target
