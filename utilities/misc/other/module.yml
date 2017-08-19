@@ -28,7 +28,6 @@ commands:
       - "http"
     global:       true
     enabled:      true
-    usage:        "{pfx}{cmd} Want to eat?; Yes; No; Hand me the cheese!"
+    usage:        "{pfx}{cmd} 404"
     description:
-      Creates a poll with the items from the inputted list.
-      Separate list items with a semicolon and a space.
+      Shows information about a HTTP response status code.

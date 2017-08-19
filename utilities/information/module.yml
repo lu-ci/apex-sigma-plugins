@@ -68,3 +68,24 @@ commands:
     description:
       Shows the status of Sigma's machine.
       Processor information, memory, storage, network, etc.
+
+  - name:         statistics
+    alts:
+      - "stats"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows Sigma's current statistics.
+      Population and message and command counts and rates since startup.
+      As well as when the bot last started.
+
+  - name:         botinformation
+    alts:
+      - "botinfo"
+      - "info"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows information about the bot, version, codename, authors, etc.
