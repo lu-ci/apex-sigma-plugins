@@ -1,11 +1,22 @@
 import secrets
 import discord
 
+interaction_cache = {}
+
 
 def grab_interaction(db, intername):
-    interactions = db[db.db_cfg.database]['Interactions'].find({'Name': intername})
-    interactions = list(interactions)
-    choice = secrets.choice(interactions)
+    if intername not in interaction_cache:
+        fill = True
+    else:
+        if not interaction_cache[intername]:
+            fill = True
+        else:
+            fill = False
+    if fill:
+        interactions = db[db.db_cfg.database]['Interactions'].find({'Name': intername})
+        interactions = list(interactions)
+        interaction_cache.update({intername: interactions})
+    choice = interaction_cache[intername].pop(secrets.randbelow(len(interaction_cache[intername])))
     return choice
 
 
