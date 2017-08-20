@@ -97,7 +97,7 @@ commands:
     global:       true
     enabled:      true
     permissions:
-      rating:       2
+      nsfw:       true
     usage:        "{pfx}{cmd} @person"
     description:
       Don't question my modules... Yes (º﹃º)
