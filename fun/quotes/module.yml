@@ -46,3 +46,14 @@ commands:
     usage:        "{pfx}{cmd}"
     description:
       Outputs a random fact about the man's best friend.
+
+  - name:         visualnovelquote
+    alts:
+      - "vnquote"
+      - "vnq"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Outputs a random quote from a random VN.
+      Displays it's source as well, of course.
