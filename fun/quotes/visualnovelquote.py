@@ -22,11 +22,21 @@ async def visualnovelquote(cmd, message, args):
     except IndexError:
         vn_title = 'Unknown VN'
     try:
-        vn_image = quote_page.cssselect('.vnimg')[0][0][0].attrib['src']
+        vn_image = quote_page.cssselect('.vnimg')[0]
+        if len(vn_image) == 1:
+            vn_image = quote_page.cssselect('.vnimg')[0][0][0].attrib['src']
+            nsfw = False
+        else:
+            vn_image = vndb_icon
+            nsfw = True
+        print(vn_image)
     except IndexError:
+        nsfw = False
         vn_image = vndb_icon
     response = discord.Embed(color=0x225588)
     response.set_author(name=vn_title, url=quote_url, icon_url=vndb_icon)
     response.description = quote_text
     response.set_thumbnail(url=vn_image)
+    if nsfw:
+        response.set_footer(text='Warning: This VN is NSFW.')
     await message.channel.send(embed=response)
