@@ -29,7 +29,6 @@ async def visualnovelquote(cmd, message, args):
         else:
             vn_image = vndb_icon
             nsfw = True
-        print(vn_image)
     except IndexError:
         nsfw = False
         vn_image = vndb_icon
