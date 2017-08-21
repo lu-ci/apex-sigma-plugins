@@ -17,8 +17,14 @@ async def visualnovelquote(cmd, message, args):
         async with session.get(quote_url) as quote_page:
             quote_page = await quote_page.text()
     quote_page = l.fromstring(quote_page)
-    vn_title = quote_page.cssselect('.stripe')[0][0][1].text_content().strip()
-    vn_image = quote_page.cssselect('.vnimg')[0][0][0].attrib['src']
+    try:
+        vn_title = quote_page.cssselect('.stripe')[0][0][1].text_content().strip()
+    except IndexError:
+        vn_title = 'Unknown VN'
+    try:
+        vn_image = quote_page.cssselect('.vnimg')[0][0][0].attrib['src']
+    except IndexError:
+        vn_image = vndb_icon
     response = discord.Embed(color=0x225588)
     response.set_author(name=vn_title, url=quote_url, icon_url=vndb_icon)
     response.description = quote_text
