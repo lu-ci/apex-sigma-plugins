@@ -42,8 +42,6 @@ commands:
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd} Overlord"
-    requirements:
-      - "manage_roles"
     description:
       Toggles a self assignable role.
       If you don't have the role, it will be given to you.
