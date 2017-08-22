@@ -40,17 +40,6 @@ async def overwatch(cmd, message, args):
                     gen_section += f'\nWon: {gen["wins"]}'
                     gen_section += f'\nLost: {gen["losses"]}'
                     gen_section += f'\nRank: {gen["comprank"]}'
-                    avg = stats['average_stats']
-                    avg_section = f'Eliminations: {avg["eliminations_avg"]}'
-                    avg_section += f'\nObjective Kills: {avg["objective_kills_avg"]}'
-                    avg_section += f'\nFinal Blows: {avg["final_blows_avg"]}'
-                    if 'melee_final_blows_avg' in avg:
-                        avg_section += f'\nMelee Kills: {avg["melee_final_blows_avg"]}'
-                    else:
-                        avg_section += f'\nMelee Kills: None'
-                    avg_section += f'\nSolo Kills: {avg["solo_kills_avg"]}'
-                    avg_section += f'\nDeaths: {avg["deaths_avg"]}'
-                    avg_section += f'\nHealing Done: {avg["healing_done_avg"]}'
                     gms = stats['game_stats']
                     gms_section = f'Eliminations: {gms["eliminations"]}'
                     gms_section += f'\nBest Kill Streak: {gms["kill_streak_best"]}'
@@ -65,7 +54,6 @@ async def overwatch(cmd, message, args):
                     response = discord.Embed(color=0xff9c00)
                     response.set_author(name=battletag, icon_url=gen["avatar"], url=profile_url)
                     response.add_field(name='Profile Info', value=gen_section)
-                    response.add_field(name='Average Stats', value=avg_section)
                     response.add_field(name='Total Stats', value=gms_section)
                     footer_text = 'Click the battletag at the top to see the user\'s profile.'
                     response.set_footer(text=footer_text, icon_url=ow_icon)
