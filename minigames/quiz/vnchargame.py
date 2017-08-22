@@ -3,11 +3,12 @@ import discord
 import secrets
 import asyncio
 from lxml import html as l
+from .mech.utils import scramble
 
 ongoing_list = []
 
 
-async def guessthecharacter(cmd, message, args):
+async def vnchargame(cmd, message, args):
     if message.channel.id not in ongoing_list:
         if args:
             if args[0].lower() == 'hint':
@@ -46,12 +47,10 @@ async def guessthecharacter(cmd, message, args):
         question_embed.set_image(url=char_img)
         question_embed.set_footer(text='You have 30 seconds to guess it.')
         if hint:
-            scrambled_name = ''
-            char_name_list = list(char_name)
-            while char_name_list:
-                char_choice = char_name_list.pop(secrets.randbelow(len(char_name_list)))
-                scrambled_name += char_choice
+            scrambled_name = scramble(char_name)
             question_embed.set_author(name=scrambled_name, icon_url=vn_image, url=vn_url_choice)
+        else:
+            question_embed.set_author(name=vn_title, icon_url=vn_image, url=vn_url_choice)
         await message.channel.send(embed=question_embed)
 
         def check_answer(msg):

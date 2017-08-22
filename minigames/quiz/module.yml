@@ -13,11 +13,12 @@ commands:
       A quiz minigame with various quizes to choose from.
       With a lot more coming soon
 
-  - name:         guessthecharacter
+  - name:         vnchargame
     alts:
-      - "chargame"
+      - "vncg"
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
       A minigame where you guess the name of the character shown.
+      You can add "hint" in the command to make it show the character's scrambled name.
