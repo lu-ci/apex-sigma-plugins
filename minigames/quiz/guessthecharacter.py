@@ -18,9 +18,8 @@ async def guessthecharacter(cmd, message, args):
             hint = False
         ongoing_list.append(message.channel.id)
         vn_url_list = []
-        page_order = secrets.randbelow(3) + 1
-        kud_reward = int((page_order * 0.85 * 15) + secrets.randbelow(10))
-        vn_top_list_url = f'https://vndb.org/v/all?q=;fil=tagspoil-0;rfil=;o=d;s=pop;p={page_order}'
+        kud_reward = 15 + secrets.randbelow(10)
+        vn_top_list_url = f'https://vndb.org/v/all?q=;fil=tagspoil-0;rfil=;o=d;s=pop;p=1'
         async with aiohttp.ClientSession() as session:
             async with session.get(vn_top_list_url) as vn_top_list_session:
                 vn_top_list_html = await vn_top_list_session.text()
