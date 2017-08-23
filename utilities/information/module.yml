@@ -60,8 +60,6 @@ commands:
       If no user is mentioned, it will target the message author.
 
   - name:         status
-    alts:
-      - "perms"
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd}"
