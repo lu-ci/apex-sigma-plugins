@@ -20,5 +20,17 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
-      A minigame where you guess the name of the character shown.
+      A minigame where you guess the name of the visual novel character shown.
+      You can add "hint" in the command to make it show the character's scrambled name.
+
+
+  - name:         animechargame
+    alts:
+      - "anichargame"
+      - "anicg"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} hint"
+    description:
+      A minigame where you guess the name of the anime character shown.
       You can add "hint" in the command to make it show the character's scrambled name.
