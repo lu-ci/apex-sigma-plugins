@@ -10,6 +10,10 @@ ongoing_list = []
 
 async def vnchargame(cmd, message, args):
     if message.channel.id not in ongoing_list:
+        vndb_icon = 'https://i.imgur.com/YrK5tQF.png'
+        wait_embed = discord.Embed(color=0x1d439b)
+        wait_embed.set_author(name='Hunting a good specimen...', icon_url=vndb_icon)
+        working_response = await message.channel.send(embed=wait_embed)
         if args:
             if args[0].lower() == 'hint':
                 hint = True
@@ -43,6 +47,7 @@ async def vnchargame(cmd, message, args):
         character = secrets.choice(character_objects)
         char_img = character[0][0].attrib['src']
         char_name = character[1][0][0][0][0].text.strip()
+        await working_response.delete()
         question_embed = discord.Embed(color=0x225588)
         question_embed.set_image(url=char_img)
         question_embed.set_footer(text='You have 30 seconds to guess it.')
