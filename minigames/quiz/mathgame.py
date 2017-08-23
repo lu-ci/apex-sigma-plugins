@@ -33,7 +33,7 @@ async def mathgame(cmd, message, args):
         def check_answer(msg):
             if message.channel.id == msg.channel.id:
                 try:
-                    an_num = int(msg.content)
+                    an_num = float(msg.content)
                     if an_num == result:
                         correct = True
                     else:
