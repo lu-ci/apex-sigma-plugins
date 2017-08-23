@@ -69,8 +69,11 @@ async def animechargame(cmd, message, args):
         await message.channel.send(embed=question_embed)
 
         def check_answer(msg):
-            if msg.content.lower() in char_name.lower().split():
-                correct = True
+            if message.channel.id == msg.channel.id:
+                if msg.content.lower() in char_name.lower().split():
+                    correct = True
+                else:
+                    correct = False
             else:
                 correct = False
             return correct
