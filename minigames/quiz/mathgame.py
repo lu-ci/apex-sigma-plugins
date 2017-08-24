@@ -24,7 +24,7 @@ async def mathgame(cmd, message, args):
         math_operators = ['*', '/', '+', '-']
         problem_string = str(secrets.randbelow(max_num))
         for x in range(0, diff):
-            num = secrets.randbelow(max_num)
+            num = secrets.randbelow(max_num) + 1
             problem_string += f' {secrets.choice(math_operators)} {num}'
         result = round(eval(problem_string), 2)
         question_embed = discord.Embed(color=0x3B88C3, title=f'#⃣ {problem_string} = ?')
