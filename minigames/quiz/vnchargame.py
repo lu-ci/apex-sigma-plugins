@@ -63,6 +63,8 @@ async def vnchargame(cmd, message, args):
                 if message.channel.id == msg.channel.id:
                     if msg.content.lower() in char_name.lower().split():
                         correct = True
+                    elif msg.content.lower() == char_name.lower():
+                        correct = True
                     else:
                         correct = False
                 else:
