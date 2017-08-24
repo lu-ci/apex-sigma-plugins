@@ -102,12 +102,44 @@ commands:
     description:
       Don't question my modules... Yes (º﹃º)
 
+  - name:         fuckrl
+    global:       true
+    enabled:      true
+    permissions:
+      nsfw:       true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      The same as fuck, but for non-weebs, the RL stuff... STOP JUDGING ME (ﾟ￢ﾟ)
+
+  - name:         fap
+    global:       true
+    enabled:      true
+    permissions:
+      nsfw:       true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      When you can't get that good-good, you gotta fap to them ԅ(¯﹃¯ԅ)
+
   - name:         stare
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd} @person"
     description:
       Jiiiiiiiiiii~
+
+  - name:         sip
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Ahh yes, i know the feeling of wanting to sit outside on a chilly morning sipping hot tea.
+
+  - name:         drink
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Cheers, family! Let's get drunk!
 
   - name:         stab
     global:       true
