@@ -14,7 +14,7 @@ async def vnchargame(cmd, message, args):
             ongoing_list.append(message.channel.id)
             vndb_icon = 'https://i.imgur.com/YrK5tQF.png'
             wait_embed = discord.Embed(color=0x1d439b)
-            wait_embed.set_author(name='Hunting a good specimen...', icon_url=vndb_icon)
+            wait_embed.set_author(name='Hunting for a good specimen...', icon_url=vndb_icon)
             working_response = await message.channel.send(embed=wait_embed)
             if args:
                 if args[0].lower() == 'hint':
@@ -52,11 +52,10 @@ async def vnchargame(cmd, message, args):
             question_embed = discord.Embed(color=0x225588)
             question_embed.set_image(url=char_img)
             question_embed.set_footer(text='You have 30 seconds to guess it.')
+            question_embed.set_author(name=vn_title, icon_url=vn_image, url=vn_image)
             if hint:
                 scrambled_name = scramble(char_name)
-                question_embed.set_author(name=scrambled_name, icon_url=vn_image, url=vn_url_choice)
-            else:
-                question_embed.set_author(name=vn_title, icon_url=vn_image, url=vn_url_choice)
+                question_embed.description = f'Name: {scrambled_name}'
             await message.channel.send(embed=question_embed)
 
             def check_answer(msg):

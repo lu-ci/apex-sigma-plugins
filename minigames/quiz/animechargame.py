@@ -14,7 +14,7 @@ async def animechargame(cmd, message, args):
             ongoing_list.append(message.channel.id)
             mal_icon = 'https://myanimelist.cdn-dena.com/img/sp/icon/apple-touch-icon-256.png'
             wait_embed = discord.Embed(color=0x1d439b)
-            wait_embed.set_author(name='Hunting a good specimen...', icon_url=mal_icon)
+            wait_embed.set_author(name='Hunting for a good specimen...', icon_url=mal_icon)
             working_response = await message.channel.send(embed=wait_embed)
             if args:
                 if args[0].lower() == 'hint':
@@ -62,11 +62,10 @@ async def animechargame(cmd, message, args):
             question_embed = discord.Embed(color=0x1d439b)
             question_embed.set_image(url=char_img)
             question_embed.set_footer(text='You have 30 seconds to guess it.')
+            question_embed.set_author(name=anime_title, icon_url=anime_cover, url=anime_cover)
             if hint:
                 scrambled_name = scramble(char_name)
-                question_embed.set_author(name=scrambled_name, icon_url=anime_cover, url=ani_url)
-            else:
-                question_embed.set_author(name=anime_title, icon_url=anime_cover, url=ani_url)
+                question_embed.description = f'Name: {scrambled_name}'
             await message.channel.send(embed=question_embed)
 
             def check_answer(msg):
