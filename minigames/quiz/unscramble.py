@@ -4,7 +4,6 @@ import asyncio
 import secrets
 from .mech.utils import scramble
 
-
 ongoing_list = []
 
 
@@ -25,7 +24,12 @@ async def unscramble(cmd, message, args):
             async with session.get(source_url) as source_session:
                 source_text = await source_session.text()
         words = source_text.split(',')
-        word_choice = secrets.choice(words)
+        clean_words = []
+        for word in words:
+            if word:
+                if len(word) > 3:
+                    clean_words.append(word)
+        word_choice = secrets.choice(clean_words)
         scrambled = scramble(word_choice)
         question_embed = discord.Embed(color=0x3B88C3, title=f'🔣 {scrambled}')
         await message.channel.send(embed=question_embed)
