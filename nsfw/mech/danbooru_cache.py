@@ -23,7 +23,11 @@ async def get_dan_post(tag):
             if 'file_url' in post:
                 temp_list.append(post['file_url'])
         links.update({tag: temp_list})
-    rand_num = secrets.randbelow(len(links[tag]))
-    img_url = links[tag].pop(rand_num)
-    full_url = file_url_base + img_url
+    item_count = len(links[tag])
+    if item_count:
+        rand_num = secrets.randbelow(item_count)
+        img_url = links[tag].pop(rand_num)
+        full_url = file_url_base + img_url
+    else:
+        full_url = None
     return full_url
