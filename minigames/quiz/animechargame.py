@@ -62,7 +62,7 @@ async def animechargame(cmd, message, args):
             question_embed = discord.Embed(color=0x1d439b)
             question_embed.set_image(url=char_img)
             question_embed.set_footer(text='You have 30 seconds to guess it.')
-            question_embed.set_author(name=anime_title, icon_url=anime_cover, url=anime_cover)
+            question_embed.set_author(name=anime_title, icon_url=anime_cover, url=char_img)
             if hint:
                 scrambled_name = scramble(char_name)
                 question_embed.description = f'Name: {scrambled_name}'

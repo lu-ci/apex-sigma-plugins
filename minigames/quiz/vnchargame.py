@@ -52,7 +52,7 @@ async def vnchargame(cmd, message, args):
             question_embed = discord.Embed(color=0x225588)
             question_embed.set_image(url=char_img)
             question_embed.set_footer(text='You have 30 seconds to guess it.')
-            question_embed.set_author(name=vn_title, icon_url=vn_image, url=vn_image)
+            question_embed.set_author(name=vn_title, icon_url=vn_image, url=char_img)
             if hint:
                 scrambled_name = scramble(char_name)
                 question_embed.description = f'Name: {scrambled_name}'
