@@ -16,9 +16,9 @@ async def mathgame(cmd, message, args):
                 elif diff > 9:
                     diff = 9
             except ValueError:
-                diff = 1
+                diff = 3
         else:
-            diff = 1
+            diff = 3
         max_num = diff * 25
         kud_reward = int(diff * 1.9) + secrets.randbelow(5)
         math_operators = ['*', '/', '+', '-']
