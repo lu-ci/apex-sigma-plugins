@@ -55,4 +55,4 @@ commands:
     description:
       A minigame where you guess the scrambled word.
       You have 30 seconds to guess the word shown.
-      Between 1 and 10 Kud is awarded for guessing correctly.
+      The Kud reward is equal to the number of letters in the word.

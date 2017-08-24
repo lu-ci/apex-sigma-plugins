@@ -10,7 +10,6 @@ ongoing_list = []
 async def unscramble(cmd, message, args):
     if message.channel.id not in ongoing_list:
         ongoing_list.append(message.channel.id)
-        kud_reward = secrets.randbelow(10) + 1
         source_urls = [
             'http://www.wordgenerator.net/application/p.php?type=1&id=dictionary_words&spaceflag=false',
             'http://www.wordgenerator.net/application/p.php?type=1&id=charades_easy&spaceflag=false',
@@ -30,6 +29,7 @@ async def unscramble(cmd, message, args):
                 if len(word) > 3:
                     clean_words.append(word)
         word_choice = secrets.choice(clean_words)
+        kud_reward = len(word_choice)
         scrambled = scramble(word_choice)
         question_embed = discord.Embed(color=0x3B88C3, title=f'🔣 {scrambled}')
         await message.channel.send(embed=question_embed)
