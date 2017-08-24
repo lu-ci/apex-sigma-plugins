@@ -45,3 +45,14 @@ commands:
       You can also specify how hard you want the problem to be.
       The scale goes from 1-9.
       You have 30 seconds to answer correctly.
+
+  - name:         unscramble
+    alts:
+      - "usg"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      A minigame where you guess the scrambled word.
+      You have 30 seconds to guess the word shown.
+      Between 1 and 10 Kud is awarded for guessing correctly.
