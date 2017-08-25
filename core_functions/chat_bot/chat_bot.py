@@ -18,5 +18,6 @@ async def chat_bot(ev, message):
                 async with session.get(bot_url) as data:
                     data = await data.read()
                     data = json.loads(data)
-            response = f'{message.author.mention} {data["HalResponse"]}'
+            bot_response = data['HalResponse'].replace('Hal', 'Sigma')
+            response = f'{message.author.mention} {bot_response}'
             await message.channel.send(response)
