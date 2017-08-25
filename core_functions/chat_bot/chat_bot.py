@@ -1,7 +1,6 @@
 import json
 import aiohttp
 
-session_id_cache = []
 
 async def chat_bot(ev, message):
     active = ev.db.get_guild_settings(message.guild.id, 'ChatterBot')
