@@ -86,9 +86,15 @@ async def collectchain(cmd, message, args):
             dm_response.add_field(name='Amount Collected', value=f'```\n{collected}\n```')
             dm_response.add_field(name='Total Amount', value=f'```\n{len(collection)}\n```')
             dm_response.add_field(name='Time Elapsed', value=f'```\n{arrow.utcnow().timestamp - start_time}s\n```')
-            await message.author.send(None, embed=dm_response)
+            try:
+                await message.author.send(None, embed=dm_response)
+            except discord.Forbidden:
+                pass
             await message.channel.send(None, embed=dm_response)
             if message.author.id != target.id:
                 tgt_msg = discord.Embed(color=0x66CC66,
                                         title=f'📖 {message.author.name} has made a markov chain for you.')
-                await target.send(None, embed=tgt_msg)
+                try:
+                    await target.send(None, embed=tgt_msg)
+                except discord.Forbidden:
+                    pass
