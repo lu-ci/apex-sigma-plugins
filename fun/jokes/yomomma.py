@@ -1,6 +1,6 @@
+import json
 import aiohttp
 import discord
-import json
 
 async def yomomma(cmd, message, args):
     resource = 'http://api.yomomma.info/'

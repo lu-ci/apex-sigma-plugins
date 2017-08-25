@@ -42,7 +42,8 @@ async def pokemon(cmd, message, args):
             for type_url in type_urls:
                 async with aiohttp.ClientSession() as session:
                     async with session.get(type_url) as data:
-                        type_data = await data.json()
+                        type_data = await data.read()
+                        type_data = json.loads(type_data)
                 dr = type_data['damage_relations']
                 for relation in good_relations:
                     for ptype in dr[relation]:
