@@ -11,7 +11,7 @@ async def afk_mention_check(ev, message):
                 if afk_data:
                     time_then = arrow.get(afk_data['Timestamp'])
                     afk_time = arrow.get(time_then).humanize(arrow.utcnow()).title()
-                    afk_reason = afk_data['reason']
+                    afk_reason = afk_data['Reason']
                     if afk_reason.startswith('http'):
                         suffix = afk_reason.split('.')[-1]
                         if suffix in ['gif', 'jpg', 'jpeg', 'png']:
