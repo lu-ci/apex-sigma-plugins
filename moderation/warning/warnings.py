@@ -1,4 +1,5 @@
-﻿import discord
+﻿import arrow
+import discord
 
 
 async def warnings(cmd, message, args):
@@ -14,16 +15,26 @@ async def warnings(cmd, message, args):
         guild_warnings = {}
     uid = str(target.id)
     if uid not in guild_warnings:
-        response = discord.Embed(color=0x696969, title='🔍 User does not have any warnings.')
+        response = discord.Embed(color=0x696969, title=f'🔍 {target.name} does not have any warnings.')
     else:
         warning_list = guild_warnings[uid]
         warning_output = ''
         for warning in warning_list:
-            responsible = f'{warning["responsible"]["name"]}#{warning["responsible"]["discriminator"]}'
-            warning_output += f'\nFor: "**{warning["reason"]}**"\n- *by {responsible}*.'
+            responsible = discord.utils.find(lambda x: x.id == warning['responsible']['id'], cmd.bot.get_all_members())
+            if not responsible:
+                responsible = f'{warning["responsible"]["name"]}#{warning["responsible"]["discriminator"]}'
+            else:
+                responsible = f'{responsible.name}#{responsible.discriminator}'
+            stampdate = arrow.get(warning['timestamp']).format('DD. MMM. YYYY')
+            warning_output += f'\n`{warning["id"]}` by {responsible} on {stampdate}'
         if len(warning_output) > 800:
             warning_output = warning_output[:800] + '\n...'
-        warning_title = f'⚠ {target.name} was warned {len(warning_list)} times for...'
+        if len(warning_list) == 1:
+            ender = 'time'
+        else:
+            ender = 'times'
+        warning_title = f'⚠ {target.name} was warned {len(warning_list)} {ender}'
         response = discord.Embed(color=0xFFCC4D)
         response.add_field(name=warning_title, value=warning_output, inline=False)
+        response.set_footer(text=f'Use {cmd.bot.get_prefix(message)}warning [target] [id] to see the details.')
     await message.channel.send(embed=response)

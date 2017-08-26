@@ -1,5 +1,6 @@
 ﻿import arrow
 import discord
+import secrets
 from sigma.core.utilities.server_bound_logging import log_event
 from sigma.core.utilities.data_processing import user_avatar
 
@@ -42,7 +43,8 @@ async def warn(cmd, message, args):
                     'id': message.author.id
                 },
                 'reason': reason,
-                'timestamp': arrow.utcnow().timestamp
+                'timestamp': arrow.utcnow().timestamp,
+                'id': secrets.token_hex(2)
             }
             warning_list.append(warning_data)
             guild_warnings.update({uid: warning_list})

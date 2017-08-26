@@ -25,12 +25,24 @@ commands:
       If the user who calls the command doesn't have the manage message permission,
       it will show their warnings instead,
 
+  - name:         warning
+    alts:
+      - "warninfo"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person 12af"
+    description:
+      Shows information regarding a user's warning.
+      Both the mention of the user and the warning ID are required.
+
   - name:         unwarn
     alts:
       - "clearwarnings"
       - "clearwarns"
     global:       true
     enabled:      true
-    usage:        "{pfx}{cmd} @person"
+    usage:        "{pfx}{cmd} @person all"
     description:
-      Clears all warnings for the mentioned user.
+      Clears a user's warning.
+      A user target and warning ID are required.
+      You can input "all" instead of an idea to clear all their warnings.
