@@ -5,7 +5,7 @@ from sigma.core.utilities.server_bound_logging import log_event
 
 async def send_invite_blocker(ev, message):
     if message.guild:
-        if type(message.author) == discord.Member:
+        if isinstance(message.author, discord.Member):
             if not message.author.permissions_in(message.channel).manage_guild:
                 active = ev.db.get_guild_settings(message.guild.id, 'BlockInvites')
                 if active is None:

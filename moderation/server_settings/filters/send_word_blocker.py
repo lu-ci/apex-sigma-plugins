@@ -6,7 +6,7 @@ from sigma.core.utilities.server_bound_logging import log_event
 
 async def send_word_blocker(ev, message):
     if message.guild:
-        if type(message.author) == discord.Member:
+        if isinstance(message.author, discord.Member):
             prefix = ev.bot.get_prefix(message)
             if not message.content.startswith(prefix):
                 text = clean_content(message.content.lower())
