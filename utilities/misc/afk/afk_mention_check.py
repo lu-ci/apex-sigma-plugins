@@ -23,7 +23,7 @@ async def afk_mention_check(ev, message):
                     if url:
                         response = discord.Embed(color=0x3B88C3, title=f'ℹ {target.name} is AFK.',
                                                  timestamp=time_then.datetime)
-                        response.set_thumbnail(url=afk_reason)
+                        response.set_image(url=afk_reason)
                     else:
                         response = discord.Embed(color=0x3B88C3, timestamp=time_then.datetime)
                         response.add_field(name=f'ℹ {target.name} is AFK.',
