@@ -27,3 +27,15 @@ commands:
     usage:        "{pfx}{cmd}"
     description:
       Forces the bot to disconnect from Discord and shut down all processes.
+
+  - name:         geterror
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx}{cmd} 9a2e9a374ac90294f225782f362e2ab1"
+    description:
+      Gets an error's details using the given token.
+
