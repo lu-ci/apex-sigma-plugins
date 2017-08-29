@@ -26,7 +26,7 @@ async def slots(cmd, message, args):
     if current_kud >= 10:
         if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
             cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
-            cmd.db.rmv_currency(message.author, message.guild, 10)
+            cmd.db.rmv_currency(message.author, 10)
             out_list = []
             for x in range(0, 3):
                 temp_list = []

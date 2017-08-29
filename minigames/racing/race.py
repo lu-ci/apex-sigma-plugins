@@ -67,7 +67,7 @@ async def race(cmd, message, args):
                 await asyncio.sleep(2)
             win_title = f'{leader["icon"]} {leader["user"].display_name} has won!'
             for user in race_instance['users']:
-                cmd.db.rmv_currency(user['user'], message.guild, buyin)
+                cmd.db.rmv_currency(user['user'], buyin)
             if race_instance['buyin']:
                 winnings = race_instance["buyin"] * len(race_instance['users'])
                 cmd.db.add_currency(leader['user'], message.guild, int(winnings * 0.9))
