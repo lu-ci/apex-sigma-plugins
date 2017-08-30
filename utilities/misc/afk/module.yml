@@ -2,7 +2,7 @@ name:             AFK Utilities
 
 category:         miscelanous
 
-enabled:          true
+enabled:          false
 
 commands:
   - name:         afk
