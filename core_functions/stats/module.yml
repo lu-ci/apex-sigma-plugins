@@ -8,7 +8,7 @@ events:
   - name:        ev_message
     type:        message
     global:      true
-    enabled:     true
+    enabled:     false
     permissions:
       rating:    0
       dmable:    true
@@ -18,7 +18,7 @@ events:
   - name:        ev_mention
     type:        mention
     global:      true
-    enabled:     true
+    enabled:     false
     permissions:
       rating:    0
       dmable:    true
@@ -28,7 +28,7 @@ events:
   - name:        ev_member_join
     type:        member_join
     global:      true
-    enabled:     true
+    enabled:     false
     permissions:
       rating:    0
       dmable:    true
@@ -38,7 +38,7 @@ events:
   - name:        ev_member_remove
     type:        member_leave
     global:      true
-    enabled:     true
+    enabled:     false
     permissions:
       rating:    0
       dmable:    true
