@@ -8,4 +8,4 @@ events:
   - name:         table_unflipper
     type:         message
     global:       true
-    enabled:      true
+    enabled:      false
