@@ -2,7 +2,7 @@ name:            Currency Mechanics
 
 category:        administration
 
-enabled:         true
+enabled:         false
 
 events:
   - name:        currency_message

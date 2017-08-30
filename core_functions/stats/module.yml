@@ -8,7 +8,7 @@ events:
   - name:        ev_message
     type:        message
     global:      true
-    enabled:     false
+    enabled:     true
     permissions:
       rating:    0
       dmable:    true

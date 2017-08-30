@@ -2,7 +2,7 @@ name:             Table Unflipping
 
 category:         miscelanous
 
-enabled:          false
+enabled:          true
 
 events:
   - name:         table_unflipper
