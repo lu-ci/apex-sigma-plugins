@@ -2,7 +2,7 @@ name:            Experience Mechanics
 
 category:        administration
 
-enabled:         false
+enabled:         true
 
 events:
   - name:        experience_message
