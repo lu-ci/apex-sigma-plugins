@@ -71,3 +71,14 @@ commands:
       Go hiking and search nature for all the delicious bounty it has.
       Look for plants that you mmight want to use for cooking in the future.
       Foraging is tiring so you need to rest for 60 seconds after looking for plants.
+
+  - name:         inventorystats
+    alts:
+      - "invstats"
+      - "bagstats"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Shows the statistics of a user's inventory.
+      The number of items per type and per rarity.
