@@ -27,7 +27,7 @@ commands:
       Command requires the Manage Server permission.
 
 events:
-  - name:         custom_command_detection
+  - name:         custom_command
     type:         message
     global:       true
     enabled:      true

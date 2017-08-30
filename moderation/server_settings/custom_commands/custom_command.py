@@ -1,7 +1,19 @@
 from sigma.core.mechanics.permissions import GlobalCommandPermissions
 from sigma.core.utilities.data_processing import command_message_parser
 
-async def custom_command_detection(ev, message):
+
+def log_command_usage(log, message):
+    if message.guild:
+        cmd_location = f'SRV: {message.guild.name} [{message.guild.id}] | '
+        cmd_location += f'CHN: #{message.channel.name} [{message.channel.id}]'
+    else:
+        cmd_location = 'DIRECT MESSAGE'
+    author_full = f'{message.author.name}#{message.author.discriminator} [{message.author.id}]'
+    log_text = f'USR: {author_full} | {cmd_location}'
+    log.info(log_text)
+
+
+async def custom_command(ev, message):
     if message.guild:
         prefix = ev.bot.get_prefix(message)
         if message.content.startswith(prefix):
@@ -13,6 +25,7 @@ async def custom_command_detection(ev, message):
                     if custom_commands is None:
                         custom_commands = {}
                     if cmd in custom_commands:
+                        log_command_usage(ev.log, message)
                         cmd_text = custom_commands[cmd]
                         response = command_message_parser(message, cmd_text)
                         await message.channel.send(response)
