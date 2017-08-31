@@ -60,7 +60,6 @@ commands:
     usage:        "{pfx}{cmd}"
     description:
       Cast a lure and try to catch some fish.
-      Each cast costs 20 Kud to cover the expenses of your bait and rod usage.
       You can fish once every 60 seconds, better not scare the fish away.
 
   - name:         forage
@@ -69,7 +68,7 @@ commands:
     usage:        "{pfx}{cmd}"
     description:
       Go hiking and search nature for all the delicious bounty it has.
-      Look for plants that you mmight want to use for cooking in the future.
+      Look for plants that you might want to use for cooking in the future.
       Foraging is tiring so you need to rest for 60 seconds after looking for plants.
 
   - name:         inventorystats
