@@ -1,4 +1,4 @@
-description:
+﻿description:
   This fish stays hidden by taking the shape and color of dry or rotten plants.
   Looking like wood, most fisherman will never notice it.
   It tends to stay perfectly still and immobile whenever scared.
@@ -6,4 +6,4 @@ description:
 name: Barteey
 rarity: 8
 type: Fish
-value: 1000
+value: 150

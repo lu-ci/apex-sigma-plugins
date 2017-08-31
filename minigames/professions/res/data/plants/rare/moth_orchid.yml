@@ -1,4 +1,4 @@
-description:
+﻿description:
   The Moth Orchid is the most common type of orchid and bears the name because
   of its supposed resemblance to a moth in flight.
   The Moth Orchid isn’t exactly hard to find, and it comes in nearly every
@@ -9,4 +9,4 @@ description:
 name: Moth Orchid
 rarity: 3
 type: Plant
-value: 80
+value: 15

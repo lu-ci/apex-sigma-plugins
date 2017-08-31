@@ -1,4 +1,4 @@
-description:
+﻿description:
   The Skunk Cabbage is a huge, foul smelling plant that’s found in North America.
   Often found in swamps, its odour is often mistaken for a skunk, hence the name.
   Its appearance is also something to behold, with golden or purple leaves.
@@ -7,4 +7,4 @@ description:
 name: Skunk Cabbage
 rarity: 2
 type: Plant
-value: 50
+value: 8

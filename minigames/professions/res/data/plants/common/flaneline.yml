@@ -1,4 +1,4 @@
-description:
+﻿description:
   The flaneline plant looks like ball of moss.
   It has a strong and sour smell similar to that of blue cheese.
   Cooks have found this trait as a usable substitute in reproducing the taste
@@ -6,4 +6,4 @@ description:
 name: Flaneline
 rarity: 1
 type: Plant
-value: 30
+value: 5

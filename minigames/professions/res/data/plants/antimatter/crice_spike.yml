@@ -1,4 +1,4 @@
-description:
+﻿description:
   Grows only in places where the temperature is bellow 40 degrees celsius.
   The flower has petals resembling a crystaline structure.
   It's known to retain it's ice cold temperature no matter whre it's kept,
@@ -7,4 +7,4 @@ description:
 name: Crice Spike
 rarity: 8
 type: Plant
-value: 1000
+value: 150

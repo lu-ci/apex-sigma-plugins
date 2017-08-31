@@ -1,4 +1,4 @@
-description:
+﻿description:
   The White Bat Plant is one of the world’s largest and most unusual flowers.
   It’s strange little black flowers come in clusters of twenty to forty
   and resemble bats’ faces while the white bracts above resemble bat ears.
@@ -7,4 +7,4 @@ description:
 name: Bat Plant
 rarity: 3
 type: Plant
-value: 80
+value: 15

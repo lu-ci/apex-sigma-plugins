@@ -1,4 +1,4 @@
-description:
+﻿description:
   Colored blue, the Biomebrix plant has one single flower.
   It blooms every 4 years. When the flower unfurls, it resembles a bird's feather.
   This plant is very sensitive, nearly imposible to cultivate.
@@ -7,4 +7,4 @@ description:
 name: Biomebrix
 rarity: 9
 type: Plant
-value: 1500
+value: 250

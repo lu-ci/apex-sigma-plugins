@@ -1,4 +1,4 @@
-description:
+﻿description:
   This is not really a fish, it's a tiny robot.
   A government project that, due to a human error,
   got loose into the vast waters of the pacific.
@@ -7,4 +7,4 @@ description:
 name: Experiment A010
 rarity: 8
 type: Fish
-value: 1000
+value: 150

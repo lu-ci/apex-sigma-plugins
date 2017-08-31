@@ -1,4 +1,4 @@
-description:
+﻿description:
   This fish is so rare because it tends to go missing for months at a time.
   No one knows where it goes or what it does.
   They say finding one of these is nearly impossible.
@@ -6,4 +6,4 @@ description:
 name: Lulu
 rarity: 9
 type: Fish
-value: 1500
+value: 250

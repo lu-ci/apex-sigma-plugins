@@ -1,4 +1,4 @@
-description:
+﻿description:
   Even those with without green thumbs should be able to grow the Silver Vase plant.
   The Silver Vase is a slow grower with broad, waxy leaves and sharp, spiky flower heads.
   Once the pink flower has finished blooming, the silvery striped leaves will begin to die.
@@ -7,4 +7,4 @@ description:
 name: Silver Vase
 rarity: 7
 type: Plant
-value: 750
+value: 120

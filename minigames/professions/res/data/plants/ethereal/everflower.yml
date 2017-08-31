@@ -1,4 +1,4 @@
-description:
+﻿description:
   Apparently these flowers are able to last for a really, really long time,
   even after they have been cut off from their plant.
   Try it out if you want.
@@ -8,4 +8,4 @@ description:
 name: Everflower
 rarity: 7
 type: Plant
-value: 750
+value: 120
