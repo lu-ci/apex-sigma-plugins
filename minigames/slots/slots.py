@@ -23,10 +23,17 @@ async def slots(cmd, message, args):
     currency_icon = cmd.bot.cfg.pref.currency_icon
     currency = cmd.bot.cfg.pref.currency
     current_kud = cmd.db.get_currency(message.author, message.guild)['current']
-    if current_kud >= 10:
+    if args:
+        try:
+            bet = abs(int(args[0]))
+        except ValueError:
+            bet = 10
+    else:
+        bet = 10
+    if current_kud >= bet:
         if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
             cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
-            cmd.db.rmv_currency(message.author, 10)
+            cmd.db.rmv_currency(message.author, bet)
             out_list = []
             for x in range(0, 3):
                 temp_list = []
