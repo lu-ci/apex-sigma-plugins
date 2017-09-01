@@ -48,7 +48,7 @@ async def slots(cmd, message, args):
             if combination[0] == combination[1] == combination[2]:
                 win = True
                 announce = True
-                winnings = int(10 * (symbol_rewards[combination[0]] * 5))
+                winnings = int(bet * (symbol_rewards[combination[0]] * 5))
             elif combination[0] == combination[1] or combination[0] == combination[2] or combination[1] == combination[2]:
                 if combination[0] == combination[1]:
                     win_comb = combination[0]
@@ -60,7 +60,7 @@ async def slots(cmd, message, args):
                     win_comb = None
                 win = True
                 announce = False
-                winnings = int(10 * (symbol_rewards[win_comb] * 2))
+                winnings = int(bet * (symbol_rewards[win_comb] * 2))
             else:
                 win = False
                 announce = False
