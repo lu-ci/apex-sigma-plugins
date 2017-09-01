@@ -19,15 +19,27 @@ async def mathgame(cmd, message, args):
                 diff = 3
         else:
             diff = 3
-        max_num = diff * 25
-        kud_reward = int(diff * 1.9) + secrets.randbelow(5)
-        math_operators = ['*', '/', '+', '-']
+        max_num = diff * 8
+        easy_operators = ['+', '-']
+        hard_operators = ['*', '/']
+        math_operators = easy_operators + hard_operators
         problem_string = str(secrets.randbelow(max_num))
+        allotted_time = 7
+        kud_reward = 2
         for x in range(0, diff):
             num = secrets.randbelow(max_num) + 1
-            problem_string += f' {secrets.choice(math_operators)} {num}'
+            oper = secrets.choice(math_operators)
+            if oper in easy_operators:
+                kud_reward += 1
+                allotted_time += 3
+            else:
+                kud_reward += 4
+                allotted_time += 9
+            problem_string += f' {oper} {num}'
         result = round(eval(problem_string), 2)
-        question_embed = discord.Embed(color=0x3B88C3, title=f'#⃣ {problem_string} = ?')
+        problem_string = problem_string.replace('*', 'x').replace('/', '÷')
+        question_embed = discord.Embed(color=0x3B88C3, title=f'#⃣  You have {allotted_time} seconds.')
+        question_embed.description = f'{problem_string} = ?'
         await message.channel.send(embed=question_embed)
 
         def check_answer(msg):
@@ -45,7 +57,7 @@ async def mathgame(cmd, message, args):
             return correct
 
         try:
-            answer_message = await cmd.bot.wait_for('message', check=check_answer, timeout=30)
+            answer_message = await cmd.bot.wait_for('message', check=check_answer, timeout=allotted_time)
             cmd.db.add_currency(answer_message.author, message.guild, kud_reward)
             author = answer_message.author.display_name
             currency = cmd.bot.cfg.pref.currency
@@ -56,7 +68,8 @@ async def mathgame(cmd, message, args):
             timeout_title = f'🕙 Time\'s up! It was {result}...'
             timeout_embed = discord.Embed(color=0x696969, title=timeout_title)
             await message.channel.send(embed=timeout_embed)
-        ongoing_list.remove(message.channel.id)
+        if message.channel.id in ongoing_list:
+            ongoing_list.remove(message.channel.id)
     else:
         ongoing_error = discord.Embed(color=0xBE1931, title='❗ There is one already ongoing.')
         await message.channel.send(embed=ongoing_error)

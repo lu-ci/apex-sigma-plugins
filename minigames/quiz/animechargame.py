@@ -23,7 +23,6 @@ async def animechargame(cmd, message, args):
                     hint = False
             else:
                 hint = False
-            kud_reward = 10 + secrets.randbelow(10)
             ani_order = secrets.randbelow(3) * 50
             if ani_order:
                 ani_top_list_url = f'https://myanimelist.net/topanime.php?limit={ani_order}'
@@ -63,7 +62,16 @@ async def animechargame(cmd, message, args):
             question_embed.set_image(url=char_img)
             question_embed.set_footer(text='You have 30 seconds to guess it.')
             question_embed.set_author(name=anime_title, icon_url=anime_cover, url=char_img)
+            kud_reward = None
+            name_split = char_name.split()
+            for name_piece in name_split:
+                if kud_reward is None:
+                    kud_reward = len(name_piece)
+                else:
+                    if kud_reward >= len(name_piece):
+                        kud_reward = len(name_piece)
             if hint:
+                kud_reward = kud_reward // 2
                 scrambled_name = scramble(char_name)
                 question_embed.description = f'Name: {scrambled_name}'
             await message.channel.send(embed=question_embed)
@@ -95,7 +103,8 @@ async def animechargame(cmd, message, args):
         except IndexError:
             grab_error = discord.Embed(color=0xBE1931, title='❗ I failed to grab a character, try again.')
             await message.channel.send(embed=grab_error)
-        ongoing_list.remove(message.channel.id)
+        if message.channel.id in ongoing_list:
+            ongoing_list.remove(message.channel.id)
     else:
         ongoing_error = discord.Embed(color=0xBE1931, title='❗ There is one already ongoing.')
         await message.channel.send(embed=ongoing_error)

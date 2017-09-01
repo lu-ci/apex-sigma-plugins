@@ -24,7 +24,6 @@ async def vnchargame(cmd, message, args):
             else:
                 hint = False
             vn_url_list = []
-            kud_reward = 15 + secrets.randbelow(10)
             vn_top_list_url = f'https://vndb.org/v/all?q=;fil=tagspoil-0;rfil=;o=d;s=pop;p=1'
             async with aiohttp.ClientSession() as session:
                 async with session.get(vn_top_list_url) as vn_top_list_session:
@@ -53,7 +52,16 @@ async def vnchargame(cmd, message, args):
             question_embed.set_image(url=char_img)
             question_embed.set_footer(text='You have 30 seconds to guess it.')
             question_embed.set_author(name=vn_title, icon_url=vn_image, url=char_img)
+            kud_reward = None
+            name_split = char_name.split()
+            for name_piece in name_split:
+                if kud_reward is None:
+                    kud_reward = len(name_piece)
+                else:
+                    if kud_reward >= len(name_piece):
+                        kud_reward = len(name_piece)
             if hint:
+                kud_reward = kud_reward // 2
                 scrambled_name = scramble(char_name)
                 question_embed.description = f'Name: {scrambled_name}'
             await message.channel.send(embed=question_embed)
@@ -85,7 +93,8 @@ async def vnchargame(cmd, message, args):
         except IndexError:
             grab_error = discord.Embed(color=0xBE1931, title='❗ I failed to grab a character, try again.')
             await message.channel.send(embed=grab_error)
-        ongoing_list.remove(message.channel.id)
+        if message.channel.id in ongoing_list:
+            ongoing_list.remove(message.channel.id)
     else:
         ongoing_error = discord.Embed(color=0xBE1931, title='❗ There is one already ongoing.')
         await message.channel.send(embed=ongoing_error)

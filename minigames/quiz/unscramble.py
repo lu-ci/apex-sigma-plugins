@@ -56,7 +56,8 @@ async def unscramble(cmd, message, args):
             timeout_title = f'🕙 Time\'s up! It was {word_choice}...'
             timeout_embed = discord.Embed(color=0x696969, title=timeout_title)
             await message.channel.send(embed=timeout_embed)
-        ongoing_list.remove(message.channel.id)
+        if message.channel.id in ongoing_list:
+            ongoing_list.remove(message.channel.id)
     else:
         ongoing_error = discord.Embed(color=0xBE1931, title='❗ There is one already ongoing.')
         await message.channel.send(embed=ongoing_error)

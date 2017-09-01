@@ -22,6 +22,8 @@ commands:
     description:
       A minigame where you guess the name of the visual novel character shown.
       You can add "hint" in the command to make it show the character's scrambled name.
+      The Kud reward is equal to the number of characters of the shortest part of the characters name.
+      If the hint is used, the Kud reward is split in half.
 
   - name:         animechargame
     alts:
@@ -33,6 +35,8 @@ commands:
     description:
       A minigame where you guess the name of the anime character shown.
       You can add "hint" in the command to make it show the character's scrambled name.
+      The Kud reward is equal to the number of characters of the shortest part of the characters name.
+      If the hint is used, the Kud reward is split in half.
 
   - name:         mathgame
     global:       true
@@ -45,7 +49,7 @@ commands:
       You can also specify how hard you want the problem to be.
       The scale goes from 1-9.
       The default difficulty is 3.
-      You have 30 seconds to answer correctly.
+      The time and Kud reward scale with the difficulty and number of hard operators.
 
   - name:         unscramble
     alts:
