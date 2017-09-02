@@ -17,7 +17,12 @@ async def chat_bot(ev, message):
             async with aiohttp.ClientSession() as session:
                 async with session.get(bot_url) as data:
                     data = await data.read()
-                    data = json.loads(data)
-            bot_response = data['HalResponse'].replace('Hal', 'Sigma')
+                    chat_data = None
+                    while not chat_data:
+                        try:
+                            data = json.loads(data)
+                        except Exception:
+                            pass
+            bot_response = chat_data['HalResponse'].replace('Hal', 'Sigma')
             response = f'{message.author.mention} {bot_response}'
             await message.channel.send(response)
