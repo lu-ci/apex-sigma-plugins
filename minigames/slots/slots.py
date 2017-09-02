@@ -97,7 +97,7 @@ async def slots(cmd, message, args):
                     win_comb = None
                 win = True
                 announce = False
-                winnings = int(bet * (rarity_rewards[win_comb] * 2))
+                winnings = int(bet * (rarity_rewards[win_comb]))
             else:
                 win = False
                 announce = False
