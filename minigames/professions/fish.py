@@ -11,7 +11,7 @@ async def fish(cmd, message, args):
         item_core = ItemCore(cmd.resource('data'))
     if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
         if message.guild.id == 200751504175398912:
-            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 10)
+            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 25)
         else:
             cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
         rarity = item_core.roll_rarity()
