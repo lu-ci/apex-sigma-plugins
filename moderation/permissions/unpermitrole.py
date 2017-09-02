@@ -9,7 +9,7 @@ async def unpermitrole(cmd, message, args):
             if not message.author.permissions_in(message.channel).manage_guild:
                 response = discord.Embed(title='⛔ Access Denied. Manage Server needed.', color=0xBE1931)
             else:
-                target_name = args[1]
+                target_name = ' '.join(args[1:])
                 target = matching_role(message.guild, target_name)
                 if target:
                     error_response = discord.Embed(color=0xBE1931, title='❗ Bad Input')
