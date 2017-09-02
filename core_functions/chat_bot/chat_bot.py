@@ -23,7 +23,7 @@ async def chat_bot(ev, message):
                 try:
                     chat_data = json.loads(data)
                 except Exception:
-                    pass
+                    tries += 1
             if chat_data:
                 bot_response = chat_data['HalResponse'].replace('Hal', 'Sigma')
             else:
