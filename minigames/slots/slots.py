@@ -73,7 +73,7 @@ async def slots(cmd, message, args):
             else:
                 color = 0x232323
                 title = '💣 Oh my, you lost...'
-                footer = f'{currency_icon} 10 {currency} has been deducted.'
+                footer = f'{currency_icon} {bet} {currency} has been deducted.'
             if announce:
                 if 'win_channel' in cmd.cfg:
                     target_channel = discord.utils.find(lambda c: c.id == cmd.cfg['win_channel'], cmd.bot.get_all_channels())
