@@ -3,16 +3,16 @@ import secrets
 from sigma.core.utilities.data_processing import user_avatar
 
 rarity_rewards = {
-    '💎': 10,
-    '🔱': 9,
-    '💠': 8,
-    '🍁': 7,
-    '🍆': 6,
-    '☀': 5,
-    '🍌': 4,
-    '☢': 3,
-    '☎': 2,
-    '🔥': 1
+    '💎': 20,
+    '🔱': 18,
+    '💠': 16,
+    '🍁': 14,
+    '🍆': 12,
+    '☀': 10,
+    '🍌': 8,
+    '☢': 6,
+    '☎': 4,
+    '🔥': 2
 }
 
 symbols = []
@@ -64,10 +64,7 @@ async def slots(cmd, message, args):
             if combination[0] == combination[1] == combination[2]:
                 win = True
                 announce = True
-                if combination[0] != '🔥':
-                    winnings = int(bet * (rarity_rewards[combination[0]] * 5))
-                else:
-                    winnings = bet
+                winnings = int(bet * (rarity_rewards[combination[0]] * 5))
             elif combination[0] == combination[1] or combination[0] == combination[2] or combination[1] == combination[
                 2]:
                 if combination[0] == combination[1]:
@@ -80,10 +77,7 @@ async def slots(cmd, message, args):
                     win_comb = None
                 win = True
                 announce = False
-                if win_comb != '🔥':
-                    winnings = int(bet * (rarity_rewards[win_comb] * 2))
-                else:
-                    winnings = bet
+                winnings = int(bet * (rarity_rewards[win_comb] * 2))
             else:
                 win = False
                 announce = False
