@@ -2,54 +2,22 @@ import discord
 import secrets
 from sigma.core.utilities.data_processing import user_avatar
 
-symbol_rewards = {
-    9: '💎',
-    8: '🔱',
-    7: '💠',
-    6: '🍁',
-    5: '🍆',
-    4: '☀',
-    3: '🍌',
-    2: '☢',
-    1: '☎',
-    0: '🔥'
-}
-
 rarity_rewards = {
-    '💎': 500,
-    '🔱': 200,
-    '💠': 100,
-    '🍁': 50,
-    '🍆': 25,
-    '☀': 20,
-    '🍌': 15,
-    '☢': 10,
-    '☎': 5,
+    '💎': 10,
+    '🔱': 9,
+    '💠': 8,
+    '🍁': 7,
+    '🍆': 6,
+    '☀': 5,
+    '🍌': 4,
+    '☢': 3,
+    '☎': 2,
     '🔥': 1
 }
 
-
-def roll_symbol():
-    rarities = {
-        0: 0,
-        1: 35000,
-        2: 60000,
-        3: 80000,
-        4: 95000,
-        5: 98000,
-        6: 99100,
-        7: 99600,
-        8: 99850,
-        9: 99950
-    }
-    roll = secrets.randbelow(100000)
-    lowest = 0
-    for rarity in rarities:
-        if rarities[rarity] <= roll:
-            lowest = rarity
-        else:
-            break
-    return lowest
+symbols = []
+for symbol in rarity_rewards:
+    symbols.append(symbol)
 
 
 async def slots(cmd, message, args):
@@ -72,9 +40,21 @@ async def slots(cmd, message, args):
             out_list = []
             for x in range(0, 3):
                 temp_list = []
+                init_symb = None
                 for y in range(0, 3):
-                    rarity = roll_symbol()
-                    symbol_choice = symbol_rewards[rarity]
+                    if not init_symb:
+                        symbol_choice = secrets.choice(symbols)
+                        init_symb = symbol_choice
+                    else:
+                        roll = secrets.randbelow(bet)
+                        if roll == 0:
+                            symbol_choice = init_symb
+                        else:
+                            temp_symb = []
+                            for symbol_item in symbols:
+                                temp_symb.append(symbol_item)
+                            temp_symb.remove(init_symb)
+                            symbol_choice = secrets.choice(temp_symb)
                     temp_list.append(symbol_choice)
                 out_list.append(temp_list)
             slot_lines = f'⏸{"".join(out_list[0])}⏸'
