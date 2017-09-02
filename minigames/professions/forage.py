@@ -10,7 +10,10 @@ async def forage(cmd, message, args):
     if not item_core:
         item_core = ItemCore(cmd.resource('data'))
     if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
-        cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
+        if message.guild.id == 200751504175398912:
+            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 10)
+        else:
+            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
         rarity = item_core.roll_rarity()
         if args:
             if message.author.id in cmd.bot.cfg.dsc.owners:
