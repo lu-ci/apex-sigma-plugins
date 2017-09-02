@@ -31,8 +31,6 @@ async def slots(cmd, message, args):
             bet = 10
     else:
         bet = 10
-    if bet > 500:
-        bet = 500
     if current_kud >= bet:
         if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
             cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
@@ -40,21 +38,23 @@ async def slots(cmd, message, args):
             out_list = []
             for x in range(0, 3):
                 temp_list = []
-                init_symb = None
+                init_symb = []
                 for y in range(0, 3):
                     if not init_symb:
                         symbol_choice = secrets.choice(symbols)
-                        init_symb = symbol_choice
+                        init_symb.append(symbol_choice)
                     else:
                         roll = secrets.randbelow(bet)
                         if roll == 0:
-                            symbol_choice = init_symb
+                            symbol_choice = secrets.choice(init_symb)
                         else:
                             temp_symb = []
                             for symbol_item in symbols:
                                 temp_symb.append(symbol_item)
-                            temp_symb.remove(init_symb)
+                            for init_symb_item in init_symb:
+                                temp_symb.remove(init_symb_item)
                             symbol_choice = secrets.choice(temp_symb)
+                            init_symb.append(symbol_choice)
                     temp_list.append(symbol_choice)
                 out_list.append(temp_list)
             slot_lines = f'⏸{"".join(out_list[0])}⏸'
