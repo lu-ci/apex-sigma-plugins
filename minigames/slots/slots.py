@@ -3,16 +3,16 @@ import secrets
 from sigma.core.utilities.data_processing import user_avatar
 
 symbol_rewards = {
-    '💎': 15,
-    '🔱': 10,
-    '💠': 9,
-    '🍁': 8,
-    '🍆': 7,
-    '☀': 6,
-    '🔥': 5,
-    '☢': 4,
-    '☎': 3,
-    '🍌': 2
+    '💎': 6,
+    '🔱': 5.5,
+    '💠': 5,
+    '🍁': 4.5,
+    '🍆': 4,
+    '☀': 3.5,
+    '🔥': 3,
+    '☢': 2.5,
+    '☎': 2,
+    '🍌': 1.5
 }
 symbols = []
 for symbol in symbol_rewards:
