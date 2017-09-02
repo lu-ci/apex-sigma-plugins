@@ -3,20 +3,53 @@ import secrets
 from sigma.core.utilities.data_processing import user_avatar
 
 symbol_rewards = {
-    '💎': 6,
-    '🔱': 5.5,
-    '💠': 5,
-    '🍁': 4.5,
-    '🍆': 4,
-    '☀': 3.5,
-    '🔥': 3,
-    '☢': 2.5,
-    '☎': 2,
-    '🍌': 1.5
+    9: '💎',
+    8: '🔱',
+    7: '💠',
+    6: '🍁',
+    5: '🍆',
+    4: '☀',
+    3: '🍌',
+    2: '☢',
+    1: '☎',
+    0: '🔥'
 }
-symbols = []
-for symbol in symbol_rewards:
-    symbols.append(symbol)
+
+rarity_rewards = {
+    '💎': 10,
+    '🔱': 9,
+    '💠': 8,
+    '🍁': 7,
+    '🍆': 6,
+    '☀': 5,
+    '🍌': 3,
+    '☢': 2,
+    '☎': 1.5,
+    '🔥': 0
+}
+
+
+def roll_symbol():
+    rarities = {
+        0: 0,
+        1: 35000,
+        2: 60000,
+        3: 80000,
+        4: 95000,
+        5: 98000,
+        6: 99100,
+        7: 99600,
+        8: 99850,
+        9: 99950
+    }
+    roll = secrets.randbelow(100000)
+    lowest = 0
+    for rarity in rarities:
+        if rarities[rarity] <= roll:
+            lowest = rarity
+        else:
+            break
+    return lowest
 
 
 async def slots(cmd, message, args):
@@ -30,6 +63,8 @@ async def slots(cmd, message, args):
             bet = 10
     else:
         bet = 10
+    if bet > 500:
+        bet = 500
     if current_kud >= bet:
         if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
             cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
@@ -38,7 +73,8 @@ async def slots(cmd, message, args):
             for x in range(0, 3):
                 temp_list = []
                 for y in range(0, 3):
-                    symbol_choice = secrets.choice(symbols)
+                    rarity = roll_symbol()
+                    symbol_choice = symbol_rewards[rarity]
                     temp_list.append(symbol_choice)
                 out_list.append(temp_list)
             slot_lines = f'⏸{"".join(out_list[0])}⏸'
@@ -46,10 +82,15 @@ async def slots(cmd, message, args):
             slot_lines += f'\n⏸{"".join(out_list[2])}⏸'
             combination = out_list[1]
             if combination[0] == combination[1] == combination[2]:
-                win = True
-                announce = True
-                winnings = int(bet * (symbol_rewards[combination[0]] * 5))
-            elif combination[0] == combination[1] or combination[0] == combination[2] or combination[1] == combination[2]:
+                if combination[0] != '🔥':
+                    win = True
+                    announce = True
+                else:
+                    win = False
+                    announce = False
+                winnings = int(bet * (rarity_rewards[combination[0]] * 5))
+            elif combination[0] == combination[1] or combination[0] == combination[2] or combination[1] == combination[
+                2]:
                 if combination[0] == combination[1]:
                     win_comb = combination[0]
                 elif combination[0] == combination[2]:
@@ -58,9 +99,13 @@ async def slots(cmd, message, args):
                     win_comb = combination[1]
                 else:
                     win_comb = None
-                win = True
-                announce = False
-                winnings = int(bet * (symbol_rewards[win_comb] * 2))
+                if win_comb != '🔥':
+                    win = True
+                    announce = False
+                else:
+                    win = False
+                    announce = False
+                winnings = int(bet * (rarity_rewards[win_comb] * 2))
             else:
                 win = False
                 announce = False
@@ -76,7 +121,8 @@ async def slots(cmd, message, args):
                 footer = f'{currency_icon} {bet} {currency} has been deducted.'
             if announce:
                 if 'win_channel' in cmd.cfg:
-                    target_channel = discord.utils.find(lambda c: c.id == cmd.cfg['win_channel'], cmd.bot.get_all_channels())
+                    target_channel = discord.utils.find(lambda c: c.id == cmd.cfg['win_channel'],
+                                                        cmd.bot.get_all_channels())
                     announce_embed = discord.Embed(color=0xf9f9f9, title=f'🎰 A user just got 3 {combination[0]}.')
                     announce_embed.set_author(name=message.author.display_name, icon_url=user_avatar(message.author))
                     announce_embed.set_footer(text=f'On: {message.guild.name}.', icon_url=message.guild.icon_url)
