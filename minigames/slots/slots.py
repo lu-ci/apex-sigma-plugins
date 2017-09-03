@@ -46,7 +46,7 @@ async def slots(cmd, message, args):
                         symbol_choice = secrets.choice(symbols)
                         init_symb.append(symbol_choice)
                     else:
-                        roll = secrets.randbelow(bet)
+                        roll = secrets.randbelow(bet + 10)
                         if roll == 0:
                             symbol_choice = secrets.choice(init_symb)
                         else:
