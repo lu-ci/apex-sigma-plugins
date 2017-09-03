@@ -31,8 +31,6 @@ async def slots(cmd, message, args):
             bet = 10
     else:
         bet = 10
-    if bet < 10:
-        bet = 10
     if current_kud >= bet:
         if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
             cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
