@@ -65,3 +65,12 @@ commands:
       You can specify if you want to see the top people that are local, global, or by their current xp.
       The leaderboard shows the local server's leaderboard by default.
 
+  - name:         topcommands
+    alts:
+      - "topcmds"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows the top 10 most used commands globally.
+
