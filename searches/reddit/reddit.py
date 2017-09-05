@@ -43,7 +43,7 @@ async def reddit(cmd, message, args):
                 except NotFound:
                     post = None
                 if post:
-                    if not message.channel.nsfw:
+                    if not post.over_18 or message.channel.is_nsfw():
                         reddit_icon = 'https://i.imgur.com/5w7eJ5A.png'
                         post_desc = f'Author: {post.author.name}'
                         post_desc += f' | Score: {post.score}'
