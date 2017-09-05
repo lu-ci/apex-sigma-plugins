@@ -47,13 +47,11 @@ events:
 
   - name:        population_clockwork
     type:        ready
-    global:      true
     enabled:     true
-    permissions:
-      rating:    0
-      dmable:    true
-    description:
-      Control bot mention event statistics.
+
+  - name:        stats_logger
+    type:        ready
+    enabled:     true
 
   - name:        discordbots_clock
     type:        ready
