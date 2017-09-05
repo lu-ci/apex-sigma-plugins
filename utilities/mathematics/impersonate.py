@@ -17,6 +17,8 @@ async def impersonate(cmd, message, args):
         else:
             target = message.author
     if target:
+        init_embed = discord.Embed(color=0xbdddf4, title='💭 Hmm... Let me think...')
+        init_message = await message.channel.send(embed=init_embed)
         chain_data = cmd.db[cmd.db.db_cfg.database]['MarkovChains'].find_one({'UserID': target.id})
         if chain_data:
             total_string = ' '.join(chain_data['Chain'])
@@ -38,4 +40,4 @@ async def impersonate(cmd, message, args):
             title = f'🔍 Chain Data Not Found For {target.name}'
             value = f'You can make one with `{prefix}collectchain @{target.name} #channel`!'
             response.add_field(name=title, value=value)
-        await message.channel.send(None, embed=response)
+        await init_message.edit(embed=response)
