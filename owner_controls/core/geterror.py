@@ -17,12 +17,15 @@ async def geterror(cmd, message, args):
             orgn_text += f'\nGuild: **{error_file["Guild"]["Name"]}**'
             orgn_text += f'\nGuild ID: **{error_file["Guild"]["ID"]}**'
             trace_text = f'Trace Class:\n**{error_file["TraceBack"]["Class"]}**'
-            trace_text += f'\nTrade Details:\n```\n{error_file["TraceBack"]["Details"]}\n```'
+            trace_text += f'\nTrace Details:\n```py\n{error_file["TraceBack"]["Details"]}\n```'
             response.add_field(name='Command', value=cmd_text)
             response.add_field(name='Origin', value=orgn_text)
-            response.add_field(name='Traceback', value=trace_text, inline=False)
         else:
+            trace_text = None
             response = discord.Embed(color=0xBE1931, title='❗ No error with that token was found.')
     else:
+        trace_text = None
         response = discord.Embed(color=0xBE1931, title='❗ No token inputted.')
     await message.channel.send(embed=response)
+    if trace_text:
+        await message.channel.send(trace_text)
