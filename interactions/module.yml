@@ -64,6 +64,13 @@ commands:
     description:
       When a damn knife isn't enough.
 
+  - name:         bite
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Sink your teeth into some poor thing.
+
   - name:         addreact
     global:       true
     enabled:      true
