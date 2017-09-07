@@ -48,32 +48,35 @@ async def collectchain(cmd, message, args):
             ch_response = discord.Embed(color=0x66CC66,
                                         title='📖 Collecting... You will be sent a DM when I\'m done.')
             await message.channel.send(None, embed=ch_response)
-            async for log in target_chn.history(limit=100000):
-                if log.author.id == target.id:
-                    if log.content:
-                        if log.content != '':
-                            if len(log.content) > 3:
-                                if not check_for_bot_prefixes(cmd.bot.get_prefix(message), log.content):
-                                    if 'http' not in log.content and '```' not in log.content:
-                                        if '"' not in log.content:
-                                            content = log.content
-                                            if log.mentions:
-                                                for mention in log.mentions:
-                                                    content = content.replace(mention.mention, mention.name)
-                                            if log.channel_mentions:
-                                                for mention in log.channel_mentions:
-                                                    content = content.replace(mention.mention, mention.name)
-                                            unallowed_chars = ['`', '\n', '\\', '\\n']
-                                            for char in unallowed_chars:
-                                                content = content.replace(char, '')
-                                            if len(content) > 12:
-                                                if not content.endswith(('.' or '?' or '!')):
-                                                    content += '.'
-                                            if content not in collection:
-                                                collection.append(content)
-                                                collected += 1
-                                                if collected >= 5000:
-                                                    break
+            try:
+                async for log in target_chn.history(limit=100000):
+                    if log.author.id == target.id:
+                        if log.content:
+                            if log.content != '':
+                                if len(log.content) > 3:
+                                    if not check_for_bot_prefixes(cmd.bot.get_prefix(message), log.content):
+                                        if 'http' not in log.content and '```' not in log.content:
+                                            if '"' not in log.content:
+                                                content = log.content
+                                                if log.mentions:
+                                                    for mention in log.mentions:
+                                                        content = content.replace(mention.mention, mention.name)
+                                                if log.channel_mentions:
+                                                    for mention in log.channel_mentions:
+                                                        content = content.replace(mention.mention, mention.name)
+                                                unallowed_chars = ['`', '\n', '\\', '\\n']
+                                                for char in unallowed_chars:
+                                                    content = content.replace(char, '')
+                                                if len(content) > 12:
+                                                    if not content.endswith(('.' or '?' or '!')):
+                                                        content += '.'
+                                                if content not in collection:
+                                                    collection.append(content)
+                                                    collected += 1
+                                                    if collected >= 5000:
+                                                        break
+            except Exception:
+                pass
             cmd.db[cmd.db.db_cfg.database]['MarkovChains'].delete_one({'UserID': target.id})
             data = {
                 'UserID': target.id,
