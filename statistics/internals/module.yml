@@ -74,3 +74,9 @@ commands:
     description:
       Shows the top 20 most used commands globally.
 
+  - name:         topcookies
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows the top 20 users who have the most cookies.
