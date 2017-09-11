@@ -6,11 +6,15 @@ import discord
 async def quote(cmd, message, args):
     resource = 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en'
     data = None
-    while not data:
+    tries = 0
+    while not data and tries < 5:
         async with aiohttp.ClientSession() as session:
             async with session.get(resource) as data:
                 data = await data.read()
-                data = json.loads(data)
+                try:
+                    data = json.loads(data)
+                except json.JSONDecodeError:
+                    tries += 1
     text = data['quoteText']
     while text.endswith(' '):
         text = text[:-1]
