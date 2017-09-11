@@ -3,8 +3,7 @@ import discord
 
 async def whoplays(cmd, message, args):
     if not args:
-        await message.channel.send(cmd.help())
-        return
+        response = discord.Embed(color=0xBE1931, title='❗ Nothing inputted.')
     else:
         game_title = ' '.join(args)
         gamer_list = ''
@@ -21,6 +20,6 @@ async def whoplays(cmd, message, args):
             gamer_list = 'None'
         title = f'{y}/{x} people are playing {game_title}'
         gamers = '```\n' + gamer_list + '\n```'
-        embed = discord.Embed(color=0x1ABC9C)
-        embed.add_field(name=title, value=gamers)
-        await message.channel.send(None, embed=embed)
+        response = discord.Embed(color=0x1ABC9C)
+        response.add_field(name=title, value=gamers)
+    await message.channel.send(None, embed=response)
