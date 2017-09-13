@@ -22,6 +22,8 @@ async def play(cmd, message, args):
                     if not message.guild.voice_client:
                         return
                     item = cmd.bot.music.queue_get(message.guild.id)
+                    if message.guild.id in cmd.bot.music.repeaters:
+                        cmd.bot.music.queue_add(message.guild.id, item.requester, item.item_info)
                     if message.guild.voice_client.is_playing():
                         return
                     init_song_embed = discord.Embed(color=0x3B88C3, title=f'🔽 Downloading {item.title}...')

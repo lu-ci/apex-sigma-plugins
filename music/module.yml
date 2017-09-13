@@ -52,6 +52,13 @@ commands:
       If the bot isn't connected to any channel, it'll connect to yours.
       If it is connected, it will move to you.
 
+  - name:        repeat
+    enabled:     true
+    usage:       "{pfx}{cmd}"
+    description:
+      Toggles if the current queue should be repeated.
+      Whenever a song is played, it's re-added to the end of the queue.
+
   - name:        unqueue
     alts:
       - "remove"
