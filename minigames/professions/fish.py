@@ -11,15 +11,29 @@ async def fish(cmd, message, args):
     if not item_core:
         item_core = ItemCore(cmd.resource('data'))
     if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
+        upgrade_file = cmd.db[cmd.db.db_cfg.database].Upgrades.find_one({'UserID': message.author.id})
+        if upgrade_file is None:
+            cmd.db[cmd.db.db_cfg.database].Upgrades.insert_one({'UserID': message.author.id})
+            upgrade_file = {}
         inv = cmd.db.get_inventory(message.author)
-        inv_limit = 64
+        if 'storage' in upgrade_file:
+            storage = upgrade_file['storage']
+        else:
+            storage = 0
+        inv_limit = 64 + (8 * storage)
         if len(inv) < inv_limit:
             cmd.db[cmd.db.db_cfg.database].EventPool.insert_one({'stamp': arrow.utcnow().float_timestamp})
+            base_cooldown = 60
+            if 'stamina' in upgrade_file:
+                stamina = upgrade_file['stamina']
+            else:
+                stamina = 0
+            cooldown = int(base_cooldown - ((base_cooldown // 100) * stamina))
             if message.guild.id == 200751504175398912:
                 cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 25)
             else:
-                cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
-            rarity = item_core.roll_rarity()
+                cmd.bot.cooldown.set_cooldown(cmd.name, message.author, cooldown)
+            rarity = item_core.roll_rarity(cmd.db, message.author.id)
             if args:
                 if message.author.id in cmd.bot.cfg.dsc.owners:
                     try:
@@ -46,7 +60,7 @@ async def fish(cmd, message, args):
                     await item_core.notify_channel_of_special(message, cmd.bot.get_all_channels(),
                                                               cmd.cfg['item_channel'], item)
         else:
-            response = discord.Embed(color=0xBE1931, title=f'❗ Your inventory is full with {len(inv)}/{inv_limit}.')
+            response = discord.Embed(color=0xBE1931, title=f'❗ Your inventory is full.')
     else:
         timeout = cmd.bot.cooldown.get_cooldown(cmd.name, message.author)
         response = discord.Embed(color=0x696969, title=f'🕙 Your new bait will be ready in {timeout} seconds.')

@@ -44,6 +44,15 @@ commands:
       Sells an item from your inventory.
       Input all instead of the item name to sell your entire inventory.
 
+  - name:         buyupgrade
+    alts:
+      - "shop"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Opens Sigma's profession upgrade shop.
+
   - name:         filtersell
     alts:
       - "fsell"

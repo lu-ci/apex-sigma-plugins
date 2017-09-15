@@ -14,6 +14,15 @@ async def inventory(cmd, message, args):
         target = message.mentions[0]
     else:
         target = message.author
+    upgrade_file = cmd.db[cmd.db.db_cfg.database].Upgrades.find_one({'UserID': target.id})
+    if upgrade_file is None:
+        cmd.db[cmd.db.db_cfg.database].Upgrades.insert_one({'UserID': target.id})
+        upgrade_file = {}
+    if 'storage' in upgrade_file:
+        storage = upgrade_file['storage']
+    else:
+        storage = 0
+    inv_limit = 64 + (8 * storage)
     page_number = 1
     if args:
         try:
@@ -46,7 +55,8 @@ async def inventory(cmd, message, args):
         output = boop(to_format, column_names=headers)
         response = discord.Embed(color=0xc16a4f)
         response.set_author(name=f'{target.name}#{target.discriminator}', icon_url=user_avatar(target))
-        inv_text = f'Showing {len(inv)}/{total_inv} items in your inventory.'
+        inv_text = f'Showing items {start_range}-{end_range}.'
+        inv_text += f'\nYou have {total_inv}/{inv_limit} items in your inventory.'
         inv_text += f'\nTotal value of your inventory is {total_value} {cmd.bot.cfg.pref.currency}.'
         response.add_field(name='📦 Inventory Stats',
                            value=f'```py\n{inv_text}\n```')

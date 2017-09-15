@@ -61,7 +61,16 @@ class ItemCore(object):
             self.all_items.update({list_item: output})
 
     @staticmethod
-    def roll_rarity():
+    def roll_rarity(db, uid):
+        upgrade_id = 'luck'
+        upgrade_file = db[db.db_cfg.database].Upgrades.find_one({'UserID': uid})
+        if upgrade_file is None:
+            db[db.db_cfg.database].Upgrades.insert_one({'UserID': uid})
+            upgrade_file = {}
+        if upgrade_id in upgrade_file:
+            upgrade_level = upgrade_file[upgrade_id]
+        else:
+            upgrade_level = 0
         rarities = {
             0: 0,
             1: 35000,
@@ -74,7 +83,7 @@ class ItemCore(object):
             8: 99850,
             9: 99950
         }
-        roll = secrets.randbelow(100000)
+        roll = secrets.randbelow(100000) + (upgrade_level * 150)
         lowest = 0
         for rarity in rarities:
             if rarities[rarity] <= roll:
