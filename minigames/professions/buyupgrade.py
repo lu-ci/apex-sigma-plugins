@@ -52,7 +52,7 @@ async def buyupgrade(cmd, message, args):
     await message.channel.send(embed=upgrade_list_embed)
 
     def check_answer(msg):
-        if message.channel.id == msg.author.id:
+        if message.author.id == msg.author.id:
             try:
                 an_num = int(msg.content)
                 if 0 < an_num <= len(upgrade_list):
