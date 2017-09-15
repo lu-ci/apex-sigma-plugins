@@ -13,7 +13,10 @@ async def fish(cmd, message, args):
         inv = cmd.db.get_inventory(message.author)
         inv_limit = 64
         if len(inv) < inv_limit:
-            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
+            if message.guild.id == 200751504175398912:
+                cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 25)
+            else:
+                cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
             rarity = item_core.roll_rarity()
             if args:
                 if message.author.id in cmd.bot.cfg.dsc.owners:
