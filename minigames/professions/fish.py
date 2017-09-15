@@ -1,4 +1,5 @@
-﻿import discord
+﻿import arrow
+import discord
 from .nodes.item_core import ItemCore
 from sigma.core.utilities.data_processing import user_avatar
 
@@ -13,6 +14,7 @@ async def fish(cmd, message, args):
         inv = cmd.db.get_inventory(message.author)
         inv_limit = 64
         if len(inv) < inv_limit:
+            cmd.db[cmd.db.db_cfg.database].EventPool.insert_one({'stamp': arrow.utcnow().float_timestamp})
             if message.guild.id == 200751504175398912:
                 cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 25)
             else:
