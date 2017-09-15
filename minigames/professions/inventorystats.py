@@ -48,7 +48,7 @@ async def inventorystats(cmd, message, args):
                 type_num = 0
             type_list.append([type_key.upper(), type_num])
         type_out = boop(type_list)
-        rare_keys = ['trash', 'common', 'uncommon', 'rare', 'legendary', 'prime',
+        rare_keys = ['common', 'uncommon', 'rare', 'legendary', 'prime',
                      'spectral', 'ethereal', 'antimatter', 'omnipotent']
         rare_list = []
         for rare_key in rare_keys:
