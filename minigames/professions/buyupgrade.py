@@ -41,7 +41,8 @@ async def buyupgrade(cmd, message, args):
         if upgrade_level == 0:
             upgrade_price = base_price
         else:
-            upgrade_price = (base_price * upgrade_level) + ((base_price * upgrade_level) // 2)
+            price_mod = int(base_price * upgrade_level * 1.5)
+            upgrade_price = price_mod + (price_mod // 2)
         currency = cmd.bot.cfg.pref.currency
         next_upgrade = upgrade_level + 1
         upgrade_text += f'\n**{upgrade_index}**: Level {next_upgrade} {upgrade["name"]} - {upgrade_price} {currency}'
@@ -79,7 +80,8 @@ async def buyupgrade(cmd, message, args):
         if upgrade_level == 0:
             upgrade_price = base_price
         else:
-            upgrade_price = (base_price * upgrade_level) + ((base_price * upgrade_level) // 2)
+            price_mod = int(base_price * upgrade_level * 1.5)
+            upgrade_price = price_mod + (price_mod // 2)
         if current_kud >= upgrade_price:
             new_upgrade_level = upgrade_level + 1
             upgrade_data = {'$set': {upgrade_id: new_upgrade_level}}
