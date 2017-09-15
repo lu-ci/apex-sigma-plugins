@@ -45,7 +45,7 @@ async def buyupgrade(cmd, message, args):
             if upgrade_level == 0:
                 upgrade_price = base_price
             else:
-                price_mod = int(base_price * upgrade_level * (0.85 + (0.075 * upgrade_level)))
+                price_mod = int(base_price * upgrade_level * (1.15 + (0.085 * upgrade_level)))
                 upgrade_price = price_mod + (price_mod // 2)
             currency = cmd.bot.cfg.pref.currency
             next_upgrade = upgrade_level + 1
