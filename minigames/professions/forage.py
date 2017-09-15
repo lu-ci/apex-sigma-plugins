@@ -22,21 +22,13 @@ async def forage(cmd, message, args):
             storage = 0
         inv_limit = 64 + (8 * storage)
         if len(inv) < inv_limit:
-            cmd.db[cmd.db.db_cfg.database].EventPool.insert_one({'stamp': arrow.utcnow().float_timestamp})
             base_cooldown = 60
-            upgrade_file = cmd.db[cmd.db.db_cfg.database].Upgrades.find_one({'UserID': message.author.id})
-            if upgrade_file is None:
-                cmd.db[cmd.db.db_cfg.database].Upgrades.insert_one({'UserID': message.author.id})
-                upgrade_file = {}
             if 'stamina' in upgrade_file:
                 stamina = upgrade_file['stamina']
             else:
                 stamina = 0
             cooldown = int(base_cooldown - ((base_cooldown / 100) * (stamina * 0.7)))
-            if message.guild.id == 200751504175398912:
-                cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 25)
-            else:
-                cmd.bot.cooldown.set_cooldown(cmd.name, message.author, cooldown)
+            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, cooldown)
             rarity = item_core.roll_rarity(cmd.db, message.author.id)
             if args:
                 if message.author.id in cmd.bot.cfg.dsc.owners:
