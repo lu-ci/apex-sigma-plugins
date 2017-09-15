@@ -83,7 +83,7 @@ class ItemCore(object):
             8: 99850,
             9: 99950
         }
-        roll = secrets.randbelow(100000) + (upgrade_level * 150)
+        roll = secrets.randbelow(100000) + (upgrade_level * 40)
         lowest = 0
         for rarity in rarities:
             if rarities[rarity] <= roll:
