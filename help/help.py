@@ -24,7 +24,7 @@ async def help(cmd, message, args):
         response.set_author(name=sigma_title, icon_url=sigma_image, url=cmd.bot.cfg.pref.website)
         invite_url = f'https://discordapp.com/oauth2/authorize?client_id={cmd.bot.user.id}&scope=bot&permissions=8'
         support_text = f'**Invite**: [Link]({invite_url})'
-        support_text += f' | **Website**: [Link]({cmd.bot.cfg.pref.website})'
+        support_text += f' | **Commands**: [Link]({cmd.bot.cfg.pref.website}/commands)'
         support_text += f' | **Support**: [Link]({support_url})'
         response.add_field(name='Help', value=support_text)
         response.set_thumbnail(url=sigma_image)
