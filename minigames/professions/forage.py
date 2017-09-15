@@ -65,8 +65,7 @@ async def forage(cmd, message, args):
                                                               cmd.cfg['item_channel'], item)
 
         else:
-            response = discord.Embed(color=0xBE1931,
-                                     title=f'❗ Your inventory is full with.')
+            response = discord.Embed(color=0xBE1931, title=f'❗ Your inventory is full.')
     else:
         timeout = cmd.bot.cooldown.get_cooldown(cmd.name, message.author)
         response = discord.Embed(color=0x696969, title=f'🕙 You are resting for another {timeout} seconds.')
