@@ -32,7 +32,7 @@ async def forage(cmd, message, args):
                 stamina = upgrade_file['stamina']
             else:
                 stamina = 0
-            cooldown = int(base_cooldown - ((base_cooldown // 100) * stamina))
+            cooldown = int(base_cooldown - ((base_cooldown / 100) * (stamina * 0.7)))
             if message.guild.id == 200751504175398912:
                 cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 25)
             else:

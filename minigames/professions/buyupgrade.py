@@ -6,7 +6,7 @@ upgrade_list = [
         'id': 'stamina',
         'name': 'Stamina Training',
         'cost': 800,
-        'desc': 'Reduces profession cool-downs by 1%.'
+        'desc': 'Reduces profession cool-downs by 0.7%.'
     },
     {
         'id': 'luck',
