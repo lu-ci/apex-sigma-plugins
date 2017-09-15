@@ -11,13 +11,13 @@ upgrade_list = [
     {
         'id': 'luck',
         'name': 'Lucky Charm',
-        'cost': 500,
+        'cost': 1000,
         'desc': 'Increases chances of finding a rare.'
     },
     {
         'id': 'storage',
         'name': 'Inventory Space',
-        'cost': 200,
+        'cost': 350,
         'desc': 'Increases your inventory space by 8.'
     }
 ]
