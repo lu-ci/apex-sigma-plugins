@@ -39,6 +39,8 @@ commands:
       If the hint is used, the Kud reward is split in half.
 
   - name:         mathgame
+    alts:
+      - "mg"
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd} 4"
