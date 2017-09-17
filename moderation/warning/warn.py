@@ -18,6 +18,7 @@ def generate_log_embed(message, target, warning_text):
     response.set_footer(text=f'UserID: {target.id}')
     return response
 
+
 async def warn(cmd, message, args):
     if not message.author.permissions_in(message.channel).manage_messages:
         response = discord.Embed(title='⛔ Access Denied. Manage Messages needed.', color=0xBE1931)
