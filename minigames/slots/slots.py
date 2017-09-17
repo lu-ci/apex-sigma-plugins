@@ -33,7 +33,17 @@ async def slots(cmd, message, args):
         bet = 10
     if current_kud >= bet:
         if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
-            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 60)
+            upgrade_file = cmd.db[cmd.db.db_cfg.database].Upgrades.find_one({'UserID': message.author.id})
+            if upgrade_file is None:
+                cmd.db[cmd.db.db_cfg.database].Upgrades.insert_one({'UserID': message.author.id})
+                upgrade_file = {}
+            base_cooldown = 60
+            if 'stamina' in upgrade_file:
+                stamina = upgrade_file['stamina']
+            else:
+                stamina = 0
+            cooldown = int(base_cooldown - ((base_cooldown / 100) * (stamina * 0.5)))
+            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, cooldown)
             cmd.db.rmv_currency(message.author, bet)
             out_list = []
             for x in range(0, 3):
