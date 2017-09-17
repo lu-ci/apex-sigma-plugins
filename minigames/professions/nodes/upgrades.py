@@ -9,7 +9,7 @@ upgrade_list = [
         'id': 'luck',
         'name': 'Lucky Enchantment',
         'cost': 500,
-        'desc': 'Increases your rarity rolls by 100.'
+        'desc': 'Increases your rarity rolls by 250.'
     },
     {
         'id': 'storage',
