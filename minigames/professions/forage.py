@@ -27,7 +27,7 @@ async def forage(cmd, message, args):
                 stamina = upgrade_file['stamina']
             else:
                 stamina = 0
-            cooldown = int(base_cooldown - ((base_cooldown / 100) * (stamina * 0.7)))
+            cooldown = int(base_cooldown - ((base_cooldown / 100) * (stamina * 0.5)))
             cmd.bot.cooldown.set_cooldown(cmd.name, message.author, cooldown)
             rarity = item_core.roll_rarity(cmd.db, message.author.id)
             if args:
