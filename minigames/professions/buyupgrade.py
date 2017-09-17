@@ -1,28 +1,8 @@
 import discord
 import asyncio
+from .nodes.upgrades import upgrade_list
 
 ongoing = []
-
-upgrade_list = [
-    {
-        'id': 'stamina',
-        'name': 'Stamina Training',
-        'cost': 800,
-        'desc': 'Reduces profession cool-downs by 0.7%.'
-    },
-    {
-        'id': 'luck',
-        'name': 'Lucky Charm',
-        'cost': 675,
-        'desc': 'Increases chances of finding a rare.'
-    },
-    {
-        'id': 'storage',
-        'name': 'Inventory Space',
-        'cost': 350,
-        'desc': 'Increases your inventory space by 8.'
-    }
-]
 
 
 async def buyupgrade(cmd, message, args):
@@ -55,47 +35,57 @@ async def buyupgrade(cmd, message, args):
         upgrade_list_embed = discord.Embed(color=0xF9F9F9, title='🛍 Sigma\'s Profession Upgrade Shop')
         upgrade_list_embed.description = upgrade_text
         upgrade_list_embed.set_footer(text='Please input the number of the upgrade you want.')
-        await message.channel.send(embed=upgrade_list_embed)
+        shop_listing = await message.channel.send(embed=upgrade_list_embed)
 
         def check_answer(msg):
             if message.author.id == msg.author.id:
-                try:
-                    an_num = int(msg.content)
-                    if 0 < an_num <= len(upgrade_list):
-                        correct = True
-                    else:
+                if msg.content.lower() == 'cancel':
+                    correct = True
+                else:
+                    try:
+                        an_num = int(msg.content)
+                        if 0 < an_num <= len(upgrade_list):
+                            correct = True
+                        else:
+                            correct = False
+                    except ValueError:
                         correct = False
-                except ValueError:
-                    correct = False
             else:
                 correct = False
             return correct
 
         try:
             answer_message = await cmd.bot.wait_for('message', check=check_answer, timeout=30)
-            upgrade_number = int(answer_message.content) - 1
-            upgrade = upgrade_list[upgrade_number]
-            current_kud = cmd.db.get_currency(message.author, message.guild)['current']
-            upgrade_id = upgrade['id']
-            if upgrade_id in upgrade_file:
-                upgrade_level = upgrade_file[upgrade_id]
+            if answer_message.content.lower() != 'cancel':
+                upgrade_number = int(answer_message.content) - 1
+                upgrade = upgrade_list[upgrade_number]
+                current_kud = cmd.db.get_currency(message.author, message.guild)['current']
+                upgrade_id = upgrade['id']
+                if upgrade_id in upgrade_file:
+                    upgrade_level = upgrade_file[upgrade_id]
+                else:
+                    upgrade_level = 0
+                base_price = upgrade['cost']
+                if upgrade_level == 0:
+                    upgrade_price = base_price
+                else:
+                    price_mod = int(base_price * upgrade_level * (1.15 + (0.085 * upgrade_level)))
+                    upgrade_price = price_mod + (price_mod // 2)
+                if current_kud >= upgrade_price:
+                    new_upgrade_level = upgrade_level + 1
+                    upgrade_data = {'$set': {upgrade_id: new_upgrade_level}}
+                    cmd.db[cmd.db.db_cfg.database].Upgrades.update_one({'UserID': message.author.id}, upgrade_data)
+                    cmd.db.rmv_currency(message.author, upgrade_price)
+                    upgrade_title = f'✅ Upgraded your {upgrade["name"]} to Level {new_upgrade_level}.'
+                    response = discord.Embed(color=0x77B255, title=upgrade_title)
+                else:
+                    response = discord.Embed(color=0xa7d28b, title=f'💸 You don\'t have enough {currency}.')
             else:
-                upgrade_level = 0
-            base_price = upgrade['cost']
-            if upgrade_level == 0:
-                upgrade_price = base_price
-            else:
-                price_mod = int(base_price * upgrade_level * 1.5)
-                upgrade_price = price_mod + (price_mod // 2)
-            if current_kud >= upgrade_price:
-                new_upgrade_level = upgrade_level + 1
-                upgrade_data = {'$set': {upgrade_id: new_upgrade_level}}
-                cmd.db[cmd.db.db_cfg.database].Upgrades.update_one({'UserID': message.author.id}, upgrade_data)
-                cmd.db.rmv_currency(message.author, upgrade_price)
-                upgrade_title = f'✅ Upgraded your {upgrade["name"]} to Level {new_upgrade_level}.'
-                response = discord.Embed(color=0x77B255, title=upgrade_title)
-            else:
-                response = discord.Embed(color=0xa7d28b, title=f'💸 You don\'t have enough {currency}.')
+                response = discord.Embed(color=0xF9F9F9, title='🛍 Stop exited.')
+            try:
+                await shop_listing.delete()
+            except discord.NotFound:
+                pass
             await message.channel.send(embed=response)
         except asyncio.TimeoutError:
             timeout_title = f'🕙 Sorry, you timed out, feel free to open the shop again.'
