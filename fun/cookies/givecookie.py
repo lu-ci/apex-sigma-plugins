@@ -12,8 +12,17 @@ async def givecookie(cmd, message, args):
             if message.author.id != target.id:
                 if not target.bot:
                     if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
+                        upgrade_file = cmd.db[cmd.db.db_cfg.database].Upgrades.find_one({'UserID': message.author.id})
+                        if upgrade_file is None:
+                            cmd.db[cmd.db.db_cfg.database].Upgrades.insert_one({'UserID': message.author.id})
+                            upgrade_file = {}
                         cookie_coll = cmd.db[cmd.db.db_cfg.database].Cookies
-                        cookie_cd = 3600
+                        base_cooldown = 3600
+                        if 'stamina' in upgrade_file:
+                            stamina = upgrade_file['stamina']
+                        else:
+                            stamina = 0
+                        cooldown = int(base_cooldown - ((base_cooldown / 100) * (stamina * 0.2)))
                         file_check = cookie_coll.find_one({'UserID': target.id})
                         if not file_check:
                             cookies = 0
@@ -23,7 +32,7 @@ async def givecookie(cmd, message, args):
                             cookies = file_check['Cookies']
                         cookies += 1
                         cookie_coll.update_one({'UserID': target.id}, {'$set': {'Cookies': cookies}})
-                        cmd.bot.cooldown.set_cooldown(cmd.name, message.author, cookie_cd)
+                        cmd.bot.cooldown.set_cooldown(cmd.name, message.author, cooldown)
                         title = f'🍪 You gave a cookie to {target.display_name}.'
                         response = discord.Embed(color=0xd99e82, title=title)
                     else:
