@@ -53,6 +53,14 @@ commands:
     description:
       Opens Sigma's profession upgrade shop.
 
+  - name:         upgrades
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Shows the user's current upgrades.
+      You can view another person's upgrades by tagetting them.
+
   - name:         filtersell
     alts:
       - "fsell"
