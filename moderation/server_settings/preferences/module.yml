@@ -51,3 +51,28 @@ commands:
       The stuff that is logged is member movement and moderator actions.
       Such as warns, bans, muting members and pruning channels.
       To disable the logging channel, input "disable" as the channel argument.
+
+  - name:         logedits
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Toggles if message editing should be logged in the server's logging channel.
+
+  - name:         logdeletes
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Toggles if message deletion should be logged in the server's logging channel.
+
+events:
+  - name:         edit_logger
+    type:         message_edit
+    global:       true
+    enabled:      true
+
+  - name:         delete_logger
+    type:         message_delete
+    global:       true
+    enabled:      true
