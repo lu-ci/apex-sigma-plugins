@@ -64,8 +64,3 @@ events:
     type:         message_edit
     global:       true
     enabled:      true
-
-  - name:         delete_logger
-    type:         message_delete
-    global:       true
-    enabled:      true
