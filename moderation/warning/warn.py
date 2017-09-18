@@ -5,7 +5,7 @@ from sigma.core.utilities.server_bound_logging import log_event
 from sigma.core.utilities.data_processing import user_avatar
 
 
-def generate_log_embed(message, target, warning_text):
+def generate_log_embed(message, target, warning_text, warning_id):
     response = discord.Embed(color=0xFFCC4D, timestamp=arrow.utcnow().datetime)
     response.set_author(name=f'A User Has Been Warned', icon_url=user_avatar(target))
     response.add_field(name='⚠ Warned User',
@@ -15,7 +15,7 @@ def generate_log_embed(message, target, warning_text):
                        value=f'{author.mention}\n{author.name}#{author.discriminator}', inline=True)
     if warning_text:
         response.add_field(name='📄 Reason', value=f"```\n{warning_text}\n```", inline=False)
-    response.set_footer(text=f'UserID: {target.id}')
+    response.set_footer(text=f'UserID: {target.id} | Warning: {warning_id}')
     return response
 
 
@@ -37,6 +37,7 @@ async def warn(cmd, message, args):
                 warning_list = guild_warnings[uid]
             else:
                 warning_list = []
+            warning_id = secrets.token_hex(2)
             warning_data = {
                 'responsible': {
                     'name': message.author.name,
@@ -45,7 +46,7 @@ async def warn(cmd, message, args):
                 },
                 'reason': reason,
                 'timestamp': arrow.utcnow().timestamp,
-                'id': secrets.token_hex(2)
+                'id': warning_id
             }
             warning_list.append(warning_data)
             guild_warnings.update({uid: warning_list})
@@ -58,7 +59,7 @@ async def warn(cmd, message, args):
                 await target.send(embed=to_target)
             except discord.Forbidden:
                 pass
-            log_embed = generate_log_embed(message, target, reason)
+            log_embed = generate_log_embed(message, target, reason, warning_id)
             await log_event(cmd.db, message.guild, log_embed)
         else:
             response = discord.Embed(color=0xBE1931, title='❗ No user tagged.')
