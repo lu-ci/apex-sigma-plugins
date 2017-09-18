@@ -59,13 +59,6 @@ commands:
     description:
       Toggles if message editing should be logged in the server's logging channel.
 
-  - name:         logdeletes
-    global:       true
-    enabled:      true
-    usage:        "{pfx}{cmd}"
-    description:
-      Toggles if message deletion should be logged in the server's logging channel.
-
 events:
   - name:         edit_logger
     type:         message_edit
