@@ -56,3 +56,12 @@ commands:
     usage:        "{pfx}{cmd} @person"
     description:
       Tries to impersonate the mentioned user if a chain file for them exists.
+
+  - name:         timeconvert
+    alts:
+      - "tconv"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} 18:57 UTC>PST"
+    description:
+      Converts the given time in the given time zone to the inputted time zone.
