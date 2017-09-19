@@ -15,3 +15,14 @@ commands:
     description:
       Shortens a URL for you using BitLy.
       All URLs returned via Sigma are without ads, merely shortened using the service.
+
+  - name:         color
+    alts:
+      - "colour"
+      - "clr"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} #1abc9c"
+    description:
+      Shows the inputted color.
+      It accepts either a HEX code or an RGB array.
