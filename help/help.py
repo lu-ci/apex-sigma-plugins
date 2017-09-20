@@ -16,7 +16,7 @@ async def help(cmd, message, args):
         else:
             response = discord.Embed(color=0x696969, title='🔍 No such command was found...')
     else:
-        aurora_image = 'https://i.imgur.com/IsUF5x8.png'
+        lucia_image = 'https://i.imgur.com/HPuyvT1.png'
         sigma_image = 'https://i.imgur.com/mGyqMe1.png'
         sigma_title = 'Apex Sigma: The Database Giant'
         support_url = 'https://discordapp.com/invite/aEUCHwX'
@@ -28,5 +28,5 @@ async def help(cmd, message, args):
         support_text += f' | **Support**: [Link]({support_url})'
         response.add_field(name='Help', value=support_text)
         response.set_thumbnail(url=sigma_image)
-        response.set_footer(text='© by the Aurora Project. Released under the GPLv3 license.', icon_url=aurora_image)
+        response.set_footer(text='© by Lucia\'s Cipher. Released under the GPLv3 license.', icon_url=lucia_image)
     await message.channel.send(embed=response)
