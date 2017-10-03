@@ -9,3 +9,8 @@ events:
     type:         message
     global:       true
     enabled:      true
+
+  - name:         press_f_adder
+    type:         message
+    global:       true
+    enabled:      true

@@ -1,8 +1,9 @@
 import secrets
 from sigma.core.utilities.stats_processing import add_special_stats
 
+
 async def table_unflipper(ev, message):
-    if '(╯°□°）╯︵ ┻━┻' in message.content:
+    if '(╯°□°）╯︵ ┻━┻'.replace(' ', '') in message.content.replace(' ', ''):
         if message.guild:
             flip_settings = ev.db.get_guild_settings(message.guild.id, 'Unflip')
             if flip_settings is None:
