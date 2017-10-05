@@ -31,11 +31,11 @@ icons = {
         'icon': '☁',
         'color': 0xe1e8ed
     },
-    'partially-cloudy-day': {
+    'partly-cloudy-day': {
         'icon': '⛅',
         'color': 0xffac33
     },
-    'partially-cloudy-night': {
+    'partly-cloudy-night': {
         'icon': '🌙',
         'color': 0xb8c5cd
     },
