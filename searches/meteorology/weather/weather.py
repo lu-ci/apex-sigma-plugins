@@ -24,18 +24,28 @@ def get_unit_and_search(args):
     return search, unit
 
 
+def get_dis_and_deg(unit, forecast):
+    if unit in ['si', 'ca', 'uk2']:
+        deg = '°C'
+        dis = 'KM'
+    elif unit == 'auto':
+        if '°C' in forecast:
+            deg = '°C'
+            dis = 'KM'
+        else:
+            deg = '°F'
+            dis = 'M'
+    else:
+        deg = '°F'
+        dis = 'M'
+    return dis, deg
+
+
 async def weather(cmd, message, args):
     if 'secret_key' in cmd.cfg:
         secret_key = cmd.cfg['secret_key']
         if args:
             search, unit = get_unit_and_search(args)
-            met_units = ['si', 'ca']
-            if unit in met_units:
-                deg = '°C'
-                dis = 'KM'
-            else:
-                deg = '°F'
-                dis = 'M'
             if search:
                 geo_parser = Nominatim()
                 location = geo_parser.geocode(search)
@@ -50,6 +60,7 @@ async def weather(cmd, message, args):
                     curr = data['currently']
                     icon = curr['icon']
                     forecast = data['daily']['summary']
+                    dis, deg = get_dis_and_deg(unit, forecast)
                     forecast_title = f'{icons[icon]["icon"]} {curr["summary"]}'
                     response = discord.Embed(color=icons[icon]['color'], title=forecast_title)
                     response.description = f'Location: {location}'
