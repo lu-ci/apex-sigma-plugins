@@ -1,5 +1,4 @@
 import json
-import arrow
 import aiohttp
 import discord
 from .visual_storage import icons
