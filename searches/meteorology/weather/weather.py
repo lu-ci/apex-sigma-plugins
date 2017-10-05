@@ -78,7 +78,10 @@ async def weather(cmd, message, args):
                     other_title = '📉 Other'
                     other_text = f'Humidity: {curr["humidity"]*100}%'
                     other_text += f'\nPressure: {curr["pressure"]}mbar'
-                    other_text += f'\nVisibility: {curr["visibility"]} {dis}'
+                    if 'visibility' in curr:
+                        other_text += f'\nVisibility: {curr["visibility"]} {dis}'
+                    else:
+                        other_text += f'\nVisibility: Unknown'
                     response.add_field(name=other_title, value=other_text, inline=True)
                 else:
                     response = discord.Embed(color=0x696969, title='🔍 Location not found.')
