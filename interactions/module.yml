@@ -191,3 +191,26 @@ commands:
     usage:        "{pfx}{cmd} @person"
     description:
       Somebody just did something so stupid you want to facepalm.
+
+  - name:         cry
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Somebody is making you sad, let them know that with crocodile tears!
+
+  - name:         dance
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      Feel alive? Like you just wanna... boogie? Let's dance!
+
+  - name:         explode
+    alts:
+      - "detonate"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} @person"
+    description:
+      When all other means fail, it's time to bring out the carpet bomb squadrons.
