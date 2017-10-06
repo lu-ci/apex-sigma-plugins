@@ -6,9 +6,9 @@ async def addreact(cmd, message, args):
         if len(args) >= 2:
             reaction_name = args[0]
             allowed_reactions = []
-            for cmd in cmd.bot.modules.commands:
-                if cmd.bot.modules.commands[cmd].category.lower() == 'interactions':
-                    allowed_reactions.append(cmd)
+            for command in cmd.bot.modules.commands:
+                if cmd.bot.modules.commands[command].category.lower() == 'interactions':
+                    allowed_reactions.append(command)
             if reaction_name.lower() in allowed_reactions:
                 reaction_url = '%20'.join(args[1:])
                 if reaction_url.startswith('http'):
