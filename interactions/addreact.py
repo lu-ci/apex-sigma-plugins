@@ -5,9 +5,10 @@ async def addreact(cmd, message, args):
     if args:
         if len(args) >= 2:
             reaction_name = args[0]
-            allowed_reactions = ['bite', 'cuddle', 'drink', 'facepalm', 'fap', 'feed', 'fuck', 'fuckrl', 'hug', 'kiss',
-                                 'lick', 'pat', 'peck', 'pout', 'punch', 'shoot', 'shrug', 'sip', 'slap', 'stab',
-                                 'stare']
+            allowed_reactions = []
+            for cmd in cmd.bot.modules.commands:
+                if cmd.bot.modules.commands[cmd].category.lower() == 'interactions':
+                    allowed_reactions.append(cmd)
             if reaction_name.lower() in allowed_reactions:
                 reaction_url = '%20'.join(args[1:])
                 if reaction_url.startswith('http'):
