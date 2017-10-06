@@ -16,7 +16,10 @@ def grab_interaction(db, intername):
         interactions = db[db.db_cfg.database]['Interactions'].find({'Name': intername})
         interactions = list(interactions)
         interaction_cache.update({intername: interactions})
-    choice = interaction_cache[intername].pop(secrets.randbelow(len(interaction_cache[intername])))
+    if interaction_cache[intername]:
+        choice = interaction_cache[intername].pop(secrets.randbelow(len(interaction_cache[intername])))
+    else:
+        choice = {'URL': 'https://i.imgur.com/m59E4nx.gif', 'UserID': None, 'ServerID': None}
     return choice
 
 
