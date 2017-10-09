@@ -1,0 +1,10 @@
+name:            System Event Modules
+
+category:        administration
+
+enabled:         true
+
+events:
+  - name:        version_check
+    type:        ready
+    enabled:     true
