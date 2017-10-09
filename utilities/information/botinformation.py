@@ -1,14 +1,11 @@
 import sys
-import yaml
 import arrow
 import discord
 
 
 async def botinformation(cmd, message, args):
-    with open('info/version.yml', encoding='utf-8') as version_file:
-        version_data = yaml.safe_load(version_file)
-    with open('info/authors.yml', encoding='utf-8') as authors_file:
-        author_data = yaml.safe_load(authors_file)
+    version_data = cmd.bot.info.version.raw
+    author_data = cmd.bot.info.authors.raw
     sigma_image = 'https://i.imgur.com/mGyqMe1.png'
     support_url = 'https://discordapp.com/invite/aEUCHwX'
     ver_nest = version_data["version"]
@@ -30,5 +27,5 @@ async def botinformation(cmd, message, args):
     response.set_author(name=sigma_title, icon_url=sigma_image, url=support_url)
     response.add_field(name='Authors', value=auth_text)
     response.add_field(name='Environment', value=env_text)
-    response.set_footer(text=f'Version built {arrow.get(version_data["build_date"]).humanize()}')
+    response.set_footer(text=f'Last updated {arrow.get(version_data["build_date"]).humanize()}')
     await message.channel.send(embed=response)
