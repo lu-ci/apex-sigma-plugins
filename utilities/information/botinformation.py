@@ -5,9 +5,9 @@ import discord
 
 
 async def botinformation(cmd, message, args):
-    with open('info/version.yml', encoding='-utf-8') as version_file:
+    with open('info/version.yml', encoding='utf-8') as version_file:
         version_data = yaml.safe_load(version_file)
-    with open('info/authors.yml', encoding='-utf-8') as authors_file:
+    with open('info/authors.yml', encoding='utf-8') as authors_file:
         author_data = yaml.safe_load(authors_file)
     sigma_image = 'https://i.imgur.com/mGyqMe1.png'
     support_url = 'https://discordapp.com/invite/aEUCHwX'
