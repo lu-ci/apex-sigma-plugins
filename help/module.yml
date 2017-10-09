@@ -37,6 +37,17 @@ commands:
       Shows the commands in a module group category.
       To view all the module group categories, use the modules command.
 
+  - name:         donate
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      dmable:     true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows donation information for Sigma.
+
+
 events:
   - name:         dm_detection
     type:         message
