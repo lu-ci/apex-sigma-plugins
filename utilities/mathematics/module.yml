@@ -48,6 +48,13 @@ commands:
       Collects messages sent by the mentioned user and saves it as a chain.
       Only one person can use the command at the time due to the processing load it takes.
 
+  - name:         wipechain
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      It wipes your entire Markov chain, if you have one.
+
   - name:         impersonate
     alts:
       - "mimic"
