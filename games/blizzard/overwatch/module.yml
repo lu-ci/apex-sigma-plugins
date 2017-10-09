@@ -2,7 +2,7 @@ name:             Overwatch
 
 category:         games
 
-enabled:          true
+enabled:          false
 
 commands:
   - name:         overwatch
