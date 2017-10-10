@@ -6,14 +6,14 @@ from sigma.core.utilities.stats_processing import add_special_stats
 
 
 async def play(cmd, message, args):
-    if args:
-        await cmd.bot.modules.commands['queue'].execute(message, args)
     if message.author.voice:
         same_bound = True
         if message.guild.voice_client:
             if message.guild.voice_client.channel.id != message.author.voice.channel.id:
                 same_bound = False
         if same_bound:
+            if args:
+                await cmd.bot.modules.commands['queue'].execute(message, args)
             queue = cmd.bot.music.get_queue(message.guild.id)
             if queue:
                 if not message.guild.voice_client:
@@ -46,6 +46,7 @@ async def play(cmd, message, args):
                     await message.guild.voice_client.disconnect()
                     if message.guild.id in cmd.bot.music.queues:
                         cmd.bot.music.queues.update({message.guild.id: []})
+                await cmd.bot.modules.commands['donate'].execute(message, ['mini'])
             else:
                 response = discord.Embed(color=0xBE1931, title='❗ The queue is empty.')
         else:
