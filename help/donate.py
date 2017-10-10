@@ -16,7 +16,7 @@ async def donate(cmd, message, args):
     support_url = 'https://discordapp.com/invite/aEUCHwX'
     if mini:
         response = discord.Embed(color=0x1B6F5F, title=sigma_title)
-        donation_text = 'Care to help out? Come support Sigma on [Patreon]({patreon_url})!'
+        donation_text = f'Care to help out? Come support Sigma on [Patreon]({patreon_url})!'
         response.description = donation_text
     else:
         response = discord.Embed(color=0x1B6F5F)
