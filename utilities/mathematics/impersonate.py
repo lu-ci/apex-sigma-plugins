@@ -1,9 +1,10 @@
-﻿from sigma.core.utilities.data_processing import user_avatar
-from concurrent.futures import ThreadPoolExecutor
+﻿import ftfy
+import discord
 import markovify
 import functools
-import discord
-import ftfy
+from concurrent.futures import ThreadPoolExecutor
+from sigma.core.utilities.data_processing import user_avatar
+
 
 threads = ThreadPoolExecutor(max_workers=2)
 
@@ -34,6 +35,9 @@ async def impersonate(cmd, message, args):
                 response = discord.Embed(color=0xbdddf4)
                 response.set_author(name=target.name, icon_url=user_avatar(target))
                 response.add_field(name='💭 Hmm... something like...', value=sentence)
+                pat_url = 'https://www.patreon.com/ApexSigma'
+                pat_img = 'https://i.imgur.com/86UvnRv.png'
+                response.set_footer(icon_url=pat_img, text=f'Support Sigma! {pat_url}')
         else:
             response = discord.Embed(color=0x696969)
             prefix = cmd.bot.get_prefix(message)
