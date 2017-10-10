@@ -21,7 +21,7 @@ async def command_md(ev):
     patreon_url = 'https://www.patreon.com/ApexSigma'
     output = f'**Hey there!** We need your **help**! Come support us on [**Patreon**]({patreon_url})!'
     output += '\n'
-    output += '\n## Command Index'
+    output += '\n## Module Index'
     for key in key_list:
         output += f'\n- [{key.upper()}](#{key.lower()})'
     for key in key_list:
@@ -39,7 +39,7 @@ async def command_md(ev):
             command_desc = command.desc.replace('\n', ' ')
             command_usage = f'{prefix}{command.usage[2:]}'
             output += f'\n{command_names} | {command_desc} | `{command_usage}`'
-        output += '\n[Back To Top](#index)'
+        output += '\n[Back To Top](#module-index)'
     with open('docs/information/commands.md', 'w', encoding='utf-8') as commands_md_file:
         commands_md_file.write(output)
     ev.log.info('Updated Command List.')
