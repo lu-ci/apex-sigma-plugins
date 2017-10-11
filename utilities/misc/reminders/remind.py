@@ -1,6 +1,6 @@
 ﻿import arrow
 import discord
-import hashlib
+import secrets
 from sigma.core.utilities.data_processing import user_avatar
 
 
@@ -32,11 +32,9 @@ async def remind(cmd, message, args):
                 time_diff = f'In {in_seconds} seconds'
             else:
                 time_diff = arrow.get(execution_stamp + 5).humanize(arrow.utcnow())
-            crypt = hashlib.new('md5')
-            crypt.update(f'{message.id}+{execution_stamp}'.encode('utf-8'))
-            final = crypt.hexdigest()
+            reminder_id = secrets.token_hex(2)
             reminder_data = {
-                'ReminderID': final,
+                'ReminderID': reminder_id,
                 'UserID': message.author.id,
                 'CreationStamp': arrow.utcnow().timestamp,
                 'ExecutionStamp': execution_stamp,
