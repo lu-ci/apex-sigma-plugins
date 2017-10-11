@@ -16,7 +16,7 @@ async def help(cmd, message, args):
         else:
             response = discord.Embed(color=0x696969, title='🔍 No such command was found...')
     else:
-        lucia_image = 'https://i.imgur.com/HPuyvT1.png'
+        lucia_image = 'https://i.imgur.com/xpDpHqz.png'
         sigma_image = 'https://i.imgur.com/mGyqMe1.png'
         sigma_title = 'Apex Sigma: The Database Giant'
         support_url = 'https://discordapp.com/invite/aEUCHwX'
