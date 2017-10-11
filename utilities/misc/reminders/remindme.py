@@ -1,4 +1,4 @@
-﻿import arrow
+import arrow
 import discord
 import secrets
 from sigma.core.utilities.data_processing import user_avatar
@@ -17,7 +17,7 @@ def convert_to_seconds(time_input):
     return output
 
 
-async def remind(cmd, message, args):
+async def remindme(cmd, message, args):
     if args:
         time_req = args[0]
         try:

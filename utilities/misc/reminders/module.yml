@@ -5,9 +5,9 @@ category:         miscelanous
 enabled:          true
 
 commands:
-  - name:         remind
+  - name:         remindme
     alts:
-      - "remindme"
+      - "remind"
       - "setreminder"
       - "alarm"
     global:       true
