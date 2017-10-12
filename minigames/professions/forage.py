@@ -1,5 +1,4 @@
-﻿import arrow
-import discord
+﻿import discord
 from .nodes.item_core import ItemCore
 from sigma.core.utilities.data_processing import user_avatar
 
