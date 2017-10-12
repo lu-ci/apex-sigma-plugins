@@ -13,6 +13,8 @@ commands:
       Shows how many cookies you have, or how many a mentioned user has.
 
   - name:         givecookie
+    alts:
+      - "gibcookie"
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd} @person"
