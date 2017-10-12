@@ -41,11 +41,9 @@ commands:
       - "lsrl"
     global:       true
     enabled:      true
-    usage:        "{pfx}{cmd} Overlord"
+    usage:        "{pfx}{cmd}"
     description:
-      Toggles a self assignable role.
-      If you don't have the role, it will be given to you.
-      If you do have the role, it will be removed from you.
+      Lists all self assignable roles present on the server.
 
   - name:         togglerole
     alts:
