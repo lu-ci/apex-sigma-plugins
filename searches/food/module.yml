@@ -13,4 +13,4 @@ commands:
     usage:        "{pfx}{cmd} Chicken in Curry Sauce"
     description:
       Searches for a dish, or dishes that use inputted ingredients,
-      and outputs one that might be a good match for your search querry.
+      and outputs one that might be a good match for your search query.

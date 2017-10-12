@@ -82,7 +82,7 @@ commands:
     usage:        "{pfx}{cmd} #wf-alerts"
     description:
       Designates a channel for Warframe alerts.
-      When a new alert shows up the news will be posted here.
+      When a new alert shows up the news will be posted there.
       To disable this, write disable after the command instead of a channel.
 
   - name:         wffissurechannel
@@ -93,7 +93,7 @@ commands:
     usage:        "{pfx}{cmd} #wf-fissures"
     description:
       Designates a channel for Warframe void fissures.
-      When a new void fissure shows up the news will be posted here.
+      When a new void fissure shows up the news will be posted there.
       To disable this, write disable after the command instead of a channel.
 
   - name:         wfsortiechannel
@@ -104,7 +104,7 @@ commands:
     usage:        "{pfx}{cmd} #wf-sorties"
     description:
       Designates a channel for Warframe sorties.
-      When a new sortie shows up the news will be posted here.
+      When a new sortie shows up the news will be posted there.
       To disable this, write disable after the command instead of a channel.
 
   - name:         wftag

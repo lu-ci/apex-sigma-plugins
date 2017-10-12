@@ -11,4 +11,4 @@ commands:
     usage:        "{pfx}{cmd} Kawaii"
     description:
       Searches Jisho, which is the Japanese language dictionary, for your input.
-      Resulting in various information regarding your lookup.
+      Resulting in a display of various types of information regarding your lookup.

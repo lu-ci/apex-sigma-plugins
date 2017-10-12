@@ -23,7 +23,7 @@ commands:
       - "ban_members"
     usage:        "{pfx}{cmd} @person Way, WAY too spicy for us..."
     description:
-      Ban a user from the server.
+      Bans a user from the server.
       This will also remove all messages from that user in the last 24h.
       The user can only be targeted by a mention tag.
       This is to preserve compatibility with logging and audits.

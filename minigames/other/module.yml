@@ -12,7 +12,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} Will I ever be pretty?"
     description:
-      The 8Ball has answers to ALL your question.
+      The 8Ball has answers to ALL your questions.
       Come one, come all, and ask the mighty allknowing 8Ball!
       Provide a question at the end of the command and await the miraculous answer!
 

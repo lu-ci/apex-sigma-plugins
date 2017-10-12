@@ -33,7 +33,7 @@ commands:
       dmable:    true
     usage:       "{pfx}{cmd} echo 'Hello'"
     description:
-      Executes a shell command. Extreme warnings.
+      Executes a shell command. Extreme warning!
 
   - name:        test
     alts:

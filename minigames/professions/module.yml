@@ -15,7 +15,7 @@ commands:
     usage:        "{pfx}{cmd} 2 @person"
     description:
       Shows your current inventory.
-      The inventory has unlimited slots.
+      The inventory has 64 slots at the start but can be upgraded.
       You can also specify the page number you want to see.
       The inventory is sorted by item rarity.
 
@@ -84,7 +84,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
-      Go hiking and search nature for all the delicious bounty it has.
+      Go hiking and search nature for all the delicious bounties it has.
       Look for plants that you might want to use for cooking in the future.
       Foraging is tiring so you need to rest for 60 seconds after looking for plants.
 

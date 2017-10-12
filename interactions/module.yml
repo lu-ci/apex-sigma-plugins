@@ -12,9 +12,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} @person1 @person2"
     description:
-      Shows the love between two things.
-      Which can be either two users or a user and a thingamabob.
-      Just make sure if you want to see how much @Calum loves Kud you put the user in the first place.
+      Shows the love between two tagged users.
 
   - name:         pout
     global:       true

@@ -12,8 +12,7 @@ commands:
     description:
       Creates a race in the current text channel.
       To join the race use the joinrace command.
-      A race needs at least 2 people to start.
-      And has a maximum of 10 participants.
+      A race needs at least 2 people to start, and has a maximum of 10 participants.
       You can specify a required buy-in to join the race.
       The winner gets the entire pool minus 10% that goes to the track upkeep.
 

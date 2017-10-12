@@ -42,8 +42,8 @@ commands:
     requirements:
       - "manage_messages"
     description:
-      Disallows the user from typing.
-      Well technically, it will make the bot auto delete any message they send.
+      Removes the tagged person from the list of muted users.
+      Making the bot no longer delete their messages.
 
 events:
   - name:         mute_checker

@@ -52,7 +52,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
-      Outputs a pretty much regular joke.
+      Outputs a joke.
       It is not really special or anything...
       Sometimes they are funny, most of the times they are not.
 

@@ -28,8 +28,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} #welcome"
     description:
-      Sets the channel the greeting messages should be sent to.
-      Of course unless greetdm is active.
+      Sets the channel the greeting messages should be sent to, unless greetdm is active.
 
   - name:         greetmessage
     alts:
@@ -38,8 +37,8 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} Hello {user_mention}, welcome to {server_name}!"
     description:  |
-      This sets the message shown to joining members when they entre the server.
-      There are certain syntaxes for controling what is displayed.
+      This sets the message shown to joining members when they enter server.
+      There are certain syntaxes for controlling what is displayed.
       {user_name} - Basic text of the joining user's name.
       {user_discriminator} - The numbers after the # in the user's name.
       {user_mention} - A mention tag of the joining user.

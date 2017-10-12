@@ -14,8 +14,7 @@ commands:
       dmable:     false
     usage:        "{pfx}{cmd} @person plants Blue Delta"
     description:
-      Awards the mentioned user with the inputted amount of currency.
-      The currency goes first and then the user mention as shown in the example.
+      Creates and gives an item to the tagged user from the inputted category.
 
   - name:         takeitem
     global:       true

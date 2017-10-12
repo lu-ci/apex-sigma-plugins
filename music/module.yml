@@ -66,7 +66,7 @@ commands:
     usage:       "{pfx}{cmd} 5"
     description:
       Removes a song from the queue.
-      Minimum number is 1 and the maximum is however many items the queu has.
+      Minimum number is 1 and the maximum is however many items the queue has.
       Even though list indexes start at zero.
 
   - name:        skip

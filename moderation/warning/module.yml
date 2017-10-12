@@ -23,7 +23,7 @@ commands:
     description:
       Shows what the mentioned user was warned for.
       If the user who calls the command doesn't have the manage message permission,
-      it will show their warnings instead,
+      it will show their warnings instead.
 
   - name:         warning
     alts:

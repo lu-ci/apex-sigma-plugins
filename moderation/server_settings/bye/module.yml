@@ -31,8 +31,8 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} Hello {user_mention}, welcome to {server_name}!"
     description:  |
-      This sets the message shown to leaving members when they entre the server.
-      There are certain syntaxes for controling what is displayed.
+      This sets the message shown on the server when a member leaves.
+      There are certain syntaxes for controlling what is displayed.
       {user_name} - Basic text of the leaving user's name.
       {user_discriminator} - The numbers after the # in the user's name.
       {user_mention} - A mention tag of the leaving user.

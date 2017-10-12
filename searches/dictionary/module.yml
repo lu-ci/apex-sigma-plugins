@@ -27,7 +27,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} cork"
     description:
-      Searches the oxford dictionary for the definition of your input.
+      Searches the Oxford dictionary for the definition of your input.
 
   - name:         synonyms
     alts:
@@ -37,7 +37,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} ocean"
     description:
-      Looks up words that have exact or nearly same meaning for the given term.
+      Looks up words that have exact or nearly the same meaning for the given term.
 
   - name:         antonyms
     alts:
@@ -47,7 +47,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} late"
     description:
-       Looks up words that have opposite meaning for the given term.
+       Looks up words that have opposite meanings for the given term.
 
   - name:         homophones
     alts:
@@ -56,7 +56,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} coarse"
     description:
-       Looks up words that sound like the given term.
+       Looks up words that sound like the given one.
 
   - name:         describe
     alts:
@@ -64,12 +64,11 @@ commands:
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd} noun ocean"
-    description:  |
+    description: |
        Looks up words that are often used to describe nouns or are often used by the adjective.
-
        Specify the mode in the first argument.
-       adjectives, adjective, adj or a - to look up nouns that are often described by an adjective.
-       nouns, noun or n - to look up adjectives that are often used to describe a noun.
+       adjectives, adjective, adj, a: To look up nouns that are often described by an adjective.
+       nouns, noun, n: To look up adjectives that are often used to describe a noun.
 
   - name:         rhymes
     alts:

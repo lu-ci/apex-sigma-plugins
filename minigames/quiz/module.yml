@@ -10,7 +10,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
-      A quiz minigame with various quizes to choose from.
+      A quiz minigame with various quizzes to choose from.
       With a lot more coming soon
 
   - name:         vnchargame

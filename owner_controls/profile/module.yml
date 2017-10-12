@@ -14,7 +14,7 @@ commands:
       dmable:     true
     usage:        "{pfx}{cmd} https://my_fomain.net/my_avatar.png"
     description:
-      Sets the avatar of the bot either to the linked image or attached image.
+      Sets the avatar of the bot either to the linked or attached image.
       The officially supported formats for bot avatars are JPG and PNG images.
       Note that bots, like all users, have limited profile changes per time period.
 

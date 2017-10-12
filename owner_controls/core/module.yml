@@ -14,7 +14,7 @@ commands:
       dmable:     true
     usage:        "{pfx}{cmd}"
     description:
-      Reloads all of the module in Sigma.
+      Reloads all of the modules in Sigma.
       This includes both commands and events.
 
   - name:         shutdown

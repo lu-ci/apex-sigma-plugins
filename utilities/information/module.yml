@@ -13,7 +13,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} @person"
     description:
-      Shows various information and data on the mentioned user.
+      Shows information and data about the mentioned user.
       If no user is mentioned, it will show data for the message author.
 
   - name:         channelinformation
@@ -25,9 +25,8 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} #channel"
     description:
-      Shows various information and data on the mentioned channel.
-      If no user is mentioned,
-      it will show data for the channel the command is written in.
+      Shows information and data about the mentioned channel.
+      If no channel is mentioned, it will show data for the channel that the command is used in.
 
   - name:         serverinformation
     alts:
@@ -37,7 +36,7 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
-      Shows various information and data of the server the command is used in.
+      Shows information and data about the server that the command is used in.
 
   - name:         roleinformation
     alts:
@@ -47,7 +46,8 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
-      Shows various information and data for the inputted role.
+      Shows information and data about the inputted role.
+      Roles mentions do not work here, lookup is done via role name.
 
   - name:         permissions
     alts:
@@ -75,7 +75,7 @@ commands:
     usage:        "{pfx}{cmd}"
     description:
       Shows Sigma's current statistics.
-      Population and message and command counts and rates since startup.
+      Population, message and command counts, and rates since startup.
       As well as when the bot last started.
 
   - name:         botinformation

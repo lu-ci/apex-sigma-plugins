@@ -30,6 +30,6 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
-      If you like humerous things and know a bit of technology,
+      If you like humorous things and know a bit of technology,
       you will lose a lot of time reading these.
       XKCD comics are perfect for procrastination and time wasting.
