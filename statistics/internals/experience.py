@@ -17,5 +17,5 @@ async def experience(cmd, message, args):
     global_level = int((exp['global'] // ((((exp['global'] // 690) * 0.0125) + 1) * 690)))
     response.add_field(name=guild_title, value=f"```py\nXP: {exp['guild']}\nLevel: {local_level}\n```", inline=True)
     response.add_field(name=global_title, value=f"```py\nXP: {exp['global']}\nLevel: {global_level}\n```", inline=True)
-    response.set_footer(text=f'🔰 Experience is earned by being an active member of the community.')
+    response.set_footer(text=f'🔰 Experience is earned by being an active Sigma user.')
     await message.channel.send(embed=response)
