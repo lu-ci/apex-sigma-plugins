@@ -1,27 +1,27 @@
 import discord
 import pymongo
 from humanfriendly.tables import format_pretty_table as boop
+from sigma.core.utilities.data_processing import get_image_colors
 
 
 async def topexperience(cmd, message, args):
     coll = cmd.db[cmd.db.db_cfg.database]['ExperienceSystem']
-    currency = cmd.bot.cfg.pref.currency
     if args:
         mode = ' '.join(args)
         if mode.lower() == 'current':
-            title = f'{currency} Leaderboard by Current Amount.'
+            title = f'XP Leaderboard by Current Amount.'
             key_look = 'current'
         elif mode.lower() == 'global':
-            title = f'{currency} Leaderboard by Globally Earned.'
+            title = f'XP Leaderboard by Globally Earned.'
             key_look = 'global'
         elif mode.lower() == 'local':
-            title = f'{currency} Leaderboard on {message.guild.name}.'
+            title = f'XP Leaderboard on {message.guild.name}.'
             key_look = None
         else:
-            title = f'{currency} Leaderboard on {message.guild.name}.'
+            title = f'XP Leaderboard on {message.guild.name}.'
             key_look = None
     else:
-        title = f'{currency} Leaderboard on {message.guild.name}.'
+        title = f'XP Leaderboard on {message.guild.name}.'
         key_look = None
     if key_look:
         kud_list = coll.find().sort([(key_look, pymongo.DESCENDING)]).limit(10)
@@ -43,7 +43,8 @@ async def topexperience(cmd, message, args):
         else:
             user_list.append([usr_name, xp_item['guilds'][str(message.guild.id)]])
     lb_table = boop(user_list, list_headers)
-    response = discord.Embed(color=0x1B6F5F)
+    strip_clr = await get_image_colors(message.guild.icon_url)
+    response = discord.Embed(color=strip_clr)
     if not key_look:
         response.set_author(name=message.guild.name, icon_url=message.guild.icon_url)
     response.add_field(name='XP Criteria', value=title, inline=False)
