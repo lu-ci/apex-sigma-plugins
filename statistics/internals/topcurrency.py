@@ -1,6 +1,7 @@
 import discord
 import pymongo
 from humanfriendly.tables import format_pretty_table as boop
+from sigma.core.utilities.data_processing import get_image_colors
 
 
 async def topcurrency(cmd, message, args):
@@ -43,7 +44,8 @@ async def topcurrency(cmd, message, args):
         else:
             user_list.append([usr_name, kud_item['guilds'][str(message.guild.id)]])
     lb_table = boop(user_list, list_headers)
-    response = discord.Embed(color=0x1B6F5F)
+    strip_clr = await get_image_colors(message.guild.icon_url)
+    response = discord.Embed(color=strip_clr)
     if not key_look:
         response.set_author(name=message.guild.name, icon_url=message.guild.icon_url)
     response.add_field(name='Kud Criteria', value=title, inline=False)
