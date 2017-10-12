@@ -3,7 +3,7 @@
 
 async def blacklistuser(cmd, message, args):
     if args:
-        target_id = ''.join(args)
+        target_id = args[0]
         try:
             target_id = int(target_id)
             valid_id = True
@@ -15,11 +15,17 @@ async def blacklistuser(cmd, message, args):
                 black_user_collection = cmd.db[cmd.bot.cfg.db.database].BlacklistedUsers
                 black_user_file = black_user_collection.find_one({'UserID': target.id})
                 if black_user_file:
-                    cmd.db[cmd.bot.cfg.db.database].BlacklistedUsers.delete_one({'UserID': target.id})
-                    result = 'removed from the blacklist'
-                    icon = '🔓'
+                    if black_user_file['Total']:
+                        update_data = {'$set': {'UserID': target.id, 'Total': False}}
+                        icon = '🔓'
+                        result = 'removed from the blacklist'
+                    else:
+                        update_data = {'$set': {'UserID': target.id, 'Total': True}}
+                        icon = '🔒'
+                        result = 'blacklisted'
+                    cmd.db[cmd.bot.cfg.db.database].BlacklistedUsers.update_one({'UserID': target.id}, update_data)
                 else:
-                    cmd.db[cmd.bot.cfg.db.database].BlacklistedUsers.insert_one({'UserID': target.id})
+                    cmd.db[cmd.bot.cfg.db.database].BlacklistedUsers.insert_one({'UserID': target.id, 'Total': True})
                     result = 'blacklisted'
                     icon = '🔒'
                 title = f'{icon} {target.name}#{target.discriminator} has been {result}.'

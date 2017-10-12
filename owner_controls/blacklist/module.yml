@@ -33,3 +33,17 @@ commands:
     description:
       Marks a server as blacklisted.
       This disallows any user on that server from using commands.
+
+  - name:         blacklistmodule
+    alts:
+      - "blackmodule"
+      - "blackmdl"
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx}{cmd} 0123456789 minigames"
+    description:
+      Disallows a person from using a specific module category.
