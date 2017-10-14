@@ -65,11 +65,12 @@ async def get_alert_data(db):
             alert_out = alert
             break
     triggers = []
-    item_reward = alert_out['rewards']['item']
-    if item_reward:
-        triggers = item_reward.lower().split(' ')
-        if item_reward.lower() in aura_list:
-            triggers.append('aura')
+    if alert_out:
+        item_reward = alert_out['rewards']['item']
+        if item_reward:
+            triggers = item_reward.lower().split(' ')
+            if item_reward.lower() in aura_list:
+                triggers.append('aura')
     return alert_out, triggers
 
 

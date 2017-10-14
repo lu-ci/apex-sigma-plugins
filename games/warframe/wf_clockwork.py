@@ -3,6 +3,7 @@ import discord
 from .nodes.sortie_functions import get_sortie_data, generate_sortie_embed
 from .nodes.fissure_functions import get_fissure_data, generate_fissure_embed
 from .nodes.alert_functions import get_alert_data, generate_alert_embed
+from .nodes.invasion_functions import get_invasion_data, generate_invasion_embed
 
 
 async def wf_clockwork(ev):
@@ -12,6 +13,7 @@ async def wf_clockwork(ev):
         except Exception:
             pass
         await asyncio.sleep(5)
+
 
 async def cycle_function(ev):
     all_guilds = ev.bot.guilds
@@ -63,5 +65,31 @@ async def cycle_function(ev):
                             await alert_target_channel.send(' '.join(mentions), embed=alert_response)
                         else:
                             await alert_target_channel.send(embed=alert_response)
+                    except Exception:
+                        pass
+    invasions, triggers = await get_invasion_data(ev.db)
+    if invasions:
+        invasion_response = await generate_invasion_embed(invasions)
+        for guild in all_guilds:
+            mentions = []
+            if triggers:
+                for trigger in triggers:
+                    wf_tags = ev.db.get_guild_settings(guild.id, 'WarframeTags')
+                    if wf_tags is None:
+                        wf_tags = {}
+                    if wf_tags:
+                        if trigger in wf_tags:
+                            bound_role = discord.utils.find(lambda x: x.id == wf_tags[trigger], guild.roles)
+                            if bound_role:
+                                mentions.append(bound_role.mention)
+            invasion_channel = ev.db.get_guild_settings(guild.id, 'WarframeInvasionChannel')
+            if invasion_channel:
+                invasion_target_channel = discord.utils.find(lambda x: x.id == invasion_channel, guild.channels)
+                if invasion_target_channel:
+                    try:
+                        if mentions:
+                            await invasion_target_channel.send(' '.join(mentions), embed=invasion_response)
+                        else:
+                            await invasion_target_channel.send(embed=invasion_response)
                     except Exception:
                         pass

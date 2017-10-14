@@ -23,6 +23,6 @@ async def wfalerts(cmd, message, args):
             alert_desc += f'\nItem: **{alert["rewards"]["item"]}**'
         alert_desc += f'\nDisappears In: {death_time}'
         response.add_field(name=f'Type: {alert["faction"]} {alert["type"]}', value=f'{alert_desc}', inline=False)
-        response.set_thumbnail(url='http://i.imgur.com/99ennZD.png')
+        response.set_thumbnail(url='https://i.imgur.com/99ennZD.png')
         response.set_footer(text='Timers are not updated live.')
     await message.channel.send(embed=response)
