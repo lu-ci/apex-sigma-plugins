@@ -23,4 +23,4 @@ async def member_filler_loop(ev):
             }
             member_list.append(mem_data)
         mem_coll.insert_many(member_list)
-        await asyncio.sleep(300)
+        await asyncio.sleep(3600)

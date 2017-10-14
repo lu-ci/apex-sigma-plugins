@@ -19,4 +19,4 @@ async def server_filler_loop(ev):
             }
             server_list.append(srv_data)
         srv_coll.insert_many(server_list)
-        await asyncio.sleep(300)
+        await asyncio.sleep(3600)
