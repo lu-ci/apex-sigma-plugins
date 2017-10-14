@@ -18,6 +18,7 @@ async def member_filler_loop(ev):
                 'Nickname': member.display_name,
                 'Discriminator': member.discriminator,
                 'UserID': member.id,
+                'ServerID': member.guild.id,
                 'Avatar': user_avatar(member).split('?')[0],
                 'Color': str(member.color)
             }
