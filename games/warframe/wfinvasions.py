@@ -1,4 +1,3 @@
-import arrow
 import discord
 import aiohttp
 from .nodes.invasion_functions import parse_invasion_data
