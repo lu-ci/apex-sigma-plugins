@@ -44,6 +44,8 @@ class SigmaCookedItem(object):
         self.color = cook_colors[self.type.lower()]
         self.value = item_data['value']
         self.file_id = item_data['file_id']
+        self.rarity = 11
+        self.rarity_name = rarity_names[self.rarity]
 
     def make_inspect_embed(self, currency):
         connector = 'A'
@@ -59,9 +61,9 @@ class SigmaCookedItem(object):
     @staticmethod
     def roll_quality():
         roll_num = secrets.randbelow(100)
-        if roll_num in range(0, 66):
+        if roll_num in range(0, 65):
             quality = 0
-        elif roll_num in range(67, 85):
+        elif roll_num in range(66, 85):
             quality = 1
         elif roll_num in range(86, 95):
             quality = 2

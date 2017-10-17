@@ -35,6 +35,16 @@ commands:
       The recipe list is limited to 10 items per page.
       You can specify the number of the page that you want to view.
 
+  - name:         cook
+    alts:
+      - "make"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} Shade Tea"
+    description:
+      Uses a recipe to create an item from raw resources that you've gathered.
+      You can see all available recipes with the recipes command.
+
   - name:         viewrecipe
     alts:
       - "vrec"

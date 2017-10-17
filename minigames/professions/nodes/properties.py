@@ -8,7 +8,9 @@ rarity_names = {
     6: 'spectral',
     7: 'ethereal',
     8: 'antimatter',
-    9: 'omnipotent'
+    9: 'omnipotent',
+    10: 'material',
+    11: 'delicacy'
 }
 
 item_icons = {
@@ -75,4 +77,11 @@ cook_colors = {
     'drink': 0x55ACEE,
     'meal': 0xDD2E44,
     'desert': 0xF9F9F9
+}
+
+cook_quality = {
+    0: 'Normal',
+    1: 'Delicious',
+    2: 'Exquisite',
+    3: 'Marvelous'
 }
