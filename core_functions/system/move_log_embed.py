@@ -12,7 +12,7 @@ def make_move_log_embed(log_embed, guild):
         else:
             user_count += 1
     guild_text = f'Name: **{gld.name}**'
-    guild_text += f'Owner: **{gld.owner.name}**#*{gld.owner.discriminator}*'
+    guild_text += f'\nOwner: **{gld.owner.name}**#*{gld.owner.discriminator}*'
     guild_text += f'\nID: **{gld.id}**'
     guild_text += f'\nCreated: **{creation_time}**'
     nums_text = f'Members: **{user_count}**'
@@ -20,5 +20,5 @@ def make_move_log_embed(log_embed, guild):
     nums_text += f'\nChannels: **{len(gld.channels)}**'
     nums_text += f'\nRoles: **{len(gld.roles)}**'
     log_embed.add_field(name='Guild Info', value=guild_text)
-    log_embed.add_field(name='Guild Stats', value=guild_text)
+    log_embed.add_field(name='Guild Stats', value=nums_text)
 
