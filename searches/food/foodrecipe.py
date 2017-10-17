@@ -3,7 +3,7 @@ import aiohttp
 import discord
 
 
-async def recipe(cmd, message, args):
+async def foodrecipe(cmd, message, args):
     if 'api_key' in cmd.cfg:
         api_key = cmd.cfg['api_key']
         if args:

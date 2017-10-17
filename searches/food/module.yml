@@ -5,8 +5,9 @@ category:         searches
 enabled:          true
 
 commands:
-  - name:         recipe
+  - name:         foodrecipe
     alts:
+      - "frec"
       - "food"
     global:       true
     enabled:      true

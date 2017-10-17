@@ -47,6 +47,7 @@ commands:
 
   - name:         viewrecipe
     alts:
+      - "recipe"
       - "vrec"
     global:       true
     enabled:      true
