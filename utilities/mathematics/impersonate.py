@@ -5,18 +5,17 @@ import functools
 from concurrent.futures import ThreadPoolExecutor
 from sigma.core.utilities.data_processing import user_avatar
 
-
 threads = ThreadPoolExecutor(max_workers=2)
 
 
 async def impersonate(cmd, message, args):
-    if message.mentions:
-        target = message.mentions[0]
-    else:
-        if args:
-            target = discord.utils.find(lambda x: x.name.lower() == ' '.join(args).lower(), message.guild.members)
+    if args:
+        if message.mentions:
+            target = message.mentions[0]
         else:
-            target = message.author
+            target = discord.utils.find(lambda x: x.name.lower() == ' '.join(args).lower(), message.guild.members)
+    else:
+        target = message.author
     if target:
         init_embed = discord.Embed(color=0xbdddf4, title='💭 Hmm... Let me think...')
         init_message = await message.channel.send(embed=init_embed)
@@ -42,3 +41,6 @@ async def impersonate(cmd, message, args):
             value = f'You can make one with `{prefix}collectchain @{target.name} #channel`!'
             response.add_field(name=title, value=value)
         await init_message.edit(embed=response)
+    else:
+        no_target = discord.Embed(color=0xBE1931, title='❗ No user targeted.')
+        await message.channel.send(embed=no_target)
