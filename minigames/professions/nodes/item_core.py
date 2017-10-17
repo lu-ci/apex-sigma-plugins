@@ -2,63 +2,64 @@ import os
 import yaml
 import secrets
 import discord
-from .properties import *
-from .item_object import SigmaItem
+from .item_object import SigmaRawItem, SigmaCookedItem
 from sigma.core.utilities.data_processing import user_avatar
+from .properties import rarity_names, item_colors, item_icons
 
 
 class ItemCore(object):
     def __init__(self, item_directory):
         self.base_dir = item_directory
-        self.item_types = item_types
         self.rarity_names = rarity_names
         self.item_icons = item_icons
         self.item_colors = item_colors
-        self.all_items = {}
+        self.all_items = []
         self.init_items()
 
     def get_item_by_name(self, name):
         output = None
-        for category in self.all_items:
-            item_list = self.all_items[category]
-            for item in item_list:
-                if item.name.lower() == name.lower():
-                    output = item
-                    break
+        for item in self.all_items:
+            if item.name.lower() == name.lower():
+                output = item
+                break
         return output
 
     def get_item_by_file_id(self, name):
         output = None
-        for category in self.all_items:
-            item_list = self.all_items[category]
-            for item in item_list:
-                if item.file_id == name:
-                    output = item
-                    break
+        for item in self.all_items:
+            if item.file_id == name:
+                output = item
+                break
         return output
 
     def pick_item_in_rarity(self, item_category, rarity):
         in_rarity = []
-        for item in self.all_items[item_category]:
-            if item.rarity == rarity:
-                in_rarity.append(item)
+        for item in self.all_items:
+            if item.type.lower() == item_category:
+                if item.rarity == rarity:
+                    in_rarity.append(item)
         choice = secrets.choice(in_rarity)
         return choice
 
     def init_items(self):
-        for list_item in self.item_types:
-            output = []
-            for root, dirs, files in os.walk(f'{self.base_dir}/{list_item.lower()}'):
-                for file in files:
-                    if file.endswith('.yml'):
-                        file_path = (os.path.join(root, file))
-                        with open(file_path, encoding='utf-8') as item_file:
-                            item_id = file.split('.')[0]
-                            item_data = yaml.safe_load(item_file)
-                            item_data.update({'file_id': item_id})
-                            item_object = SigmaItem(item_data)
-                            output.append(item_object)
-            self.all_items.update({list_item: output})
+        raw_item_types = ['fish', 'plant', 'animal']
+        cooked_item_types = ['drink', 'meal', 'desert']
+        for root, dirs, files in os.walk(f'{self.base_dir}'):
+            for file in files:
+                if file.endswith('.yml'):
+                    file_path = (os.path.join(root, file))
+                    with open(file_path, encoding='utf-8') as item_file:
+                        item_id = file.split('.')[0]
+                        item_data = yaml.safe_load(item_file)
+                        item_data.update({'file_id': item_id})
+                        if item_data['type'].lower() in raw_item_types:
+                            item_object = SigmaRawItem(item_data)
+                        elif item_data['type'].lower() in cooked_item_types:
+                            item_object = SigmaCookedItem(item_data)
+                        else:
+                            item_object = None
+                        if item_object:
+                            self.all_items.append(item_object)
 
     @staticmethod
     def roll_rarity(db, uid):

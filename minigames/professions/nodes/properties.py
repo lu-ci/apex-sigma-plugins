@@ -1,5 +1,3 @@
-item_types = ['fish', 'plants']
-
 rarity_names = {
     0: 'trash',
     1: 'common',
@@ -65,4 +63,16 @@ item_colors = {
         8: 0xbdddf4,
         9: 0xbe1931
     }
+}
+
+cook_icons = {
+    'drink': '🍶',
+    'meal': '🍱',
+    'desert': '🍰'
+}
+
+cook_colors = {
+    'drink': 0x55ACEE,
+    'meal': 0xDD2E44,
+    'desert': 0xF9F9F9
 }

@@ -35,7 +35,7 @@ async def forage(cmd, message, args):
                         rarity = int(args[0])
                     except TypeError:
                         pass
-            item = item_core.pick_item_in_rarity('plants', rarity)
+            item = item_core.pick_item_in_rarity('plant', rarity)
             value = item.value
             connector = 'a'
             if item.rarity_name[0].lower() in ['a', 'e', 'i', 'o', 'u']:

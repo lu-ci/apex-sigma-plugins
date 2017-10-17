@@ -3,6 +3,7 @@ from .nodes.item_core import ItemCore
 
 item_core = None
 
+
 async def inspect(cmd, message, args):
     global item_core
     if not item_core:
@@ -17,14 +18,7 @@ async def inspect(cmd, message, args):
             else:
                 item = None
             if item:
-                connector = 'A'
-                if item_o.rarity_name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
-                    connector = 'An'
-                item_info = f'{connector} **{item_o.rarity_name.title()} {item_o.type.title()}**'
-                item_info += f'\nIt is valued at **{item_o.value} {cmd.bot.cfg.pref.currency}**'
-                response = discord.Embed(color=item_o.color)
-                response.add_field(name=f'{item_o.icon} {item_o.name}', value=f'{item_info}')
-                response.add_field(name='Item Description', value=f'{item_o.desc}', inline=False)
+                response = item_o.make_inspect_embed(cmd.bot.cfg.pref.currency)
                 response.set_footer(text=f'ItemID: {item["item_id"]}')
             else:
                 response = discord.Embed(color=0x696969, title=f'🔍 I didn\'t find any {lookup} in your inventory.')

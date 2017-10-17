@@ -26,6 +26,25 @@ commands:
     description:
       Inspects an item that is in your inventory.
 
+  - name:         recipes
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Lists all recipes available for making.
+      The recipe list is limited to 10 items per page.
+      You can specify the number of the page that you want to view.
+
+  - name:         viewrecipe
+    alts:
+      - "vrec"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} Shade Tea"
+    description:
+      Shows information about a recipe.
+      Such as the ingredients required, value of the item, and it's description.
+
   - name:         finditem
     global:       true
     enabled:      true
