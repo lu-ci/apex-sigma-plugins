@@ -12,7 +12,7 @@ def make_move_log_embed(log_embed, guild):
         else:
             user_count += 1
     guild_text = f'Name: **{gld.name}**'
-    guild_text += f'Owner: **{gld.ownr.name}**#*{gld.ownr.discriminator}*'
+    guild_text += f'Owner: **{gld.owner.name}**#*{gld.owner.discriminator}*'
     guild_text += f'\nID: **{gld.id}**'
     guild_text += f'\nCreated: **{creation_time}**'
     nums_text = f'Members: **{user_count}**'
