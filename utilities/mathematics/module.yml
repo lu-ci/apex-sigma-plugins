@@ -31,15 +31,6 @@ commands:
       sha, DSA, shake_128, sha224, SHA1, shake_256,
       sha256, MD5, blake2s, md5, sha3_256, whirlpool
 
-  - name:         analyze
-    alts:
-      - "sentiment"
-    global:       true
-    enabled:      true
-    usage:        "{pfx}{cmd} Fill my mouth with spaghetti, senpai!"
-    description:
-      Sentimental analysis of the given text.
-
   - name:         collectchain
     global:       true
     enabled:      true
