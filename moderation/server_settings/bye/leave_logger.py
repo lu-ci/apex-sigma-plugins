@@ -3,6 +3,7 @@ import discord
 from sigma.core.utilities.data_processing import get_time_difference, user_avatar
 from sigma.core.utilities.server_bound_logging import log_event
 
+
 async def leave_logger(ev, member):
     response = discord.Embed(color=0xBE1931, timestamp=arrow.utcnow().datetime)
     response.set_author(name=f'A Member Has Left', icon_url=user_avatar(member))
