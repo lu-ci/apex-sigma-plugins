@@ -25,18 +25,6 @@ class SigmaRecipe(object):
             ingr_item = self.recipe_core.item_core.get_item_by_file_id(ingredient)
             self.ingredients.append(ingr_item)
 
-    def roll_quality(self, db, author):
-        return 0
-
-    def generate_inventory_item(self, db, author):
-        token = secrets.token_hex(16)
-        data = {
-            'item_id': token,
-            'quality': self.roll_quality(db, author),
-            'item_file_id': self.file_id
-        }
-        return data
-
 
 class RecipeCore(object):
     def __init__(self, item_directory):
