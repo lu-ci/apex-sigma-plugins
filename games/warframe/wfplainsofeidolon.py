@@ -33,7 +33,7 @@ async def wfplainsofeidolon(cmd, message, args):
             if curr < nox:
                 nox_hum = 'In ' + str(datetime.timedelta(seconds=nox - curr)).split('.')[0]
             else:
-                nox_hum = str(datetime.timedelta(seconds=curr - nox)).split('.')[0]
+                nox_hum = str(datetime.timedelta(seconds=curr - nox)).split('.')[0] + ' Ago'
             end_hum = 'In ' + str(datetime.timedelta(seconds=end - curr)).split('.')[0]
         else:
             sta_hum = arrow.get(sta).humanize().title()
