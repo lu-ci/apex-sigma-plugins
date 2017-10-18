@@ -6,6 +6,20 @@ from humanfriendly.tables import format_pretty_table as boop
 recipe_core = None
 
 
+def check_requirements(cmd, message, recipe):
+    req_satisfied = True
+    for ingredient in recipe.ingredients:
+        user_inv = cmd.db.get_inventory(message.author)
+        in_inventory = False
+        for item in user_inv:
+            if item['item_file_id'] == ingredient.file_id:
+                in_inventory = True
+                break
+        if not in_inventory:
+            req_satisfied = False
+    return req_satisfied
+
+
 async def recipes(cmd, message, args):
     global recipe_core
     if not recipe_core:
@@ -25,13 +39,14 @@ async def recipes(cmd, message, args):
     recipe_look = secrets.choice(recipe_core.recipes)
     recipe_icon = recipe_look.icon
     recipe_color = recipe_look.color
-    recipe_boop_head = ['Name', 'Type', 'Value']
+    recipe_boop_head = ['Name', 'Type', 'Value', 'Ingr.']
     recipe_boop_list = []
     stats_text = f'Showing recipes: {list_start}-{list_end}.'
     stats_text += f'\nThere is a total of {len(recipe_core.recipes)} recipes.'
     if recipe_list:
         for recipe in recipe_list:
-            recipe_boop_list.append([recipe.name, recipe.type, recipe.value])
+            req_satisfied = check_requirements(cmd, message, recipe)
+            recipe_boop_list.append([recipe.name, recipe.type, recipe.value, req_satisfied])
         recipe_table = boop(recipe_boop_list, recipe_boop_head)
         response = discord.Embed(color=recipe_color)
         response.add_field(name=f'{recipe_icon} Recipe Stats', value=f'```py\n{stats_text}\n```', inline=False)
