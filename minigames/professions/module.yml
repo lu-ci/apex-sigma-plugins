@@ -109,6 +109,14 @@ commands:
       Cast a lure and try to catch some fish.
       You can fish once every 60 seconds, better not scare the fish away.
 
+  - name:         hunt
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Go into the wilderness and hunt for game.
+      You can hunt once every 60 seconds, everyone needs rest.
+
   - name:         forage
     global:       true
     enabled:      true
