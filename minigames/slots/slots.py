@@ -96,7 +96,7 @@ async def slots(cmd, message, args):
                 color = 0x5dadec
                 title = '💎 Congrats, you won!'
                 footer = f'{currency_icon} {winnings} {currency} has been awarded.'
-                cmd.db.add_currency(message.author, message.guild, winnings)
+                cmd.db.add_currency(message.author, message.guild, winnings, additive=False)
             else:
                 color = 0x232323
                 title = '💣 Oh my, you lost...'

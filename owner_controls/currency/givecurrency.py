@@ -8,7 +8,7 @@ async def givecurrency(cmd, message, args):
             if not target.bot:
                 try:
                     amount = abs(int(args[0]))
-                    cmd.db.add_currency(target, message.guild, amount)
+                    cmd.db.add_currency(target, message.guild, amount, additive=False)
                     title_text = f'✅ Ok, I\'ve given {amount} {cmd.bot.cfg.pref.currency} to {target.display_name}.'
                     response = discord.Embed(color=0x77B255, title=title_text)
                 except ValueError:
