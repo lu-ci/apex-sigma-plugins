@@ -22,6 +22,7 @@ async def urbandictionary(cmd, message, args):
                 footer = f'Thumbs Up/Down: {data["list"][0]["thumbs_up"]}/{data["list"][0]["thumbs_down"]}'
                 example = str((data['list'][0]['example']))
                 response = discord.Embed(color=0xe27e00, title=f'🥃 Urban Dictionary: `{ud_input.upper()}`')
+                response.set_footer(text=footer)
                 response.add_field(name='Definition', value=definition)
                 if example:
                     response.add_field(name='Usage Example', value=example)
