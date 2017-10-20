@@ -41,7 +41,7 @@ async def fireemblemheroes(cmd, message, args):
             elif record['type'] == 'weapon':
                 response.set_author(name=record['name'],
                                     url=record['url'],
-                                    icon_url=feh_core.colors[record['color']][record['weapon type']])
+                                    icon_url=feh_core.weapon_icons[record['color']][record['weapon type']])
                 response.set_thumbnail(url=record['icon'])
                 response.colour = feh_core.colors[record['color']]
                 stats = {
