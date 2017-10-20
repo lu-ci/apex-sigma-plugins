@@ -74,7 +74,7 @@ class FEHScrapper(object):
         else:
             async with aiohttp.ClientSession() as session:
                 async with session.get(self.wiki_url + url) as data_response:
-                    data = await data_response.read()
+                    data = await data_response.text()
             record = {
                 'url': url,
                 'data': data,
