@@ -22,7 +22,8 @@ async def urbandictionary(cmd, message, args):
                 example = str((data['list'][0]['example']))
                 response = discord.Embed(color=0xe27e00, title=f'🥃 Urban Dictionary: `{ud_input.upper()}`')
                 response.add_field(name='Definition', value=definition)
-                response.add_field(name='Usage Example', value=example)
+                if example:
+                    response.add_field(name='Usage Example', value=example)
             else:
                 response = discord.Embed(color=0x696969, title='🔍 Unable to find exact results.')
         else:
