@@ -44,7 +44,7 @@ class FEHScrapper(object):
 
     @staticmethod
     def get_yaml_data(location):
-        with open(location) as yaml_file:
+        with open(location, encoding='utf-8') as yaml_file:
             yaml_data = yaml.safe_load(yaml_file)
         return yaml_data
 
