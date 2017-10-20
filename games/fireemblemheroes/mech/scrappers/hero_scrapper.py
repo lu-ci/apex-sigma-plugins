@@ -33,7 +33,7 @@ class HeroScrapper(object):
             }
             self.heroes.update({hero_id: hero_record})
         for hero in self.heroes.keys():
-            if self.scrapper.SKIP_BIO:
+            if self.scrapper.skip_bio:
                 self.heroes[hero]['bio'] = None
             else:
                 url = self.scrapper.format_link(hero, raw=True)
