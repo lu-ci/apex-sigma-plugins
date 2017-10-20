@@ -28,7 +28,7 @@ class FEHScrapper(object):
         self.db = self.feh.db
         self.data_dir = self.feh.data_dir
         self.wiki_cache = self.db[self.db.db_cfg.database].FEHWikiCache
-        self.feh_db = self.db[self.db.db_cfg].FEHData
+        self.feh_db = self.db[self.db.db_cfg.database].FEHData
         self.wiki_url = 'https://feheroes.gamepedia.com'
         self.no_cache = False
         self.skip_bio = False
