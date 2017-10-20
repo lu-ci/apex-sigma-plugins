@@ -52,9 +52,10 @@ async def fireemblemheroes(cmd, message, args):
                 }
                 response.add_field(name='Stats', value='\n'.join([f'**{key}**: {stats[key]}' for key in stats]))
                 if record['special effect']:
-                    response.add_field(name='Special Effect', value=record['special effect'])
+                    response.add_field(name='Special Effect', value=record['special effect'], inline=False)
                 if record['heroes with']:
-                    response.add_field(name=f"List of heroes with {record['name']}", value=record['heroes with'])
+                    hero_list_title = f"List of heroes with {record['name']}"
+                    response.add_field(name=hero_list_title, value=record['heroes with'], inline=False)
                 if record['see also']:
                     response.set_footer(text=f"See also: {record['see also']}")
             elif record['type'] == 'assist':
