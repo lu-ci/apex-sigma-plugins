@@ -128,7 +128,7 @@ class HeroScrapper(object):
                     for stat in stats[rarity]['max']:
                         total += stat[1]
                     self.heroes[hero]['bst'][rarity] = total
-            if hero in self.scrapper.aliases:
+            if hero in self.scrapper.aliases.keys():
                 aliases = self.scrapper.aliases['hero'][hero]
             else:
                 aliases = []
