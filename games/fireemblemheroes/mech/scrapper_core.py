@@ -104,7 +104,7 @@ class FEHScrapper(object):
 
     def get_value(self, *args):
         if len(args) == 1:
-            raise Exception('Not enough arguments')
+            raise Exception('Not enough arguments.')
         elif len(args) == 2:
             template = args[0]
             argument = args[1]
@@ -114,7 +114,7 @@ class FEHScrapper(object):
             template = self.get_template(markup, template_arg)
             argument = args[2]
         else:
-            raise Exception('Too much arguments')
+            raise Exception('Too many arguments.')
         argument = self.get_argument(template, argument)
         if argument:
             value = argument.value
