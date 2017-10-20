@@ -12,7 +12,8 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd} Ninian"
     description:
-      Placeholder.
+      Searches data in the Fire Emblem Heroes game.
+      Such as hero, weapon and skill information.
 
 events:
   - name:        feh_dbcheck
