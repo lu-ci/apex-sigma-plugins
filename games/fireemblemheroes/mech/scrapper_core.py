@@ -50,11 +50,12 @@ class FEHScrapper(object):
 
     @staticmethod
     def format_link(page, raw=False, api=False, sections='0'):
+        if page[0] != '/':
+            url = f'/{page}'
+        else:
+            url = page
         if raw:
-            if page[0] != '/':
-                url = f'/{page}'
-            else:
-                url = page
+            url += '?action=raw'
         elif api:
             url = f'/api.php?action=ask&format=json&query={page}'
         else:
