@@ -55,7 +55,7 @@ class HeroScrapper(object):
             self.heroes[hero]['movement type'] = results[hero]['printouts']['MoveType'][0]
             summon_rarities = results[hero]['printouts']['SummonRarities']
             reward_rarities = results[hero]['printouts']['RewardRarities']
-            self.heroes[hero]['rarity'] = results(summon_rarities, reward_rarities)
+            self.heroes[hero]['rarity'] = self.scrapper.parse_rarity(summon_rarities, reward_rarities)
             skills = {}
             for skill_type in ['weapon', 'assist', 'special']:
                 skills[skill_type + 's'] = []
