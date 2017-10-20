@@ -5,8 +5,8 @@ import wikitextparser as wtp
 
 
 class HeroScrapper(object):
-    def __init__(self, scrapper):
-        self.scrapper = scrapper
+    def __init__(self, scrapper_core):
+        self.scrapper = scrapper_core
         self.heroes = {}
 
     async def scrap_data(self):
