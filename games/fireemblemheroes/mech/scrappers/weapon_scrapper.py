@@ -69,7 +69,7 @@ class WeaponScrapper(object):
                         mega_subquery = [
                             '[[Category:Heroes]]',
                             f'[[Has weapon{tier}::{escaped_name} ]]',
-                            '|?Has weapon{tier} unlock=weapon{tier}Unlock'
+                            f'|?Has weapon{tier} unlock=weapon{tier}Unlock'
                         ]
                         subquery_string = ''.join(mega_subquery)
                         subquery_link = self.scrapper.format_link(subquery_string, api=True)
