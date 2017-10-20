@@ -203,7 +203,7 @@ class FEHScrapper(object):
     def calculate_max_stats(self, rarity, base, gp):
         max_stats = []
         for index, stat in enumerate(['HP', 'ATK', 'SPD', 'DEF', 'RES']):
-            value = base[index][1] + self.growth[rarity][gp[index][1]]
+            value = base[index][1] + self.growth[int(rarity)][gp[index][1]]
             max_stats.append([stat, value])
         return max_stats
 
