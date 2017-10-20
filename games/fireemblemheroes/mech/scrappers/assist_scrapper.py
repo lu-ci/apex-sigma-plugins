@@ -41,7 +41,8 @@ class AssistScrapper(object):
                     f"[[Has assist{tier}::{escaped_name} ]]",
                     f"|?Has assist{tier} unlock=assist{tier}Unlock"
                 ]
-                subquery_link = self.scrapper.format_link(mega_subquery, api=True)
+                subquery_string = ''.join(mega_subquery)
+                subquery_link = self.scrapper.format_link(subquery_string, api=True)
                 subquery_page = await self.scrapper.get_page(subquery_link)
                 subquery_data = json.loads(subquery_page['data'])
                 sub_results = subquery_data['query']['results']
