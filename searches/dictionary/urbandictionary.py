@@ -19,6 +19,7 @@ async def urbandictionary(cmd, message, args):
                 definition = str((data['list'][0]['definition']))
                 if len(definition) > 750:
                     definition = definition[:750] + '...'
+                footer = f'Thumbs Up/Down: {data["list"][0]["thumbs_up"]}/{data["list"][0]["thumbs_down"]}'
                 example = str((data['list'][0]['example']))
                 response = discord.Embed(color=0xe27e00, title=f'🥃 Urban Dictionary: `{ud_input.upper()}`')
                 response.add_field(name='Definition', value=definition)
