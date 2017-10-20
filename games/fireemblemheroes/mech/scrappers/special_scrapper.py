@@ -7,6 +7,7 @@ class SpecialScrapper(object):
         self.specials = {}
 
     async def scrap_data(self):
+        self.scrapper.log.info('Scrapping Specials...')
         mega_query = [
             '[[Category:Specials]]',
             '|?name1',
@@ -69,4 +70,5 @@ class SpecialScrapper(object):
                 'inherit restriction': inherit_restriction,
                 'heroes with': heroes_with
             }
+        self.scrapper.log.info('Completed.')
         return self.specials

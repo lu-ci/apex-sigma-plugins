@@ -7,6 +7,7 @@ class AssistScrapper(object):
         self.assists = {}
 
     async def scrap_data(self):
+        self.scrapper.log.info('Scrapping Assists...')
         mega_query = [
             '[[Category:Assists]]',
             '|?name1',
@@ -63,4 +64,5 @@ class AssistScrapper(object):
                 'inherit restriction': inherit_restriction,
                 'heroes with': heroes_with
             }
+        self.scrapper.log.info('Completed.')
         return self.assists

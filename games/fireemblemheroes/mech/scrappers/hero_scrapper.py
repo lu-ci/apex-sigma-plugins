@@ -10,6 +10,7 @@ class HeroScrapper(object):
         self.heroes = {}
 
     async def scrap_data(self):
+        self.scrapper.log.info('Scrapping Heroes...')
         url = self.scrapper.format_link('Hero List')
         data = await self.scrapper.get_page(url)
         data = json.loads(data['data'])
@@ -132,4 +133,5 @@ class HeroScrapper(object):
             else:
                 aliases = []
             self.heroes[hero]['alias'] = aliases
+        self.scrapper.log.info('Completed.')
         return self.heroes

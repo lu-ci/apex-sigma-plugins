@@ -24,6 +24,7 @@ class WeaponScrapper(object):
         }
 
     async def scrap_data(self):
+        self.scrapper.log.info('Scrapping Weapons...')
         for color in self.weapon_types:
             for weapon_type in self.weapon_types[color]:
                 category = self.plurarize[weapon_type]
@@ -116,4 +117,5 @@ class WeaponScrapper(object):
                 self.weapons[weapon + '+']['see also'] = weapon
             else:
                 self.weapons[weapon]['see also'] = None
+        self.scrapper.log.info('Completed.')
         return self.weapons
