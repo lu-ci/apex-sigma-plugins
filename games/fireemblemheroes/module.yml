@@ -1,0 +1,20 @@
+name:             Fire Emblem Heroes Commands
+
+category:         games
+
+enabled:          true
+
+commands:
+  - name:         fireemblemheroes
+    global:       true
+    alts:
+      - "feh"
+    enabled:      true
+    usage:        "{pfx}{cmd} Ninian"
+    description:
+      Placeholder.
+
+events:
+  - name:        feh_dbcheck
+    type:        ready
+    enabled:     true
