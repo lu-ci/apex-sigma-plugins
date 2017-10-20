@@ -102,20 +102,29 @@ class FEHScrapper(object):
                 break
         return output
 
-    def get_value(self, markup=None, template=None, argument=None):
-        if markup and template and argument:
-            template = self.get_template(markup, template)
+    def get_value(self, *args):
+        if len(args) == 1:
+            raise Exception('Not enough arguments')
+        elif len(args) == 2:
+            template = args[0]
+            argument = args[1]
+        elif len(args) == 3:
+            markup = args[0]
+            template_arg = args[1]
+            template = self.get_template(markup, template_arg)
+            argument = args[2]
+        else:
+            raise Exception('Too much arguments')
         argument = self.get_argument(template, argument)
         if argument:
             value = argument.value
-            if issubclass(value, str):
-                value = str(value).strip()
+            if isinstance(value, str):
+                value = value.strip()
                 if value == '':
                     value = None
-            output = value
+            return value
         else:
-            output = None
-        return output
+            return None
 
     def get_range(self, markup, template, argument, starting_from=1):
         indexes = []
