@@ -40,7 +40,7 @@ async def cycle_function(ev):
                 if news_target_channel:
                     try:
                         await news_target_channel.send(embed=news_response)
-                    except SyntaxError:
+                    except Exception:
                         pass
     fissures = await get_fissure_data(ev.db)
     if fissures:
