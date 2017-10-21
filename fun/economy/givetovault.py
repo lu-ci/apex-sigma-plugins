@@ -15,7 +15,7 @@ async def givetovault(cmd, message, args):
                 if current_vault is None:
                     current_vault = 0
                 cmd.db.rmv_currency(message.author, amount)
-                amount_taxed = int(amount * 0.90)
+                amount_taxed = int(amount * 0.95)
                 current_vault += amount_taxed
                 cmd.db.set_guild_settings(message.guild.id, 'CurrencyVault', current_vault)
                 title_text = f'✅ You added {amount_taxed} {currency} to the Vault.'
