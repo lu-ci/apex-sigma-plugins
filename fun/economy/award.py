@@ -22,6 +22,7 @@ async def award(cmd, message, args):
                         if current_vault is None:
                             current_vault = 0
                         if current_vault >= amount:
+                            cmd.db.add_currency(message.author, amount, additive=False)
                             current_vault -= amount
                             cmd.db.set_guild_settings(message.guild.id, 'CurrencyVault', current_vault)
                             title_text = f'✅ {amount} {currency} given to {target.display_name} from the Vault.'
