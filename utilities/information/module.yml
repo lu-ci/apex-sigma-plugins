@@ -59,6 +59,14 @@ commands:
       Shows which permissions a user has and which they do not.
       If no user is mentioned, it will target the message author.
 
+  - name:         owners
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows a list of Sigma's owners.
+      Users in this list have access to the administration module.
+
   - name:         status
     global:       true
     enabled:      true
