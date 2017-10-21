@@ -69,6 +69,15 @@ commands:
       Shows the current ongoing invasions in Warframe.
       As well as their factions, locations and rewards.
 
+  - name:         wfnews
+    alts:
+      - "wfn"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Shows the current ative news in Warframe.
+
   - name:         wftrials
     alts:
       - "wftrial"
@@ -117,6 +126,17 @@ commands:
     description:
       Designates a channel for Warframe invasions.
       When a new invasion shows up the news will be posted there.
+      To disable this, write disable after the command instead of a channel.
+
+  - name:         wfnewschannel
+    alts:
+      - "wfcc"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} #wf-news"
+    description:
+      Designates a channel for Warframe news.
+      When Digital Extremes posts a new event for Warframe, it pops up there.
       To disable this, write disable after the command instead of a channel.
 
   - name:         wffissurechannel

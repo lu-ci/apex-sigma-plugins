@@ -4,6 +4,7 @@ from .nodes.sortie_functions import get_sortie_data, generate_sortie_embed
 from .nodes.fissure_functions import get_fissure_data, generate_fissure_embed
 from .nodes.alert_functions import get_alert_data, generate_alert_embed
 from .nodes.invasion_functions import get_invasion_data, generate_invasion_embed
+from .nodes.news_function import get_news_data, generate_news_embed
 
 
 async def wf_clockwork(ev):
@@ -27,6 +28,18 @@ async def cycle_function(ev):
                 if sortie_target_channel:
                     try:
                         await sortie_target_channel.send(embed=sortie_response)
+                    except Exception:
+                        pass
+    news = await get_news_data(ev.db)
+    if news:
+        news_response = generate_news_embed(news)
+        for guild in all_guilds:
+            news_channel = ev.db.get_guild_settings(guild.id, 'WarframeNewsChannel')
+            if news_channel:
+                news_target_channel = discord.utils.find(lambda x: x.id == news_channel, guild.channels)
+                if news_target_channel:
+                    try:
+                        await news_target_channel.send(embed=news_response)
                     except Exception:
                         pass
     fissures = await get_fissure_data(ev.db)
