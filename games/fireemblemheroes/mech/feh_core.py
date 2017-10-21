@@ -24,7 +24,8 @@ class FireEmblemHeroesCore(object):
         for items in data:
             for item_id in items:
                 all_data.append(items[item_id])
-        self.db[self.db.db_cfg.database].FEHData.insert_many(all_data)
+        if all_data:
+            self.db[self.db.db_cfg.database].FEHData.insert_many(all_data)
 
     def init_index(self):
         all_data = self.db[self.db.db_cfg.database].FEHData.find()

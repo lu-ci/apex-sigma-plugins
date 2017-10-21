@@ -208,10 +208,14 @@ class FEHScrapper(object):
         return max_stats
 
     async def scrap_all(self):
-        hero_data = await self.scrappers.hero.scrap_data()
-        weapon_data = await self.scrappers.weapon.scrap_data()
-        assist_data = await self.scrappers.assist.scrap_data()
-        special_data = await self.scrappers.special.scrap_data()
-        passive_data = await self.scrappers.passive.scrap_data()
-        scrapped_data = [hero_data, weapon_data, assist_data, special_data, passive_data]
+        try:
+            hero_data = await self.scrappers.hero.scrap_data()
+            weapon_data = await self.scrappers.weapon.scrap_data()
+            assist_data = await self.scrappers.assist.scrap_data()
+            special_data = await self.scrappers.special.scrap_data()
+            passive_data = await self.scrappers.passive.scrap_data()
+            scrapped_data = [hero_data, weapon_data, assist_data, special_data, passive_data]
+        except Exception:
+            self.log.error('Scrapper Failed!')
+            scrapped_data = []
         return scrapped_data

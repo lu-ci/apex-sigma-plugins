@@ -130,7 +130,7 @@ commands:
 
   - name:         wfnewschannel
     alts:
-      - "wfcc"
+      - "wfnc"
     global:       true
     enabled:      true
     usage:        "{pfx}{cmd} #wf-news"
