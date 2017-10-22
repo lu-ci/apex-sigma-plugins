@@ -12,7 +12,7 @@ async def disconnect(cmd, message, args):
             if message.guild.voice_client:
                 await message.guild.voice_client.disconnect()
                 if message.guild.id in cmd.bot.music.queues:
-                    cmd.bot.music.queues.update({message.guild.id: []})
+                    del cmd.bot.music.queues[message.guild.id]
                 response = discord.Embed(color=0x66CC66, title='✅ Disconnected and purged.')
                 requester = f'{message.author.name}#{message.author.discriminator}'
                 response.set_author(name=requester, icon_url=user_avatar(message.author))
