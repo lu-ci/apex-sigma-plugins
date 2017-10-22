@@ -52,7 +52,6 @@ async def hunt(cmd, message, args):
                 if 'item_channel' in cmd.cfg:
                     await item_core.notify_channel_of_special(message, cmd.bot.get_all_channels(),
                                                               cmd.cfg['item_channel'], item)
-
         else:
             response = discord.Embed(color=0xBE1931, title=f'❗ Your inventory is full.')
     else:
