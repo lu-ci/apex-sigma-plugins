@@ -1,8 +1,31 @@
-import json
-import aiohttp
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+cb = None
+
+
+def init_chatterbot(ev):
+    global cb
+    if ev.db.chatterbot.statements.count():
+        train = False
+    else:
+        train = True
+    cb = ChatBot(
+        "Sigma",
+        database='chatterbot',
+        database_uri=ev.db.db_address,
+        storage_adapter='chatterbot.storage.MongoDatabaseAdapter'
+    )
+    if train:
+        ev.log.info('Training Chatterbot...')
+        cb.set_trainer(ChatterBotCorpusTrainer)
+        cb.train('chatterbot.corpus.english')
+        ev.log.info('Chatterbot Training Complete')
 
 
 async def chat_bot(ev, message):
+    if not cb:
+        init_chatterbot(ev)
     if message.guild:
         active = ev.db.get_guild_settings(message.guild.id, 'ChatterBot')
         if active:
@@ -11,23 +34,6 @@ async def chat_bot(ev, message):
             if message.content.startswith(mention) or message.content.startswith(mention_alt):
                 args = message.content.split(' ')
                 interaction = ' '.join(args[1:])
-                if message.mentions:
-                    for mnt in message.mentions:
-                        interaction = interaction.replace(mnt.mention, mnt.name)
-                bot_url = f'http://www.zabaware.com/webhal/chat.asp?q={interaction}'
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(bot_url) as data:
-                        data = await data.read()
-                chat_data = None
-                tries = 0
-                while not chat_data and tries < 3:
-                    try:
-                        chat_data = json.loads(data)
-                    except Exception:
-                        tries += 1
-                if chat_data:
-                    bot_response = chat_data['HalResponse'].replace('Hal', 'Sigma')
-                else:
-                    bot_response = 'Sorry, I am not feeling very well at the moment...'
-                response = f'{message.author.mention} {bot_response}'
+                cb_resp = cb.get_response(interaction)
+                response = f'{message.author.mention} {cb_resp}'
                 await message.channel.send(response)
