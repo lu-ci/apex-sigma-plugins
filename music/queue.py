@@ -1,5 +1,6 @@
 ﻿import discord
 import datetime
+from sigma.core.mechanics.music import QueueItem
 from humanfriendly.tables import format_pretty_table as boop
 from sigma.core.utilities.data_processing import user_avatar
 
@@ -48,11 +49,15 @@ async def queue(cmd, message, args):
                         pl_title = extracted_info['title']
                         entries = extracted_info['entries']
                         for song_entry in entries:
-                            cmd.bot.music.queue_add(message.guild.id, message.author, song_entry)
+                            queue_item = QueueItem(message.author, song_entry)
+                            queue_container = cmd.bot.music.get_queue(message.guild.id)
+                            await queue_container.put(queue_item)
                         final_resp = discord.Embed(color=0xFFCC66,
                                                    title=f'💽 Added {len(entries)} songs from {pl_title}.')
                     else:
-                        cmd.bot.music.queue_add(message.guild.id, message.author, song_item)
+                        queue_item = QueueItem(message.author, song_item)
+                        queue_container = cmd.bot.music.get_queue(message.guild.id)
+                        await queue_container.put(queue_item)
                         duration = str(datetime.timedelta(seconds=int(song_item['duration'])))
                         requester = f'{message.author.name}#{message.author.discriminator}'
                         final_resp = discord.Embed(color=0x66CC66)
@@ -75,7 +80,8 @@ async def queue(cmd, message, args):
                 await message.channel.send(embed=response)
     else:
         music_queue = cmd.bot.music.get_queue(message.guild.id)
-        if music_queue:
+        if not music_queue.empty():
+            music_queue = await cmd.bot.music.listify_queue(music_queue)
             stats_desc = f'There are **{len(music_queue)}** songs in the queue.'
             if message.guild.id in cmd.bot.music.currents:
                 curr = cmd.bot.music.currents[message.guild.id]
