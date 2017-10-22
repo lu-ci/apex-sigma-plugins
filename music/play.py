@@ -21,6 +21,8 @@ async def play(cmd, message, args):
                 while not queue.empty():
                     if not message.guild.voice_client:
                         return
+                    if message.guild.voice_client.is_playing():
+                        return
                     item = await queue.get()
                     if message.guild.id in cmd.bot.music.repeaters:
                         await queue.put(item)
