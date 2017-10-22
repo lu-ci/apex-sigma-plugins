@@ -1,4 +1,5 @@
 ﻿import discord
+from asyncio.queues import Queue
 from sigma.core.utilities.data_processing import user_avatar
 
 
@@ -12,15 +13,20 @@ async def unqueue(cmd, message, args):
             if same_bound:
                 if message.guild.voice_client:
                     queue = cmd.bot.music.get_queue(message.guild.id)
-                    if queue:
+                    if not queue.empty():
                         try:
                             order_num = int(args[0])
                             if order_num >= 1:
                                 order_num -= 1
-                            queue_size = len(queue)
+                            queue_list = await cmd.bot.music.listify_queue(queue)
+                            queue_size = len(queue_list)
                             if order_num <= queue_size - 1:
-                                item = queue[order_num]
-                                cmd.bot.music.queue_del(message.guild.id, order_num)
+                                item = queue_list[order_num]
+                                queue_list.remove(item)
+                                new_queue = Queue()
+                                for list_item in queue_list:
+                                    await new_queue.put(list_item)
+                                cmd.bot.music.queues.update({message.guild.id: new_queue})
                                 response = discord.Embed(color=0x66CC66, title=f'✅ Removed {item.title}.')
                                 requester = f'{message.author.name}#{message.author.discriminator}'
                                 response.set_author(name=requester, icon_url=user_avatar(message.author))

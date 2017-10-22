@@ -1,5 +1,6 @@
 ﻿import discord
 import secrets
+from asyncio.queues import Queue
 from sigma.core.utilities.data_processing import user_avatar
 
 
@@ -13,11 +14,13 @@ async def shuffle(cmd, message, args):
             if message.guild.voice_client:
                 queue = cmd.bot.music.get_queue(message.guild.id)
                 if queue:
-                    new_queue = []
-                    while queue:
-                        new_queue.append(queue.pop(secrets.randbelow(len(queue))))
+                    queue_list = await cmd.bot.music.listify_queue(queue)
+                    queue_count = len(queue_list)
+                    new_queue = Queue()
+                    while queue_list:
+                        await new_queue.put(queue_list.pop(secrets.randbelow(len(queue_list))))
                     cmd.bot.music.queues.update({message.guild.id: new_queue})
-                    response = discord.Embed(color=0x3B88C3, title=f'🔀 Shuffled {len(new_queue)} songs.')
+                    response = discord.Embed(color=0x3B88C3, title=f'🔀 Shuffled {queue_count} songs.')
                     requester = f'{message.author.name}#{message.author.discriminator}'
                     response.set_author(name=requester, icon_url=user_avatar(message.author))
                 else:

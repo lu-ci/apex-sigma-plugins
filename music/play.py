@@ -5,6 +5,37 @@ from sigma.core.utilities.data_processing import user_avatar
 from sigma.core.utilities.stats_processing import add_special_stats
 
 
+def player_listening(voice_client):
+    user_count = 0
+    for member in voice_client.channel.members:
+        if not member.bot:
+            if not member.self_deaf:
+                if not member.deaf:
+                    user_count += 1
+    if user_count:
+        active = True
+    else:
+        active = False
+    return active
+
+
+def player_active(voice_client):
+    if voice_client:
+        listening = player_listening(voice_client)
+        if listening:
+            playing = voice_client.is_playing()
+            paused = voice_client.is_paused()
+            if playing or paused:
+                active = True
+            else:
+                active = False
+        else:
+            active = False
+    else:
+        active = False
+    return active
+
+
 async def play(cmd, message, args):
     if message.author.voice:
         same_bound = True
@@ -39,7 +70,7 @@ async def play(cmd, message, args):
                     song_embed.set_author(name=author, icon_url=user_avatar(item.requester), url=item.url)
                     song_embed.set_footer(text=f'Duration: {duration}')
                     await init_song_msg.edit(embed=song_embed)
-                    while message.guild.voice_client and message.guild.voice_client.is_playing():
+                    while player_active(message.guild.voice_client):
                         await asyncio.sleep(2)
                 response = discord.Embed(color=0x3B88C3, title='🎵 Queue complete.')
                 if message.guild.voice_client:
