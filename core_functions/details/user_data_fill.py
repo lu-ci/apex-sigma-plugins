@@ -2,6 +2,12 @@ import asyncio
 from sigma.core.utilities.data_processing import user_avatar
 
 
+def clean_avatar(member):
+    av_url = user_avatar(member).split('?')[0]
+    av_url = '.'.join(av_url.split('.')[:-1]) + '.png'
+    return av_url
+
+
 def generate_member_data(member):
     mem_data = {
         'Name': member.name,
@@ -9,7 +15,7 @@ def generate_member_data(member):
         'Discriminator': member.discriminator,
         'UserID': member.id,
         'ServerID': member.guild.id,
-        'Avatar': user_avatar(member).split('?')[0],
+        'Avatar': clean_avatar(member),
         'Color': str(member.color)
     }
     return mem_data
