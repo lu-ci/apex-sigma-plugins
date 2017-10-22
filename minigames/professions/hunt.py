@@ -35,20 +35,22 @@ async def hunt(cmd, message, args):
                         rarity = int(args[0])
                     except TypeError:
                         pass
-            item = item_core.pick_item_in_rarity('animal', rarity)
-            value = item.value
-            connector = 'a'
-            if item.rarity_name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
-                connector = 'an'
-            if value == 0:
-                response_title = f'{item.icon} You caught {item.name}!'
+            if rarity == 0:
+                item = None
+                item_color = 0x67757f
+                response_title = f'🗑 You failed to catch anything.'
             else:
+                item = item_core.pick_item_in_rarity('animal', rarity)
+                connector = 'a'
+                if item.rarity_name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
+                    connector = 'an'
+                item_color = item.color
                 response_title = f'{item.icon} You caught {connector} {item.rarity_name} {item.name}!'
                 data_for_inv = item.generate_inventory_item()
                 cmd.db.add_to_inventory(message.author, data_for_inv)
-            response = discord.Embed(color=item.color, title=response_title)
+            response = discord.Embed(color=item_color, title=response_title)
             response.set_author(name=message.author.display_name, icon_url=user_avatar(message.author))
-            if item.rarity >= 5:
+            if rarity >= 5:
                 if 'item_channel' in cmd.cfg:
                     await item_core.notify_channel_of_special(message, cmd.bot.get_all_channels(),
                                                               cmd.cfg['item_channel'], item)

@@ -36,11 +36,10 @@ async def forage(cmd, message, args):
                     except TypeError:
                         pass
             item = item_core.pick_item_in_rarity('plant', rarity)
-            value = item.value
             connector = 'a'
             if item.rarity_name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
                 connector = 'an'
-            if value == 0:
+            if rarity == 0:
                 if item.name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
                     connector = 'an'
                 response_title = f'{item.icon} You found {connector} {item.name} and threw it away!'
