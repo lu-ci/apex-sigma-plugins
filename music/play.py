@@ -26,8 +26,6 @@ async def play(cmd, message, args):
                     item = await queue.get()
                     if message.guild.id in cmd.bot.music.repeaters:
                         await queue.put(item)
-                    if message.guild.voice_client.is_playing():
-                        return
                     init_song_embed = discord.Embed(color=0x3B88C3, title=f'🔽 Downloading {item.title}...')
                     init_song_msg = await message.channel.send(embed=init_song_embed)
                     await item.create_player(message.guild.voice_client)
