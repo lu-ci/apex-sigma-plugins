@@ -1,9 +1,21 @@
+import string
 import asyncio
 import discord
-import string
+
+
+def clean_name(name, default):
+    end_name = ''
+    for char in name:
+        if char in string.printable:
+            end_name += char
+    if not end_name:
+        end_name = default
+    return end_name
+
 
 async def name_check_clockwork(ev):
     ev.bot.loop.create_task(name_checker(ev))
+
 
 async def name_checker(ev):
     while True:
@@ -35,7 +47,8 @@ async def name_checker(ev):
                             break
                     if invalid:
                         try:
-                            await member.edit(nick=temp_name, reason='ASCII name enforcement.')
+                            new_name = clean_name(nam, temp_name)
+                            await member.edit(nick=new_name, reason='ASCII name enforcement.')
                         except discord.Forbidden:
                             pass
         await asyncio.sleep(60)
