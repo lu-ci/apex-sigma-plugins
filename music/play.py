@@ -15,15 +15,15 @@ async def play(cmd, message, args):
             if args:
                 await cmd.bot.modules.commands['queue'].execute(message, args)
             queue = cmd.bot.music.get_queue(message.guild.id)
-            if queue:
+            if not queue.empty():
                 if not message.guild.voice_client:
                     await cmd.bot.modules.commands['summon'].execute(message, args)
-                while cmd.bot.music.get_queue(message.guild.id):
+                while not cmd.bot.music.get_queue(message.guild.id).empty():
                     if not message.guild.voice_client:
                         return
-                    item = cmd.bot.music.queue_get(message.guild.id)
+                    item = await queue.get()
                     if message.guild.id in cmd.bot.music.repeaters:
-                        cmd.bot.music.queue_add(message.guild.id, item.requester, item.item_info)
+                        await queue.put(item)
                     if message.guild.voice_client.is_playing():
                         return
                     init_song_embed = discord.Embed(color=0x3B88C3, title=f'🔽 Downloading {item.title}...')
@@ -45,7 +45,7 @@ async def play(cmd, message, args):
                 if message.guild.voice_client:
                     await message.guild.voice_client.disconnect()
                     if message.guild.id in cmd.bot.music.queues:
-                        cmd.bot.music.queues.update({message.guild.id: []})
+                        del cmd.bot.music.queues[message.guild.id]
                 await cmd.bot.modules.commands['donate'].execute(message, ['mini'])
             else:
                 response = discord.Embed(color=0xBE1931, title='❗ The queue is empty.')
