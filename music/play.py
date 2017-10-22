@@ -9,8 +9,8 @@ def player_listening(voice_client):
     user_count = 0
     for member in voice_client.channel.members:
         if not member.bot:
-            if not member.self_deaf:
-                if not member.deaf:
+            if not member.voice.self_deaf:
+                if not member.voice.deaf:
                     user_count += 1
     if user_count:
         active = True

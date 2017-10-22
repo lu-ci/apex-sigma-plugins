@@ -23,6 +23,18 @@ commands:
     description:
       Starts playing the music queue.
 
+  - name:        pause
+    enabled:     true
+    usage:       "{pfx}{cmd}"
+    description:
+      Pauses the music player.
+
+  - name:        resume
+    enabled:     true
+    usage:       "{pfx}{cmd}"
+    description:
+      Resumes the music player.
+
   - name:        disconnect
     alts:
       - "stop"
