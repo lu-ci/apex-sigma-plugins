@@ -39,3 +39,16 @@ commands:
     description:
       Gets an error's details using the given token.
 
+  - name:         removereaction
+    alts:
+      - "removereact"
+      - "delreact"
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx}{cmd} 1ba2e263f287522f"
+    description:
+      Remove a reaction with the inputed ID.
