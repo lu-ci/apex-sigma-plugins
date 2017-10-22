@@ -41,8 +41,6 @@ async def hunt(cmd, message, args):
             if item.rarity_name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
                 connector = 'an'
             if value == 0:
-                if item.name[0].lower() in ['a', 'e', 'i', 'o', 'u']:
-                    connector = 'an'
                 response_title = f'{item.icon} You caught {item.name}!'
             else:
                 response_title = f'{item.icon} You caught {connector} {item.rarity_name} {item.name}!'
