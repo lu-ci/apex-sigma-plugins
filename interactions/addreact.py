@@ -1,4 +1,5 @@
 import discord
+import secrets
 
 
 async def addreact(cmd, message, args):
@@ -15,11 +16,13 @@ async def addreact(cmd, message, args):
                     if reaction_url.endswith('.gif'):
                         exist_check = cmd.db[cmd.db.db_cfg.database]['Interactions'].find_one({'URL': reaction_url})
                         if not exist_check:
+                            reaction_id = secrets.token_hex(4)
                             reaction_data = {
                                 'Name': reaction_name.lower(),
                                 'UserID': message.author.id,
                                 'ServerID': message.guild.id,
-                                'URL': reaction_url
+                                'URL': reaction_url,
+                                'ReactionID': reaction_id
                             }
                             cmd.db[cmd.db.db_cfg.database]['Interactions'].insert_one(reaction_data)
                             interactions = cmd.db[cmd.db.db_cfg.database]['Interactions'].find(
@@ -37,6 +40,7 @@ async def addreact(cmd, message, args):
                                     data_desc += f'\nGuild: {message.guild.name}'
                                     data_desc += f'\nGuild ID: {message.guild.id}'
                                     data_desc += f'\nReaction URL: [Here]({reaction_url})'
+                                    data_desc += f'\nReaction ID: {reaction_id}'
                                     log_resp_title = f'🆙 Added {reaction_name.lower()} number {inter_count}'
                                     log_resp = discord.Embed(color=0x3B88C3)
                                     log_resp.add_field(name=log_resp_title, value=data_desc)
