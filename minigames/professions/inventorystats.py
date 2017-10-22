@@ -39,7 +39,7 @@ async def inventorystats(cmd, message, args):
                 rare_count = 0
             rare_count += 1
             rarity_dict.update({item_o_item.rarity_name: rare_count})
-        type_keys = ['fish', 'plant']
+        type_keys = ['fish', 'plant', 'animal']
         type_list = []
         for type_key in type_keys:
             if type_key in type_dict:
