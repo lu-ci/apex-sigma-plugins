@@ -59,8 +59,48 @@ commands:
     description:
       Toggles if message editing should be logged in the server's logging channel.
 
+  - name:         logavatars
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Toggles if avatar changes should be logged.
+
+  - name:         lognames
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Toggles if username changes should be logged.
+      This does not log nickname changes.
+      See the lognicknames command.
+
+  - name:         lognicknames
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Toggles if nickname changes should be logged.
+      This does not log username changes.
+      See the lognames command.
+
 events:
   - name:         edit_logger
     type:         message_edit
+    global:       true
+    enabled:      true
+
+  - name:         avatar_logger
+    type:         member_update
+    global:       true
+    enabled:      true
+
+  - name:         name_logger
+    type:         member_update
+    global:       true
+    enabled:      true
+
+  - name:         nickname_logger
+    type:         member_update
     global:       true
     enabled:      true
