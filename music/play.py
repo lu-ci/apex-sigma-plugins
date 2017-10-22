@@ -12,13 +12,13 @@ async def play(cmd, message, args):
             if message.guild.voice_client.channel.id != message.author.voice.channel.id:
                 same_bound = False
         if same_bound:
+            if not message.guild.voice_client:
+                await cmd.bot.modules.commands['summon'].execute(message, args)
             if args:
                 await cmd.bot.modules.commands['queue'].execute(message, args)
             queue = cmd.bot.music.get_queue(message.guild.id)
             if not queue.empty():
-                if not message.guild.voice_client:
-                    await cmd.bot.modules.commands['summon'].execute(message, args)
-                while not cmd.bot.music.get_queue(message.guild.id).empty():
+                while not queue.empty():
                     if not message.guild.voice_client:
                         return
                     item = await queue.get()
@@ -50,7 +50,7 @@ async def play(cmd, message, args):
             else:
                 response = discord.Embed(color=0xBE1931, title='❗ The queue is empty.')
         else:
-            response = discord.Embed(color=0xBE1931, title='❗ You are not in my voice channel.')
+            response = discord.Embed(color=0xBE1931, title='❗ Channel miss-match prevented me from playing.')
     else:
         response = discord.Embed(color=0xBE1931, title='❗ You are not in a voice channel.')
     await message.channel.send(embed=response)
