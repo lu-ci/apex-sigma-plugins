@@ -1,14 +1,14 @@
 import asyncio
-from sigma.core.utilities.data_processing import user_avatar
 
 
-def clean_avatar(member):
-    av_url = user_avatar(member).split('?')[0]
+async def clean_avatar(member):
+    av_url = member.avatar_url or member.default_avatar
+    av_url = av_url.split('?')[0]
     av_url = '.'.join(av_url.split('.')[:-1]) + '.png'
     return av_url
 
 
-def generate_member_data(member):
+async def generate_member_data(member):
     mem_data = {
         'Name': member.name,
         'Nickname': member.display_name,
@@ -32,7 +32,7 @@ async def member_filler_loop(ev):
         mem_coll.drop()
         member_list = []
         for member in all_members:
-            mem_data = generate_member_data(member)
+            mem_data = await generate_member_data(member)
             member_list.append(mem_data)
         mem_coll.insert_many(member_list)
         await asyncio.sleep(3600)
