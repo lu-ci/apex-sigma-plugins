@@ -15,7 +15,7 @@ async def generate_member_data(member):
         'Discriminator': member.discriminator,
         'UserID': member.id,
         'ServerID': member.guild.id,
-        'Avatar': clean_avatar(member),
+        'Avatar': await clean_avatar(member),
         'Color': str(member.color)
     }
     return mem_data
@@ -27,12 +27,14 @@ async def user_data_fill(ev):
 
 async def member_filler_loop(ev):
     while True:
-        all_members = ev.bot.get_all_members()
-        mem_coll = ev.db[ev.db.db_cfg.database].UserDetails
-        mem_coll.drop()
-        member_list = []
-        for member in all_members:
-            mem_data = await generate_member_data(member)
-            member_list.append(mem_data)
-        mem_coll.insert_many(member_list)
-        await asyncio.sleep(3600)
+        if not ev.bot.cooldown.on_cooldown(ev.name, 'member_details'):
+            ev.bot.cooldown.set_cooldown(ev.name, 'member_details', 3600)
+            all_members = ev.bot.get_all_members()
+            mem_coll = ev.db[ev.db.db_cfg.database].UserDetails
+            mem_coll.drop()
+            member_list = []
+            for member in all_members:
+                mem_data = await generate_member_data(member)
+                member_list.append(mem_data)
+            mem_coll.insert_many(member_list)
+            await asyncio.sleep(300)
