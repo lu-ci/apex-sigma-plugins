@@ -4,6 +4,15 @@ from .nodes.item_core import ItemCore
 item_core = None
 
 
+def sell_item_ids(db, user, items):
+    inv = db.get_inventory(user)
+    for item in items:
+        for inv_item in inv:
+            if inv_item['item_id'] == item:
+                inv.remove(inv_item)
+    db.update_inv(user, inv)
+
+
 async def filtersell(cmd, message, args):
     global item_core
     if not item_core:
@@ -27,13 +36,15 @@ async def filtersell(cmd, message, args):
                 else:
                     attribute = None
                 if attribute:
+                    sell_id_list = []
                     for item in inv:
                         item_ob_id = item_core.get_item_by_file_id(item['item_file_id'])
                         item_attribute = getattr(item_ob_id, attribute)
                         if item_attribute.lower() == lookup.lower():
                             sell_value += item_ob_id.value
                             sell_count += 1
-                            cmd.db.del_from_inventory(message.author, item['item_id'])
+                            sell_id_list.append(item['item_id'])
+                    sell_item_ids(cmd.db, message.author, sell_id_list)
                     cmd.db.add_currency(message.author, message.guild, sell_value)
                     currency = cmd.bot.cfg.pref.currency
                     sell_title = f'💶 You sold {sell_count} items for {sell_value} {currency}.'
