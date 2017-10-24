@@ -1,7 +1,13 @@
+import asyncio
+import functools
 from chatterbot import ChatBot
+from concurrent.futures import ThreadPoolExecutor
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
 cb = None
+
+loop = asyncio.get_event_loop()
+threads = ThreadPoolExecutor(2)
 
 
 def init_chatterbot(ev):
@@ -34,6 +40,8 @@ async def chat_bot(ev, message):
             if message.content.startswith(mention) or message.content.startswith(mention_alt):
                 args = message.content.split(' ')
                 interaction = ' '.join(args[1:])
+                task = functools.partial(cb.get_response, interaction)
+                await ev.bot.loop.run_in_executor(threads, task)
                 cb_resp = cb.get_response(interaction)
                 response = f'{message.author.mention} {cb_resp}'
                 await message.channel.send(response)
