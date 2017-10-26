@@ -23,6 +23,7 @@ async def generate_member_data(member):
 
 
 async def user_data_fill(ev):
+    ev.bot.ready = False
     ev.log.info('Filling member details...')
     start_stamp = arrow.utcnow().float_timestamp
     ev.bot.cooldown.set_cooldown(ev.name, 'member_details', 3600)
@@ -37,3 +38,4 @@ async def user_data_fill(ev):
     end_stamp = arrow.utcnow().float_timestamp
     diff = round(end_stamp - start_stamp, 3)
     ev.log.info(f'Member detail filler finished in {diff}s')
+    ev.bot.ready = True
