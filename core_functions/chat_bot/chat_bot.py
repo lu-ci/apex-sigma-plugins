@@ -1,4 +1,3 @@
-import asyncio
 import functools
 from chatterbot import ChatBot
 from concurrent.futures import ThreadPoolExecutor
@@ -6,7 +5,6 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 
 cb = None
 
-loop = asyncio.get_event_loop()
 threads = ThreadPoolExecutor(2)
 
 
