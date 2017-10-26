@@ -12,6 +12,20 @@ commands:
     description:
       Gives you a random inspirational or deep quote.
 
+  - name:         numberfact
+    alts:
+      - "numfact"
+      - "numf"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd} 42"
+    description:
+      Searches for interesting things about a given number.
+      You can also insert a date in the DAY/MON format.
+      You can specify a type of number you want retrived in the format TYPE:NUMBER.
+      The allowed types are trivia, math, date, year.
+      You can also specify "random" instead of a number to make it a random number.
+
   - name:         fortune
     alts:
       - "fortune-mod"
