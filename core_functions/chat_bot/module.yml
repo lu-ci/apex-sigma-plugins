@@ -8,4 +8,4 @@ events:
   - name:        chat_bot
     type:        mention
     global:      true
-    enabled:     true
+    enabled:     false
