@@ -83,7 +83,7 @@ async def trivia(cmd, message, args):
                         number = True
                     except ValueError:
                         number = False
-                    if number or msg.content.title() in choice_list:
+                    if number or (msg.content.title() in choice_list):
                         correct = True
                     else:
                         correct = False
