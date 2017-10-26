@@ -22,16 +22,6 @@ async def generate_member_data(member):
     return mem_data
 
 
-def list_splitter(member_list):
-    item_count = len(member_list)
-    output_list = []
-    separation_count = int(item_count / 5000)
-    for x in range(0, separation_count + 1):
-        mini_list = member_list[x:(x + 1) * 5000]
-        output_list.append(mini_list)
-    return output_list
-
-
 async def user_data_fill(ev):
     ev.log.info('Filling member details...')
     start_stamp = arrow.utcnow().float_timestamp
@@ -43,10 +33,7 @@ async def user_data_fill(ev):
     for member in all_members:
         mem_data = await generate_member_data(member)
         member_list.append(mem_data)
-    separated_list = list_splitter(member_list)
-    for mini_list in separated_list:
-        mem_coll.insert(mini_list)
-        asyncio.sleep(1)
+    mem_coll.insert(member_list)
     end_stamp = arrow.utcnow().float_timestamp
     diff = round(end_stamp - start_stamp, 3)
     ev.log.info(f'Member detail filler finished in {diff}s')
