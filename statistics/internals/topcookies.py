@@ -4,7 +4,7 @@ from humanfriendly.tables import format_pretty_table as boop
 
 
 async def topcookies(cmd, message, args):
-    all_cookies = cmd.db[cmd.db.db_cfg.database].Cookies.find({}).sort([{'Cookies', pymongo.DESCENDING}]).limit(20)
+    all_cookies = cmd.db[cmd.db.db_cfg.database].Cookies.find({}).sort('Cookies', pymongo.DESCENDING).limit(20)
     cookie_count = cmd.db[cmd.db.db_cfg.database].Cookies.aggregate(
         [{'$group': {
             '_id': 'cookie_counter_cursor',
