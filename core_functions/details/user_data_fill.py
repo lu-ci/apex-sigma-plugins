@@ -1,5 +1,7 @@
 import arrow
-import asyncio
+import discord
+import functools
+from concurrent.futures import ThreadPoolExecutor
 
 
 async def clean_avatar(member):
@@ -23,8 +25,8 @@ async def generate_member_data(member):
 
 
 async def user_data_fill(ev):
-    ev.bot.ready = False
     ev.log.info('Filling member details...')
+    threads = ThreadPoolExecutor(2)
     start_stamp = arrow.utcnow().float_timestamp
     ev.bot.cooldown.set_cooldown(ev.name, 'member_details', 3600)
     all_members = ev.bot.get_all_members()
@@ -34,8 +36,8 @@ async def user_data_fill(ev):
     for member in all_members:
         mem_data = await generate_member_data(member)
         member_list.append(mem_data)
-    mem_coll.insert(member_list)
+    task = functools.partial(mem_coll.insert, member_list)
+    await ev.bot.loop.run_in_executor(threads, task)
     end_stamp = arrow.utcnow().float_timestamp
     diff = round(end_stamp - start_stamp, 3)
     ev.log.info(f'Member detail filler finished in {diff}s')
-    ev.bot.ready = True
