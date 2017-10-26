@@ -25,6 +25,19 @@ commands:
       The Kud reward is equal to the number of characters of the shortest part of the characters name.
       If the hint is used, the Kud reward is split in half.
 
+  - name:         trivia
+    alts:
+      - "triv"
+      - "t"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      A trivia minigame.
+      You are given a question and have to input the number of your answer.
+      Guess correctly and you win 5-15 Kud, depending on the difficulty.
+      You have 20 seconds to answer the question.
+
   - name:         animechargame
     alts:
       - "anichargame"
