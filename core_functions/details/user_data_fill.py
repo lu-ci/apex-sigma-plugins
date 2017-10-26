@@ -22,25 +22,31 @@ async def generate_member_data(member):
     return mem_data
 
 
+def list_splitter(member_list):
+    item_count = len(member_list)
+    output_list = []
+    separation_count = int(item_count / 5000)
+    for x in range(0, separation_count + 1):
+        mini_list = member_list[x:(x + 1) * 5000]
+        output_list.append(mini_list)
+    return output_list
+
+
 async def user_data_fill(ev):
-    ev.bot.loop.create_task(member_filler_loop(ev))
-
-
-async def member_filler_loop(ev):
-    while True:
-        if not ev.bot.cooldown.on_cooldown(ev.name, 'member_details'):
-            ev.log.info('Filling member details...')
-            start_stamp = arrow.utcnow().float_timestamp
-            ev.bot.cooldown.set_cooldown(ev.name, 'member_details', 3600)
-            all_members = ev.bot.get_all_members()
-            mem_coll = ev.db[ev.db.db_cfg.database].UserDetails
-            mem_coll.drop()
-            member_list = []
-            for member in all_members:
-                mem_data = await generate_member_data(member)
-                member_list.append(mem_data)
-            mem_coll.insert(member_list)
-            end_stamp = arrow.utcnow().float_timestamp
-            diff = round(end_stamp - start_stamp, 3)
-            ev.log.info(f'Member detail filler finished in {diff}s')
-        await asyncio.sleep(300)
+    ev.log.info('Filling member details...')
+    start_stamp = arrow.utcnow().float_timestamp
+    ev.bot.cooldown.set_cooldown(ev.name, 'member_details', 3600)
+    all_members = ev.bot.get_all_members()
+    mem_coll = ev.db[ev.db.db_cfg.database].UserDetails
+    mem_coll.drop()
+    member_list = []
+    for member in all_members:
+        mem_data = await generate_member_data(member)
+        member_list.append(mem_data)
+    separated_list = list_splitter(member_list)
+    for mini_list in separated_list:
+        mem_coll.insert(mini_list)
+        asyncio.sleep(1)
+    end_stamp = arrow.utcnow().float_timestamp
+    diff = round(end_stamp - start_stamp, 3)
+    ev.log.info(f'Member detail filler finished in {diff}s')
