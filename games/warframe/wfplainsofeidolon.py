@@ -14,15 +14,18 @@ async def wfplainsofeidolon(cmd, message, args):
     else:
         exact = False
     world_state = 'http://content.warframe.com/dynamic/worldState.php'
-    async with aiohttp.ClientSession() as session:
-        async with session.get(world_state) as data:
-            data = await data.read()
-            data = json.loads(data)
-    synd_missions = data['SyndicateMissions']
-    poe_data = None
-    for synd_mission in synd_missions:
-        if synd_mission['Tag'] == 'CetusSyndicate':
-            poe_data = synd_mission
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(world_state) as data:
+                data = await data.read()
+                data = json.loads(data)
+        synd_missions = data['SyndicateMissions']
+        poe_data = None
+        for synd_mission in synd_missions:
+            if synd_mission['Tag'] == 'CetusSyndicate':
+                poe_data = synd_mission
+    except aiohttp.ClientPayloadError:
+        poe_data = None
     if poe_data:
         sta = int(poe_data['Activation']['$date']['$numberLong']) / 1000
         nox = (int(poe_data['Activation']['$date']['$numberLong']) + (1000 * 60 * 100)) / 1000
