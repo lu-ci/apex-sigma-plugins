@@ -47,3 +47,15 @@ commands:
     usage:        "{pfx}{cmd} 0123456789 minigames"
     description:
       Disallows a person from using a specific module category.
+
+  - name:         wipeawards
+    global:       true
+    enabled:      true
+    permissions:
+      rating:     0
+      owner:      true
+      dmable:     true
+    usage:        "{pfx}{cmd} 0123456789"
+    description:
+      Removes a user's currency, experience and cookie data.
+      Used when wanting to remove a blacklisted user's ill gotten gains.
