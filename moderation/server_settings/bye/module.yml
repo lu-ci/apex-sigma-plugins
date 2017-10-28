@@ -22,7 +22,6 @@ commands:
     usage:        "{pfx}{cmd} #welcome"
     description:
       Sets the channel the goodbye messages should be sent to.
-      Of course unless byedm is active.
 
   - name:         byemessage
     alts:
