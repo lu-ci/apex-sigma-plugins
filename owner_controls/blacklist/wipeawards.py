@@ -18,7 +18,7 @@ async def wipeawards(cmd, message, args):
                 unam = f'{target.name}#{target.discriminator}'
             else:
                 unam = str(uid)
-            response = discord.Embed(color=0x696969, title=f'Wiped {unam}\'s property.')
+            response = discord.Embed(color=0x696969, title=f'🗑 Wiped {unam}\'s property.')
         else:
             response = discord.Embed(color=0xBE1931, title='❗ Invalid Guild ID.')
     else:
