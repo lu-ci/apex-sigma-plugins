@@ -30,25 +30,21 @@ async def name_checker(ev):
             if active_guild:
                 guilds.append(active_guild)
         for guild in guilds:
-            active = ev.db.get_guild_settings(guild.id, 'ASCIIOnlyNames')
-            if active is None:
-                active = False
-            if active:
-                temp_name = ev.db.get_guild_settings(guild.id, 'ASCIIOnlyTempName')
-                if temp_name is None:
-                    temp_name = '<ChangeMyName>'
-                members = guild.members
-                for member in members:
-                    nam = member.display_name
-                    invalid = False
-                    for char in nam:
-                        if char not in string.printable:
-                            invalid = True
-                            break
-                    if invalid:
-                        try:
-                            new_name = clean_name(nam, temp_name)
-                            await member.edit(nick=new_name, reason='ASCII name enforcement.')
-                        except discord.Forbidden:
-                            pass
+            temp_name = ev.db.get_guild_settings(guild.id, 'ASCIIOnlyTempName')
+            if temp_name is None:
+                temp_name = '<ChangeMyName>'
+            members = guild.members
+            for member in members:
+                nam = member.display_name
+                invalid = False
+                for char in nam:
+                    if char not in string.printable:
+                        invalid = True
+                        break
+                if invalid:
+                    try:
+                        new_name = clean_name(nam, temp_name)
+                        await member.edit(nick=new_name, reason='ASCII name enforcement.')
+                    except discord.Forbidden:
+                        pass
         await asyncio.sleep(60)
