@@ -34,7 +34,7 @@ commands:
   - name:         collectchain
     global:       true
     enabled:      true
-    usage:        "{pfx}{cmd} @person"
+    usage:        "{pfx}{cmd} @person #channel"
     description:
       Collects messages sent by the mentioned user and saves it as a chain.
       Only one person can use the command at the time due to the processing load it takes.
@@ -54,6 +54,7 @@ commands:
     usage:        "{pfx}{cmd} @person"
     description:
       Tries to impersonate the mentioned user if a chain file for them exists.
+      This command is on a 10 second cooldown due to it's weight.
 
   - name:         timeconvert
     alts:
