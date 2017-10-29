@@ -4,6 +4,7 @@ import aiohttp
 import discord
 import secrets
 import asyncio
+from sigma.core.utilities.data_processing import user_avatar
 
 ongoing_list = []
 trivia_cache = []
@@ -73,6 +74,7 @@ async def trivia(cmd, message, args):
         question_embed.add_field(name='Question', value=question, inline=False)
         question_embed.add_field(name='Choices', value=f'```py\n{choice_text}\n```', inline=False)
         question_embed.set_footer(text='Input the number of your chosen answer.')
+        question_embed.set_author(name=message.author.display_name, icon_url=user_avatar(message.author))
         await message.channel.send(embed=question_embed)
 
         def check_answer(msg):
