@@ -75,8 +75,8 @@ async def slots(cmd, message, args):
             combination = out_list[1]
             three_comb = bool(combination[0] == combination[1] == combination[2])
             two_comb_one = bool(combination[0] == combination[1])
-            two_comb_two = bool(combination[0] == combination[1])
-            two_comb_three = bool(combination[0] == combination[1])
+            two_comb_two = bool(combination[0] == combination[2])
+            two_comb_three = bool(combination[1] == combination[2])
             if three_comb:
                 win = True
                 announce = True
