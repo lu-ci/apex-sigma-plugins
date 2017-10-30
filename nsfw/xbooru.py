@@ -44,5 +44,5 @@ async def xbooru(cmd, message, args):
         response.set_image(url=img_url)
         response.set_footer(text=footer_text)
     else:
-        response = discord.Embed(color=0x696969, title=f'🔍 Search for yielded no results.')
+        response = discord.Embed(color=0x696969, title=f'🔍 Search yielded no results.')
     await message.channel.send(None, embed=response)
