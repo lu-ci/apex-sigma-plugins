@@ -60,7 +60,9 @@ async def jisho(cmd, message, args):
         if request['senses'][i]['tags']:
             try:
                 etc.append('; '.join(request['senses'][i]['tags']))
-            except Exception:
+            except IndexError:
+                pass
+            except KeyError:
                 pass
         if request['senses'][i]['see_also']:
             etc.append('See also {}'.format(', '.join(request['senses'][i]['see_also'])))

@@ -31,8 +31,5 @@ async def status_clockwork(ev):
             ]
             status = f'with {secrets.choice(statuses)}'
             game = discord.Game(name=status)
-            try:
-                await ev.bot.change_presence(game=game)
-            except Exception:
-                pass
+            await ev.bot.change_presence(game=game)
         await asyncio.sleep(180)

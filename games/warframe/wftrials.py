@@ -32,6 +32,7 @@ async def wftrials(cmd, message, args):
         if len(trial_data) == 0:
             response = discord.Embed(color=0x696969, title=f'🔍 User {username} Not Found.')
         else:
+            # noinspection PyBroadException
             try:
                 username_proper = get_usercaps(username, trial_data)
                 raidlist_url = f'https://trials.wf/player/?user={username_proper}'
@@ -177,7 +178,6 @@ async def wftrials(cmd, message, args):
                     total_desc += f'\nAverage Deaths: {total_deaths // total_count}'
                 except ZeroDivisionError:
                     total_desc = 'Invalid Data'
-
                 response = discord.Embed(color=0xa12626)
                 response.set_thumbnail(url='https://i.imgur.com/pf89nIk.png')
                 response.set_author(name=username_proper, icon_url='https://i.imgur.com/n0EESkn.png', url=raidlist_url)
@@ -186,6 +186,6 @@ async def wftrials(cmd, message, args):
                 response.add_field(name='Jordas Verdict', value=jv_desc)
                 response.add_field(name='Total Trials', value=total_desc)
             except Exception:
-                response = discord.Embed(color=0xFFCC4D,
-                                         title=f'⚠ Stats for {username} were found but cotained errors.')
+                error_text = f'⚠ Stats for {username} were found but cotained errors.'
+                response = discord.Embed(color=0xFFCC4D, title=error_text)
         await message.channel.send(embed=response)

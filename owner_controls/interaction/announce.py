@@ -15,7 +15,9 @@ async def announce(cmd, message, args):
         try:
             await guild.owner.send(embed=announcement)
             sent_counter += 1
-        except Exception:
+        except discord.Forbidden:
+            pass
+        except discord.NotFound:
             pass
     response = discord.Embed(color=0x77B255, title=f'✅ Announcement sent to {sent_counter} guilds.')
     await message.channel.send(embed=response)

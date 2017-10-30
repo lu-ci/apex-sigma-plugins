@@ -209,6 +209,7 @@ class FEHScrapper(object):
         return max_stats
 
     async def scrap_all(self):
+        # noinspection PyBroadException
         try:
             hero_data = await self.scrappers.hero.scrap_data()
             weapon_data = await self.scrappers.weapon.scrap_data()

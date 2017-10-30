@@ -11,13 +11,10 @@ async def discordbots_clock(ev):
 
 async def clockwork_updater(ev, token):
     while True:
-        try:
-            guild_count = len(ev.bot.guilds)
-            headers = {'Authorization': token}
-            data = {'server_count': guild_count}
-            api_url = f'https://discordbots.org/api/bots/{ev.bot.user.id}/stats'
-            async with aiohttp.ClientSession() as session:
-                await session.post(api_url, data=data, headers=headers)
-            await asyncio.sleep(150)
-        except Exception:
-            pass
+        guild_count = len(ev.bot.guilds)
+        headers = {'Authorization': token}
+        data = {'server_count': guild_count}
+        api_url = f'https://discordbots.org/api/bots/{ev.bot.user.id}/stats'
+        async with aiohttp.ClientSession() as session:
+            await session.post(api_url, data=data, headers=headers)
+        await asyncio.sleep(150)

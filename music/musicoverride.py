@@ -1,3 +1,4 @@
+# noinspection PyBroadException,PyBroadException,PyBroadException,PyBroadException
 async def musicoverride(cmd, message, args):
     if message.guild.me.voice:
         try:

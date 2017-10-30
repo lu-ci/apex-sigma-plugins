@@ -5,16 +5,11 @@ import discord
 
 
 async def describe(cmd, message, args):
-    # strip spaces from args
-    args = list(filter(lambda a: a != '', args))
     response = discord.Embed()
     if args:
         mode = args[0]
-        if mode in ['adjectives', 'adjective', 'adj', 'a',
-                    'nouns', 'noun', 'n']:
-
+        if mode in ['adjectives', 'adjective', 'adj', 'a', 'nouns', 'noun', 'n']:
             query = ' '.join(args[1:])
-
             if mode[0] == 'a':
                 header = f'Adjectives used to describe {query}'
                 site_url = f'http://www.rhymezone.com/r/rhyme.cgi?Word={query}&typeofrhyme=jja'
@@ -23,7 +18,10 @@ async def describe(cmd, message, args):
                 header = f'Nouns described by the adjective {query}'
                 site_url = f'http://www.rhymezone.com/r/rhyme.cgi?Word={query}&typeofrhyme=jjb'
                 api_url = f'https://api.datamuse.com/words?rel_jjb={query}&max=11'
-
+            else:
+                header = None
+                site_url = None
+                api_url = None
             async with aiohttp.ClientSession() as session:
                 async with session.get(api_url) as data_response:
                     data = await data_response.read()
@@ -31,7 +29,6 @@ async def describe(cmd, message, args):
                         data = json.loads(data)
                     except json.JSONDecodeError:
                         data = []
-
             data = list(filter(lambda r: 'score' in r, data))
             if data:
                 data = list(map(lambda s: '- ' + s['word'], data))
@@ -49,5 +46,4 @@ async def describe(cmd, message, args):
     else:
         response.title = '❗ Nothing inputted.'
         response.colour = 0xBE1931
-
     await message.channel.send(embed=response)

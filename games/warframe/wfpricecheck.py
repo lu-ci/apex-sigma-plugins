@@ -18,7 +18,7 @@ async def grab_item_image(lookup, cut):
             first_img_fail = False
         else:
             first_img_fail = True
-    except Exception:
+    except IndexError:
         item_img = None
         first_img_fail = True
     if first_img_fail:
@@ -28,7 +28,7 @@ async def grab_item_image(lookup, cut):
                 final_img_fail = False
             else:
                 final_img_fail = True
-        except Exception:
+        except IndexError:
             final_img_fail = True
     else:
         final_img_fail = False
@@ -90,5 +90,5 @@ async def wfpricecheck(cmd, message, args):
         response = discord.Embed(color=0x696969, title=f'🔍 Nothing Inputted.')
     try:
         await init_resp_msg.edit(embed=response)
-    except Exception:
+    except discord.NotFound:
         pass

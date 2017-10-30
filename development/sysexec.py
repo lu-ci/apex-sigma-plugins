@@ -1,6 +1,7 @@
 import subprocess
 
 
+# noinspection PyBroadException
 async def sysexec(cmd, message, args):
     if args:
         try:

@@ -9,6 +9,7 @@ from .nodes.news_function import get_news_data, generate_news_embed
 from .nodes.sortie_functions import get_sortie_data, generate_sortie_embed
 
 
+# noinspection PyBroadException
 async def wf_clockwork(ev):
     while True:
         try:
@@ -30,7 +31,9 @@ async def cycle_function(ev):
                 if sortie_target_channel:
                     try:
                         await sortie_target_channel.send(embed=sortie_response)
-                    except Exception:
+                    except discord.Forbidden:
+                        pass
+                    except discord.NotFound:
                         pass
     news = await get_news_data(ev.db)
     if news:
@@ -42,7 +45,9 @@ async def cycle_function(ev):
                 if news_target_channel:
                     try:
                         await news_target_channel.send(embed=news_response)
-                    except Exception:
+                    except discord.Forbidden:
+                        pass
+                    except discord.NotFound:
                         pass
     fissures = await get_fissure_data(ev.db)
     if fissures:
@@ -54,7 +59,9 @@ async def cycle_function(ev):
                 if fissure_target_channel:
                     try:
                         await fissure_target_channel.send(embed=fissure_response)
-                    except Exception:
+                    except discord.Forbidden:
+                        pass
+                    except discord.NotFound:
                         pass
     alerts, triggers = await get_alert_data(ev.db)
     if alerts:
@@ -80,7 +87,9 @@ async def cycle_function(ev):
                             await alert_target_channel.send(' '.join(mentions), embed=alert_response)
                         else:
                             await alert_target_channel.send(embed=alert_response)
-                    except Exception:
+                    except discord.Forbidden:
+                        pass
+                    except discord.NotFound:
                         pass
     invasions, triggers = await get_invasion_data(ev.db)
     if invasions:
@@ -106,5 +115,7 @@ async def cycle_function(ev):
                             await invasion_target_channel.send(' '.join(mentions), embed=invasion_response)
                         else:
                             await invasion_target_channel.send(embed=invasion_response)
-                    except Exception:
+                    except discord.Forbidden:
+                        pass
+                    except discord.NotFound:
                         pass

@@ -42,6 +42,7 @@ async def overwatch(cmd, message, args):
             region_list = ['eu', 'kr', 'us', 'cn', 'jp']
             if region in region_list:
                 battletag = ' '.join(args[1:])
+                # noinspection PyBroadException
                 try:
                     profile = await ow_cli.get_profile(battletag, regions=region)
                     timeout = False

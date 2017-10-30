@@ -13,7 +13,7 @@ async def grab_image(name, cut=False):
     try:
         int(check_name[0])
         resource = True
-    except Exception:
+    except IndexError:
         resource = False
     if resource:
         name = '_'.join(check_name[1:])
@@ -27,7 +27,7 @@ async def grab_image(name, cut=False):
     for obj in img_objects:
         if 'href' in obj.attrib:
             if obj.attrib['href'].startswith('http'):
-                if 'prime-access' not in obj.attrib['href']:
+                if 'prime-access' not in obj.attrib.get('href'):
                     img_object = obj
                     break
     if img_object is not None:
@@ -50,7 +50,7 @@ async def alt_grab_image(name, cut=False):
             page = await data.text()
     root = html.fromstring(page)
     try:
-        item_image = root.cssselect('.infobox')[0][1][0][0].attrib['href']
-    except Exception:
-        item_image = root.cssselect('.pi-image-thumbnail')[0].attrib['src']
+        item_image = root.cssselect('.infobox')[0][1][0][0].attrib.get('href')
+    except IndexError:
+        item_image = root.cssselect('.pi-image-thumbnail')[0].attrib.get('src')
     return item_image

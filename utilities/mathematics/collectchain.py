@@ -17,6 +17,7 @@ def check_for_bot_prefixes(prefix, text):
     return prefixed
 
 
+# noinspection PyBroadException
 async def collectchain(cmd, message, args):
     global in_use
     global in_use_by
