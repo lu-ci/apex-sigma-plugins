@@ -1,7 +1,8 @@
 import json
+import secrets
+
 import aiohttp
 import discord
-import secrets
 
 facts = []
 

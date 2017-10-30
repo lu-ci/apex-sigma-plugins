@@ -1,5 +1,6 @@
-import discord
 import datetime
+
+import discord
 
 
 async def youtube(cmd, message, args):

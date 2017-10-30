@@ -1,4 +1,5 @@
 ﻿import discord
+
 from .nodes.permission_data import get_all_perms, generate_cmd_data
 
 

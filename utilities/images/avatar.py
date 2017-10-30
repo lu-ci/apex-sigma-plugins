@@ -1,6 +1,7 @@
 import discord
-from sigma.core.utilities.data_processing import user_avatar
+
 from sigma.core.utilities.data_processing import get_image_colors
+from sigma.core.utilities.data_processing import user_avatar
 
 
 async def avatar(cmd, message, args):

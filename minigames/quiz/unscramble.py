@@ -1,7 +1,9 @@
-import aiohttp
-import discord
 import asyncio
 import secrets
+
+import aiohttp
+import discord
+
 from .mech.utils import scramble
 
 ongoing_list = []

@@ -1,9 +1,11 @@
+import asyncio
 import json
-import ftfy
+import secrets
+
 import aiohttp
 import discord
-import secrets
-import asyncio
+import ftfy
+
 from sigma.core.utilities.data_processing import user_avatar
 
 ongoing_list = []

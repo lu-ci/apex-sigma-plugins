@@ -1,5 +1,7 @@
 ﻿import secrets
+
 import discord
+
 from sigma.plugins.nsfw.mech.visual_novels import key_vn_list
 
 

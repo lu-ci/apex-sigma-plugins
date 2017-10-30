@@ -1,5 +1,7 @@
-import discord
 import asyncio
+
+import discord
+
 from .nodes.upgrades import upgrade_list
 
 ongoing = []

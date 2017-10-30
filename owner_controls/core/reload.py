@@ -1,5 +1,6 @@
-﻿import discord
-from importlib import reload as reimport
+﻿from importlib import reload as reimport
+
+import discord
 
 
 async def reload(cmd, message, args):

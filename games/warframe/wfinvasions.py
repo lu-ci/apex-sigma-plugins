@@ -1,5 +1,6 @@
-import discord
 import aiohttp
+import discord
+
 from .nodes.invasion_functions import parse_invasion_data
 
 

@@ -1,6 +1,7 @@
-import arrow
 import functools
 from concurrent.futures import ThreadPoolExecutor
+
+import arrow
 
 
 async def server_data_fill(ev):

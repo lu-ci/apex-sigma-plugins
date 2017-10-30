@@ -1,5 +1,7 @@
 import secrets
+
 import discord
+
 from .properties import *
 
 

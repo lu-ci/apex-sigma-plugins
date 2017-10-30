@@ -1,4 +1,5 @@
 import discord
+
 from .mech.feh_core import FireEmblemHeroesCore
 
 feh_core = None

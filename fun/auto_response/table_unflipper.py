@@ -1,4 +1,5 @@
 import secrets
+
 from sigma.core.utilities.stats_processing import add_special_stats
 
 

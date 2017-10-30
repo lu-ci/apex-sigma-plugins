@@ -1,6 +1,6 @@
 import aiohttp
-import discord
 import arrow
+import discord
 
 aura_list = [
     'brief respite', 'corrosive projection', 'dead eye',

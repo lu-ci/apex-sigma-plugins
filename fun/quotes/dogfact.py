@@ -1,6 +1,7 @@
 import json
-import discord
+
 import aiohttp
+import discord
 
 
 async def dogfact(cmd, message, args):

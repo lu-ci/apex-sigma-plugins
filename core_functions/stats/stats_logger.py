@@ -1,5 +1,6 @@
-import arrow
 import asyncio
+
+import arrow
 
 
 async def stats_logger(ev):

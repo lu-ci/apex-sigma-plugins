@@ -1,7 +1,8 @@
 import discord
-from .nodes.item_core import ItemCore
-from sigma.core.utilities.data_processing import user_avatar
 from humanfriendly.tables import format_pretty_table as boop
+
+from sigma.core.utilities.data_processing import user_avatar
+from .nodes.item_core import ItemCore
 
 item_core = None
 

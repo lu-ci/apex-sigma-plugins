@@ -1,6 +1,7 @@
-import discord
-import secrets
 import asyncio
+import secrets
+
+import discord
 
 ongoing_list = []
 

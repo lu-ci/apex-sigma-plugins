@@ -1,8 +1,9 @@
-﻿import json
+﻿import datetime
+import json
+import secrets
+
 import aiohttp
 import discord
-import secrets
-import datetime
 
 
 async def deezer(cmd, message, args):

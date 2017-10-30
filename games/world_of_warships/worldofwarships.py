@@ -1,7 +1,8 @@
 ﻿import json
+
+import aiohttp
 import arrow
 import discord
-import aiohttp
 
 wows_icon = 'https://i.imgur.com/Cv53UoN.png'
 wows_color = 0x066661

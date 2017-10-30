@@ -1,5 +1,5 @@
-﻿import discord
-import aiohttp
+﻿import aiohttp
+import discord
 import lxml.html as l
 from humanfriendly.tables import format_pretty_table as boop
 

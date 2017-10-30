@@ -1,7 +1,9 @@
 import json
-import arrow
+
 import aiohttp
+import arrow
 import discord
+
 from sigma.core.utilities.data_processing import get_image_colors
 
 

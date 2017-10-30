@@ -1,5 +1,6 @@
-import yaml
 import arrow
+import yaml
+
 
 async def version_updater(ev):
     if ev.bot.cfg.pref.dev_mode:

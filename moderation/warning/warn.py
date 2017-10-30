@@ -1,8 +1,10 @@
-﻿import arrow
+﻿import secrets
+
+import arrow
 import discord
-import secrets
-from sigma.core.utilities.server_bound_logging import log_event
+
 from sigma.core.utilities.data_processing import user_avatar
+from sigma.core.utilities.server_bound_logging import log_event
 
 
 def generate_log_embed(message, target, warning_text, warning_id):

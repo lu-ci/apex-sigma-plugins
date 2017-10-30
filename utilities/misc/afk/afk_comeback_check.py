@@ -1,5 +1,6 @@
-﻿import discord
-import asyncio
+﻿import asyncio
+
+import discord
 
 
 async def afk_comeback_check(ev, message):

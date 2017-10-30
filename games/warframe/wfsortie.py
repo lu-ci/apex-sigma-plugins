@@ -1,6 +1,8 @@
-from .nodes.sortie_functions import generate_sortie_embed
-import aiohttp
 import json
+
+import aiohttp
+
+from .nodes.sortie_functions import generate_sortie_embed
 
 
 async def wfsortie(cmd, message, args):

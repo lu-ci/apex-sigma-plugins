@@ -1,5 +1,5 @@
-﻿import discord
-import aiohttp
+﻿import aiohttp
+import discord
 import lxml.html as l
 
 osu_logo = 'http://w.ppy.sh/c/c9/Logo.png'

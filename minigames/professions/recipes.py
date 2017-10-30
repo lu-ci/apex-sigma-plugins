@@ -1,7 +1,9 @@
-import discord
 import secrets
-from .nodes.recipe_core import RecipeCore
+
+import discord
 from humanfriendly.tables import format_pretty_table as boop
+
+from .nodes.recipe_core import RecipeCore
 
 recipe_core = None
 

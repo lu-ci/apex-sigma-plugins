@@ -1,5 +1,6 @@
-﻿import discord
-import secrets
+﻿import secrets
+
+import discord
 
 
 async def poll(cmd, message, args):

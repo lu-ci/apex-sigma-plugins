@@ -1,6 +1,7 @@
 import os
-import discord
 import secrets
+
+import discord
 
 fortune_files = []
 

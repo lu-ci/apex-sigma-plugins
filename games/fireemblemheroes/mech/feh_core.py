@@ -1,4 +1,5 @@
 from fuzzywuzzy import fuzz, process
+
 from .scrapper_core import FEHScrapper
 
 

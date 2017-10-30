@@ -1,4 +1,5 @@
 ﻿import secrets
+
 import discord
 
 positive = [

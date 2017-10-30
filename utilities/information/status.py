@@ -1,9 +1,10 @@
-import sys
-import arrow
 import socket
-import psutil
+import sys
+
+import arrow
 import discord
 import humanfriendly
+import psutil
 
 
 def get_os_icon():

@@ -1,5 +1,7 @@
 ﻿import secrets
+
 import discord
+
 
 async def coinflip(cmd, message, args):
     result = secrets.choice(['heads', 'tails'])

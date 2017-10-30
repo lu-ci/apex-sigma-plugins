@@ -1,5 +1,6 @@
-import discord
 import secrets
+
+import discord
 
 
 async def addreact(cmd, message, args):

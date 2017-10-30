@@ -1,6 +1,7 @@
 import asyncio
-import discord
 import secrets
+
+import discord
 
 
 async def status_rotation(ev):

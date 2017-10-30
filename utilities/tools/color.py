@@ -1,4 +1,5 @@
 import os
+
 import discord
 from PIL import Image
 

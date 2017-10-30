@@ -1,6 +1,6 @@
-import ftfy
 import aiohttp
 import discord
+import ftfy
 
 
 async def pun(cmd, message, args):

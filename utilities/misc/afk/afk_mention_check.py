@@ -1,5 +1,6 @@
-﻿import arrow
-import asyncio
+﻿import asyncio
+
+import arrow
 import discord
 
 

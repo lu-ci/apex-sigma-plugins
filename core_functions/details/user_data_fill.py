@@ -1,7 +1,7 @@
-import arrow
-import discord
 import functools
 from concurrent.futures import ThreadPoolExecutor
+
+import arrow
 
 
 async def clean_avatar(member):

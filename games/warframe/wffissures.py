@@ -1,8 +1,9 @@
 import datetime
-import discord
+import json
+
 import aiohttp
 import arrow
-import json
+import discord
 
 tier_names = {
     'VoidT1': 'Lith',

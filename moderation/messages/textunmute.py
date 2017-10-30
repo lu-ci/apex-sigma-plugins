@@ -1,8 +1,9 @@
 ﻿import arrow
 import discord
+
+from sigma.core.utilities.data_processing import user_avatar
 from sigma.core.utilities.permission_processing import hierarchy_permit
 from sigma.core.utilities.server_bound_logging import log_event
-from sigma.core.utilities.data_processing import user_avatar
 
 
 def generate_log_embed(message, target, args):

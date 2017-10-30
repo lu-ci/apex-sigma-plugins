@@ -1,5 +1,7 @@
-import discord
 import secrets
+
+import discord
+
 from sigma.core.utilities.data_processing import user_avatar
 
 rarity_rewards = {

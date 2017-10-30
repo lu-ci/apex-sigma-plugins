@@ -1,5 +1,7 @@
 ﻿import discord
+
 from .nodes.permission_data import get_all_perms
+
 
 async def enablecommand(cmd, message, args):
     if args:

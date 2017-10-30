@@ -1,6 +1,8 @@
-﻿import discord
-import asyncio
+﻿import asyncio
 import datetime
+
+import discord
+
 from sigma.core.utilities.data_processing import user_avatar
 from sigma.core.utilities.stats_processing import add_special_stats
 

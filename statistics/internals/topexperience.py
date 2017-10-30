@@ -1,6 +1,7 @@
 import discord
 import pymongo
 from humanfriendly.tables import format_pretty_table as boop
+
 from sigma.core.utilities.data_processing import get_image_colors
 
 

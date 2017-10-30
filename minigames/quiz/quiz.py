@@ -1,8 +1,9 @@
-import os
 import asyncio
+import os
+import secrets
+
 import discord
 import yaml
-import secrets
 
 active_quizzes = {}
 

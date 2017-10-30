@@ -1,7 +1,9 @@
-﻿import discord
-import datetime
-from sigma.core.mechanics.music import QueueItem
+﻿import datetime
+
+import discord
 from humanfriendly.tables import format_pretty_table as boop
+
+from sigma.core.mechanics.music import QueueItem
 from sigma.core.utilities.data_processing import user_avatar
 
 

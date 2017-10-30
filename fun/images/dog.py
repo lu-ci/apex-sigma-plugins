@@ -1,6 +1,7 @@
 import os
-import discord
+
 import aiohttp
+import discord
 
 
 async def dog(cmd, message, args):

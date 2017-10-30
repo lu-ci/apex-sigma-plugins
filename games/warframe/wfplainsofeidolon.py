@@ -1,8 +1,9 @@
+import datetime
 import json
+
+import aiohttp
 import arrow
 import discord
-import aiohttp
-import datetime
 
 
 async def wfplainsofeidolon(cmd, message, args):

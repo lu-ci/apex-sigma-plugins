@@ -1,4 +1,5 @@
 import discord
+
 from .nodes.recipe_core import RecipeCore
 
 recipe_core = None

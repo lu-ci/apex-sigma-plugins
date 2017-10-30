@@ -1,5 +1,7 @@
 import secrets
+
 import discord
+
 from sigma.plugins.searches.safebooru.mech.safe_core import grab_post_list, generate_embed
 
 links = []

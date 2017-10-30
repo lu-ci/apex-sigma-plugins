@@ -1,6 +1,8 @@
-﻿import discord
-import secrets
+﻿import secrets
 from asyncio.queues import Queue
+
+import discord
+
 from sigma.core.utilities.data_processing import user_avatar
 
 

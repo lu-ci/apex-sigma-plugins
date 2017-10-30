@@ -1,5 +1,6 @@
-﻿import discord
-import inspect
+﻿import inspect
+
+import discord
 
 
 async def evaluate(cmd, message, args):

@@ -1,9 +1,10 @@
-import praw
-import discord
-import secrets
 import functools
-from prawcore.exceptions import Redirect, NotFound
+import secrets
 from concurrent.futures import ThreadPoolExecutor
+
+import discord
+import praw
+from prawcore.exceptions import Redirect, NotFound
 
 reddit_client = None
 threads = ThreadPoolExecutor(max_workers=2)

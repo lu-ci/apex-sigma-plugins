@@ -1,6 +1,7 @@
 ﻿import secrets
-import discord
+
 import aiohttp
+import discord
 
 
 async def boobs(cmd, message, args):

@@ -1,5 +1,6 @@
-﻿import discord
-import asyncio
+﻿import asyncio
+
+import discord
 from overwatch_api.core import AsyncOWAPI
 
 ow_cli = AsyncOWAPI(request_timeout=30)

@@ -1,14 +1,15 @@
 import re
-import yaml
-import arrow
-import aiohttp
-from sigma.core.mechanics.logger import create_logger
 
-from .scrappers.hero_scrapper import HeroScrapper
-from .scrappers.weapon_scrapper import WeaponScrapper
+import aiohttp
+import arrow
+import yaml
+
+from sigma.core.mechanics.logger import create_logger
 from .scrappers.assist_scrapper import AssistScrapper
-from .scrappers.special_scrapper import SpecialScrapper
+from .scrappers.hero_scrapper import HeroScrapper
 from .scrappers.passive_scrapper import PassiveScrapper
+from .scrappers.special_scrapper import SpecialScrapper
+from .scrappers.weapon_scrapper import WeaponScrapper
 
 
 class ScrapperContainer(object):

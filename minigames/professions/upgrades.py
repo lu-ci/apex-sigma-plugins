@@ -1,4 +1,5 @@
 import discord
+
 from .nodes.upgrades import upgrade_list
 
 

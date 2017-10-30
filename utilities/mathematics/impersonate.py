@@ -1,8 +1,10 @@
-﻿import ftfy
-import discord
-import markovify
-import functools
+﻿import functools
 from concurrent.futures import ThreadPoolExecutor
+
+import discord
+import ftfy
+import markovify
+
 from sigma.core.utilities.data_processing import user_avatar
 
 threads = ThreadPoolExecutor(max_workers=2)

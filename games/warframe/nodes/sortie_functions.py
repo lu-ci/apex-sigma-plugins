@@ -1,8 +1,9 @@
 import datetime
-import aiohttp
-import discord
-import arrow
 import json
+
+import aiohttp
+import arrow
+import discord
 
 
 async def get_sortie_data(db):

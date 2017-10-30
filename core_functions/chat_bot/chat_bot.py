@@ -1,6 +1,7 @@
 import functools
-from chatterbot import ChatBot
 from concurrent.futures import ThreadPoolExecutor
+
+from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
 cb = None

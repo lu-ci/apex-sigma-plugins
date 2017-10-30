@@ -1,8 +1,10 @@
 import json
+
 import aiohttp
 import discord
-from .visual_storage import icons
 from geopy.geocoders import Nominatim
+
+from .visual_storage import icons
 
 
 def get_unit_and_search(args):

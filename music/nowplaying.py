@@ -1,5 +1,7 @@
-﻿import discord
-import datetime
+﻿import datetime
+
+import discord
+
 from sigma.core.utilities.data_processing import user_avatar
 
 

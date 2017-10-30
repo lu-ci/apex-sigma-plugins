@@ -1,4 +1,5 @@
 ﻿import discord
+
 from .mech.danbooru_cache import get_dan_post
 
 

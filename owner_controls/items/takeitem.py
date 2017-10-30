@@ -1,4 +1,5 @@
 import discord
+
 from sigma.plugins.minigames.professions.nodes.item_core import ItemCore
 
 item_core = None

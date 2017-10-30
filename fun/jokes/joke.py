@@ -1,8 +1,9 @@
 import json
-import ftfy
 import secrets
+
 import aiohttp
 import discord
+import ftfy
 from lxml import html as l
 
 

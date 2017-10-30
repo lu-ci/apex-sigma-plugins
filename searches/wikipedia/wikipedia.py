@@ -1,5 +1,5 @@
-﻿import wikipedia as wp
-import discord
+﻿import discord
+import wikipedia as wp
 
 
 async def wikipedia(cmd, message, args):

@@ -1,6 +1,7 @@
-﻿import aiohttp
+﻿import secrets
+
+import aiohttp
 import discord
-import secrets
 from lxml import html
 
 

@@ -1,7 +1,8 @@
 ﻿import json
+import secrets
+
 import aiohttp
 import discord
-import secrets
 
 
 async def konachan(cmd, message, args):
