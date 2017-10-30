@@ -1835,7 +1835,7 @@ faster than light, or a floating-point boolean value?
 <``Erik> about the same as a quake bot, except irc bots are (usually)
          built to help, not shoot your ass full of holes
 %
-if (me != you)        // FIXME: probably always true, delete?
+if (me != you)        // WUT: probably always true, delete?
     for (n = 0; n < who_knows_what; n++) {
         answer = DoSomething (withthis[n]);
         if (answer == foobar) {
@@ -2133,7 +2133,7 @@ from their girlfriends
 "What are we going to do tonight, Bill?"
 "Same thing we do every night Steve, try to take over the world!"
 %
-<knghtbrd> *sigh*  My todo list is like the fucking energizer bunny
+<knghtbrd> *sigh*  My to-do list is like the fucking energizer bunny
 <knghtbrd> It keeps growing and growing and growing and ...
 %
 <Deek> That reminds me, we'll need to buy a chainsaw for the office. "In
