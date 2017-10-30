@@ -1,6 +1,6 @@
 import aiohttp
-from lxml import html
 from discord import Embed
+from lxml import html
 
 cache = []
 
