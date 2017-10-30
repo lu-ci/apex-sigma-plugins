@@ -13,6 +13,7 @@ tier_names = {
 }
 fissure_icon = 'https://i.imgur.com/vANGxqe.png'
 
+
 async def wffissures(cmd, message, args):
     fissure_url = 'https://deathsnacks.com/wf/data/activemissions.json'
     async with aiohttp.ClientSession() as session:

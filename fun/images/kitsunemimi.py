@@ -8,6 +8,7 @@ links = []
 embed_titles = ['Fluffy tails are supreme!', 'Touch fluffy tail~', '>:3',
                 '乀^｀・´^／', '(ミ`ω´ミ)', '◝(´◝ω◜｀)◜']
 
+
 async def kitsunemimi(cmd, message, args):
     global links
     if not links:

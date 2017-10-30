@@ -21,4 +21,3 @@ def make_move_log_embed(log_embed, guild):
     nums_text += f'\nRoles: **{len(gld.roles)}**'
     log_embed.add_field(name='Guild Info', value=guild_text)
     log_embed.add_field(name='Guild Stats', value=nums_text)
-

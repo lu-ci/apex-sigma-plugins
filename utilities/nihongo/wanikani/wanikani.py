@@ -1,7 +1,8 @@
 ﻿import json
+
+import aiohttp
 import arrow
 import discord
-import aiohttp
 
 
 async def wanikani(cmd, message, args):

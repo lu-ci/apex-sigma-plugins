@@ -1,6 +1,8 @@
+import asyncio
+
 import arrow
 import discord
-import asyncio
+
 from sigma.core.utilities.data_processing import user_avatar
 
 

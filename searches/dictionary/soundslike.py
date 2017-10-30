@@ -23,7 +23,8 @@ async def soundslike(cmd, message, args):
         data = list(filter(lambda r: 'score' in r, data))
         if data:
             data = list(map(lambda r: '- ' + r['word'], data))
-            response.set_author(name=f'Words that sound like {query}', url=site_url, icon_url='https://i.imgur.com/GKM6AMT.png')
+            response.set_author(name=f'Words that sound like {query}', url=site_url,
+                                icon_url='https://i.imgur.com/GKM6AMT.png')
             response.colour = 0xFBB429
             response.description = '\n'.join(data[:10])
             if len(data) > 10:

@@ -10,7 +10,8 @@ async def cry(cmd, message, args):
     if not target or target.id == message.author.id:
         response = discord.Embed(color=0x5dadec, title=f'😢 {auth.display_name} cries.')
     else:
-        response = discord.Embed(color=0x5dadec, title=f'😢 {auth.display_name} cries because of {target.display_name}.')
+        response = discord.Embed(color=0x5dadec,
+                                 title=f'😢 {auth.display_name} cries because of {target.display_name}.')
     response.set_image(url=interaction['URL'])
     response.set_footer(text=make_footer(cmd, interaction))
     await message.channel.send(embed=response)

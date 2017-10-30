@@ -129,4 +129,3 @@ async def trivia(cmd, message, args):
         timeout = cmd.bot.cooldown.get_cooldown(cmd.name, message.author)
         on_cooldown = discord.Embed(color=0xccffff, title=f'❄ On cooldown for another {timeout} seconds.')
         await message.channel.send(embed=on_cooldown)
-

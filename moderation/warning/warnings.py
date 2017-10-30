@@ -21,7 +21,8 @@ async def warnings(cmd, message, args):
             warning_list = guild_warnings[uid]
             warning_output = ''
             for warning in warning_list:
-                responsible = discord.utils.find(lambda x: x.id == warning['responsible']['id'], cmd.bot.get_all_members())
+                responsible = discord.utils.find(lambda x: x.id == warning['responsible']['id'],
+                                                 cmd.bot.get_all_members())
                 if not responsible:
                     responsible = f'{warning["responsible"]["name"]}#{warning["responsible"]["discriminator"]}'
                 else:

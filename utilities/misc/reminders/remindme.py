@@ -1,6 +1,8 @@
+import secrets
+
 import arrow
 import discord
-import secrets
+
 from sigma.core.utilities.data_processing import user_avatar
 
 

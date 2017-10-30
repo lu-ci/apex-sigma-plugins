@@ -1,4 +1,5 @@
 import discord
+
 from sigma.core.utilities.data_processing import movement_message_parser
 
 

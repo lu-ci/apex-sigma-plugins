@@ -38,4 +38,3 @@ async def award(cmd, message, args):
         else:
             response = discord.Embed(color=0xBE1931, title='❗ Nothing inputed.')
     await message.channel.send(embed=response)
-

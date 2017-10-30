@@ -15,7 +15,8 @@ async def enablemodule(cmd, message, args):
                 if mdl_name in disabled_modules:
                     disabled_modules.remove(mdl_name)
                     perms.update({'DisabledModules': disabled_modules})
-                    cmd.db[cmd.db.db_cfg.database].Permissions.update_one({'ServerID': message.guild.id}, {'$set': perms})
+                    cmd.db[cmd.db.db_cfg.database].Permissions.update_one({'ServerID': message.guild.id},
+                                                                          {'$set': perms})
                     response = discord.Embed(color=0x77B255, title=f'✅ `{mdl_name.upper()}` enabled.')
                 else:
                     response = discord.Embed(color=0xFFCC4D, title='⚠ Module Not Disabled')

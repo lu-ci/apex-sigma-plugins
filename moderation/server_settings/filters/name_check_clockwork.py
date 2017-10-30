@@ -1,5 +1,6 @@
-import string
 import asyncio
+import string
+
 import discord
 
 

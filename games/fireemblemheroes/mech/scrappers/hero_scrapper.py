@@ -1,7 +1,8 @@
-import re
 import json
-from lxml import html
+import re
+
 import wikitextparser as wtp
+from lxml import html
 
 
 class HeroScrapper(object):

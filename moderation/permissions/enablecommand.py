@@ -17,7 +17,8 @@ async def enablecommand(cmd, message, args):
                 if cmd_name in disabled_commands:
                     disabled_commands.remove(cmd_name)
                     perms.update({'DisabledCommands': disabled_commands})
-                    cmd.db[cmd.db.db_cfg.database].Permissions.update_one({'ServerID': message.guild.id}, {'$set': perms})
+                    cmd.db[cmd.db.db_cfg.database].Permissions.update_one({'ServerID': message.guild.id},
+                                                                          {'$set': perms})
                     response = discord.Embed(color=0x77B255, title=f'✅ `{cmd_name.upper()}` enabled.')
                 else:
                     response = discord.Embed(color=0xFFCC4D, title='⚠ Command Not Disabled')

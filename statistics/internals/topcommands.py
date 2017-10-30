@@ -34,4 +34,3 @@ async def topcommands(cmd, message, args):
     response.add_field(name='Command Count', value=stats_top, inline=False)
     response.add_field(name='Command List', value=stats_desc, inline=False)
     await message.channel.send(embed=response)
-

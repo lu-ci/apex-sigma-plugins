@@ -56,4 +56,3 @@ def add_participant(channel_id, user):
     race.update({'users': users})
     races.update({channel_id: race})
     return usr_icon
-
