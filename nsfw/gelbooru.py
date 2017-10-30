@@ -18,7 +18,7 @@ async def gelbooru(cmd, message, args):
             async with session.get(gelbooru_url) as data:
                 data = await data.read()
                 posts = html.fromstring(data)
-                cache.update({tags: posts})
+                cache.update({tags: list(posts)})
     collection = cache.get(tags)
     if collection:
         choice = collection.pop(secrets.randbelow(len(collection)))
