@@ -1,6 +1,6 @@
 import aiohttp
 import discord
-from lxml import html as l
+from lxml import html
 
 
 async def visualnovelquote(cmd, message, args):
@@ -9,14 +9,14 @@ async def visualnovelquote(cmd, message, args):
     async with aiohttp.ClientSession() as session:
         async with session.get(source_page) as data:
             data = await data.text()
-    page = l.fromstring(data)
+    page = html.fromstring(data)
     footer_quote = page.cssselect('#footer a')[0]
     quote_text = footer_quote.text_content().strip()
     quote_url = f"https://vndb.org{footer_quote.attrib['href']}"
     async with aiohttp.ClientSession() as session:
         async with session.get(quote_url) as quote_page:
             quote_page = await quote_page.text()
-    quote_page = l.fromstring(quote_page)
+    quote_page = html.fromstring(quote_page)
     try:
         vn_title = quote_page.cssselect('.stripe')[0][0][1].text_content().strip()
     except IndexError:

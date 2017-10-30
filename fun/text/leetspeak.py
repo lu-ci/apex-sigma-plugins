@@ -1,6 +1,6 @@
 import aiohttp
 import discord
-import lxml.html as l
+from lxml import html
 
 
 async def leetspeak(cmd, message, args):
@@ -25,7 +25,7 @@ async def leetspeak(cmd, message, args):
             async with aiohttp.ClientSession() as session:
                 api_data = await session.post(leet_url, data=data)
                 page = await api_data.text()
-                page = l.fromstring(page)
+                page = html.fromstring(page)
                 table = page.cssselect('.mytable')
                 text = table[0][0][1][2].text_content()
             response = discord.Embed(color=0x3B88C3)

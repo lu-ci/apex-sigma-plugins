@@ -3,7 +3,7 @@ import secrets
 
 import aiohttp
 import discord
-from lxml import html as l
+from lxml import html
 
 from .mech.utils import scramble
 
@@ -33,14 +33,14 @@ async def animechargame(cmd, message, args):
             async with aiohttp.ClientSession() as session:
                 async with session.get(ani_top_list_url) as ani_top_list_session:
                     ani_top_list_html = await ani_top_list_session.text()
-            ani_top_list_data = l.fromstring(ani_top_list_html)
+            ani_top_list_data = html.fromstring(ani_top_list_html)
             ani_list_objects = ani_top_list_data.cssselect('.ranking-list')
             ani_choice = secrets.choice(ani_list_objects)
             ani_url = ani_choice[1][0].attrib['href']
             async with aiohttp.ClientSession() as session:
                 async with session.get(f'{ani_url}/characters') as ani_page_session:
                     ani_page_html = await ani_page_session.text()
-            ani_page_data = l.fromstring(ani_page_html)
+            ani_page_data = html.fromstring(ani_page_html)
             cover_object = ani_page_data.cssselect('.ac')[0]
             anime_cover = cover_object.attrib['src']
             anime_title = cover_object.attrib['alt'].strip()
@@ -55,7 +55,7 @@ async def animechargame(cmd, message, args):
             async with aiohttp.ClientSession() as session:
                 async with session.get(char_url) as char_page_session:
                     char_page_html = await char_page_session.text()
-            char_page_data = l.fromstring(char_page_html)
+            char_page_data = html.fromstring(char_page_html)
             char_img_obj = char_page_data.cssselect('.borderClass')[0][0][0][0]
             char_img = char_img_obj.attrib['src']
             char_name = ' '.join(char_img_obj.attrib['alt'].strip().split(', '))

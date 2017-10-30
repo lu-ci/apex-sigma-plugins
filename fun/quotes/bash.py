@@ -1,5 +1,5 @@
 import aiohttp
-import lxml.html as l
+from lxml import html
 from discord import Embed
 
 cache = []
@@ -10,7 +10,7 @@ async def bash(cmd, message, args):
         async with aiohttp.ClientSession() as session:
             async with session.get('http://bash.org/?random1') as page:
                 page = await page.text()
-                quotes = l.fromstring(page).cssselect('body center table tr td[valign="top"]')[0]
+                quotes = html.fromstring(page).cssselect('body center table tr td[valign="top"]')[0]
         for index in range(1, len(quotes), 2):
             qid = quotes[index - 1][0][0].text
             score = quotes[index - 1][2].text

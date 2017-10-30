@@ -2,7 +2,7 @@ import secrets
 
 import aiohttp
 import discord
-from lxml import html as l
+from lxml import html
 
 
 async def cyanideandhappiness(cmd, message, args):
@@ -14,7 +14,7 @@ async def cyanideandhappiness(cmd, message, args):
         async with aiohttp.ClientSession() as session:
             async with session.get(comic_url) as data:
                 page = await data.text()
-        root = l.fromstring(page)
+        root = html.fromstring(page)
         comic_element = root.cssselect('#main-comic')
         comic_img_url = comic_element[0].attrib['src']
         if comic_img_url.startswith('//'):

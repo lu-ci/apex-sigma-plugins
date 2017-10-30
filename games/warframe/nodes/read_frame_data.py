@@ -1,13 +1,13 @@
 import aiohttp
 import discord
-import lxml.html as l
+from lxml import html
 
 
 async def read_frame_data(url):
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as data:
             page = await data.text()
-    root = l.fromstring(page)
+    root = html.fromstring(page)
     drop_tables = root.cssselect('.tabbertab')
     pc_drop_table = drop_tables[0][1]
     item_image = root.cssselect('.pi-image-thumbnail')[0].attrib['src']
@@ -24,7 +24,7 @@ async def read_item_data(url):
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as data:
             page = await data.text()
-    root = l.fromstring(page)
+    root = html.fromstring(page)
     drop_tables = root.cssselect('.tabbertab')
     pc_drop_table = drop_tables[0][1]
     item_image = root.cssselect('.infobox')[0][1][0][0].attrib['href']

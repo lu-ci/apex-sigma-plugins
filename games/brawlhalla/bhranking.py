@@ -1,7 +1,7 @@
 ﻿import aiohttp
 import discord
-import lxml.html as l
 from humanfriendly.tables import format_pretty_table as boop
+from lxml import html
 
 
 async def bhranking(cmd, message, args):
@@ -13,8 +13,7 @@ async def bhranking(cmd, message, args):
         region = args[0].lower()
         if region not in regions:
             embed = discord.Embed(color=0xBE1931)
-            embed.add_field(name='❗ Invalid Region',
-                            value='```\nRegions: ' + ', '.join(regions).upper() + '\n```')
+            embed.add_field(name='❗ Invalid Region', value=f'```\nRegions: {", ".join(regions).upper()}\n```')
             await message.channel.send(None, embed=embed)
             return
     if region == 'global':
@@ -24,7 +23,7 @@ async def bhranking(cmd, message, args):
     async with aiohttp.ClientSession() as session:
         async with session.get(lb_url) as data:
             page = await data.text()
-    root = l.fromstring(page)
+    root = html.fromstring(page)
     table = root.cssselect('#content')[0][0][0]
     rankings = []
     for row in table:

@@ -3,7 +3,7 @@ import secrets
 
 import aiohttp
 import discord
-from lxml import html as l
+from lxml import html
 
 from .mech.utils import scramble
 
@@ -30,7 +30,7 @@ async def vnchargame(cmd, message, args):
             async with aiohttp.ClientSession() as session:
                 async with session.get(vn_top_list_url) as vn_top_list_session:
                     vn_top_list_html = await vn_top_list_session.text()
-            vn_top_list_data = l.fromstring(vn_top_list_html)
+            vn_top_list_data = html.fromstring(vn_top_list_html)
             list_items = vn_top_list_data.cssselect('.tc1')
             for list_item in list_items:
                 if 'href' in list_item[0].attrib:
@@ -42,7 +42,7 @@ async def vnchargame(cmd, message, args):
             async with aiohttp.ClientSession() as session:
                 async with session.get(f'{vn_url_choice}/chars') as vn_details_page_session:
                     vn_details_page_html = await vn_details_page_session.text()
-            vn_details_page = l.fromstring(vn_details_page_html)
+            vn_details_page = html.fromstring(vn_details_page_html)
             vn_title = vn_details_page.cssselect('.stripe')[0][0][1].text_content().strip()
             vn_image = vn_details_page.cssselect('.vnimg')[0][0][0].attrib['src']
             character_objects = vn_details_page.cssselect('.chardetails')

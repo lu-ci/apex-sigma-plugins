@@ -1,6 +1,6 @@
 ﻿import aiohttp
 import discord
-import lxml.html as l
+from lxml import html
 
 osu_logo = 'http://w.ppy.sh/c/c9/Logo.png'
 
@@ -13,7 +13,7 @@ async def osu(cmd, message, args):
             async with aiohttp.ClientSession() as session:
                 async with session.get(profile_url) as data:
                     page = await data.text()
-            root = l.fromstring(page)
+            root = html.fromstring(page)
             username = root.cssselect('.profile-username')[0].text[:-1]
             user_color = str(message.author.color)[1:]
             sig_url = 'https://lemmmy.pw/osusig/sig.php?colour=hex' + user_color + '&uname=' + osu_input

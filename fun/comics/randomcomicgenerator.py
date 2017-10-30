@@ -1,6 +1,6 @@
 import aiohttp
 import discord
-import lxml.html as l
+from lxml import html
 
 
 async def randomcomicgenerator(cmd, message, args):
@@ -8,7 +8,7 @@ async def randomcomicgenerator(cmd, message, args):
     async with aiohttp.ClientSession(cookies={'explosm': 'nui4hbhpq55tr4ouqknb060jr4'}) as session:
         async with session.get(comic_url) as data:
             page = await data.text()
-    root = l.fromstring(page)
+    root = html.fromstring(page)
     comic_element = root.cssselect('#rcg-comic')
     comic_img_url = comic_element[0][0].attrib['src']
     if comic_img_url.startswith('//'):

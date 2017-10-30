@@ -143,7 +143,8 @@ async def wftrials(cmd, message, args):
                     lornm_desc = f'Total: {lornm_count}'
                     lornm_desc += f'\nWin/Lose: {lornm_won}/{lornm_failed}'
                     lornm_desc += f'\nTotal Time: {str(datetime.timedelta(seconds=lornm_time_total))}'
-                    lornm_desc += f'\nAverage Time: {str(datetime.timedelta(seconds=(lornm_time_total // lornm_count)))}'
+                    lornm_avg_sec = lornm_time_total // lornm_count
+                    lornm_desc += f'\nAverage Time: {str(datetime.timedelta(seconds=(lornm_avg_sec)))}'
                     lornm_desc += f'\nShortest Time: {str(datetime.timedelta(seconds=lornm_time_short))}'
                     lornm_desc += f'\nKills: {lornm_kills}'
                     lornm_desc += f'\nAverage Kills: {lornm_kills // lornm_count}'

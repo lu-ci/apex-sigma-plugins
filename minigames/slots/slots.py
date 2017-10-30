@@ -73,12 +73,15 @@ async def slots(cmd, message, args):
             slot_lines += f'\n▶{"".join(out_list[1])}◀'
             slot_lines += f'\n⏸{"".join(out_list[2])}⏸'
             combination = out_list[1]
-            if combination[0] == combination[1] == combination[2]:
+            three_comb = bool(combination[0] == combination[1] == combination[2])
+            two_comb_one = bool(combination[0] == combination[1])
+            two_comb_two = bool(combination[0] == combination[1])
+            two_comb_three = bool(combination[0] == combination[1])
+            if three_comb:
                 win = True
                 announce = True
                 winnings = int(bet * (rarity_rewards[combination[0]] * (bet // 2)))
-            elif combination[0] == combination[1] or combination[0] == combination[2] or combination[1] == combination[
-                2]:
+            elif two_comb_one or two_comb_two or two_comb_three:
                 if combination[0] == combination[1]:
                     win_comb = combination[0]
                 elif combination[0] == combination[2]:

@@ -1,5 +1,5 @@
 import aiohttp
-import lxml.html as l
+from lxml import html
 
 
 async def grab_image(name, cut=False):
@@ -21,7 +21,7 @@ async def grab_image(name, cut=False):
     async with aiohttp.ClientSession() as session:
         async with session.get(item_url) as data:
             page_data = await data.read()
-    root = l.fromstring(page_data)
+    root = html.fromstring(page_data)
     img_objects = root.cssselect('.image')
     img_object = None
     for obj in img_objects:
@@ -48,7 +48,7 @@ async def alt_grab_image(name, cut=False):
     async with aiohttp.ClientSession() as session:
         async with session.get(item_url) as data:
             page = await data.text()
-    root = l.fromstring(page)
+    root = html.fromstring(page)
     try:
         item_image = root.cssselect('.infobox')[0][1][0][0].attrib['href']
     except Exception:
