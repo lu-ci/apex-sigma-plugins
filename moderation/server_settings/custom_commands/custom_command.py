@@ -17,15 +17,16 @@ async def custom_command(ev, message):
     if message.guild:
         prefix = ev.bot.get_prefix(message)
         if message.content.startswith(prefix):
-            cmd = message.content[len(prefix):].lower().split()[0]
-            if cmd not in ev.bot.modules.commands:
-                perms = GlobalCommandPermissions(ev, message)
-                if perms.permitted:
-                    custom_commands = ev.db.get_guild_settings(message.guild.id, 'CustomCommands')
-                    if custom_commands is None:
-                        custom_commands = {}
-                    if cmd in custom_commands:
-                        cmd_text = custom_commands[cmd]
-                        response = command_message_parser(message, cmd_text)
-                        log_command_usage(ev.log, message, cmd)
-                        await message.channel.send(response)
+            if message.content != prefix:
+                cmd = message.content[len(prefix):].lower().split()[0]
+                if cmd not in ev.bot.modules.commands:
+                    perms = GlobalCommandPermissions(ev, message)
+                    if perms.permitted:
+                        custom_commands = ev.db.get_guild_settings(message.guild.id, 'CustomCommands')
+                        if custom_commands is None:
+                            custom_commands = {}
+                        if cmd in custom_commands:
+                            cmd_text = custom_commands[cmd]
+                            response = command_message_parser(message, cmd_text)
+                            log_command_usage(ev.log, message, cmd)
+                            await message.channel.send(response)
