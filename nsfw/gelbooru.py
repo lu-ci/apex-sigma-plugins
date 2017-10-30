@@ -7,11 +7,8 @@ from lxml import html
 cache = {}
 
 
-async def gelbooru(cmd, message, args):
+async def fill_gelbooru_cache(tags):
     global cache
-    tags = '+'.join(args)
-    if not tags:
-        tags = 'nude'
     gelbooru_url = f'http://gelbooru.com/index.php?page=dapi&s=post&q=index&tags={tags}'
     if tags not in cache:
         async with aiohttp.ClientSession() as session:
@@ -19,6 +16,22 @@ async def gelbooru(cmd, message, args):
                 data = await data.read()
                 posts = html.fromstring(data)
                 cache.update({tags: list(posts)})
+
+
+async def gelbooru(cmd, message, args):
+    global cache
+    tags = '+'.join(args)
+    if not tags:
+        tags = 'nude'
+    if tags not in cache:
+        collect_needed = True
+    else:
+        if not cache.get(tags):
+            collect_needed = True
+        else:
+            collect_needed = False
+    if collect_needed:
+        await fill_gelbooru_cache(tags)
     collection = cache.get(tags)
     if collection:
         choice = collection.pop(secrets.randbelow(len(collection)))
