@@ -1,4 +1,4 @@
-import asyncio
+﻿import asyncio
 import json
 import secrets
 
@@ -38,7 +38,7 @@ def get_correct_index(question_list, answer):
 
 async def trivia(cmd, message, args):
     global trivia_cache
-    if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
+    if not cmd.bot.cool_down.on_cooldown(cmd.name, message.author):
         if message.author.id not in ongoing_list:
             ongoing_list.append(message.author.id)
             allotted_time = 20
@@ -50,7 +50,7 @@ async def trivia(cmd, message, args):
                         data = json.loads(number_response)
                         trivia_cache += data['results']
             data = trivia_cache.pop(secrets.randbelow(len(trivia_cache)))
-            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 30)
+            cmd.bot.cool_down.set_cooldown(cmd.name, message.author, 30)
             question = data['question']
             question = ftfy.fix_text(question)
             category = data['category']
@@ -126,6 +126,6 @@ async def trivia(cmd, message, args):
             ongoing_error = discord.Embed(color=0xBE1931, title='❗ There is one already ongoing.')
             await message.channel.send(embed=ongoing_error)
     else:
-        timeout = cmd.bot.cooldown.get_cooldown(cmd.name, message.author)
+        timeout = cmd.bot.cool_down.get_cooldown(cmd.name, message.author)
         on_cooldown = discord.Embed(color=0xccffff, title=f'❄ On cooldown for another {timeout} seconds.')
         await message.channel.send(embed=on_cooldown)

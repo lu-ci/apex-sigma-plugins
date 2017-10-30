@@ -1,4 +1,4 @@
-import secrets
+﻿import secrets
 
 import discord
 
@@ -34,7 +34,7 @@ async def slots(cmd, message, args):
     else:
         bet = 10
     if current_kud >= bet:
-        if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
+        if not cmd.bot.cool_down.on_cooldown(cmd.name, message.author):
             upgrade_file = cmd.db[cmd.db.db_cfg.database].Upgrades.find_one({'UserID': message.author.id})
             if upgrade_file is None:
                 cmd.db[cmd.db.db_cfg.database].Upgrades.insert_one({'UserID': message.author.id})
@@ -45,7 +45,7 @@ async def slots(cmd, message, args):
             else:
                 stamina = 0
             cooldown = int(base_cooldown - ((base_cooldown / 100) * (stamina * 0.5)))
-            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, cooldown)
+            cmd.bot.cool_down.set_cooldown(cmd.name, message.author, cooldown)
             cmd.db.rmv_currency(message.author, bet)
             out_list = []
             for x in range(0, 3):
@@ -118,7 +118,7 @@ async def slots(cmd, message, args):
             response.add_field(name=title, value=slot_lines)
             response.set_footer(text=footer)
         else:
-            timeout = cmd.bot.cooldown.get_cooldown(cmd.name, message.author)
+            timeout = cmd.bot.cool_down.get_cooldown(cmd.name, message.author)
             response = discord.Embed(color=0x696969, title=f'🕙 You can spin again in {timeout} seconds.')
     else:
         response = discord.Embed(color=0xa7d28b, title=f'💸 You don\'t have enough {currency}.')

@@ -11,7 +11,7 @@ threads = ThreadPoolExecutor(max_workers=2)
 
 
 async def impersonate(cmd, message, args):
-    if not cmd.bot.cooldown.on_cooldown(cmd.name, message.author):
+    if not cmd.bot.cool_down.on_cooldown(cmd.name, message.author):
         if args:
             if message.mentions:
                 target = message.mentions[0]
@@ -20,7 +20,7 @@ async def impersonate(cmd, message, args):
         else:
             target = message.author
         if target:
-            cmd.bot.cooldown.set_cooldown(cmd.name, message.author, 20)
+            cmd.bot.cool_down.set_cooldown(cmd.name, message.author, 20)
             init_embed = discord.Embed(color=0xbdddf4, title='💭 Hmm... Let me think...')
             init_message = await message.channel.send(embed=init_embed)
             chain_data = cmd.db[cmd.db.db_cfg.database]['MarkovChains'].find_one({'UserID': target.id})
@@ -49,6 +49,6 @@ async def impersonate(cmd, message, args):
             no_target = discord.Embed(color=0xBE1931, title='❗ No user targeted.')
             await message.channel.send(embed=no_target)
     else:
-        timeout = cmd.bot.cooldown.get_cooldown(cmd.name, message.author)
+        timeout = cmd.bot.cool_down.get_cooldown(cmd.name, message.author)
         on_cooldown = discord.Embed(color=0xccffff, title=f'❄ On cooldown for another {timeout} seconds.')
         await message.channel.send(embed=on_cooldown)

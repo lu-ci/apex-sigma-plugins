@@ -1,4 +1,4 @@
-import functools
+﻿import functools
 from concurrent.futures import ThreadPoolExecutor
 
 import arrow
@@ -8,7 +8,7 @@ async def server_data_fill(ev):
     ev.log.info('Filling server details...')
     threads = ThreadPoolExecutor(2)
     start_stamp = arrow.utcnow().float_timestamp
-    ev.bot.cooldown.set_cooldown(ev.name, 'server_details', 3600)
+    ev.bot.cool_down.set_cooldown(ev.name, 'server_details', 3600)
     all_guilds = ev.bot.guilds
     srv_coll = ev.db[ev.db.db_cfg.database].ServerDetails
     srv_coll.drop()

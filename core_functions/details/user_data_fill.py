@@ -1,4 +1,4 @@
-import functools
+﻿import functools
 from concurrent.futures import ThreadPoolExecutor
 
 import arrow
@@ -28,7 +28,7 @@ async def user_data_fill(ev):
     ev.log.info('Filling member details...')
     threads = ThreadPoolExecutor(2)
     start_stamp = arrow.utcnow().float_timestamp
-    ev.bot.cooldown.set_cooldown(ev.name, 'member_details', 3600)
+    ev.bot.cool_down.set_cooldown(ev.name, 'member_details', 3600)
     all_members = ev.bot.get_all_members()
     mem_coll = ev.db[ev.db.db_cfg.database].UserDetails
     mem_coll.drop()

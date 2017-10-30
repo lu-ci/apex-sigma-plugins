@@ -1,4 +1,4 @@
-import asyncio
+﻿import asyncio
 
 import arrow
 
@@ -9,8 +9,8 @@ async def stats_logger(ev):
 
 async def population_insert_clock(ev):
     while True:
-        if not ev.bot.cooldown.on_cooldown(ev.name, 'stats_logger'):
-            ev.bot.cooldown.set_cooldown(ev.name, 'stats_logger', 3600)
+        if not ev.bot.cool_down.on_cooldown(ev.name, 'stats_logger'):
+            ev.bot.cool_down.set_cooldown(ev.name, 'stats_logger', 3600)
             collection = 'StatisticsLogs'
             database = ev.bot.cfg.db.database
             server_count = len(list(ev.bot.guilds))
