@@ -3,38 +3,25 @@ import json
 import aiohttp
 import discord
 
-from .nodes.image_grabber import alt_grab_image, grab_image
-from .nodes.market import get_all_items
-
 plat_img = 'http://i.imgur.com/wa6J9bz.png'
-cuttables = ['set', 'barrel', 'stock', 'receiver', 'hilt', 'pouch', 'blade', 'guard',
-             'neuroptics', 'chassis', 'systems', 'wings', 'harness', 'gauntlet']
 
 
-async def grab_item_image(lookup, cut):
-    try:
-        item_img = await alt_grab_image(lookup, cut)
-        if item_img.startswith('http'):
-            first_img_fail = False
-        else:
-            first_img_fail = True
-    except IndexError:
-        item_img = None
-        first_img_fail = True
-    if first_img_fail:
-        try:
-            item_img = await grab_image(lookup, cut)
-            if item_img.startswith('http'):
-                final_img_fail = False
-            else:
-                final_img_fail = True
-        except IndexError:
-            final_img_fail = True
-    else:
-        final_img_fail = False
-    if final_img_fail:
-        item_img = plat_img
-    return item_img
+async def get_lowest_trader(order_url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(order_url) as data:
+            page_data = await data.read()
+            data = json.loads(page_data)
+    seller = None
+    if data:
+        if not data.get('error'):
+            if data['payload']['orders']:
+                sorted_orders = sorted(data['payload']['orders'], key=lambda x: x['platinum'])
+                for order in sorted_orders:
+                    if order['platform'] == 'pc':
+                        if order['user']['status'] == 'ingame':
+                            seller = order
+                            break
+    return seller
 
 
 async def wfpricecheck(cmd, message, args):
@@ -42,50 +29,37 @@ async def wfpricecheck(cmd, message, args):
     init_resp_msg = await message.channel.send(embed=initial_response)
     if args:
         lookup = '_'.join(args).lower()
-        lookup_pretty = ' '.join(args).title()
-        items = await get_all_items()
-        img_grabbed = False
-        found = 0
-        response = discord.Embed(color=0xFFCC66)
-        response.set_author(name='Warframe Market Search', icon_url='https://i.imgur.com/VNwpelI.png')
-        for key in items:
-            if lookup in key:
-                found += 1
-                item_type = items[key]['item_type']
-                full_item_name = items[key]['item_name']
-                api_url = f'https://warframe.market/api/get_orders/{item_type}/{full_item_name}'
-                cut = False
-                for arg in full_item_name.split(' '):
-                    if arg.lower() in cuttables:
-                        cut = True
-                        break
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(api_url) as data:
-                        api_data = await data.read()
-                        api_data = json.loads(api_data)
-                    lowest = None
-                    listings = api_data['response']['sell']
-                    for item in listings:
-                        if item['online_ingame']:
-                            if not item['ingame_name'].startswith('('):
-                                if lowest:
-                                    if lowest['price'] > item['price']:
-                                        lowest = item
-                                else:
-                                    lowest = item
-                    if lowest:
-                        item_desc = f'Price: {lowest["price"]}p'
-                        item_desc += f'\nAmount: {lowest["count"]}'
-                        item_desc += f'\nSeller: {lowest["ingame_name"]}'
-                    else:
-                        item_desc = 'No Data'
-                    response.add_field(name=f'{full_item_name}', value=item_desc)
-                    if not img_grabbed:
-                        item_img = await grab_image(full_item_name, cut)
-                        response.set_thumbnail(url=item_img)
-                        img_grabbed = True
-        if found == 0:
-            response = discord.Embed(color=0x696969, title=f'🔍 {lookup_pretty} Not Found.')
+        lookup_url = f'https://api.warframe.market/v1/items/{lookup}'
+        orders_url = f'{lookup_url}/orders'
+        asset_base = 'https://warframe.market/static/assets/'
+        async with aiohttp.ClientSession() as session:
+            async with session.get(lookup_url) as data:
+                page_data = await data.read()
+                data = json.loads(page_data)
+        if not data.get('error'):
+            item = None
+            items_in_set = data['payload']['item']['items_in_set']
+            for set_item in items_in_set:
+                if set_item['url_name'] == lookup:
+                    item = set_item
+            if item:
+                seller = await get_lowest_trader(orders_url)
+                if seller:
+                    seller_text = f'Name: **{seller["user"]["ingame_name"]}**'
+                    seller_text += f' | Price: **{seller["platinum"]}**p'
+                else:
+                    seller_text = 'No seller found.'
+                page_url = f'https://warframe.market/items/{lookup}'
+                thumb = asset_base + item['icon']
+                name = item['en']['item_name']
+                response = discord.Embed(color=0xFFCC66)
+                response.set_author(name='Warframe Market Search', icon_url=plat_img, url=page_url)
+                response.set_thumbnail(url=thumb)
+                response.add_field(name=name, value=seller_text)
+            else:
+                response = discord.Embed(color=0x696969, title=f'🔍 Item not found.')
+        else:
+            response = discord.Embed(color=0x696969, title=f'🔍 Item not found.')
     else:
         response = discord.Embed(color=0x696969, title=f'🔍 Nothing Inputted.')
     try:
