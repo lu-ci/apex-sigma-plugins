@@ -6,9 +6,9 @@ enabled:         true
 
 events:
   - name:        user_data_fill
-    type:        ready
+    type:        launch
     enabled:     true
 
   - name:        server_data_fill
-    type:        ready
+    type:        launch
     enabled:     true
