@@ -7,7 +7,17 @@ import arrow
 async def clean_avatar(member):
     av_url = member.avatar_url or member.default_avatar
     av_url = av_url.split('?')[0]
-    av_url = '.'.join(av_url.split('.')[:-1]) + '.png'
+    if member.avatar:
+        if member.avatar.startswith('a_'):
+            gif = True
+        else:
+            gif = False
+    else:
+        gif = False
+    if gif:
+        av_url = '.'.join(av_url.split('.')[:-1]) + '.gif'
+    else:
+        av_url = '.'.join(av_url.split('.')[:-1]) + '.png'
     return av_url
 
 
