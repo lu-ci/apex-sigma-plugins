@@ -17,10 +17,11 @@ async def get_lowest_trader(order_url):
             if data['payload']['orders']:
                 sorted_orders = sorted(data['payload']['orders'], key=lambda x: x['platinum'])
                 for order in sorted_orders:
-                    if order['platform'] == 'pc':
-                        if order['user']['status'] == 'ingame':
-                            seller = order
-                            break
+                    if order['order_type'] == 'sell':
+                        if order['platform'] == 'pc':
+                            if order['user']['status'] == 'ingame':
+                                seller = order
+                                break
     return seller
 
 
