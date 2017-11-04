@@ -74,7 +74,7 @@ async def dokidoki(cmd, message, args):
         except InvalidToken:
             ciphered = None
         if ciphered:
-            glitch = secrets.randbelow(10)
+            glitch = secrets.randbelow(6)
             glitch = not bool(glitch)
             if glitch:
                 line_count = 1
