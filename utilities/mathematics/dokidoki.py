@@ -12,7 +12,10 @@ titles = {
 }
 
 titles_glitch = {
-    'm': 'Flash ng, exp nd ng, piercing...'
+    'm': 'Flash ng, exp nd ng, piercing...',
+    'y': 'Slipping cogwheels...',
+    's': 'It just stops moving...',
+    'n': 'Because you, because you...'
 }
 
 chars = {
@@ -35,7 +38,17 @@ chars = {
 }
 
 chars_glitch = {
-    'm': 'https://i.imgur.com/im1H8jA.png'
+    'm': 'https://i.imgur.com/im1H8jA.png',
+    'n': 'https://i.imgur.com/J65D1Di.png',
+    'y': 'https://i.imgur.com/0b3fthJ.png',
+    's': 'https://i.imgur.com/IM9fHVL.png'
+}
+
+files = {
+    'm': 'just_monika',
+    'y': 'blade_flicker',
+    's': 'happy_thoughts',
+    'n': 'family_values'
 }
 
 
@@ -48,7 +61,9 @@ def clean(text, author):
 
 
 async def dokidoki(cmd, message, args):
-    with open('doki/just_monika.luci', 'rb') as quote_file:
+    char = secrets.choice(['m', 'n', 'y', 's'])
+    char_file = files[char]
+    with open(f'doki/{char_file}.luci', 'rb') as quote_file:
         quotes = quote_file.read()
     key = cmd.bot.cfg.pref.raw.get('key_to_my_heart')
     if key:
@@ -63,10 +78,10 @@ async def dokidoki(cmd, message, args):
             glitch = not bool(glitch)
             if glitch:
                 line_count = 1
-                thumbnail = chars_glitch['m']
+                thumbnail = chars_glitch[char]
             else:
                 line_count = 3
-                thumbnail = secrets.choice(chars['m'])
+                thumbnail = secrets.choice(chars[char])
             lines = []
             for x in range(0, line_count):
                 output = markovify.Text(ciphered).make_short_sentence(500, tries=100)
@@ -76,9 +91,9 @@ async def dokidoki(cmd, message, args):
                 lines.append(output)
             output_final = ' '.join(lines)
             if glitch:
-                title = titles_glitch['m']
+                title = titles_glitch[char]
             else:
-                title = titles['m']
+                title = titles[char]
             response = discord.Embed(color=0xe75a70)
             response.add_field(name=f'💟 {title}', value=output_final)
             response.set_thumbnail(url=thumbnail)
