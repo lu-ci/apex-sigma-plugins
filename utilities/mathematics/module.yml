@@ -46,6 +46,16 @@ commands:
     description:
       It wipes your entire Markov chain, if you have one.
 
+  - name:         dokidoki
+    alts:
+      - "doki"
+      - "dd"
+    global:       true
+    enabled:      true
+    usage:        "{pfx}{cmd}"
+    description:
+      Makes a random markov chain based sentence from the best girl.
+
   - name:         impersonate
     alts:
       - "mimic"
