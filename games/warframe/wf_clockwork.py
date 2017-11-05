@@ -11,6 +11,10 @@ from .nodes.sortie_functions import get_sortie_data, generate_sortie_embed
 
 # noinspection PyBroadException
 async def wf_clockwork(ev):
+    ev.bot.loop.create_task(wf_loop(ev))
+
+
+async def wf_loop(ev):
     while True:
         try:
             await cycle_function(ev)
