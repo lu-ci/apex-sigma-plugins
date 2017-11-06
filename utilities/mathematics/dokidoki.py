@@ -61,7 +61,16 @@ def clean(text, author):
 
 
 async def dokidoki(cmd, message, args):
-    char = secrets.choice(['m', 'n', 'y', 's'])
+    char_letters = ['m', 'n', 'y', 's']
+    char = None
+    glitch = False
+    if args:
+        if args[0][0].lower() in char_letters:
+            char = args[0][0].lower()
+        if args[-1].startswith(':g'):
+            glitch = True
+    if not char:
+        char = secrets.choice(char_letters)
     char_file = files[char]
     with open(f'doki/{char_file}.luci', 'rb') as quote_file:
         quotes = quote_file.read()
@@ -74,8 +83,9 @@ async def dokidoki(cmd, message, args):
         except InvalidToken:
             ciphered = None
         if ciphered:
-            glitch = secrets.randbelow(6)
-            glitch = not bool(glitch)
+            if not glitch:
+                glitch = secrets.randbelow(6)
+                glitch = not bool(glitch)
             if glitch:
                 line_count = 1
                 thumbnail = chars_glitch[char]

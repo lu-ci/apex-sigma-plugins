@@ -54,7 +54,10 @@ commands:
     enabled:      true
     usage:        "{pfx}{cmd}"
     description:
-      Makes a random markov chain based sentence from the best girl.
+      Makes a random markov chain based sentence from a random Doki Doki Literature Club character quote.
+      You can force which character to quote by adding their name as an argument to the command.
+      And you can force a glitch by adding ":glitch" as the ending argument.
+
 
   - name:         impersonate
     alts:
