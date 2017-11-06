@@ -1,10 +1,8 @@
 import secrets
-
 import discord
 
 responses = {
-    150060705662500864: '🍛',
-    211922001546182656: '🍆'
+    211922001546182656: ['🍆']
 }
 
 
@@ -13,6 +11,7 @@ async def nablie_plant(ev, message):
         roll = secrets.randbelow(5)
         if roll == 0:
             try:
-                await message.add_reaction(responses.get(message.author.id))
+                symbol = secrets.choice(responses.get(message.author.id))
+                await message.add_reaction(symbol)
             except discord.Forbidden:
                 pass
