@@ -7,8 +7,14 @@ async def roll(cmd, message, args):
     if args:
         if 'd' in args[0].lower():
             params = args[0].lower().split('d')
-            count = int(params[0])
-            high_end = int(params[1])
+            try:
+                count = int(params[0])
+            except ValueError:
+                count = 1
+            try:
+                high_end = int(params[1])
+            except ValueError:
+                high_end = 10
         else:
             count = 1
             high_end = int(args[0])
