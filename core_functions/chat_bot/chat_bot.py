@@ -31,16 +31,20 @@ def init_chatterbot(ev):
 async def chat_bot(ev, message):
     if not cb:
         init_chatterbot(ev)
-    if message.guild:
-        active = ev.db.get_guild_settings(message.guild.id, 'ChatterBot')
-        if active:
-            mention = f'<@{ev.bot.user.id}>'
-            mention_alt = f'<@!{ev.bot.user.id}>'
-            if message.content.startswith(mention) or message.content.startswith(mention_alt):
-                args = message.content.split(' ')
-                interaction = ' '.join(args[1:])
-                task = functools.partial(cb.get_response, interaction)
-                await ev.bot.loop.run_in_executor(threads, task)
-                cb_resp = cb.get_response(interaction)
-                response = f'{message.author.mention} {cb_resp}'
-                await message.channel.send(response)
+    args = message.content.split(' ')
+    if args[0].lower() not in ev.bot.modules.alts:
+        if args[0].lower() not in ev.bot.modules.commands:
+            if message.guild:
+                active = ev.db.get_guild_settings(message.guild.id, 'ChatterBot')
+                if active:
+                    mention = f'<@{ev.bot.user.id}>'
+                    mention_alt = f'<@!{ev.bot.user.id}>'
+                    if message.content.startswith(mention) or message.content.startswith(mention_alt):
+                        if args[0].lower() not in ev.bot.modules.alts:
+                            if args[0].lower() not in ev.bot.modules.commands:
+                                interaction = ' '.join(args[1:])
+                                task = functools.partial(cb.get_response, interaction)
+                                await ev.bot.loop.run_in_executor(threads, task)
+                                cb_resp = cb.get_response(interaction)
+                                response = f'{message.author.mention} {cb_resp}'
+                                await message.channel.send(response)
