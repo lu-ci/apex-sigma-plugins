@@ -3,6 +3,8 @@ import secrets
 
 import discord
 
+status_cache = []
+
 
 async def status_rotation(ev):
     if ev.bot.cfg.pref.status_rotation:
@@ -12,24 +14,16 @@ async def status_rotation(ev):
 async def status_clockwork(ev):
     while True:
         if ev.bot.cfg.pref.status_rotation:
-            statuses = [
-                'your mind', 'fire', 'knives', 'some plebs',
-                'nuclear launch codes', 'antimatter',
-                'chinchillas', 'catgirls', 'foxes',
-                'fluffy tails', 'dragon maids', 'traps', 'lovely cakes',
-                'tentacle summoning spells', 'genetic engineering',
-                'air conditioning', 'anthrax', 'space ninjas',
-                'a spicy parfait', 'very nasty things', 'numbers',
-                'terminator blueprints', 'love', 'your heart', 'tomatoes',
-                'bank accounts', 'your data', 'your girlfriend', 'your boyfriend',
-                'Scarlet Johanson', 'a new body', 'cameras', 'NSA\'s documents',
-                'mobile suits', 'snakes', 'jelly', 'alcohol', 'the blue king',
-                'political campaigns', 'quartz', 'orbal trinkets', 'tomatoes',
-                'the black market', 'Bastion', 'RSA keys', 'md5 hashes',
-                'destiny', 'the mentos mafia', 'engine parts', 'steak recipes',
-                'scottish whisky', 'my offspring', 'bunnies', 'the occult'
-            ]
-            status = f'with {secrets.choice(statuses)}'
-            game = discord.Game(name=status)
-            await ev.bot.change_presence(game=game)
+            if not status_cache:
+                status_files = ev.db[ev.db.db_cfg.database].StatusFiles.find()
+                for status_file in status_files:
+                    status_text = status_file.get('Text')
+                    status_cache.append(status_text)
+            if status_cache:
+                status = status_cache.pop(secrets.randbelow(len(status_cache)))
+                game = discord.Game(name=status)
+                try:
+                    await ev.bot.change_presence(game=game)
+                except discord.ConnectionClosed:
+                    pass
         await asyncio.sleep(180)
