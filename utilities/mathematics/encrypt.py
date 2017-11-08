@@ -4,9 +4,14 @@ from cryptography.fernet import Fernet, InvalidToken, InvalidSignature
 
 async def encrypt(cmd, message, args):
     key = cmd.bot.cfg.pref.raw.get('key_to_my_heart')
+    text = False
     if key:
         if args:
-            crypt_text = ' '.join(args).encode('utf-8')
+            if args[-1] == ':t':
+                text = True
+                crypt_text = ''.join(args[:-1]).encode('utf-8')
+            else:
+                crypt_text = ''.join(args).encode('utf-8')
             key = key.encode('utf-8')
             cipher = Fernet(key)
             try:
@@ -16,12 +21,18 @@ async def encrypt(cmd, message, args):
             except InvalidSignature:
                 ciphered = None
             if ciphered:
-                response = discord.Embed(color=0xe75a70)
-                response.add_field(name=f'💟 Text Encrypted', value=ciphered)
+                if text:
+                    response = ciphered
+                else:
+                    response = discord.Embed(color=0xe75a70)
+                    response.add_field(name=f'💟 Text Encrypted', value=ciphered)
             else:
                 response = discord.Embed(color=0xBE1931, title='❗ The token or key are incorrect.')
         else:
             response = discord.Embed(color=0xBE1931, title='❗ Nothing to decrypt.')
     else:
         response = discord.Embed(color=0xBE1931, title='❗ You don\'t posses a key.')
-    await message.channel.send(embed=response)
+    if text:
+        await message.channel.send(response)
+    else:
+        await message.channel.send(embed=response)
