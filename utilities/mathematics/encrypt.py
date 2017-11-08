@@ -9,9 +9,9 @@ async def encrypt(cmd, message, args):
         if args:
             if args[-1] == ':t':
                 text = True
-                crypt_text = ''.join(args[:-1]).encode('utf-8')
+                crypt_text = ' '.join(args[:-1]).encode('utf-8')
             else:
-                crypt_text = ''.join(args).encode('utf-8')
+                crypt_text = ' '.join(args).encode('utf-8')
             key = key.encode('utf-8')
             cipher = Fernet(key)
             try:
